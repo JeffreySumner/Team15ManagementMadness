@@ -1,0 +1,70 @@
+MGT 6203 Group Project Proposal Template
+
+Please edit the following template to record your responses and provide details on your project plan. 
+
+TEAM INFORMATION (1 point)
+Team #: 15
+Team Members: 
+1.	Michael Munson (GT Id: mmunson34). I currently work as a product development engineer for a company in Minnesota. My educational background includes: Physics (BS), Mathematics (BA), Teaching (MAT); I am working on my Certificate in Data Science for the Chemical Industries. Previous projects include: effects of neural network formulation and OMLT implementation upon optimization case-study problems and ionic solution regression based on IR and Raman spectrum data processed through OLS, PLS, Ridge Regression and SVM.
+[Insert background information: Name, professional background, education background, previous 	analytics related projects you have worked on]
+2.	Team Member 2 Name; GT Id or EdX username
+3.	Team Member 3 Name; GT Id or EdX username 
+4.	Team Member 4 Name; GT Id or EdX username 
+5.	Team Member 5 Name; GT Id or EdX username 
+
+OBJECTIVE/PROBLEM (5 points)
+Project Title: 
+Background Information on chosen project topic: 
+
+
+
+Problem Statement (clear and concise statement explaining purpose of your analysis and investigation): 
+
+State your Primary Research Question (RQ):
+
+Add some possible Supporting Research Questions (2-4 RQs that support problem statement): 
+1.	
+2.	
+
+Business Justification: (Why is this problem interesting to solve from a business viewpoint? Try to quantify the financial, marketing or operational aspects and implications of this problem, as if you were running a company, non-profit organization, city or government that is encountering this problem.)
+
+
+
+
+DATASET/PLAN FOR DATA (4 points)
+Data Sources (links, attachments, etc.): 
+
+
+Data Description (describe each of your data sources, include screenshots of a few rows of data): 
+
+
+
+Key Variables: (which ones will be considered independent and dependent? Are you going to create new variables? What variables do you hypothesize beforehand to be most important?)
+
+
+APPROACH/METHODOLOGY (8 points)
+Planned Approach (In paragraph(s), describe the approach you will take and what are the models you will try to use? Mention any data transformations that would need to happen. How do you plan to compare your models? How do you plan to train and optimize your model hyper-parameters?))
+
+
+
+
+
+
+
+Anticipated Conclusions/Hypothesis (what results do you expect, how will you approach lead you to determining the final conclusion of your analysis) Note: At the end of the project, you do not have to be correct or have acceptable accuracy, the purpose is to walk us through an analysis that gives the reader insight into the conclusion regarding your objective/problem statement
+
+
+
+
+What business decisions will be impacted by the results of your analysis? What could be some benefits?
+
+
+
+
+PROJECT TIMELINE/PLANNING (2 points)
+Project Timeline/Mention key dates you hope to achieve certain milestones by:
+
+
+
+
+Appendix (any preliminary figures or charts that you would like to include): 
