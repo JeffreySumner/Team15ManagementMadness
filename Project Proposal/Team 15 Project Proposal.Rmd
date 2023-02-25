@@ -10,7 +10,6 @@ Team Members:
 [Insert background information: Name, professional background, education background, previous 	analytics related projects you have worked on]
 3.	Team Member 3 Name; GT Id or EdX username 
 4.	Team Member 4 Name; GT Id or EdX username 
-5.	Team Member 5 Name; GT Id or EdX username 
 
 OBJECTIVE/PROBLEM (5 points)
 Project Title: 
