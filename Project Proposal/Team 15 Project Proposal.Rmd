@@ -6,8 +6,8 @@ TEAM INFORMATION (1 point)
 Team #: 15
 Team Members: 
 1.	Michael Munson (GT Id: mmunson34). I currently work as a product development engineer for a company in Minnesota. My educational background includes: Physics (BS), Mathematics (BA), Teaching (MAT); I am working on my Certificate in Data Science for the Chemical Industries. Previous projects include: effects of neural network formulation and OMLT implementation upon optimization case-study problems and ionic solution regression based on IR and Raman spectrum data processed through OLS, PLS, Ridge Regression and SVM.
+2.	Matthew Rosenthal (GT Id: mrosenthal36). I'm a Technology Analyst for Southwest Airlines in Dallas, TX. In my current role I work to standardize and digitize workforce management processes at for our airport employees. I have a BS in Industrial & Systems Engineering from the University of Florida with a Minor in Statistics (2019). I have worked on numerous analytics projects in my current role, undergrad studies, and previous ISE internships at Southwest and Disney.
 [Insert background information: Name, professional background, education background, previous 	analytics related projects you have worked on]
-2.	Team Member 2 Name; GT Id or EdX username
 3.	Team Member 3 Name; GT Id or EdX username 
 4.	Team Member 4 Name; GT Id or EdX username 
 5.	Team Member 5 Name; GT Id or EdX username 
