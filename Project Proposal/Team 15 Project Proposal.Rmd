@@ -9,7 +9,7 @@ Team Members:
 2.	Matthew Rosenthal (GT Id: mrosenthal36). I'm a Technology Analyst for Southwest Airlines in Dallas, TX. In my current role I work to standardize and digitize workforce management processes at for our airport employees. I have a BS in Industrial & Systems Engineering from the University of Florida with a Minor in Statistics (2019). I have worked on numerous analytics projects in my current role, undergrad studies, and previous ISE internships at Southwest and Disney.
 [Insert background information: Name, professional background, education background, previous 	analytics related projects you have worked on]
 3.	Jeffrey Sumner (GT Id: jsumner32). I'm a Data Engineer for Southern Star Central Gas Pipeline. My background is in Econ, Mathematics and Statistics. At Southern Star we have ranged from proof-of-concepts to full-fledged data science projects. Some of the things we have work on are forecasting revenue, predict whether we are operating outside of recommended bounds, performing text analytics on survey data, etc. In my spare time, I am the lead data scientist for a website that analyzes player tendencies and models win/loss probability for a handful of Indie games.
-4.	Team Member 4 Name; GT Id or EdX username 
+4.	Matthew Royalty (GT Id: mroyalty3). I'm a Data Engineer for Southern Star Central Gas Pipeline. I've been in this role for about 5 years developing data models and building ETL pipelines for our data warehouse initiative.  I've, also, helped develop our initial revenue forecast.  Prior to that, I spent 15 years as a lead software engineer working on a customer facing .Net application.  I have a BS in Computer Science.
 
 OBJECTIVE/PROBLEM (5 points)
 Project Title: 
