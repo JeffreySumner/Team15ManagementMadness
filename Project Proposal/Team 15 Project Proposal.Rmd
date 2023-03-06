@@ -110,6 +110,8 @@ For predicting game attendance, team ranking (Elo, Massey Ordinal, AP Polls, etc
 
 ## What business decisions will be impacted by the results of your analysis? What could be some benefits?
 
+From the analysis, we hope to be an influential factor when considering advertisement placements. Predicted attendance of games can be used to calculate exposure to advertisements and be used by businesses to maximize their advertising placements.
+
 ## PROJECT TIMELINE/PLANNING (2 points) Project Timeline/Mention key dates you hope to achieve certain milestones by:
 
 ## Appendix (any preliminary figures or charts that you would like to include):
