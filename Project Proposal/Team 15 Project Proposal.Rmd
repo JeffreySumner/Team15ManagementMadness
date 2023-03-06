@@ -69,6 +69,7 @@ Our goal is not to reinvent these techniques, but to combine the output of these
 ## State your Primary Research Question (RQ):
 
 
+
 ## Add some possible Supporting Research Questions (2-4 RQs that support problem statement): 
 
 1.   .
@@ -78,11 +79,17 @@ Our goal is not to reinvent these techniques, but to combine the output of these
 ## Business Justification: (Why is this problem interesting to solve from a business viewpoint? Try to quantify the financial, marketing or operational aspects and implications of this problem, as if you were running a company, non-profit organization, city or government that is encountering this problem.)
 
 ## DATASET/PLAN FOR DATA (4 points) Data Sources (links, attachments, etc.):
+
+Much of the statistical data can be found at the NCAA website. (https://www.ncaa.org/sports/2013/11/27/ncaa-men-s-basketball-records-books.aspx)
+
 The data can be found as part of a long-running Kaggle competition "Men's March Mania" (link: https://www.kaggle.com/competitions/mens-march-mania-2022/data).
 
-Proposed financial data is to come...
 
 ## Data Description (describe each of your data sources, include screenshots of a few rows of data):
+
+NCAA Men's Basketball Data:
+- Records from 2000, including game attendance, team records per season, week-by-week Associated Press Poll Records
+- These records are mostly in .pdf format
 
 The Kaggle "Men's March Mania" datasets include:
 - Basic information: Team ID's and Names; Tournament seeds since 1984; final scores of all regular season, tournament games; etc.
@@ -91,7 +98,11 @@ The Kaggle "Men's March Mania" datasets include:
 - Public Rankings: Weekly team rankings from multiple metrics
 - Supplemental Information: Coaches, conference affiliations, bracket structure, etc.
 
+
 ## Key Variables: (which ones will be considered independent and dependent? Are you going to create new variables? What variables do you hypothesize beforehand to be most important?)
+
+For predicting game attendance, team ranking (Elo, Massey Ordinal, AP Polls, etc.), fan base size and game location (distance from team origin) seem to be good independent variables to consider. Regarding the distance from team origin, this data would have to be roughly estimated.
+
 
 ## APPROACH/METHODOLOGY (8 points) Planned Approach (In paragraph(s), describe the approach you will take and what are the models you will try to use? Mention any data transformations that would need to happen. How do you plan to compare your models? How do you plan to train and optimize your model hyper-parameters?))
 
