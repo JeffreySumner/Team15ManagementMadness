@@ -78,8 +78,18 @@ Our goal is not to reinvent these techniques, but to combine the output of these
 ## Business Justification: (Why is this problem interesting to solve from a business viewpoint? Try to quantify the financial, marketing or operational aspects and implications of this problem, as if you were running a company, non-profit organization, city or government that is encountering this problem.)
 
 ## DATASET/PLAN FOR DATA (4 points) Data Sources (links, attachments, etc.):
+The data can be found as part of a long-running Kaggle competition "Men's March Mania" (link: https://www.kaggle.com/competitions/mens-march-mania-2022/data).
+
+Proposed financial data is to come...
 
 ## Data Description (describe each of your data sources, include screenshots of a few rows of data):
+
+The Kaggle "Men's March Mania" datasets include:
+- Basic information: Team ID's and Names; Tournament seeds since 1984; final scores of all regular season, tournament games; etc.
+- Team Box Scores: game-by-game stats at a team level (free throws, rebounds, turnovers, etc.)
+- Geography: the city locations of all games since 2009
+- Public Rankings: Weekly team rankings from multiple metrics
+- Supplemental Information: Coaches, conference affiliations, bracket structure, etc.
 
 ## Key Variables: (which ones will be considered independent and dependent? Are you going to create new variables? What variables do you hypothesize beforehand to be most important?)
 
