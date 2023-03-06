@@ -64,17 +64,17 @@ Our goal is not to reinvent these techniques, but to combine the output of these
 
 ## Problem Statement (clear and concise statement explaining purpose of your analysis and investigation):
 
-
+The goal of our project is to create a multiple regression model to predict attendence at games given different match ups between teams and other pre-game characteristics, along with building a logistic model that will predict the outcome of the games.
 
 ## State your Primary Research Question (RQ):
 
-
+Can we predict game attendance and outcome based on pre-game statistics? At what level of accuracy can we predict the outcome of games with the data that is currently available?
 
 ## Add some possible Supporting Research Questions (2-4 RQs that support problem statement): 
 
-1.   .
+1.   What is the relationship between team rankings (Massey Ordinal, Elo, AP Polls, etc.) and attendance?
 
-2.   .
+2.   What is the relationship between relative team rankings and likeliness to win?
 
 ## Business Justification: (Why is this problem interesting to solve from a business viewpoint? Try to quantify the financial, marketing or operational aspects and implications of this problem, as if you were running a company, non-profit organization, city or government that is encountering this problem.)
 
