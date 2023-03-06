@@ -114,4 +114,11 @@ From the analysis, we hope to be an influential factor when considering advertis
 
 ## PROJECT TIMELINE/PLANNING (2 points) Project Timeline/Mention key dates you hope to achieve certain milestones by:
 
+March 24: Data Prep procedures completed
+April 2: Group Project: Presentation video and progress report (as stated in syllabus)
+April 7: Models fully functional on datasets
+April 14: Model validation and comparisons completed
+April 16: Group Project: final paper, code and slides (as stated in syllabus)
+April 19: Group Project: final video (as stated in syllabus)
+
 ## Appendix (any preliminary figures or charts that you would like to include):
