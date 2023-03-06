@@ -58,9 +58,6 @@ Predicting the outcome of the Men's Division I March Madness Tournament has been
 
 There are many different analyses that go into predicting outcomes of the match ups. "Live win probabilities" can be calculated on a play-by-play timeframe; often incorporating factors such as: time remaining in the game, score difference, pre-game win probabilities, which team has possession, etc. There is also the "excitement index" which indicates the rate of change of a team's chance of winning over the course of the game. Exciting games can come with boosted viewership. There are also "Elo ratings" which generally rate a team's chances of winning games based on factors like: the location of the game, the team's conference, the type of game (tournament or regular season), etc. There are also many parallels to Elo, including Dr. Joel Sokol's LRMC ratings (found at: https://www2.isye.gatech.edu/~jsokol/lrmc/). [https://fivethirtyeight.com/features/how-fivethirtyeight-is-forecasting-the-2016-ncaa-tournament/]
 
-Our goal is not to reinvent these techniques, but to combine the output of these techniques with new data to ...
-
-
 
 ## Problem Statement (clear and concise statement explaining purpose of your analysis and investigation):
 
