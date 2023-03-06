@@ -75,6 +75,9 @@ Can we predict game attendance and outcome based on pre-game statistics? At what
 
 ## Business Justification: (Why is this problem interesting to solve from a business viewpoint? Try to quantify the financial, marketing or operational aspects and implications of this problem, as if you were running a company, non-profit organization, city or government that is encountering this problem.)
 
+Consumer-facing companies with any ad-merch budget are always looking for the most efficient ways of converting people into loyal brand users. The first part of this conversion is brand exposure, where a person becomes aware of the brand's products. March Madness offers companies multiple large-exposure events (tournament games and related content). However, not all games will have the same level of exposure (in this case, game attendance is the proxy for exposure). Predicting the attendance of games beforehand will help companies choose the best placement for their advertisements that will maximize their potential conversion rates.
+
+
 ## DATASET/PLAN FOR DATA (4 points) Data Sources (links, attachments, etc.):
 
 Much of the statistical data can be found at the NCAA website. (https://www.ncaa.org/sports/2013/11/27/ncaa-men-s-basketball-records-books.aspx)
