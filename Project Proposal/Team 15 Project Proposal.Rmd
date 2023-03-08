@@ -69,13 +69,15 @@ Can we predict game attendance and outcome based on pre-game statistics? At what
 
 ## Add some possible Supporting Research Questions (2-4 RQs that support problem statement): 
 
-1.   What is the relationship between team rankings (Massey Ordinal, Elo, AP Polls, etc.) and attendance?
+1.   What is the relationship between team rankings (Massey Ordinal, Elo, AP Polls, Net Ranking, Coaches Poll, etc.) and attendance?
 
 2.   What is the relationship between relative team rankings and likeliness to win?
 
 ## Business Justification: (Why is this problem interesting to solve from a business viewpoint? Try to quantify the financial, marketing or operational aspects and implications of this problem, as if you were running a company, non-profit organization, city or government that is encountering this problem.)
 
 Consumer-facing companies with any ad-merch budget are always looking for the most efficient ways of converting people into loyal brand users. The first part of this conversion is brand exposure, where a person becomes aware of the brand's products. March Madness offers companies multiple large-exposure events (tournament games and related content). However, not all games will have the same level of exposure (in this case, game attendance is the proxy for exposure). Predicting the attendance of games beforehand will help companies choose the best placement for their advertisements that will maximize their potential conversion rates.
+
+- Betting angle
 
 
 ## DATASET/PLAN FOR DATA (4 points) Data Sources (links, attachments, etc.):
@@ -106,11 +108,60 @@ For predicting game attendance, team ranking (Elo, Massey Ordinal, AP Polls, etc
 
 ## APPROACH/METHODOLOGY (8 points) Planned Approach (In paragraph(s), describe the approach you will take and what are the models you will try to use? Mention any data transformations that would need to happen. How do you plan to compare your models? How do you plan to train and optimize your model hyper-parameters?))
 
-## Anticipated Conclusions/Hypothesis (what results do you expect, how will you approach lead you to determining the final conclusion of your analysis) Note: At the end of the project, you do not have to be correct or have acceptable accuracy, the purpose is to walk us through an analysis that gives the reader insight into the conclusion regarding your objective/problem statement
+Data Transformations: 
+- Eliminate 2020, 2021
+- Proximity to Home = distance between City of game and Hometown location, coordinates (latitude / longitude differential)
+  - Jeffrey's "geocoder" based on addresses
+- Momentum = Winning / losing streak (or last 5 or 10 games)
+- Win Quality = Quadrants ("Quad I, II, III, IV win / loss") (Hopefully try to find, but could create it), point differential * (Home or away)
+- Stat_differential = Possibly with player stats, Team game results
+- Tournament_Stage
+
+Types of Models:
+GLM:
+Attendance = Team_Fan_Base + Game_Excitement + Proximity_to_Home + Momentum + Current_Record + Capacity_of_Site + Tournament_Stage
+
+or % Attendance
+
+Logistic:
+Probability to Win = Team_Rating (Team Rating differential) + Proximity_to_Home + Momentum + Win_Quality + Stat_differential + Tournament_Stage
+
+- What rating / combination of ratings gives us the best prediction
+
+For Fun Models (if time):
+- Random Forests / Tree Models
+  - Number of Trees
+  - Branching / Trimming
+
+
+How to build models:
+- Train / Test Split: Train on random full years? Train on interval of years, test on 2016, definitely leave out 2020, 2021
+
+How to compare models?
+- accuracy
+- linear regression -> RMSE
+- ANOVA
+
+Potential Hyper-parameters:
+- Number of factors used (linear / logistic regression)
+  - Stepwise Regression, linear - mse, logistic - cut-off -> accuracy
+  - LASSO, elastic net, Ridge
+- PCR (# PCs)
+
+## Anticipated Conclusions/Hypothesis (what results do you expect, how will your approach lead you to determining the final conclusion of your analysis) Note: At the end of the project, you do not have to be correct or have acceptable accuracy, the purpose is to walk us through an analysis that gives the reader insight into the conclusion regarding your objective/problem statement
+
+Win / Loss Predictions: Logistic Regression or equivalent having accuracy equal to or better than ESPN predictions. 
+We expect that the most effective factors in modeling win / loss are team ranking differential, win quality, proximity of game to hometown.
+
+Attendance: Multiple Linear Regression or equivalent(s) - We expect to figure out the most effective factors in modeling attendance. We expect proximity to home, conference strength, round of tournament will be the strongest factors that affect attendance.
+Then also replicate attendance records to within an acceptable margin. Reflect on this season's results.
+
 
 ## What business decisions will be impacted by the results of your analysis? What could be some benefits?
 
 From the analysis, we hope to be an influential factor when considering advertisement placements. Predicted attendance of games can be used to calculate exposure to advertisements and be used by businesses to maximize their advertising placements.
+
+- Betting angle
 
 ## PROJECT TIMELINE/PLANNING (2 points) Project Timeline/Mention key dates you hope to achieve certain milestones by:
 
