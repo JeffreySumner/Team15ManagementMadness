@@ -20,6 +20,3 @@ get_all_game_ids("Air Force")
 
 
 
-
-
-
