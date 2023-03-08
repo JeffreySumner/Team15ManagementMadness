@@ -1,12 +1,15 @@
+# Package Install and Load ----
+if (!require('devtools')) install.packages('devtools')
+if (!require('ncaahoopR')) devtools::install_github('lbenz730/ncaahoopR')
 library(ncaahoopR)
+
+# Initial Team Data ----
 ncaa_team_ids <- ncaahoopR::ids
 ncaa_dict <- ncaahoopR::dict
 ncaa_colors <- ncaahoopR::ncaa_colors
-ncaahoopR::court
 
+# Game ID Scraper ----
 years <- c("2015-16", "2016-17", "2017-18", "2018-19")
-
-ncaahoopR::get_game_ids()
 
 get_all_game_ids <- function(id){
   vec <- c()
