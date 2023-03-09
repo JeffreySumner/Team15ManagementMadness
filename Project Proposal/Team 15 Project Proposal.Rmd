@@ -1,6 +1,6 @@
 ---
-editor_options: 
-  markdown: 
+editor_options:
+  markdown:
     wrap: 72
 ---
 
@@ -27,9 +27,7 @@ TEAM INFORMATION (1 point) Team #: 15 Team Members:
     from the University of Florida with a Minor in Statistics (2019). I
     have worked on numerous analytics projects in my current role,
     undergrad studies, and previous ISE internships at Southwest and
-    Disney. [Insert background information: Name, professional
-    background, education background, previous analytics related
-    projects you have worked on]
+    Disney.
 
 3.  Jeffrey Sumner (GT Id: jsumner32). I'm a Data Engineer for Southern
     Star Central Gas Pipeline. My background is in Econ, Mathematics and
@@ -52,7 +50,7 @@ TEAM INFORMATION (1 point) Team #: 15 Team Members:
 # OBJECTIVE/PROBLEM (5 points) Project Title: Background Information on chosen project topic:
 March Madness
 
-For many years, sports have not only been a staple of the entertainment business, but also the subject of many analytical techniques.One of the largest annual sporting events in the US is the NCAA March Madness tournament.<insert fact about relative size of the event such as: "which last year boasted a viewership of ... per game on average"> Along with big-time viewership, comes big-time revenue. <Insert fact about revenue, such as: "last year, it was estimated that the total revenue created for the NCAA was..., not to mention other, non-tracked revenue opportunities (betting,...)>
+For many years, sports have not only been a staple of the entertainment business, but also the subject of many analytical techniques. One of the largest annual sporting events in the US is the NCAA March Madness tournament.<insert fact about relative size of the event such as: "which last year boasted a viewership of ... per game on average"> Along with big-time viewership, comes big-time revenue. <Insert fact about revenue, such as: "last year, it was estimated that the total revenue created for the NCAA was..., not to mention other, non-tracked revenue opportunities (betting,...)>
 
 Predicting the outcome of the Men's Division I March Madness Tournament has been considered somewhat a "holy grail" for analytics enthusiasts. How do you predict the outcome of ** games that are played over *** weeks with any certainty? Especially considering potentially having to forecast team upsets, player injuries, ... shifting data.
 
@@ -79,12 +77,17 @@ Consumer-facing companies with any ad-merch budget are always looking for the mo
 
 - Betting angle
 
+In addition to advertisers, March Madness is also a huge opportunity for betting companies. According to Fortune.com, approximately $3.1 billion was bet during the 2022 NCAA tournament. With each bet made, firms like DraftKings and FanDuel take a cut, in addition to revenue from each ad posted on their websites and apps. Although attendance predictions are likely not of much value, a reliable game prediction model definitely is. Being able to accurately predict tournament games can help betting companies refine their lines and parlays, increase the monetary amount of bets made, and maximize their revenue.
 
 ## DATASET/PLAN FOR DATA (4 points) Data Sources (links, attachments, etc.):
 
-Much of the statistical data can be found at the NCAA website. (https://www.ncaa.org/sports/2013/11/27/ncaa-men-s-basketball-records-books.aspx)
+We plan to start our analysis with several major datasets.
 
-The data can be found as part of a long-running Kaggle competition "Men's March Mania" (link: https://www.kaggle.com/competitions/mens-march-mania-2022/data).
+* Much historical game data can be found from the NCAA website directly. This includes team records, team rankings per week , conference standings, attendance records and more.  
+** https://www.ncaa.org/sports/2013/11/27/ncaa-men-s-basketball-records-books.aspx
+
+* We also plan to use data from a long-running March Madness Kaggle competition, "Men's March Mania". This set contains 40 data files, with full regular season and tournament game scores dating back to the 1984-85 season. Historical datasets regarding game locations, conference affiliations, and coaching records are also included.  
+** https://www.kaggle.com/competitions/mens-march-mania-2022/data
 
 
 ## Data Description (describe each of your data sources, include screenshots of a few rows of data):
@@ -162,6 +165,8 @@ Then also replicate attendance records to within an acceptable margin. Reflect o
 From the analysis, we hope to be an influential factor when considering advertisement placements. Predicted attendance of games can be used to calculate exposure to advertisements and be used by businesses to maximize their advertising placements.
 
 - Betting angle
+
+As mentioned in the Business Justification, accurate tournament game prediction models can help betting companies post better over/unders, opening lines, and other forms of bets. Understanding what factors influence a game's outcome can also help them refine their in-game betting. If they can predict how the remainder of the game will go (win/loss, specific stats, etc.), they can create bets that gamblers actually want to wager on. All-in-all, offering more lucrative bets will help drive users to the betting site and generate revenue.
 
 ## PROJECT TIMELINE/PLANNING (2 points) Project Timeline/Mention key dates you hope to achieve certain milestones by:
 
