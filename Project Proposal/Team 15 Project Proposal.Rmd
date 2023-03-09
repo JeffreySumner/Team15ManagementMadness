@@ -22,7 +22,7 @@ TEAM INFORMATION (1 point) Team #: 15 Team Members:
 
 2.  Matthew Rosenthal (GT Id: mrosenthal36). I'm a Technology Analyst
     for Southwest Airlines in Dallas, TX. In my current role I work to
-    standardize and digitize workforce management processes at for our
+    standardize and digitize workforce management processes for our
     airport employees. I have a BS in Industrial & Systems Engineering
     from the University of Florida with a Minor in Statistics (2019). I
     have worked on numerous analytics projects in my current role,
