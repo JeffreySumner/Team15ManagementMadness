@@ -119,7 +119,7 @@ attendance of games beforehand will help companies choose the best
 placement for their advertisements that will maximize their potential
 conversion rates.
 
-**Win / Loss Predictions:** \
+**Win / Loss Predictions:**\
 In addition to advertisers, March Madness is also a huge opportunity for
 betting companies. According to Fortune.com, approximately \$3.1 billion
 was bet during the 2022 NCAA tournament. With each bet made, firms like
@@ -172,18 +172,35 @@ distance from team origin, this data would have to be roughly estimated.
 
 ## APPROACH/METHODOLOGY (8 points) Planned Approach (In paragraph(s), describe the approach you will take and what are the models you will try to use? Mention any data transformations that would need to happen. How do you plan to compare your models? How do you plan to train and optimize your model hyper-parameters?))
 
-Data Transformations: - Eliminate 2020, 2021 - Proximity to Home =
-distance between City of game and Hometown location, coordinates
-(latitude / longitude differential) - Jeffrey's "geocoder" based on
-addresses - Momentum = Winning / losing streak (or last 5 or 10 games) -
-Win Quality = Quadrants ("Quad I, II, III, IV win / loss") (Hopefully
-try to find, but could create it), point differential \* (Home or
-away) - Stat_differential = Possibly with player stats, Team game
-results - Tournament_Stage
+**Data Exploration:**
 
-Types of Models: GLM: Attendance = Team_Fan_Base + Game_Excitement +
-Proximity_to_Home + Momentum + Current_Record + Capacity_of_Site +
-Tournament_Stage
+Should we make a comment about this?
+
+**Data Cleaning:**
+
+-   Eliminate 2020, 2021 Attendance - For our attendance analysis, we
+    intend to remove 2021 NCAA tournament game attendance data due to
+    the capacity limits due to COVID restrictions.
+
+-   Proximity to Home - We plan to calculate the distance between City
+    of game and the participating schools' college campus location
+    coordinates (latitude / longitude differential)
+
+-   Momentum - We plan to create a predictor for winning / losing streak
+    (or last 5 or 10 games)
+
+-   Win Quality - If available in our data sets, we will utilize NCAA
+    based quality of win statistic of quadrants ("Quad I, II, III, IV
+    win / loss"). If not available, we will create a version of this
+    with our own formula utilizing point differential \* (Home or away)
+
+-   Stat Differential - Possibly with player stats, Team game results -
+    Tournament_Stage
+
+**Types of Models:**
+
+GLM: Attendance = Team_Fan_Base + Game_Excitement + Proximity_to_Home +
+Momentum + Current_Record + Capacity_of_Site + Tournament_Stage
 
 or % Attendance
 
@@ -208,7 +225,7 @@ accuracy - LASSO, elastic net, Ridge - PCR (\# PCs)
 
 ## Anticipated Conclusions/Hypothesis (what results do you expect, how will your approach lead you to determining the final conclusion of your analysis) Note: At the end of the project, you do not have to be correct or have acceptable accuracy, the purpose is to walk us through an analysis that gives the reader insight into the conclusion regarding your objective/problem statement
 
-**Attendance:** \
+**Attendance:**\
 Multiple Linear Regression or equivalent(s) - We expect to figure out
 the most effective factors in modeling attendance. Initially, we
 anticipate the following to be important factors.
@@ -221,7 +238,7 @@ anticipate the following to be important factors.
     attendance Then also replicate attendance records to within an
     acceptable margin. Reflect on this season's results.
 
-**Win / Loss Predictions:** \
+**Win / Loss Predictions:**\
 Utilizing Logistic Regression or equivalent, we are aiming for accuracy
 equal to or better than ESPN predictions. We expect that the most
 effective factors in modeling win / loss are the following.
@@ -247,7 +264,7 @@ Accurate attendance predictions could be of benefit for initial and
 secondary ticket markets for more capturing additional revenue with
 demand based ticket pricing.
 
-**Win / Loss Predictions:** \
+**Win / Loss Predictions:**\
 As mentioned in the Business Justification, accurate tournament game
 prediction models can help betting companies post better over/unders,
 opening lines, and other forms of bets. Understanding what factors
