@@ -134,6 +134,14 @@ of bets made, and maximize their revenue.
 
 We plan to start our analysis with several major datasets.
 
+-   We will use the ncaahoopR R package to gather box-score statistics,
+    play-by-play data, win probabilities and more. The package can be
+    found at the link listed below as well as generated data exports.
+
+    -   <https://github.com/lbenz730/ncaahoopR>
+
+    -   <https://github.com/lbenz730/ncaahoopR_data>
+
 -   Much historical game data can be found from the NCAA website
     directly. This includes team records, team rankings per week ,
     conference standings, attendance records and more.\
