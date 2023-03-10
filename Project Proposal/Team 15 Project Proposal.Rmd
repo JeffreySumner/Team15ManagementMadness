@@ -86,10 +86,10 @@ ratings (found at: <https://www2.isye.gatech.edu/~jsokol/lrmc/>).
 
 ## Problem Statement (clear and concise statement explaining purpose of your analysis and investigation):
 
-The goal of our project is to create a multiple regression model to
-predict attendance at NCAA tournament games given different match ups
-between teams and other pre-game characteristics, along with building a
-logistic model that will predict the outcome of the games.
+The goal of our project is to create machine learning models that
+reliably predicts the outcome of games and attendance at NCAA tournament
+games given different match ups between teams, other pre-game
+characteristics and player statistics.
 
 ## State your Primary Research Question (RQ):
 
