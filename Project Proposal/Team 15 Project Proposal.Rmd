@@ -87,7 +87,7 @@ ratings (found at: <https://www2.isye.gatech.edu/~jsokol/lrmc/>).
 ## Problem Statement (clear and concise statement explaining purpose of your analysis and investigation):
 
 The goal of our project is to create machine learning models that
-reliably predicts the outcome of games and attendance at NCAA tournament
+reliably predicts the attendance at NCAA tournament games and outcome of
 games given different match ups between teams, other pre-game
 characteristics and player statistics.
 
@@ -144,17 +144,23 @@ We plan to start our analysis with several major datasets.
 
 -   Much historical game data can be found from the NCAA website
     directly. This includes team records, team rankings per week ,
-    conference standings, attendance records and more.\
-    \*\*
-    <https://www.ncaa.org/sports/2013/11/27/ncaa-men-s-basketball-records-books.aspx>
+    conference standings, attendance records and more
+
+    -   <https://www.ncaa.org/sports/2013/11/27/ncaa-men-s-basketball-records-books.aspx>
 
 -   We also plan to use data from a long-running March Madness Kaggle
     competition, "Men's March Mania". This set contains 40 data files,
     with full regular season and tournament game scores dating back to
     the 1984-85 season. Historical datasets regarding game locations,
-    conference affiliations, and coaching records are also included.\
-    \*\*
-    <https://www.kaggle.com/competitions/mens-march-mania-2022/data>
+    conference affiliations, and coaching records are also included.
+
+    -   <https://www.kaggle.com/competitions/mens-march-mania-2022/data>
+
+-   An additional resource that could be used to capture already feature
+    engineer characters like efficiency ratings can be found within
+    these datasets from another kaggle resource
+
+    -   <https://www.kaggle.com/datasets/andrewsundberg/college-basketball-dataset>
 
 ## Data Description (describe each of your data sources, include screenshots of a few rows of data):
 
