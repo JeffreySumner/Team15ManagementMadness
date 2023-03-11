@@ -257,9 +257,24 @@ Train on interval of years, test on 2016, definitely leave out 2020,
 
 How to compare models? - accuracy - linear regression -\> RMSE - ANOVA
 
-Potential Hyper-parameters: - Number of factors used (linear / logistic
-regression) - Stepwise Regression, linear - mse, logistic - cut-off -\>
-accuracy - LASSO, elastic net, Ridge - PCR (\# PCs)
+**Known Hyper-parameters:**
+
+-   Train-test split value; i.e. 70/30
+
+-   \# of folds in cross validation
+
+-   \# of trees in decision tree/random forest models
+
+-   Probability threshold/cutoff to confirm a win or loss
+
+-   \# of components in PCA/PCR
+
+-   **Number of factors used (linear / logistic regression) - Stepwise
+    Regression, linear - mse, logistic - cut-off -\> accuracy - LASSO,
+    elastic net, Ridge - PCR (\# PCs)**
+
+    -   Added some of these to the list above but this bullet can be
+        deleted
 
 ## Anticipated Conclusions/Hypothesis (what results do you expect, how will your approach lead you to determining the final conclusion of your analysis) Note: At the end of the project, you do not have to be correct or have acceptable accuracy, the purpose is to walk us through an analysis that gives the reader insight into the conclusion regarding your objective/problem statement
 
