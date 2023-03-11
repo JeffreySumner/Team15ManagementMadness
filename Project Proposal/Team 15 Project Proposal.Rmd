@@ -164,10 +164,34 @@ We plan to start our analysis with several major datasets.
 
 ## Data Description (describe each of your data sources, include screenshots of a few rows of data):
 
+-   The ncaahoopR data contains information around box scores,
+    play-by-play and team information. The box scores and play-by-play
+    data will be instrumental for our project. This will be one of the
+    main sources for key statistics such as points scored, rebounds,
+    steals, win probabilities, etc. Below is an example of one of the
+    box scores
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+if(!require(kableExtra)) install.packages('kableExtra')
+if(!require(devtools)) install.packages('devtools')
+if(!require(ncaahoopR)) devtools::install_github('lbenz730/ncaahoopR')
+if(!require(tidyverse)) install.packages('tidyverse')
+sample_data <- ncaahoopR::get_boxscore(401168364)
+
+duke_sample <- sample_data$Duke
+
+duke_sample %>%
+  kable() %>%
+  kable_styling("striped")
+```
+
 -   NCAA Men's Basketball Data: - Records from 2000, including game
     attendance, team records per season, week-by-week Associated Press
     Poll Records - These records are mostly in .pdf format
 
+```{=html}
+<!-- -->
+```
 -   The Kaggle "Men's March Mania" datasets include: - Basic
     information: Team ID's and Names; Tournament seeds since 1984; final
     scores of all regular season, tournament games; etc. - Team Box
