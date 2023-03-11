@@ -42,7 +42,7 @@ entertainment and analysis. The tournament attracts millions of viewers
 and spectators, generating significant revenue for the NCAA, including
 from sports betting. In 2022, the tournament had 10.7 million TV
 viewers, 685,000 attendees, and generated an estimated **\$1.15 billion
-in revenue**, with **\$3.1 billion** in sports wagers.
+in revenue**, with **\$3.1 billion** in sports wagers [1].
 
 Predicting the Men's Division I March Madness Tournament outcome is a
 challenging task for analytics enthusiasts. It involves forecasting 67
@@ -58,7 +58,7 @@ measures the rate of change of a team's chance of winning during a game,
 impacting viewership. Elo ratings, which rate a team's chances of
 winning based on factors like location, conference, and game type, are
 also used. Similar ratings, such as **Dr. Joel Sokol's LRMC ratings**,
-can also be applied.
+can also be applied [2].
 
 ## Problem Statement:
 
@@ -95,12 +95,12 @@ potential conversion rates.
 **Win / Loss Predictions:**\
 March Madness is a significant opportunity for betting companies, as
 highlighted by approximately \$3.1 billion wagered during the 2022 NCAA
-tournament, according to Fortune.com. These firms, such as DraftKings
-and FanDuel, earn a commission with each bet made, in addition to
-revenue from their websites and app ads. While attendance predictions
-have limited value, reliable game prediction models are essential.
-Accurate game predictions enable betting companies to improve their
-lines and parlays, increase the monetary value of bets made, and
+tournament, according to Investopedia [3]. These firms, such as
+DraftKings and FanDuel, earn a commission with each bet made, in
+addition to revenue from their websites and app ads. While attendance
+predictions have limited value, reliable game prediction models are
+essential. Accurate game predictions enable betting companies to improve
+their lines and parlays, increase the monetary value of bets made, and
 maximize their revenue.
 
 ## Data Source Overview:
@@ -257,8 +257,15 @@ increases revenue.
     syllabus)
 -   April 19: Group Project: final video (as stated in syllabus)
 
-## Appendix/Citation:
+## Appendix/Citations:
 
-<https://www2.isye.gatech.edu/~jsokol/lrmc/>
-
-<https://en.as.com/ncaa/how-much-money-do-universities-get-for-going-to-the-ncaa-march-madness-tournament-n/>
+-   [1] Bubel, Jennifer. \"How Much Money Do Universities Get for Going
+    to the NCAA March Madness Tournament?\" *Diario AS*, 28 Feb. 2023,
+    <https://en.as.com/ncaa/how-much-money-do-universities-get-for-going-to-the-ncaa-march-madness-tournament-n/.>
+-   [2] Sokol, Joel. \"College Basketball Rankings Page.\" *LRMC \| LRMC
+    (Classic) Results through Games of 3/8/2023*, Georgia Tech, 8 Mar.
+    2023, <https://www2.isye.gatech.edu/~jsokol/lrmc/.>
+-   [3] Parker, Tim. \"How Much Does the NCAA Make off March Madness?\"
+    Edited by Jefreda R Brown, *Investopedia*, Investopedia, 9 Mar.
+    2023,
+    <https://www.investopedia.com/articles/investing/031516/how-much-does-ncaa-make-march-madness.asp#:~:text=In%202022%2C%2045%20million%20Americans,see%20the%20heftiest%20cash%2Dout.>
