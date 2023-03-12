@@ -521,23 +521,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -582,8 +576,8 @@ display: none;
 </div>
 
 
-<div id="mgt-madness---team-15-project-proposal" class="section level1">
-<h1>MGT Madness - Team 15 Project Proposal</h1>
+<div id="mgt-madness---team-15-project-proposal" class="section level2">
+<h2>MGT Madness - Team 15 Project Proposal</h2>
 <ol style="list-style-type: decimal">
 <li>Michael Munson (GT Id: mmunson34). I currently work as a product
 development engineer for a company in Minnesota. My educational
@@ -605,15 +599,14 @@ Star Central Gas Pipeline. I’ve been in this role for about 5 years
 developing data models and building ETL pipelines for our data warehouse
 initiative.</li>
 </ol>
-<div id="background-information-on-chosen-project-topic" class="section level3">
-<h3>Background Information on chosen project topic:</h3>
+<div id="background-information-on-chosen-project-topic" class="section level4">
+<h4>Background Information on chosen project topic:</h4>
 <p>Sports, especially the NCAA March Madness tournament, are popular for
 entertainment and analysis. The tournament attracts millions of viewers
 and spectators, generating significant revenue for the NCAA, including
 from sports betting. In 2022, the tournament had 10.7 million TV
-viewers, 685,000 attendees, and generated an estimated <strong>$1.15
-billion in revenue</strong>, with <strong>$3.1 billion</strong> in
-sports wagers.</p>
+viewers, 685,000 attendees, and generated an estimated $1.15 billion in
+revenue, with $3.1 billion in sports wagers [1].</p>
 <p>Predicting the Men’s Division I March Madness Tournament outcome is a
 challenging task for analytics enthusiasts. It involves forecasting 67
 games played over three weeks, including possible upsets, player
@@ -626,24 +619,24 @@ difference, possession, and pre-game win probabilities. The excitement
 index measures the rate of change of a team’s chance of winning during a
 game, impacting viewership. Elo ratings, which rate a team’s chances of
 winning based on factors like location, conference, and game type, are
-also used. Similar ratings, such as <strong>Dr. Joel Sokol’s LRMC
-ratings</strong>, can also be applied.</p>
+also used. Similar ratings, such as Dr. Joel Sokol’s LRMC ratings, can
+also be applied [2].</p>
 </div>
-<div id="problem-statement" class="section level3">
-<h3>Problem Statement:</h3>
+<div id="problem-statement" class="section level4">
+<h4>Problem Statement:</h4>
 <p>The goal of our project is to create machine learning models that
 reliably predict the attendance at NCAA tournament games and the outcome
 of games given different match ups between teams, other pre-game
 characteristics and player statistics.</p>
 </div>
-<div id="primary-research-question" class="section level3">
-<h3>Primary Research Question:</h3>
+<div id="primary-research-question" class="section level4">
+<h4>Primary Research Question:</h4>
 <p>Can we predict game attendance and outcome based on pre-game
 statistics? At what level of accuracy can we predict the outcome of
 games with the data that is currently available?</p>
 </div>
-<div id="supporting-research-questions" class="section level3">
-<h3>Supporting Research Questions:</h3>
+<div id="supporting-research-questions" class="section level4">
+<h4>Supporting Research Questions:</h4>
 <ol style="list-style-type: decimal">
 <li>What is the relationship between team rankings (Massey Ordinal, Elo,
 AP Polls, Net Ranking, Coaches Poll, etc.) and attendance?</li>
@@ -651,8 +644,8 @@ AP Polls, Net Ranking, Coaches Poll, etc.) and attendance?</li>
 likeliness to win?</li>
 </ol>
 </div>
-<div id="business-justification" class="section level3">
-<h3>Business Justification:</h3>
+<div id="business-justification" class="section level4">
+<h4>Business Justification:</h4>
 <p><strong>Attendance:</strong> Companies with advertising and
 merchandising budgets strive to convert consumers into loyal brand users
 efficiently. The initial step of this conversion process is creating
@@ -661,20 +654,20 @@ Madness provides numerous high-exposure events, including tournament
 games and related content. However, not all games offer the same level
 of exposure, and predicting game attendance in advance will help
 companies optimize their ad placement for maximum potential conversion
-rates.<br />
-<br />
-<strong>Win / Loss Predictions:</strong> March Madness is a significant
-opportunity for betting companies, as highlighted by approximately $3.1
-billion wagered during the 2022 NCAA tournament, according to
-Fortune.com. These firms, such as DraftKings and FanDuel, earn a
-commission with each bet made, in addition to revenue from their
-websites and app ads. While attendance predictions have limited value,
-reliable game prediction models are essential. Accurate game predictions
-enable betting companies to improve their lines and parlays, increase
-the monetary value of bets made, and maximize their revenue.</p>
+rates.</p>
+<p><strong>Win / Loss Predictions:</strong> March Madness is a
+significant opportunity for betting companies, as highlighted by
+approximately $3.1 billion wagered during the 2022 NCAA tournament,
+according to Investopedia [3]. These firms, such as DraftKings and
+FanDuel, earn a commission with each bet made, in addition to revenue
+from their websites and app ads. While attendance predictions have
+limited value, reliable game prediction models are essential. Accurate
+game predictions enable betting companies to improve their lines and
+parlays, increase the monetary value of bets made, and maximize their
+revenue.</p>
 </div>
-<div id="data-source-overview" class="section level3">
-<h3>Data Source Overview:</h3>
+<div id="data-source-overview" class="section level4">
+<h4>Data Source Overview:</h4>
 <ul>
 <li>The ncaahoopR data contains information around box scores,
 play-by-play and team information. The box scores and play-by-play data
@@ -934,15 +927,15 @@ C
 </tbody>
 </table>
 </div>
-<div id="key-variables" class="section level3">
-<h3>Key Variables</h3>
+<div id="key-variables" class="section level4">
+<h4>Key Variables</h4>
 <p>To model our research question(s), team ranking (Elo, Massey Ordinal,
 AP Polls, etc.), fan base size and game location (proximity to home) are
 likely to be independent variables to consider. Regarding the proximity
 to home, this data would have to be roughly estimated.</p>
 </div>
-<div id="approachmethodology" class="section level3">
-<h3>APPROACH/METHODOLOGY</h3>
+<div id="approachmethodology" class="section level4">
+<h4>APPROACH/METHODOLOGY</h4>
 <p><strong>Data Exploration:</strong></p>
 <p>We will explore the datasets listed above and determine which would
 be useful to answer our research question(s).</p>
@@ -992,8 +985,8 @@ assists, etc.)</li>
 <li># of components in PCA/PCR</li>
 </ul>
 </div>
-<div id="anticipated-conclusionshypothesis" class="section level3">
-<h3>Anticipated Conclusions/Hypothesis</h3>
+<div id="anticipated-conclusionshypothesis" class="section level4">
+<h4>Anticipated Conclusions/Hypothesis</h4>
 <p><strong>Attendance:</strong> Multiple Linear Regression or
 equivalent(s) - We expect to figure out the most effective factors in
 modeling attendance. Then replicate attendance records to within an
@@ -1016,8 +1009,8 @@ important factors:</p>
 allowed per 100 possessions)</li>
 </ul>
 </div>
-<div id="sec-potential-business-impact-and-benefits" class="section level3">
-<h3>Potential Business Impact and Benefits</h3>
+<div id="sec-potential-business-impact-and-benefits" class="section level4">
+<h4>Potential Business Impact and Benefits</h4>
 <p><strong>Attendance:</strong> The analysis aims to optimize
 advertisement placements by predicting game attendance, enabling
 businesses to maximize their advertising budget. Accurate attendance
@@ -1033,8 +1026,8 @@ game results (win/loss, specific stats, etc.) allows them to offer bets
 that gamblers want to place. Ultimately, providing more profitable bets
 attracts users to the betting site and increases revenue.</p>
 </div>
-<div id="project-timelineplanning" class="section level3">
-<h3>PROJECT TIMELINE/PLANNING:</h3>
+<div id="project-timelineplanning" class="section level4">
+<h4>PROJECT TIMELINE/PLANNING:</h4>
 <ul>
 <li>March 24: Data Prep procedures completed</li>
 <li>April 2: Group Project: Presentation video and progress report (as
@@ -1046,10 +1039,19 @@ syllabus)</li>
 <li>April 19: Group Project: final video (as stated in syllabus)</li>
 </ul>
 </div>
-<div id="appendixcitation" class="section level3">
-<h3>Appendix/Citation:</h3>
-<p><a href="https://www2.isye.gatech.edu/~jsokol/lrmc/" class="uri">https://www2.isye.gatech.edu/~jsokol/lrmc/</a></p>
-<p><a href="https://en.as.com/ncaa/how-much-money-do-universities-get-for-going-to-the-ncaa-march-madness-tournament-n/" class="uri">https://en.as.com/ncaa/how-much-money-do-universities-get-for-going-to-the-ncaa-march-madness-tournament-n/</a></p>
+<div id="appendixcitation" class="section level4">
+<h4>Appendix/Citation:</h4>
+<ul>
+<li>[1] Bubel, Jennifer. “How Much Money Do Universities Get for Going
+to the NCAA March Madness Tournament?” <em>Diario AS</em>, 28 Feb. 2023,
+<a href="https://en.as.com/ncaa/how-much-money-do-universities-get-for-going-to-the-ncaa-march-madness-tournament-n/." class="uri">https://en.as.com/ncaa/how-much-money-do-universities-get-for-going-to-the-ncaa-march-madness-tournament-n/.</a></li>
+<li>[2] Sokol, Joel. “College Basketball Rankings Page.” <em>LRMC | LRMC
+(Classic) Results through Games of 3/8/2023</em>, Georgia Tech, 8 Mar.
+2023, <a href="https://www2.isye.gatech.edu/~jsokol/lrmc/." class="uri">https://www2.isye.gatech.edu/~jsokol/lrmc/.</a></li>
+<li>[3] Parker, Tim. “How Much Does the NCAA Make off March Madness?”
+Edited by Jefreda R Brown, <em>Investopedia</em>, Investopedia, 9 Mar.
+2023, <a href="https://www.investopedia.com/articles/investing/031516/how-much-does-ncaa-make-march-madness.asp#:~:text=In%202022%2C%2045%20million%20Americans,see%20the%20heftiest%20cash%2Dout." class="uri">https://www.investopedia.com/articles/investing/031516/how-much-does-ncaa-make-march-madness.asp#:~:text=In%202022%2C%2045%20million%20Americans,see%20the%20heftiest%20cash%2Dout.</a></li>
+</ul>
 </div>
 </div>
 

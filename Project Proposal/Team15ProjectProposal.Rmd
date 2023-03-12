@@ -4,9 +4,11 @@ editor_options:
     wrap: 72
 geometry: margin=.5in
 fontsize: 11pt
+output: word_document
+always_allow_html: true
 ---
 
-# MGT Madness - Team 15 Project Proposal
+## MGT Madness - Team 15 Project Proposal
 
 1.  Michael Munson (GT Id: mmunson34). I currently work as a product
     development engineer for a company in Minnesota. My educational
@@ -28,14 +30,14 @@ fontsize: 11pt
     developing data models and building ETL pipelines for our data
     warehouse initiative.
 
-### Background Information on chosen project topic:
+#### Background Information on chosen project topic:
 
 Sports, especially the NCAA March Madness tournament, are popular for
 entertainment and analysis. The tournament attracts millions of viewers
 and spectators, generating significant revenue for the NCAA, including
 from sports betting. In 2022, the tournament had 10.7 million TV
-viewers, 685,000 attendees, and generated an estimated \$1.15 billion
-in revenue, with \$3.1 billion in sports wagers [1].
+viewers, 685,000 attendees, and generated an estimated \$1.15 billion in
+revenue, with \$3.1 billion in sports wagers [1].
 
 Predicting the Men's Division I March Madness Tournament outcome is a
 challenging task for analytics enthusiasts. It involves forecasting 67
@@ -50,30 +52,30 @@ possession, and pre-game win probabilities. The excitement index
 measures the rate of change of a team's chance of winning during a game,
 impacting viewership. Elo ratings, which rate a team's chances of
 winning based on factors like location, conference, and game type, are
-also used. Similar ratings, such as Dr. Joel Sokol's LRMC ratings,
-can also be applied [2].
+also used. Similar ratings, such as Dr. Joel Sokol's LRMC ratings, can
+also be applied [2].
 
-### Problem Statement:
+#### Problem Statement:
 
 The goal of our project is to create machine learning models that
 reliably predict the attendance at NCAA tournament games and the outcome
 of games given different match ups between teams, other pre-game
 characteristics and player statistics.
 
-### Primary Research Question:
+#### Primary Research Question:
 
 Can we predict game attendance and outcome based on pre-game statistics?
 At what level of accuracy can we predict the outcome of games with the
 data that is currently available?
 
-### Supporting Research Questions:
+#### Supporting Research Questions:
 
 1.  What is the relationship between team rankings (Massey Ordinal, Elo,
     AP Polls, Net Ranking, Coaches Poll, etc.) and attendance?
 2.  What is the relationship between relative team rankings and the
     likeliness to win?
 
-### Business Justification:
+#### Business Justification:
 
 **Attendance:** Companies with advertising and merchandising budgets
 strive to convert consumers into loyal brand users efficiently. The
@@ -82,19 +84,19 @@ where people become aware of the brand's products. March Madness
 provides numerous high-exposure events, including tournament games and
 related content. However, not all games offer the same level of
 exposure, and predicting game attendance in advance will help companies
-optimize their ad placement for maximum potential conversion rates.\
-\
+optimize their ad placement for maximum potential conversion rates.
+
 **Win / Loss Predictions:** March Madness is a significant opportunity
 for betting companies, as highlighted by approximately \$3.1 billion
-wagered during the 2022 NCAA tournament, according to Investopedia [3]. These
-firms, such as DraftKings and FanDuel, earn a commission with each bet
-made, in addition to revenue from their websites and app ads. While
+wagered during the 2022 NCAA tournament, according to Investopedia [3].
+These firms, such as DraftKings and FanDuel, earn a commission with each
+bet made, in addition to revenue from their websites and app ads. While
 attendance predictions have limited value, reliable game prediction
 models are essential. Accurate game predictions enable betting companies
 to improve their lines and parlays, increase the monetary value of bets
 made, and maximize their revenue.
 
-### Data Source Overview:
+#### Data Source Overview:
 
 -   The ncaahoopR data contains information around box scores,
     play-by-play and team information. The box scores and play-by-play
@@ -136,14 +138,14 @@ duke_sample %>%
   kable_styling("striped")
 ```
 
-### Key Variables
+#### Key Variables
 
 To model our research question(s), team ranking (Elo, Massey Ordinal, AP
 Polls, etc.), fan base size and game location (proximity to home) are
 likely to be independent variables to consider. Regarding the proximity
 to home, this data would have to be roughly estimated.
 
-### APPROACH/METHODOLOGY
+#### APPROACH/METHODOLOGY
 
 **Data Exploration:**
 
@@ -194,7 +196,7 @@ useful to answer our research question(s).
 -   Probability threshold/cutoff to confirm a win or loss
 -   \# of components in PCA/PCR
 
-### Anticipated Conclusions/Hypothesis
+#### Anticipated Conclusions/Hypothesis
 
 **Attendance:** Multiple Linear Regression or equivalent(s) - We expect
 to figure out the most effective factors in modeling attendance. Then
@@ -216,7 +218,7 @@ Initially, we anticipate the following to be important factors:
 -   team efficiency (eg. offensive points per 100 possessions and points
     allowed per 100 possessions)
 
-### Potential Business Impact and Benefits {#sec-potential-business-impact-and-benefits}
+#### Potential Business Impact and Benefits {#sec-potential-business-impact-and-benefits}
 
 **Attendance:** The analysis aims to optimize advertisement placements
 by predicting game attendance, enabling businesses to maximize their
@@ -233,7 +235,7 @@ results (win/loss, specific stats, etc.) allows them to offer bets that
 gamblers want to place. Ultimately, providing more profitable bets
 attracts users to the betting site and increases revenue.
 
-### PROJECT TIMELINE/PLANNING:
+#### PROJECT TIMELINE/PLANNING:
 
 -   March 24: Data Prep procedures completed
 -   April 2: Group Project: Presentation video and progress report (as
@@ -244,7 +246,7 @@ attracts users to the betting site and increases revenue.
     syllabus)
 -   April 19: Group Project: final video (as stated in syllabus)
 
-### Appendix/Citation:
+#### Appendix/Citation:
 
 -   [1] Bubel, Jennifer. "How Much Money Do Universities Get for Going
     to the NCAA March Madness Tournament?" *Diario AS*, 28 Feb. 2023,
