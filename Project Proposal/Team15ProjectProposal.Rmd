@@ -41,8 +41,8 @@ Sports, especially the NCAA March Madness tournament, are popular for
 entertainment and analysis. The tournament attracts millions of viewers
 and spectators, generating significant revenue for the NCAA, including
 from sports betting. In 2022, the tournament had 10.7 million TV
-viewers, 685,000 attendees, and generated an estimated **\$1.15 billion
-in revenue**, with **\$3.1 billion** in sports wagers [1].
+viewers, 685,000 attendees, and generated an estimated \$1.15 billion
+in revenue, with \$3.1 billion** in sports wagers [1].
 
 Predicting the Men's Division I March Madness Tournament outcome is a
 challenging task for analytics enthusiasts. It involves forecasting 67
@@ -57,7 +57,7 @@ possession, and pre-game win probabilities. The excitement index
 measures the rate of change of a team's chance of winning during a game,
 impacting viewership. Elo ratings, which rate a team's chances of
 winning based on factors like location, conference, and game type, are
-also used. Similar ratings, such as **Dr. Joel Sokol's LRMC ratings**,
+also used. Similar ratings, such as Dr. Joel Sokol's LRMC ratings,
 can also be applied [2].
 
 ## Problem Statement:
@@ -259,13 +259,13 @@ increases revenue.
 
 ## Appendix/Citations:
 
--   [1] Bubel, Jennifer. \"How Much Money Do Universities Get for Going
-    to the NCAA March Madness Tournament?\" *Diario AS*, 28 Feb. 2023,
+-   [1] Bubel, Jennifer. "How Much Money Do Universities Get for Going
+    to the NCAA March Madness Tournament?" *Diario AS*, 28 Feb. 2023,
     <https://en.as.com/ncaa/how-much-money-do-universities-get-for-going-to-the-ncaa-march-madness-tournament-n/.>
--   [2] Sokol, Joel. \"College Basketball Rankings Page.\" *LRMC \| LRMC
+-   [2] Sokol, Joel. "College Basketball Rankings Page." *LRMC \| LRMC
     (Classic) Results through Games of 3/8/2023*, Georgia Tech, 8 Mar.
     2023, <https://www2.isye.gatech.edu/~jsokol/lrmc/.>
--   [3] Parker, Tim. \"How Much Does the NCAA Make off March Madness?\"
+-   [3] Parker, Tim. "How Much Does the NCAA Make off March Madness?"
     Edited by Jefreda R Brown, *Investopedia*, Investopedia, 9 Mar.
     2023,
     <https://www.investopedia.com/articles/investing/031516/how-much-does-ncaa-make-march-madness.asp#:~:text=In%202022%2C%2045%20million%20Americans,see%20the%20heftiest%20cash%2Dout.>
