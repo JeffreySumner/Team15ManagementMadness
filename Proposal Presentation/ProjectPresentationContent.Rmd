@@ -1,0 +1,18 @@
+What to Include & What is Required? 
+4-5 minutes of video/audio content that presents your group’s project proposal
+Team members' names should be listed in the presentation.
+Speaker should mention who they are before speaking
+Necessary background information/framing of the problem.
+Include an overview of the problem in general as well as your planned approach (it is ok if this approach changes later in the project as you learn more information)
+Any initial hypotheses?
+What type of models do you plan to use?
+How has your data cleaning progressed?
+If you encounter any unexpected problems, challenges, or interesting findings please mention these. Discussion of things that didn’t work is also encouraged. 
+You could include things like any new datasets that you have found, any analysis that you have done on the datasets, or any other impactful and measurable progress that you have made thus far. 
+The team should review 2-3 research articles/papers/Kaggle kernels/ etc. related to your problem statement and then discuss them.. Be sure to cite the reference at the end of the slide show or visual medium.
+If you have any graphs or key visuals to include, be sure to add titles, captions, labels, axes, legends, and most importantly context where necessary!
+Visuals and Slides are necessary; DO NOT just read your written project proposal
+Include audio narration
+We do not require all group members to be part of the video given the limited time allocated 
+Sources cited on the last slide (no need to read them just include them).
+4-5 minutes is a limited time window to cover all these things but do your best to manage this time wisely and play to your strengths and present a clear idea of your project
