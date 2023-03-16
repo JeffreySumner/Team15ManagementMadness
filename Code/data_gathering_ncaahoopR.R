@@ -38,9 +38,18 @@ get_data <- function(file_path){
 # pull ncaahoopR_data data + write to repo Data/ dir ----
 box_score_tbl <- lapply(box_score_files, get_data) %>% bind_rows()
 data.table::fwrite(box_score_tbl, "Data/box_score_tbl.csv")
-pbp_tbl <- lapply(pbp_files, get_data) %>% bind_rows()
+pbp_tbl <- lapply(pbp_files[str_detect(pbp_files,"schedule")==FALSE], get_data) %>% bind_rows()
 data.table::fwrite(pbp_tbl, "Data/pbp_tbl.csv")
 roster_tbl <- lapply(roster_files, get_data) %>% bind_rows()
 data.table::fwrite(roster_tbl, "Data/roster_tbl.csv")
 schedule_tbl <- lapply(schedule_files, get_data) %>% bind_rows()
 data.table::fwrite(schedule_tbl, "Data/schedule_tbl.csv")
+
+
+
+# Our Data Pull ----
+
+game_ids <- pbp_tbl %>% pull(game_id) %>% unique()
+
+temp <- bind_rows(lapply(game_ids[1:100], get_pbp_game))
+
