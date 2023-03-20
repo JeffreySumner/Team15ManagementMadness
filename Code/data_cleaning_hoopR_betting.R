@@ -12,9 +12,7 @@ hoopR::login(user_email = Sys.getenv("KP_USER"), user_pw = Sys.getenv("KP_PW"))
 
 # Get MBB box-score data for game_ids----
 
-mbb_box_score_2012_2022_tbl <- load_mbb_team_box(
-  seasons = c(2012:2022)
-)
+mbb_box_score_2012_2022_tbl <- readr::read_csv("Data/mbb_box_score_2012_2022_tbl.csv")
 
 # Create Clusters for Parallel Processing ----
 
@@ -30,7 +28,8 @@ clusterEvalQ(
   }
 )
 
-# Update the mbb function to convert to dataframe and add game_id ----
+# Step 1: How to Pull the betting data ----
+## Update the mbb function to convert to dataframe and add game_id ----
 espn_mbb_betting_new <- function(game_id){
   
   tryCatch({
@@ -59,8 +58,7 @@ espn_mbb_betting_new <- function(game_id){
   
   
 }
-
-# Begin to pull mbb betting data ----
+## Begin to pull mbb betting data ----
 game_ids_vec <- mbb_box_score_2012_2022_tbl %>%
   pull(game_id) %>%
   unique()
@@ -73,7 +71,7 @@ tictoc::toc()
 
 stopCluster(cl)
 
-# Save betting data ----
+## Save betting data ----
 
 # Save all (file too large)
 readr::write_rds(espn_mbb_betting_2012_2022_tbl,"Data/espn_mbb_betting_2012_2022_tbl.rds")
@@ -104,4 +102,35 @@ espn_mbb_betting_2020_2022_tbl <- espn_mbb_betting_2012_2022_tbl %>%
   filter(game_id %in% (mbb_box_score_2012_2022_tbl %>% filter(season %in% 2020:2022) %>% pull(game_id) %>% unique()))
 readr::write_rds(espn_mbb_betting_2020_2022_tbl,"Data/espn_mbb_betting_2020_2022_tbl.rds")
 
-# Clean up the betting data ----
+# Step 2: How to clean up the betting data ----
+## Read in files as needed ----
+
+# run this if you have the full file
+espn_mbb_betting_2012_2022_tbl <- readr::read_rds("Data/espn_mbb_betting_2012_2022_tbl.rds")
+
+# run this if you have the files split apart (most likely this is what you have)
+espn_mbb_betting_2012_2022_tbl <- bind_rows(
+  
+  readr::read_rds("Data/espn_mbb_betting_2012_2015_tbl.rds")
+  , readr::read_rds("Data/espn_mbb_betting_2016_2019_tbl.rds")
+  , readr::read_rds("Data/espn_mbb_betting_2020_2022_tbl.rds")
+  , readr::read_rds("Data/espn_mbb_betting_2012_2022_errors_tbl.rds")
+  
+)
+
+## Clean up win probability data ----
+espn_mbb_win_probability_2012_2022_tbl <- espn_mbb_betting_2012_2022_tbl %>%
+  select(game_id,predictor) %>%
+  unnest_wider(predictor)
+
+## Clean up spread data ----
+espn_mbb_spread_2012_2022_tbl <- espn_mbb_betting_2012_2022_tbl %>%
+  select(game_id,againstTheSpread) %>%
+  unnest_wider(againstTheSpread)
+
+## Clean up pickcenter data ----
+espn_mbb_pickcenter_2012_2022_tbl <- espn_mbb_betting_2012_2022_tbl %>%
+  select(game_id,pickcenter) %>%
+  unnest_wider(pickcenter)
+
+
