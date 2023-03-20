@@ -122,15 +122,18 @@ espn_mbb_betting_2012_2022_tbl <- bind_rows(
 espn_mbb_win_probability_2012_2022_tbl <- espn_mbb_betting_2012_2022_tbl %>%
   select(game_id,predictor) %>%
   unnest_wider(predictor)
+readr::write_csv(espn_mbb_win_probability_2012_2022_tbl,"Data/espn_mbb_win_probability_2012_2022_tbl.csv")
 
 ## Clean up spread data ----
 espn_mbb_spread_2012_2022_tbl <- espn_mbb_betting_2012_2022_tbl %>%
   select(game_id,againstTheSpread) %>%
   unnest_wider(againstTheSpread)
+readr::write_csv(espn_mbb_spread_2012_2022_tbl,"Data/espn_mbb_spread_2012_2022_tbl.csv")
 
 ## Clean up pickcenter data ----
 espn_mbb_pickcenter_2012_2022_tbl <- espn_mbb_betting_2012_2022_tbl %>%
   select(game_id,pickcenter) %>%
   unnest_wider(pickcenter)
+readr::write_csv(espn_mbb_pickcenter_2012_2022_tbl,"Data/espn_mbb_pickcenter_2012_2022_tbl.csv")
 
 
