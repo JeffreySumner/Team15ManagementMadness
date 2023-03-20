@@ -3,21 +3,12 @@ if (!require('ncaahoopR')) devtools::install_github('lbenz730/ncaahoopR')
 if (!require('tidyverse')) install.packages('tidyverse')
 
 # run if needed - PBP is very large
-box_score_tbl <- read_csv("Data/box_score_tbl.csv")
-pbp_tbl <- read_csv("Data/pbp_tbl.csv")
+mbb_box_score_2012_2022_tbl <- read_csv("Data/mbb_box_score_2012_2022_tbl.csv")
 
-pbp_win_probabilities <- pbp_tbl %>%
-  filter(play_id == 1) %>%
-  select(
-    home
-    , away
-    , date
-    , game_id
-    , win_prob
-    , naive_win_prob
-  )
+espn_mbb_betting_2012_2015_tbl <- read_rds("Data/espn_mbb_betting_2012_2015_tbl.rds")
 
-pbp_tbl %>%
-  filter(!is.na(attendance)) %>%
-  select(date) %>%
-  distinct()
+espn_mbb_win_probability_2012_2022_tbl <- espn_mbb_betting_2012_2022_tbl %>%
+  select(game_id,predictor) %>%
+  unnest_wider(predictor) %>% 
+  filter(!is.na(away_team_chance_loss))
+
