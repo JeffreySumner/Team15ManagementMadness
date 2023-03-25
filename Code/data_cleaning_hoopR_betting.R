@@ -54,9 +54,6 @@ espn_mbb_betting_new <- function(game_id){
              , type = 0)
     return(temp)
   })
-  
-  
-  
 }
 ## Begin to pull mbb betting data ----
 game_ids_vec <- mbb_box_score_2012_2022_tbl %>%
