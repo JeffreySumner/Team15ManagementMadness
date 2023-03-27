@@ -1,0 +1,297 @@
+---
+editor_options:
+  markdown:
+    wrap: 72
+geometry: margin=.5in
+fontsize: 11pt
+output: word_document
+always_allow_html: true
+---
+
+## MGT Madness - Team 15 Progress Report
+
+### Project Background:
+
+Sports, especially the NCAA March Madness tournament, are popular for
+entertainment and analysis. The tournament attracts millions of viewers
+and spectators, generating significant revenue for the NCAA. In 2022,
+the tournament had 10.7 million TV viewers, 685,000 attendees, and
+generated an estimated \$1.15 billion in revenue [1].
+
+With millions watching and even more following on social media, March
+Madness is a great opportunity for advertising. With a huge captive
+audience, companies can convert consumers into loyal brand users, create
+brand exposure, and introduce new products and services. However, the
+same number of viewers do not watch all 67 games. So advertisers need to
+determine which games to focus advertising efforts on. Although this is
+a complex task, in-game attendance can be used to approximate overall
+"demand" for a game. For example, a First Four game with approximately
+4000 spectators will more than likely not have the same number of
+viewers as a Final Four game with around 70000 spectators.
+
+In addition, March Madness is a gold mine for sports betting. Firms such
+as DraftKings and FanDuel earn a commission with each bet made, in
+addition to revenue from their websites and app ads. Reliable game
+prediction models are essential to maximizing this revenue through
+improving lines and parlays, increasing the monetary value of bets made,
+and encouraging more bettors to use their website and app.
+
+Predicting the Men's Division I March Madness Tournament outcome is a
+challenging task for analytics enthusiasts. It involves forecasting 67
+games played over three weeks, including possible upsets, player
+injuries, and changing data. Achieving certainty in this prediction
+process is difficult.
+
+To predict the outcomes of matchups in March Madness, various analyses
+are conducted. Live win probabilities, calculated on a play-by-play
+basis, consider factors like remaining game time, score difference,
+possession, and pre-game win probabilities. The excitement index
+measures the rate of change of a team's chance of winning during a game,
+impacting viewership. Elo ratings, which rate a team's chances of
+winning based on factors like location, conference, and game type, are
+also used. Similar ratings, such as Dr. Joel Sokol's LRMC ratings, can
+also be applied [2].
+
+The goal of MGT Madness is to create machine learning models that
+reliably predict the attendance at NCAA tournament games and the outcome
+of games given different match ups between teams, other pre-game
+characteristics and player statistics.
+
+### Planned Approach and Models
+
+In this project, we want to answer the following questions:
+
+1.  What factors are the biggest influencers on NCAA tournament game
+    attendance?
+
+2.  What predictors can be used to accurately predict the outcome of
+    NCAA tournament games?
+
+To answer these questions, we plan to use a generalized linear model
+(GLM) to predict game attendance, and a probit regression model to
+predict game winners. Models will be trained, validated, and tested, and
+various comparison methods will be used to select the final models
+(accuracy, summary statistics, principal component analysis, decision
+trees, etc.)
+
+#### **Modeling Attendance:**
+
+Since attendance is a numeric value, a generalized linear or multiple
+linear regression model can be used to predict game attendance.
+Depending on how our data cleaning goes, we may use predicted % arena
+capacity in lieu of predicted raw attendance. This would make the model
+more realistic, and ensure that predictions do not go well over the
+capacity of a game's arena.
+
+In any case, we plan to test multiple combinations of factors to find
+the best model, using the root mean square error (RMSE) and adjusted
+R-squared as points of comparison.
+
+Potential factors to investigate include:
+
+-   Team rankings (such as Massey Ordinal, Elo, AP Polls, Net Ranking,
+    and Coaches Poll)
+-   Relative strength of each team's conference
+-   "Excitement factor" of each team
+-   Game location relative to each team's campus
+-   University enrollment of each team
+-   Game's round in tournament
+-   **ADD MORE FACTORS HERE**
+
+Of these factors, we hypothesize that game location, tournament round,
+and relative conference strength will be the most influential on game
+attendance.
+
+#### Modeling Game Results:
+
+Since basketball game results are binary (either a win or loss), a
+probit or logistic regression model is great fit. We will compare
+potential models using accuracy, precision, and specificity, among other
+statistics.
+
+Potential factors to investigate include:
+
+-   Team ranking differential
+-   Team's quality regular season wins
+-   Game location relative to each team's campus
+-   Game's round in tournament
+-   Team efficiency (eg. offensive points per 100 possessions and points
+    allowed per 100 possessions)
+-   **ADD MORE FACTORS HERE**
+
+We anticipate that each team's ranking differential, quality wins,
+location, and efficiency will be the biggest factors determining the
+win/loss outcome of a game.
+
+### Data Preparation and Cleaning
+
+#### Data Source Overview:
+
+-   The ncaahoopR data contains information around box scores,
+    play-by-play and team information. The box scores and play-by-play
+    data will be instrumental for our project. This will be one of the
+    main sources for key statistics such as points scored, rebounds,
+    steals, win probabilities, etc. Below is an example of one of the
+    box scores
+    -   <https://github.com/lbenz730/ncaahoopR>
+    -   <https://github.com/lbenz730/ncaahoopR_data>
+-   NCAA Men's Basketball Data: - Records from 2000, including game
+    attendance, team records per season, week-by-week Associated Press
+    Poll Records - These records are mostly in .pdf format
+    -   <https://www.ncaa.org/sports/2013/11/27/ncaa-men-s-basketball-records-books.aspx>
+-   The Kaggle datasets include: - Basic information: Team ID's and
+    Names; Tournament seeds since 1984; final scores of all regular
+    season, tournament games; etc. - Team Box Scores: game-by-game stats
+    at a team level (free throws, rebounds, turnovers, etc.) -
+    Geography: the city locations of all games since 2009 - Public
+    Rankings: Weekly team rankings from multiple metrics - Supplemental
+    Information: Coaches, conference affiliations, bracket structure,
+    etc.
+    -   <https://www.kaggle.com/competitions/mens-march-mania-2022/data>
+
+    -   <https://www.kaggle.com/datasets/andrewsundberg/college-basketball-dataset>
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+if(!require(kableExtra)) install.packages('kableExtra')
+if(!require(devtools)) install.packages('devtools')
+if(!require(ncaahoopR)) devtools::install_github('lbenz730/ncaahoopR')
+if(!require(tidyverse)) install.packages('tidyverse')
+sample_data <- ncaahoopR::get_boxscore(401168364)
+
+duke_sample <- sample_data$Duke %>%
+  select(-player,-home,-opponent,-team,-starter)
+
+duke_sample %>%
+  head(3) %>%
+  kable() %>%
+  kable_styling("striped")
+```
+
+#### Key Variables
+
+To model our research question(s), team ranking (Elo, Massey Ordinal, AP
+Polls, etc.), fan base size and game location (proximity to home) are
+likely to be independent variables to consider. Regarding the proximity
+to home, this data would have to be roughly estimated.
+
+**Data Exploration:**
+
+We will explore the datasets listed above and determine which would be
+useful to answer our research question(s).
+
+**Data Cleaning:**
+
+-   Eliminate 2020, 2021 Attendance - For our attendance analysis, we
+    intend to remove 2021 NCAA tournament game attendance data due to
+    the capacity limits due to COVID restrictions.
+-   Proximity to Home - We plan to calculate the distance between city
+    of game and the participating schools' college campus location
+    coordinates (latitude / longitude differential)
+-   Momentum - We plan to create a predictor for winning / losing streak
+    (or last 5 or 10 games)
+-   Win Quality - If available in our data sets, we will utilize NCAA
+    based quality of win statistic of quadrants ("Quad I, II, III, IV
+    win / loss"). If not available, we will create a version of this
+    with our own formula utilizing $PointDifferential\times(HomeOrAway)$
+-   Team Stat Differential - Team game results (Total Rebounds, total
+    assists, etc.)
+
+### Next Steps
+
+**INSERT NEXT STEPS HERE**
+
+### Works Cited
+
+-   [1] Bubel, Jennifer. "How Much Money Do Universities Get for Going
+    to the NCAA March Madness Tournament?" *Diario AS*, 28 Feb. 2023,
+    <https://en.as.com/ncaa/how-much-money-do-universities-get-for-going-to-the-ncaa-march-madness-tournament-n/.>
+
+-   [2] Sokol, Joel. "College Basketball Rankings Page." *LRMC \| LRMC
+    (Classic) Results through Games of 3/8/2023*, Georgia Tech, 8 Mar.
+    2023, <https://www2.isye.gatech.edu/~jsokol/lrmc/.>
+
+-   [3] Parker, Tim. "How Much Does the NCAA Make off March Madness?"
+    Edited by Jefreda R Brown, *Investopedia*, Investopedia, 9 Mar.
+    2023,
+    <https://www.investopedia.com/articles/investing/031516/how-much-does-ncaa-make-march-madness.asp#:~:text=In%202022%2C%2045%20million%20Americans,see%20the%20heftiest%20cash%2Dout.>
+
+# Phase 3: Progress Report
+
+### What is it? 
+
+-   It will be a detailed description of what you have done so far,
+    preliminary results you obtained, adjustments to be made if any, and
+    the work that lies ahead. 
+
+-   The document itself will be a text submission similar in format to
+    the an academic paper
+
+-   Think of the report as a formal progress report to send to a manager
+    who may or may not be totally familiar with all the details and
+    purpose of the project. Take care to explain everything clearly and
+    provide proper background knowledge when necessary.
+
+-    It is alright to assume your audience has some familiarity with
+    statistical models.
+
+-   Note that this is a PROGRESS report, it is ok if you haven't done
+    everything, yet we expect you to show us what you've done so far and
+    what you plan to do.
+
+### What to Include & What is Required? 
+
+-   "Academic-like" paper with dense text inline figures, no direct
+    dense code cells within the paper. Code files related to the project
+    are included in the repository files but are self-contained.
+    Detailed instructions are provided accordingly. No need to submit
+    these files with the progress report, but they will be needed during
+    phase 4. 
+
+-   Describe in depth the novelties of your approach and your initial
+    discoveries/insights/experiments, etc. and the analysis that is
+    still to be done to conclude your analysis 
+
+-   Necessary background information/framing of the problem
+
+-   Include an overview of the problem in general as well as your
+    planned approach (it is ok if this approach changes later in the
+    project as you learn more information)
+
+-   Any initial hypotheses?
+
+-   What type of models do you plan to use?
+
+-   How has your data cleaning progressed?
+
+-   If you encounter any unexpected problems, challenges, or interesting
+    findings please mention these. Discussion of things that didn't work
+    is also encouraged. 
+
+-   You could include things like any new datasets that you have found,
+    any analysis that you have done on the datasets, or any other
+    impactful and measurable progress that you have made thus far. 
+
+-   Literature survey of at least 2-3 sources
+
+-   Works cited section.
+
+-   Include key visuals in line with text, but always be sure to include
+    labels, axes, captions, legends, and most importantly context!
+
+### Submission 
+
+-   Group Primary Contact will submit your Project Progress Report on
+    behalf of the group via the corresponding assignment on Canvas/Edx. 
+
+-   Please name the submission entry in the following format:
+    **teamXXXprogressreport.pdf**. 
+
+### Grading
+
+-   TA feedback /grades on Project Progress Report will be available
+    within 10 days (about 1 and a half weeks) after the assignment due
+    date (These may imply substantial changes) 
+
+-   Rubric Coming Soon
+
+-   
