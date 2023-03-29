@@ -4,8 +4,10 @@ editor_options:
     wrap: 72
 geometry: margin=.5in
 fontsize: 11pt
-output: word_document
-always_allow_html: true
+output:
+  html_document:
+    df_print: paged
+always_allow_html: yes
 ---
 
 ## MGT Madness - Team 15 Progress Report
@@ -26,8 +28,8 @@ same number of viewers do not watch all 67 games. So advertisers need to
 determine which games to focus advertising efforts on. Although this is
 a complex task, in-game attendance can be used to approximate overall
 "demand" for a game. For example, a First Four game with approximately
-4000 spectators will more than likely not have the same number of
-viewers as a Final Four game with around 70000 spectators.
+4,000 spectators will more than likely not have the same number of
+viewers as a Final Four game with around 70,000 spectators.
 
 In addition, March Madness is a gold mine for sports betting. Firms such
 as DraftKings and FanDuel earn a commission with each bet made, in
@@ -187,8 +189,9 @@ useful to answer our research question(s).
 -   Proximity to Home - We plan to calculate the distance between city
     of game and the participating schools' college campus location
     coordinates (latitude / longitude differential)
--   Momentum - We plan to create a predictor for winning / losing streak
-    (or last 5 or 10 games)
+-   Momentum - To provide greater weight to more recent performance, we
+    are planning to engineer a predictor that includes an average
+    efficiency rating for each team over their previous 5-10 games.
 -   Win Quality - If available in our data sets, we will utilize NCAA
     based quality of win statistic of quadrants ("Quad I, II, III, IV
     win / loss"). If not available, we will create a version of this
@@ -198,7 +201,34 @@ useful to answer our research question(s).
 
 ### Next Steps
 
-**INSERT NEXT STEPS HERE**
+The next steps involve building different models and performing
+validation for a dataset. The models that will be built include
+correlation analysis, principal component analysis, linear regression,
+and decision trees. These models will be used to predict attendance and
+win/loss outcomes in the dataset.
+
+For **attendance prediction**, the Mean Squared Error (MSE) metric will
+be used for model validation. MSE measures the average squared
+difference between the predicted attendance values and the actual
+attendance values in the dataset.
+
+For **win/loss prediction**, the dataset will be split into training,
+testing, and validation sets. The training set will be used to train the
+model, the testing set will be used to evaluate the model's performance
+on unseen data, and the validation set will be used to evaluate the
+model's final performance.
+
+In addition to the train/test/validate splits, cross-validation will
+also be performed. Cross-validation is a technique used to evaluate the
+performance of a model by splitting the dataset into multiple parts,
+training the model on one part, and testing it on another. This process
+is repeated multiple times, with different parts of the dataset used for
+training and testing each time.
+
+Finally, accuracy and recall metrics will be used to evaluate the
+performance of models predicting win/loss outcomes. Accuracy measures
+the proportion of correctly predicted outcomes, while recall measures
+the proportion of actual outcomes that were correctly predicted.
 
 ### Works Cited
 
