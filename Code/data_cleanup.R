@@ -69,7 +69,7 @@ box_score_clean <- mbb_box_score_2012_2022_tbl %>%
   ) %>%
   # estimate the number of possessions
   mutate(
-    home_poss = (home_FGA - home_offensive_rebounds) + home_total_turnovers + (.44 * home_FTA)
+    home_poss = (home_FGA - home_offensive_rebounds) + home_total_turnovers + (.44 * home_FTA) # kenpom suggested factor .44
     , away_poss = (away_FGA - away_offensive_rebounds) + away_total_turnovers + (.44 * away_FTA)
     , home_points = (home_FGM - home_FGM3) * 2 + (home_FGM3) * 3 + home_FTM * 1
     , away_points = (away_FGM - away_FGM3) * 2 + (away_FGM3) * 3 + away_FTM * 1
@@ -130,4 +130,5 @@ geocoded_data <- locations %>%
   ) %>%
   unnest_wider(geocode_data) 
 
-readr::write_csv(geocoded_data, "Data/geocoded_locations_tbl.csv")
+# readr::write_csv(geocoded_data, "Data/geocoded_locations_tbl.csv")
+geocoded_tbl <- readr::read_csv("Data/geocoded_locations_tbl.csv")
