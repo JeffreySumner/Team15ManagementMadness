@@ -29,6 +29,7 @@ box_score_clean <- mbb_box_score_2012_2022_tbl %>%
   select(
     game_id
     , game_date
+    , season
     , team_id
     , opponent_id
     , home_away
@@ -57,7 +58,7 @@ box_score_clean <- mbb_box_score_2012_2022_tbl %>%
     across(FGM:FTA, as.numeric)
     , home_away = ifelse(home_away == "HOME", "home", "away")
   ) %>%
-  pivot_longer(c(-home_away,-game_id,-game_date)) %>%
+  pivot_longer(c(-home_away,-game_id,-game_date,-season)) %>%
   filter(!(home_away == "home" & name == "opponent_id"), !(home_away == "away" & name == "team_id")) %>%
   unite(
     "temp"
@@ -132,3 +133,19 @@ geocoded_data <- locations %>%
 
 # readr::write_csv(geocoded_data, "Data/geocoded_locations_tbl.csv")
 geocoded_tbl <- readr::read_csv("Data/geocoded_locations_tbl.csv")
+
+
+box_score_clean %>%
+  pivot_longer(c(-game_id,-game_date,-season)) %>%
+  head(1000) %>%
+  arrange(game_date) %>%
+  group_by(season,name) %>%
+  mutate(avg_value = zoo::rollmean(value,10)) %>%
+  pivot_longer() %>%
+  mutate( case_when()) %>%
+  pivot_wider()
+
+
+lm(Win% ~ . , data = data)
+
+
