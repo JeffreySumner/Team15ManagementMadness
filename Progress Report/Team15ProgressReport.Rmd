@@ -280,6 +280,8 @@ the proportion of actual outcomes that were correctly predicted.
 -   Describe in depth the novelties of your approach and your initial
     discoveries/insights/experiments, etc. and the analysis that is
     still to be done to conclude your analysis 
+    - Data cleaning and combining of data
+    - Very deep / complex data
 
 -   Necessary background information/framing of the problem
     - Well explained in the Project Background
@@ -294,6 +296,7 @@ the proportion of actual outcomes that were correctly predicted.
 
 -   What type of models do you plan to use?
     - Found in the "Modeling" section
+    - (Stretch goal for this Saturday) Simple regression with a few factors for now, performance vs. ESPN (currently)
 
 -   How has your data cleaning progressed?
     - How we got the AP Polls data:
@@ -319,6 +322,12 @@ the proportion of actual outcomes that were correctly predicted.
     labels, axes, captions, legends, and most importantly context!
     - Maybe by Saturday, a correlation matrix
     - Geographical data for team location mapping.
+    - Tables that were cut from proposal
+    - Contingency table, ESPN probabilities vs actuals
+    - Average efficiency rating over last 10 games vs opponents
+    - Time-series of say ranking of a particular team
+      - Can coordinate team logo / colors to plots
+    - Can we see a home-court advantage
     
 
 ### Submission 
