@@ -282,17 +282,23 @@ the proportion of actual outcomes that were correctly predicted.
     still to be done to conclude your analysis 
 
 -   Necessary background information/framing of the problem
+    - Well explained in the Project Background
 
 -   Include an overview of the problem in general as well as your
     planned approach (it is ok if this approach changes later in the
     project as you learn more information)
+    - Well explained throughout the Progress Report overall
 
 -   Any initial hypotheses?
+    - Found in the "Modeling" and "Key Variable" sections.
 
 -   What type of models do you plan to use?
+    - Found in the "Modeling" section
 
 -   How has your data cleaning progressed?
-
+    - How we got the AP Polls data:
+      - As work progressed, Jeffrey found it easier to acquire the AP Polls data via writing a web-scraping function that collects the data from sports-reference.com.To do this, the `rvest` package was used which has a `read-html` function which helped extract the data using `html-nodes` and `html_table` functions. The `tidyverse` package and `lapply()` function was also used in this process in order to mutate and combine scraped data frames into a single table. The resulting table contains all the AP Poll data for the years 2012 to 2022.
+      
 -   If you encounter any unexpected problems, challenges, or interesting
     findings please mention these. Discussion of things that didn't work
     is also encouraged. 
