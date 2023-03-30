@@ -302,17 +302,24 @@ the proportion of actual outcomes that were correctly predicted.
 -   If you encounter any unexpected problems, challenges, or interesting
     findings please mention these. Discussion of things that didn't work
     is also encouraged. 
+    - Jeffrey to fill out more of this for data acquisition!
 
 -   You could include things like any new datasets that you have found,
     any analysis that you have done on the datasets, or any other
     impactful and measurable progress that you have made thus far. 
 
 -   Literature survey of at least 2-3 sources
+    - Grab this from the Proposal Presentation
 
 -   Works cited section.
+    - Add from the Literature survey...
+    - Matthew Royalty to update with new sources
 
 -   Include key visuals in line with text, but always be sure to include
     labels, axes, captions, legends, and most importantly context!
+    - Maybe by Saturday, a correlation matrix
+    - Geographical data for team location mapping.
+    
 
 ### Submission 
 
