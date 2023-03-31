@@ -308,7 +308,29 @@ the proportion of actual outcomes that were correctly predicted.
     - (Stretch goal for this Saturday) Simple regression with a few factors for now, performance vs. ESPN (currently)
 
 -   How has your data cleaning progressed?
-
+    -   Order of events (Data): 
+        -       Win probabilities: creating pbp_win_probabilities_tbl.csv, attendance data
+        -       initial RAW betting data with betting script - ran teh data_cleaning_hoopR.R to create 9 files.
+        -       attendance data: create espn_mbb_attendance_2012_2022_tbl.csv
+        -       additional data: created espn_mbb_pickcenter_2012_2022_tbl.csv
+        -       ap poll data: data_cleaning_ap_polls.R, ap_poll_2012_2022_raw_tbl.csv
+        -       attendance among other things: data_cleaning_attendance.R, create mbb_attendance_2012_2022_tbl.csv
+        -       updates to cleanup: change data_cleanup.R, data_reader.R, created geocoded_locations_tbl.csv
+    -   Order of events(Code):
+        -       data gathering script: created data_gathering.R and data_gathering_ncaahoopR.R
+        -       updates: data_cleanup.R created, data_gathering_ncaahoopR.R changed (minor)
+        -       hoopR script initial commit... cleanup to be done later: created data_cleaning_hoopR.R
+        -       inital RAW betting data commit with betting script: data_cleaning_hoopR.R was deleted, data_cleaning_hoopR_betting.R was created to pull in the same data with the betting. many datasets created: espn_mbb_betting_2012_2015, espn_mbb_bettering_2016_20..., espn_mbb_betting..., mbb_box_score_2012_2022, pbp_win_probabilities_tbl.csv.
+        -       adjust data read: changes to data_cleaning_hoopR_betting.R
+        -       attendance script: created data_cleaning_hoopR_attendance.R
+        -       added data write: added data write to data_cleaning_hoopR_betting.R
+        -       temp: created a data_reader.R for us to see the data... also added the us-colleges-... data
+        -       ap poll data: created data_cleaning_ap_polls.R, created ap_poll_2012_2022_raw_tbl.csv
+        -       attendance among other things: created data_cleaning_attendance.R, uses ESPN API instead of hoopR repo. create newer attendance data set
+        -       updates to cleanup: changes to data_cleanup.R - including geocode data, create geocoded_locations_tbl.csv
+        
+    -   How we got our bulk data: (data_gathering_ncaahoopR.R)
+        -   The collection of data started with using the data sets within the `ncaahoopR` library and combining the datasets that were interesting to our project. Overall, the script `data_gathering_ncaahoopR.R` aggregates box score, play-by-play, rosters and schedule files from the `ncaahoopR` library. The resulting data frame is the basis for ammending and creating all other features. From here on out, the feature `game_id` will be used as the index for which we join new data into the larger data frame.
     -   How we got the AP Polls data: (data_cleaning_ap_polls.R)
         -   As work progressed, Jeffrey found it easier to acquire the
             AP Polls data via writing a web-scraping function that
@@ -327,6 +349,19 @@ the proportion of actual outcomes that were correctly predicted.
         - Similar to how we got attendance data, we employed the `hoopR` package upon the `game_ids` from the box score dataset. The `espn_mbb_betting(<game_id>)` function allowed retrieval of the relevant data (win probability, spread data, game-projections data) per game from ESPN. Due to the size of the data files, this data had to be stored within 3 different files.
     -   Processing the data into one data frame (data_cleanup.R)
         - After collecting box score, attendance, AP Polls and college location data through previously discussed scripts, the data was processed and merged into one data frame. Some of the processing included: changing variable names and layout within the data frame, estimating positions, calculating defensive and offensive ratings, removing redundant variables, etc.
+
+Summary:
+This passage describes the process of collecting and cleaning data for a project related to NCAA basketball. The project involved gathering data on game outcomes, betting odds, attendance, and AP poll rankings for college basketball games between 2012 and 2022. The data was collected using a combination of web scraping and querying APIs.
+
+The data collection process began with using datasets from the ncaahoopR library, which included box score, play-by-play, rosters, and schedule files. The resulting data frame served as the basis for amending and creating other features.
+
+To collect data on AP poll rankings, the author wrote a web-scraping function that collected data from sports-reference.com using the rvest package. The data was then processed using the tidyverse package and lapply() function to combine scraped data frames into a single table.
+
+For attendance data, the author used the game_id identifier to query the ESPN API and retrieve data on attendance. They also attempted to use the hoopR package, which had data in its repository files, but ultimately used the ESPN API.
+
+Similarly, the author used the hoopR package to retrieve betting data for each game using the espn_mbb_betting(<game_id>) function. Due to the size of the data files, this data had to be stored within three different files.
+
+Finally, the author processed and merged all of the collected data into one data frame using the data_cleanup.R script. The script included processing steps such as filtering and renaming variables, geocoding college locations, and merging data frames.
 
 -   If you encounter any unexpected problems, challenges, or interesting
     findings please mention these. Discussion of things that didn't work
