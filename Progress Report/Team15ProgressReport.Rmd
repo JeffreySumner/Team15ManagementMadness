@@ -127,6 +127,35 @@ win/loss outcome of a game.
 
 ### Data Preparation and Cleaning
 
+The project involved gathering data on game outcomes, betting odds, attendance, and AP poll
+rankings for college basketball games between 2012 and 2022. The data
+was collected using a combination of web scraping and querying APIs.
+
+The data collection process began with using datasets from the `ncaahoopR`
+library, which included box score, play-by-play, rosters, and schedule
+files. The resulting data frame served as the basis for amending and
+creating other features.
+
+To collect data on AP poll rankings, the we wrote a web-scraping
+function that collected data from sports-reference.com using the `rvest`
+package. The data was then processed using the `tidyverse` package and
+`lapply()` function to combine scraped data frames into a single table.
+
+For attendance data, we used the `game_id` identifier to query the
+ESPN API and retrieve data on attendance. We also attempted to use the
+`hoopR` package, which had data in its repository files, but ultimately
+used the ESPN API.
+
+Similarly, we used the `hoopR` package to retrieve betting data
+for each game using the `espn_mbb_betting(<game_id>)` function. Due to the
+size of the data files, this data had to be stored within three
+different files.
+
+Finally, we processed and merged all of the collected data into
+one data frame using the `data_cleanup.R` script. The script included
+processing steps such as filtering and renaming variables, geocoding
+college locations, and merging data frames.
+
 #### Data Source Overview:
 
 -   ESPN API
@@ -469,28 +498,28 @@ gathering data on game outcomes, betting odds, attendance, and AP poll
 rankings for college basketball games between 2012 and 2022. The data
 was collected using a combination of web scraping and querying APIs.
 
-The data collection process began with using datasets from the ncaahoopR
+The data collection process began with using datasets from the `ncaahoopR`
 library, which included box score, play-by-play, rosters, and schedule
 files. The resulting data frame served as the basis for amending and
 creating other features.
 
-To collect data on AP poll rankings, the author wrote a web-scraping
-function that collected data from sports-reference.com using the rvest
-package. The data was then processed using the tidyverse package and
-lapply() function to combine scraped data frames into a single table.
+To collect data on AP poll rankings, the we wrote a web-scraping
+function that collected data from sports-reference.com using the `rvest`
+package. The data was then processed using the `tidyverse` package and
+`lapply()` function to combine scraped data frames into a single table.
 
-For attendance data, the author used the game_id identifier to query the
-ESPN API and retrieve data on attendance. They also attempted to use the
-hoopR package, which had data in its repository files, but ultimately
+For attendance data, we used the `game_id` identifier to query the
+ESPN API and retrieve data on attendance. We also attempted to use the
+`hoopR` package, which had data in its repository files, but ultimately
 used the ESPN API.
 
-Similarly, the author used the hoopR package to retrieve betting data
-for each game using the espn_mbb_betting(<game_id>) function. Due to the
+Similarly, we used the `hoopR` package to retrieve betting data
+for each game using the `espn_mbb_betting(<game_id>)` function. Due to the
 size of the data files, this data had to be stored within three
 different files.
 
-Finally, the author processed and merged all of the collected data into
-one data frame using the data_cleanup.R script. The script included
+Finally, we processed and merged all of the collected data into
+one data frame using the `data_cleanup.R` script. The script included
 processing steps such as filtering and renaming variables, geocoding
 college locations, and merging data frames.
 
