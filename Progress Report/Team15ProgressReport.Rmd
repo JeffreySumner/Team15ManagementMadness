@@ -202,6 +202,21 @@ duke_sample %>%
   kable_styling("striped")
 ```
 
+-   Because we were scraping data from ESPN and other sources, there
+    were times when we were throttled and even blocked from pulling
+    data. This was an unforeseen issue that ultimately required our team
+    to take a step back and rethink our approach. We found a publicly
+    available ESPN API that allowed us to pull the necessary data in a
+    more efficient manner than web scraping.
+    -   There are many different ways for us to clean our data and one
+        of the biggest challenges is determining what is right for our
+        project. Do we want to use stats based on the last 5 games, 10
+        games? Do we want to focus solely on how a single team performs
+        or do we want to compare how the team performs vs how the
+        opponent performs? These are the kinds of questions that we've
+        asked ourselves to determine how the data will be formatted for
+        analysis.
+
 **Data Exploration:**
 
 We created a correlation matrix of our factors. Due to how we calculated
