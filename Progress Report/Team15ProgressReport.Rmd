@@ -51,8 +51,7 @@ possession, and pre-game win probabilities. The excitement index
 measures the rate of change of a team's chance of winning during a game,
 impacting viewership. Elo ratings, which rate a team's chances of
 winning based on factors like location, conference, and game type, are
-also used. Similar ratings, such as Dr. Joel Sokol's LRMC ratings, can
-also be applied [2].
+also used.
 
 The goal of MGT Madness is to create machine learning models that
 reliably predict the attendance at NCAA tournament games and the outcome
@@ -313,27 +312,23 @@ the proportion of actual outcomes that were correctly predicted.
     to the NCAA March Madness Tournament?" *Diario AS*, 28 Feb. 2023,
     <https://en.as.com/ncaa/how-much-money-do-universities-get-for-going-to-the-ncaa-march-madness-tournament-n/.>
 
--   [2] Sokol, Joel. "College Basketball Rankings Page." *LRMC \| LRMC
-    (Classic) Results through Games of 3/8/2023*, Georgia Tech, 8 Mar.
-    2023, <https://www2.isye.gatech.edu/~jsokol/lrmc/.>
-
--   [3] Parker, Tim. "How Much Does the NCAA Make off March Madness?"
+-   [2] Parker, Tim. "How Much Does the NCAA Make off March Madness?"
     Edited by Jefreda R Brown, *Investopedia*, Investopedia, 9 Mar.
     2023,
     <https://www.investopedia.com/articles/investing/031516/how-much-does-ncaa-make-march-madness.asp#:~:text=In%202022%2C%2045%20million%20Americans,see%20the%20heftiest%20cash%2Dout.>
 
--   [4] Pomeroy, Ken. "The Possession", *Kenpom*, 19 Mar. 2004,
+-   [3] Pomeroy, Ken. "The Possession", *Kenpom*, 19 Mar. 2004,
     [https://kenpom.com/blog/the-possession/#:\\\~:text=The%20most%20common%20formula%20for,and%20FTA%20%3D%20free%20throw%20attempts](https://kenpom.com/blog/the-possession/#:~:text=The%20most%20common%20formula%20for,and%20FTA%20%3D%20free%20throw%20attempts){.uri}
 
--   [5] Korpar, Lora. "March Madness Betting Expected to Exceed \$3
+-   [4] Korpar, Lora. "March Madness Betting Expected to Exceed \$3
     Billion, Set All-Time High", *Newsweek*, 14 Mar. 2022,
     <https://www.newsweek.com/march-madness-betting-expected-exceed-3-billion-set-all-time-high-1687917>
 
--   [6] Coleman, Madeline. "March Madness: How a fan used a machine to
+-   [5] Coleman, Madeline. "March Madness: How a fan used a machine to
     nail his bracket", *Sports Illustrated*, 31 Mar. 2021,
     <https://www.si.com/college/2021/03/31/march-madness-fan-trained-machine-predict-bracket-will-geoghegan>
 
--   [7] Consoli, John. "Advertisers Go Mad For March Madness", *TV News
+-   [6] Consoli, John. "Advertisers Go Mad For March Madness", *TV News
     Check,* 16 Mar 2022,
     <https://tvnewscheck.com/business/article/advertisers-go-mad-for-march-madness/>
 
