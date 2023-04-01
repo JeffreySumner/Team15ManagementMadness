@@ -136,6 +136,11 @@ library, which included box score, play-by-play, rosters, and schedule
 files. The resulting data frame served as the basis for amending and
 creating other features.
 
+Similarly, we used the `hoopR` package to retrieve betting data
+for each game using the `espn_mbb_betting(<game_id>)` function. Due to the
+size of the data files, this data had to be stored within three
+different files.
+
 To collect data on AP poll rankings, the we wrote a web-scraping
 function that collected data from sports-reference.com using the `rvest`
 package. The data was then processed using the `tidyverse` package and
@@ -145,11 +150,6 @@ For attendance data, we used the `game_id` identifier to query the
 ESPN API and retrieve data on attendance. We also attempted to use the
 `hoopR` package, which had data in its repository files, but ultimately
 used the ESPN API.
-
-Similarly, we used the `hoopR` package to retrieve betting data
-for each game using the `espn_mbb_betting(<game_id>)` function. Due to the
-size of the data files, this data had to be stored within three
-different files.
 
 Finally, we processed and merged all of the collected data into
 one data frame using the `data_cleanup.R` script. The script included
