@@ -2,11 +2,11 @@
 editor_options:
   markdown:
     wrap: 72
-geometry: margin=.5in
-fontsize: 11pt
 output:
   html_document:
     df_print: paged
+geometry: margin=.5in
+fontsize: 11pt
 always_allow_html: yes
 ---
 
@@ -97,7 +97,6 @@ Potential factors to investigate include:
 -   Game location relative to each team's campus
 -   University enrollment of each team
 -   Game's round in tournament
--   **ADD MORE FACTORS HERE**
 
 Of these factors, we hypothesize that game location, tournament round,
 and relative conference strength will be the most influential on game
@@ -118,7 +117,7 @@ Potential factors to investigate include:
 -   Game's round in tournament
 -   Team efficiency (eg. offensive points per 100 possessions and points
     allowed per 100 possessions)
--   **ADD MORE FACTORS HERE**
+-   Statistics over the last 5 games
 
 We anticipate that each team's ranking differential, quality wins,
 location, and efficiency will be the biggest factors determining the
@@ -158,8 +157,11 @@ locations, and merging data frames.
 
 #### Data Source Overview:
 
--   ESPN API
--   sports-reference.com
+-   ESPN API has a wealth of information ranging from team information
+    (location, logo, colors, jerseys, etc.) to box-score and game-time
+    information
+-   sports-reference.com contains AP poll ranking data in addition to
+    other ranking sources
 -   The ncaahoopR data contains information around box scores,
     play-by-play and team information. The box scores and play-by-play
     data will be instrumental for our project. This will be one of the
@@ -199,13 +201,6 @@ duke_sample %>%
   kable() %>%
   kable_styling("striped")
 ```
-
-#### Key Variables
-
-To model our research question(s), team ranking (Elo, Massey Ordinal, AP
-Polls, etc.), fan base size and game location (proximity to home) are
-likely to be independent variables to consider. Regarding the proximity
-to home, this data would have to be roughly estimated.
 
 **Data Exploration:**
 
