@@ -571,7 +571,10 @@ college locations, and merging data frames.
     -   Contingency table, ESPN probabilities vs actuals
     -   Can we see a home-court advantage?
 
-    
+The simplified exploration:
+- Our exploration of predicting win/loss per game started with us creating models based on a few features that seemed promising. For instance, we chose to create new columns that allowed us to essentially put data into a time-series format (only calculating features based on recent games, not games in the future). For our exploratory model, we focused on stats differentials like: points differentials of teams from last 5 games, offensive / defensive efficiency ratings of last 5 games, turnover differential for the last 5 games and whether the team was home, away or at a neutral site.
+
+- Initial exploration was to see how well we would be able to recreate the contingency table from ESPN. For this process, we predicted the winner of the game based on points scored by each team in the game. The output of this algorithm is a binary predictor for each team in the game on whether or not they won. We also pulled in the pre-game predictions on which team should win, which was already recorded in our data sets.
     
     - For a later date:
       - VIF
