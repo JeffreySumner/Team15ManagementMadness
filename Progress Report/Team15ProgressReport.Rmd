@@ -318,6 +318,9 @@ performance of models predicting win/loss outcomes. Accuracy measures
 the proportion of correctly predicted outcomes, while recall measures
 the proportion of actual outcomes that were correctly predicted.
 
+We expect our modeling next steps to be completed by April 8th in order
+to prepare our final presentation and summary of results.
+
 ### Works Cited
 
 -   [1] Bubel, Jennifer. "How Much Money Do Universities Get for Going
