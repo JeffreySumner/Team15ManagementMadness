@@ -216,6 +216,8 @@ duke_sample %>%
         opponent performs? These are the kinds of questions that we've
         asked ourselves to determine how the data will be formatted for
         analysis.
+-   For an in-depth look at how we combined our code and sources, please
+    refer to our Team 15 github.
 
 **Data Exploration:**
 
