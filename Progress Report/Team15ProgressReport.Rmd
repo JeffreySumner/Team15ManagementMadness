@@ -127,34 +127,35 @@ win/loss outcome of a game.
 
 ### Data Preparation and Cleaning
 
-The project involved gathering data on game outcomes, betting odds, attendance, and AP poll
-rankings for college basketball games between 2012 and 2022. The data
-was collected using a combination of web scraping and querying APIs.
+The project involved gathering data on game outcomes, betting odds,
+attendance, and AP poll rankings for college basketball games between
+2012 and 2022. The data was collected using a combination of web
+scraping and querying APIs.
 
-The data collection process began with using datasets from the `ncaahoopR`
-library, which included box score, play-by-play, rosters, and schedule
-files. The resulting data frame served as the basis for amending and
-creating other features.
+The data collection process began with using datasets from the
+`ncaahoopR` library, which included box score, play-by-play, rosters,
+and schedule files. The resulting data frame served as the basis for
+amending and creating other features.
 
-Similarly, we used the `hoopR` package to retrieve betting data
-for each game using the `espn_mbb_betting(<game_id>)` function. Due to the
-size of the data files, this data had to be stored within three
-different files.
+Similarly, we used the `hoopR` package to retrieve betting data for each
+game using the `espn_mbb_betting(<game_id>)` function. Due to the size
+of the data files, this data had to be stored within three different
+files.
 
 To collect data on AP poll rankings, the we wrote a web-scraping
 function that collected data from sports-reference.com using the `rvest`
 package. The data was then processed using the `tidyverse` package and
 `lapply()` function to combine scraped data frames into a single table.
 
-For attendance data, we used the `game_id` identifier to query the
-ESPN API and retrieve data on attendance. We also attempted to use the
+For attendance data, we used the `game_id` identifier to query the ESPN
+API and retrieve data on attendance. We also attempted to use the
 `hoopR` package, which had data in its repository files, but ultimately
 used the ESPN API.
 
-Finally, we processed and merged all of the collected data into
-one data frame using the `data_cleanup.R` script. The script included
-processing steps such as filtering and renaming variables, geocoding
-college locations, and merging data frames.
+Finally, we processed and merged all of the collected data into one data
+frame using the `data_cleanup.R` script. The script included processing
+steps such as filtering and renaming variables, geocoding college
+locations, and merging data frames.
 
 #### Data Source Overview:
 
@@ -209,26 +210,71 @@ to home, this data would have to be roughly estimated.
 
 **Data Exploration:**
 
-We will explore the datasets listed above and determine which would be
-useful to answer our research question(s).
+We created a correlation matrix of our factors. Due to how we calculated
+some of our features, many of the relationships were not surprising such
+as the highly correlated rating factors. However, things like points
+scored over the last 5 games didn't correlate with total turnovers in
+the last 5 games as strongly as expected. Meaning that points off
+turnovers isn't as large of a factor to points scored as anticipated.
 
-**Data Cleaning:**
+![Data Exploration - Correlation Plot of Win Probability
+Predictors](images/Data%20Exploration%20-%20Correlation%20Plot%20of%20Win%20Probability%20Predictors-01.png)
 
--   Eliminate 2020, 2021 Attendance - For our attendance analysis, we
-    intend to remove 2021 NCAA tournament game attendance data due to
-    the capacity limits due to COVID restrictions.
--   Proximity to Home - We plan to calculate the distance between city
-    of game and the participating schools' college campus location
-    coordinates (latitude / longitude differential)
--   Momentum - To provide greater weight to more recent performance, we
-    are planning to engineer a predictor that includes an average
-    efficiency rating for each team over their previous 5-10 games.
--   Win Quality - If available in our data sets, we will utilize NCAA
-    based quality of win statistic of quadrants ("Quad I, II, III, IV
-    win / loss"). If not available, we will create a version of this
-    with our own formula utilizing $PointDifferential\times(HomeOrAway)$
--   Team Stat Differential - Team game results (Total Rebounds, total
-    assists, etc.)
+In addition to our correlations, we examined the distributions of
+factors to determine how well we hit normality assumptions and for
+scaling purposes in later analyses. Due to the large size of the data,
+our predictors were approximately normal.
+
+![Data Exploration - Density Plot of Win Probability
+Predictors](images/Data%20Exploration%20-%20Density%20Plot%20of%20Win%20Probability%20Predictors.png)
+
+### Initial Modeling
+
+Initially, we aimed to predict game outcomes by creating models based on
+select features. We engineered new columns to transform data into a
+time-series format, focusing on recent games rather than future ones.
+Our exploratory model analyzed stats like the point differential,
+offensive/defensive efficiency ratings, turnover differential, and
+home/away/neutral status of teams in the last five games.
+
+To establish a performance baseline for our own win probability
+predictive models, we used ESPN's contingency table predictions. We
+compared the actual outcomes of games with ESPN's predictions and found
+their accuracy to be approximately 73.26% (precision = 73.81%,
+specificity = 72.64%). This serves as a useful benchmark as we continue
+to refine our own predictions.
+
+|             | Predicted Win | Predicted Loss |
+|-------------|---------------|----------------|
+| Actual Win  | 36,564        | 12,946         |
+| Actual Loss | 12,976        | 34,445         |
+
+: ESPN Confusion Matrix (omitting the first 5 games of each team of each
+season)
+
+Our initial win probability model was a logistic regression model
+through the `glm(, family='binomial')` function in R. We considered all
+factors from our correlation matrix. From this, we found that there was
+no real difference in terms of AIC between the logit and probit. The
+confusion matrix below shows that our Logit model's accuracy = 65.35%,
+precision = 65.78%, specificity = 63.59%.
+
+|             | Predicted Win | Predicted Loss |
+|-------------|---------------|----------------|
+| Actual Win  | 33,193        | 16,317         |
+| Actual Loss | 17,267        | 30,154         |
+
+: Logit Model Confusion Matrix (omitting the first 5 games of each team
+of each season)
+
+As expected, ESPN does outperform our initial logit model. This will
+provide us with a good baseline to reference for our future modeling
+attempts.
+
+Of note, the coefficient of the factor of home / away from our logit
+model initially confirmed the common assumption that there is a home
+field advantage. These results may change as we continue to develop our
+models.
 
 ### Next Steps
 
@@ -291,313 +337,4 @@ the proportion of actual outcomes that were correctly predicted.
     Check,* 16 Mar 2022,
     <https://tvnewscheck.com/business/article/advertisers-go-mad-for-march-madness/>
 
-# Phase 3: Progress Report
-
-### What is it? 
-
--   It will be a detailed description of what you have done so far,
-    preliminary results you obtained, adjustments to be made if any, and
-    the work that lies ahead. 
-
--   The document itself will be a text submission similar in format to
-    the an academic paper
-
--   Think of the report as a formal progress report to send to a manager
-    who may or may not be totally familiar with all the details and
-    purpose of the project. Take care to explain everything clearly and
-    provide proper background knowledge when necessary.
-
--    It is alright to assume your audience has some familiarity with
-    statistical models.
-
--   Note that this is a PROGRESS report, it is ok if you haven't done
-    everything, yet we expect you to show us what you've done so far and
-    what you plan to do.
-
-### What to Include & What is Required? 
-
--   "Academic-like" paper with dense text inline figures, no direct
-    dense code cells within the paper. Code files related to the project
-    are included in the repository files but are self-contained.
-    Detailed instructions are provided accordingly. No need to submit
-    these files with the progress report, but they will be needed during
-    phase 4. 
-
--   Describe in depth the novelties of your approach and your initial
-    discoveries/insights/experiments, etc. and the analysis that is
-    still to be done to conclude your analysis 
-
-    -   Data cleaning and combining of data
-    -   Very deep / complex data
-
--   Necessary background information/framing of the problem
-
-    -   Well explained in the Project Background
-
--   Include an overview of the problem in general as well as your
-    planned approach (it is ok if this approach changes later in the
-    project as you learn more information)
-
-    -   Well explained throughout the Progress Report overall
-
--   Any initial hypotheses?
-
-    -   Found in the "Modeling" and "Key Variable" sections.
-
--   What type of models do you plan to use?
-
-    -   Found in the "Modeling" section
-    -   (Stretch goal for this Saturday) Simple regression with a few
-        factors for now, performance vs. ESPN (currently)
-
--   How has your data cleaning progressed?
-
-    -   
-
-        ## Order of events (Data):
-
-            ```         
-              Win probabilities: creating pbp_win_probabilities_tbl.csv, attendance data
-            ```
-
-        -   
-
-                  initial RAW betting data with betting script - ran teh data_cleaning_hoopR.R to create 9 files.
-
-        -   
-
-                  attendance data: create espn_mbb_attendance_2012_2022_tbl.csv
-
-        -   
-
-                  additional data: created espn_mbb_pickcenter_2012_2022_tbl.csv
-
-        -   
-
-                  ap poll data: data_cleaning_ap_polls.R, ap_poll_2012_2022_raw_tbl.csv
-
-        -   
-
-                  attendance among other things: data_cleaning_attendance.R, create mbb_attendance_2012_2022_tbl.csv
-
-        -   
-
-                  updates to cleanup: change data_cleanup.R, data_reader.R, created geocoded_locations_tbl.csv
-
-    -   
-
-        ## Order of events(Code):
-
-            ```         
-              data gathering script: created data_gathering.R and data_gathering_ncaahoopR.R
-            ```
-
-        -   
-
-                  updates: data_cleanup.R created, data_gathering_ncaahoopR.R changed (minor)
-
-        -   
-
-                  hoopR script initial commit... cleanup to be done later: created data_cleaning_hoopR.R
-
-        -   
-
-                  inital RAW betting data commit with betting script: data_cleaning_hoopR.R was deleted, data_cleaning_hoopR_betting.R was created to pull in the same data with the betting. many datasets created: espn_mbb_betting_2012_2015, espn_mbb_bettering_2016_20..., espn_mbb_betting..., mbb_box_score_2012_2022, pbp_win_probabilities_tbl.csv.
-
-        -   
-
-                  adjust data read: changes to data_cleaning_hoopR_betting.R
-
-        -   
-
-                  attendance script: created data_cleaning_hoopR_attendance.R
-
-        -   
-
-                  added data write: added data write to data_cleaning_hoopR_betting.R
-
-        -   
-
-                  temp: created a data_reader.R for us to see the data... also added the us-colleges-... data
-
-        -   
-
-                  ap poll data: created data_cleaning_ap_polls.R, created ap_poll_2012_2022_raw_tbl.csv
-
-        -   
-
-                  attendance among other things: created data_cleaning_attendance.R, uses ESPN API instead of hoopR repo. create newer attendance data set
-
-        -   
-
-                  updates to cleanup: changes to data_cleanup.R - including geocode data, create geocoded_locations_tbl.csv
-
-    -   How we got our bulk data: (data_gathering_ncaahoopR.R)
-
-        -   The collection of data started with using the data sets
-            within the `ncaahoopR` library and combining the datasets
-            that were interesting to our project. Overall, the script
-            `data_gathering_ncaahoopR.R` aggregates box score,
-            play-by-play, rosters and schedule files from the
-            `ncaahoopR` library. The resulting data frame is the basis
-            for ammending and creating all other features. From here on
-            out, the feature `game_id` will be used as the index for
-            which we join new data into the larger data frame.
-
-    -   How we got the AP Polls data: (data_cleaning_ap_polls.R)
-
-        -   As work progressed, we found it easier to acquire the AP
-            Polls data via writing a web-scraping function that collects
-            the data from sports-reference.com.To do this, the `rvest`
-            package was used which has a `read-html` function which
-            helped extract the data using `html-nodes` and `html_table`
-            functions. The `tidyverse` package and `lapply()` function
-            was also used in this process in order to mutate and combine
-            scraped data frames into a single table. The resulting table
-            contains all the AP Poll data for the years 2012 to 2022.
-
-    -   How we got/added the Attendance Data:
-        (data_cleaning_attendance.R, data_cleaning_hoopR_attendance.R)
-
-        -   At this point, each game in the dataset has a unique
-            identifier called `game_id`. This identifier was used to
-            query the ESPN API to get data on the attendance of the game
-            from <https://site.api.espn.com>. Another version of this
-            process was also attempted using the `hoopR` package, which
-            had data in its repository files. The returned data was then
-            parsed into a data frame. Notable packages used during this
-            process were: `devtools`, `ncaahoopR`, `tidyverse`, `hoopR`,
-            `tictoc`, `httr`, and `jsonlite`.
-        -   When data collection / scraping became large and
-            time-consuming, multiple cores were used to make the process
-            more time-efficient.
-
-    -   How we got betting data: (data_cleaning_hoopR_betting.R)
-
-        -   Similar to how we got attendance data, we employed the
-            `hoopR` package upon the `game_ids` from the box score
-            dataset. The `espn_mbb_betting(<game_id>)` function allowed
-            retrieval of the relevant data (win probability, spread
-            data, game-projections data) per game from ESPN. Due to the
-            size of the data files, this data had to be stored within 3
-            different files.
-
-    -   Processing the data into one data frame (data_cleanup.R)
-
-        -   After collecting box score, attendance, AP Polls and college
-            location data through previously discussed scripts, the data
-            was processed and merged into one data frame. Some of the
-            processing included: changing variable names and layout
-            within the data frame, estimating positions, calculating
-            defensive and offensive ratings, removing redundant
-            variables, etc.
-
-Summary: This passage describes the process of collecting and cleaning
-data for a project related to NCAA basketball. The project involved
-gathering data on game outcomes, betting odds, attendance, and AP poll
-rankings for college basketball games between 2012 and 2022. The data
-was collected using a combination of web scraping and querying APIs.
-
-The data collection process began with using datasets from the `ncaahoopR`
-library, which included box score, play-by-play, rosters, and schedule
-files. The resulting data frame served as the basis for amending and
-creating other features.
-
-To collect data on AP poll rankings, the we wrote a web-scraping
-function that collected data from sports-reference.com using the `rvest`
-package. The data was then processed using the `tidyverse` package and
-`lapply()` function to combine scraped data frames into a single table.
-
-For attendance data, we used the `game_id` identifier to query the
-ESPN API and retrieve data on attendance. We also attempted to use the
-`hoopR` package, which had data in its repository files, but ultimately
-used the ESPN API.
-
-Similarly, we used the `hoopR` package to retrieve betting data
-for each game using the `espn_mbb_betting(<game_id>)` function. Due to the
-size of the data files, this data had to be stored within three
-different files.
-
-Finally, we processed and merged all of the collected data into
-one data frame using the `data_cleanup.R` script. The script included
-processing steps such as filtering and renaming variables, geocoding
-college locations, and merging data frames.
-
--   If you encounter any unexpected problems, challenges, or interesting
-    findings please mention these. Discussion of things that didn't work
-    is also encouraged. 
-
-    -   Because we were scraping data from ESPN and other sources, there
-        were times when we were throttled and even blocked from pulling
-        data. This was an unforeseen issue that ultimately required our
-        team to take a step back and rethink our approach. We found a
-        publicly available ESPN API that allowed us to pull the
-        necessary data in a more efficient manner than web scraping.
-    -   There are many different ways for us to clean our data and one
-        of the biggest challenges is determining what is right for our
-        project. Do we want to use stats based on the last 5 games, 10
-        games? Do we want to focus solely on how a single team performs
-        or do we want to compare how the team performs vs how the
-        opponent performs? These are the kinds of questions that we've
-        asked ourselves to determine how the data will be formatted for
-        analysis.
-
--   You could include things like any new datasets that you have found,
-    any analysis that you have done on the datasets, or any other
-    impactful and measurable progress that you have made thus far. 
-
--   Literature survey of at least 2-3 sources
-
-    -   Grab this from the Proposal Presentation
-
--   Works cited section.
-
-    -   Add from the Literature survey...
-    -   Matthew Royalty to update with new sources - done
-
--   Include key visuals in line with text, but always be sure to include
-    labels, axes, captions, legends, and most importantly context!
-    
-  - Simplify our objectives:
-    -   Focus on win-loss:
-        - Stats differentials that are interesting:
-          - points differential of teams from last 5 games.
-          - offensive / defensive efficiency ratings last 5 games.
-            - based on opponent
-          - turnover differential last 5 games.
-          - home, away, neutral
-
-    -   Maybe by Saturday, a correlation matrix
-    -   Contingency table, ESPN probabilities vs actuals
-    -   Can we see a home-court advantage?
-
-The simplified exploration:
-- Our exploration of predicting win/loss per game started with us creating models based on a few features that seemed promising. For instance, we chose to create new columns that allowed us to essentially put data into a time-series format (only calculating features based on recent games, not games in the future). For our exploratory model, we focused on stats differentials like: points differentials of teams from last 5 games, offensive / defensive efficiency ratings of last 5 games, turnover differential for the last 5 games and whether the team was home, away or at a neutral site.
-
-- Initial exploration was to see how well we would be able to recreate the contingency table from ESPN. For this process, we predicted the winner of the game based on points scored by each team in the game. The output of this algorithm is a binary predictor for each team in the game on whether or not they won. We also pulled in the pre-game predictions on which team should win, which was already recorded in our data sets.
-    
-    - For a later date:
-      - VIF
-      - Geographical data for team location mapping.
-      - Tables that were cut from proposal
-      - Average efficiency rating over last 10 games vs opponents
-      - Time-series of say ranking of a particular team
-        -   Can coordinate team logo / colors to plots
-        
-### Submission 
-
--   Group Primary Contact will submit your Project Progress Report on
-    behalf of the group via the corresponding assignment on Canvas/Edx. 
-
--   Please name the submission entry in the following format:
-    **teamXXXprogressreport.pdf**. 
-
-### Grading
-
--   TA feedback /grades on Project Progress Report will be available
-    within 10 days (about 1 and a half weeks) after the assignment due
-    date (These may imply substantial changes) 
-
--   Rubric Coming Soon
-
--   
+# 
