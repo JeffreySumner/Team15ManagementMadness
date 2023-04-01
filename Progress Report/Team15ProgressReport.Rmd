@@ -557,16 +557,30 @@ college locations, and merging data frames.
 
 -   Include key visuals in line with text, but always be sure to include
     labels, axes, captions, legends, and most importantly context!
+    
+  - Simplify our objectives:
+    -   Focus on win-loss:
+        - Stats differentials that are interesting:
+          - points differential of teams from last 5 games.
+          - offensive / defensive efficiency ratings last 5 games.
+            - based on opponent
+          - turnover differential last 5 games.
+          - home, away, neutral
 
     -   Maybe by Saturday, a correlation matrix
-    -   Geographical data for team location mapping.
-    -   Tables that were cut from proposal
     -   Contingency table, ESPN probabilities vs actuals
-    -   Average efficiency rating over last 10 games vs opponents
-    -   Time-series of say ranking of a particular team
-        -   Can coordinate team logo / colors to plots
-    -   Can we see a home-court advantage
+    -   Can we see a home-court advantage?
 
+    
+    
+    - For a later date:
+      - VIF
+      - Geographical data for team location mapping.
+      - Tables that were cut from proposal
+      - Average efficiency rating over last 10 games vs opponents
+      - Time-series of say ranking of a particular team
+        -   Can coordinate team logo / colors to plots
+        
 ### Submission 
 
 -   Group Primary Contact will submit your Project Progress Report on
