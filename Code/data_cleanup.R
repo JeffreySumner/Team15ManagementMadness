@@ -239,22 +239,6 @@ geocoded_data <- locations %>%
 # readr::write_csv(geocoded_data, "Data/geocoded_locations_tbl.csv")
 geocoded_tbl <- readr::read_csv("Data/geocoded_locations_tbl.csv")
 
-# Model Test ----
-
-box_score_clean %>%
-  pivot_longer(c(-game_id,-game_date,-season)) %>%
-  head(1000) %>%
-  arrange(game_date) %>%
-  group_by(season,name) %>%
-  mutate(avg_value = zoo::rollmean(value,10)) %>%
-  pivot_longer() %>%
-  mutate( case_when()) %>%
-  pivot_wider()
-
-
-lm(Win% ~ . , data = data)
-
-
 # Additional Tests ----
 
 
