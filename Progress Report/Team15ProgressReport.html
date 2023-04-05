@@ -1792,23 +1792,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -1855,6 +1849,8 @@ display: none;
 
 <div id="mgt-madness---team-15-progress-report" class="section level2">
 <h2>MGT Madness - Team 15 Progress Report</h2>
+<p>Group Members: Michael Munson, Matthew Rosenthal, Matthew Royalty,
+Jeffrey Sumner</p>
 <div id="project-background" class="section level3">
 <h3>Project Background:</h3>
 <p>Sports, especially the NCAA March Madness tournament, are popular for

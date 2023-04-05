@@ -5,12 +5,15 @@ editor_options:
 output:
   html_document:
     df_print: paged
+  pdf_document: default
 geometry: margin=.5in
 fontsize: 11pt
 always_allow_html: yes
 ---
 
 ## MGT Madness - Team 15 Progress Report
+
+Group Members: Michael Munson, Matthew Rosenthal, Matthew Royalty, Jeffrey Sumner
 
 ### Project Background:
 
