@@ -209,7 +209,7 @@ attendance_clean <- mbb_attendance_2012_2022_tbl %>%
 
 # Clean AP Poll Data ----
 
-ap_poll_clean <- ap_poll_2012_2022_raw_tbl %>%
+ap_poll_clean_tbl <- ap_poll_2012_2022_raw_tbl %>%
   filter(!is.na(school)) %>%
   pivot_longer(c(-school, -conference, -year)) %>%
   filter(
@@ -223,7 +223,7 @@ ap_poll_clean <- ap_poll_2012_2022_raw_tbl %>%
     , ap_rank = value
   )
 
-
+readr::write_csv(ap_poll_clean_tbl, "Data/clean/ap_poll_clean_tbl.csv")
 
 # Clean Colleges and Universities ----
 

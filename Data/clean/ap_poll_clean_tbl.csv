@@ -1,0 +1,5284 @@
+team_name,conference,season,week,ap_rank
+Alabama,SEC,2012,1,19
+Alabama,SEC,2012,2,16
+Alabama,SEC,2012,3,13
+Alabama,SEC,2012,4,12
+Alabama,SEC,2012,5,16
+Alabama,SEC,2012,6,23
+Arizona,Pac-12,2012,1,16
+Arizona,Pac-12,2012,2,15
+Arizona,Pac-12,2012,3,23
+Baylor,Big 12,2012,1,12
+Baylor,Big 12,2012,2,11
+Baylor,Big 12,2012,3,9
+Baylor,Big 12,2012,4,7
+Baylor,Big 12,2012,5,6
+Baylor,Big 12,2012,6,6
+Baylor,Big 12,2012,7,6
+Baylor,Big 12,2012,8,6
+Baylor,Big 12,2012,9,4
+Baylor,Big 12,2012,10,4
+Baylor,Big 12,2012,11,3
+Baylor,Big 12,2012,12,6
+Baylor,Big 12,2012,13,6
+Baylor,Big 12,2012,14,6
+Baylor,Big 12,2012,15,9
+Baylor,Big 12,2012,16,13
+Baylor,Big 12,2012,17,9
+Baylor,Big 12,2012,18,12
+Baylor,Big 12,2012,19,9
+California,Pac-12,2012,1,24
+California,Pac-12,2012,2,23
+California,Pac-12,2012,3,20
+California,Pac-12,2012,4,24
+Cincinnati,Big East,2012,1,21
+Cincinnati,Big East,2012,2,20
+Creighton,MVC,2012,5,19
+Creighton,MVC,2012,6,25
+Creighton,MVC,2012,7,23
+Creighton,MVC,2012,8,21
+Creighton,MVC,2012,10,23
+Creighton,MVC,2012,11,19
+Creighton,MVC,2012,12,15
+Creighton,MVC,2012,13,13
+Creighton,MVC,2012,14,17
+Creighton,MVC,2012,17,25
+Creighton,MVC,2012,18,19
+Creighton,MVC,2012,19,19
+Duke,ACC,2012,1,6
+Duke,ACC,2012,2,6
+Duke,ACC,2012,3,6
+Duke,ACC,2012,4,3
+Duke,ACC,2012,5,7
+Duke,ACC,2012,6,7
+Duke,ACC,2012,7,7
+Duke,ACC,2012,8,7
+Duke,ACC,2012,9,5
+Duke,ACC,2012,10,8
+Duke,ACC,2012,11,4
+Duke,ACC,2012,12,8
+Duke,ACC,2012,13,7
+Duke,ACC,2012,14,10
+Duke,ACC,2012,15,5
+Duke,ACC,2012,16,5
+Duke,ACC,2012,17,4
+Duke,ACC,2012,18,6
+Duke,ACC,2012,19,8
+Florida,SEC,2012,1,8
+Florida,SEC,2012,2,7
+Florida,SEC,2012,3,10
+Florida,SEC,2012,4,10
+Florida,SEC,2012,5,12
+Florida,SEC,2012,6,13
+Florida,SEC,2012,7,11
+Florida,SEC,2012,8,10
+Florida,SEC,2012,9,13
+Florida,SEC,2012,10,19
+Florida,SEC,2012,11,17
+Florida,SEC,2012,12,14
+Florida,SEC,2012,13,12
+Florida,SEC,2012,14,8
+Florida,SEC,2012,15,14
+Florida,SEC,2012,16,12
+Florida,SEC,2012,17,16
+Florida,SEC,2012,18,22
+Florida,SEC,2012,19,25
+Florida State,ACC,2012,2,25
+Florida State,ACC,2012,3,22
+Florida State,ACC,2012,12,23
+Florida State,ACC,2012,13,21
+Florida State,ACC,2012,14,15
+Florida State,ACC,2012,15,20
+Florida State,ACC,2012,16,15
+Florida State,ACC,2012,17,22
+Florida State,ACC,2012,18,17
+Florida State,ACC,2012,19,10
+Georgetown,Big East,2012,5,18
+Georgetown,Big East,2012,6,16
+Georgetown,Big East,2012,7,16
+Georgetown,Big East,2012,8,12
+Georgetown,Big East,2012,9,9
+Georgetown,Big East,2012,10,11
+Georgetown,Big East,2012,11,10
+Georgetown,Big East,2012,12,9
+Georgetown,Big East,2012,13,14
+Georgetown,Big East,2012,14,12
+Georgetown,Big East,2012,15,10
+Georgetown,Big East,2012,16,9
+Georgetown,Big East,2012,17,11
+Georgetown,Big East,2012,18,13
+Georgetown,Big East,2012,19,15
+Gonzaga,WCC,2012,1,23
+Gonzaga,WCC,2012,2,22
+Gonzaga,WCC,2012,3,19
+Gonzaga,WCC,2012,4,19
+Gonzaga,WCC,2012,5,23
+Gonzaga,WCC,2012,9,25
+Gonzaga,WCC,2012,10,21
+Gonzaga,WCC,2012,13,24
+Gonzaga,WCC,2012,15,24
+Gonzaga,WCC,2012,18,24
+Harvard,Ivy,2012,5,25
+Harvard,Ivy,2012,8,24
+Harvard,Ivy,2012,9,22
+Harvard,Ivy,2012,14,25
+Illinois,Big Ten,2012,5,24
+Illinois,Big Ten,2012,6,19
+Illinois,Big Ten,2012,7,25
+Illinois,Big Ten,2012,11,22
+Indiana,Big Ten,2012,6,18
+Indiana,Big Ten,2012,7,17
+Indiana,Big Ten,2012,8,13
+Indiana,Big Ten,2012,9,12
+Indiana,Big Ten,2012,10,7
+Indiana,Big Ten,2012,11,11
+Indiana,Big Ten,2012,12,16
+Indiana,Big Ten,2012,13,20
+Indiana,Big Ten,2012,14,23
+Indiana,Big Ten,2012,15,18
+Indiana,Big Ten,2012,16,23
+Indiana,Big Ten,2012,17,18
+Indiana,Big Ten,2012,18,15
+Indiana,Big Ten,2012,19,16
+Iowa State,Big 12,2012,18,25
+Kansas,Big 12,2012,1,13
+Kansas,Big 12,2012,2,12
+Kansas,Big 12,2012,3,14
+Kansas,Big 12,2012,4,15
+Kansas,Big 12,2012,5,13
+Kansas,Big 12,2012,6,12
+Kansas,Big 12,2012,7,12
+Kansas,Big 12,2012,8,17
+Kansas,Big 12,2012,9,14
+Kansas,Big 12,2012,10,10
+Kansas,Big 12,2012,11,7
+Kansas,Big 12,2012,12,5
+Kansas,Big 12,2012,13,8
+Kansas,Big 12,2012,14,7
+Kansas,Big 12,2012,15,4
+Kansas,Big 12,2012,16,4
+Kansas,Big 12,2012,17,3
+Kansas,Big 12,2012,18,3
+Kansas,Big 12,2012,19,6
+Kansas State,Big 12,2012,9,23
+Kansas State,Big 12,2012,10,18
+Kansas State,Big 12,2012,11,25
+Kansas State,Big 12,2012,12,22
+Kentucky,SEC,2012,1,2
+Kentucky,SEC,2012,2,2
+Kentucky,SEC,2012,3,2
+Kentucky,SEC,2012,4,1
+Kentucky,SEC,2012,5,1
+Kentucky,SEC,2012,6,3
+Kentucky,SEC,2012,7,3
+Kentucky,SEC,2012,8,3
+Kentucky,SEC,2012,9,2
+Kentucky,SEC,2012,10,2
+Kentucky,SEC,2012,11,2
+Kentucky,SEC,2012,12,1
+Kentucky,SEC,2012,13,1
+Kentucky,SEC,2012,14,1
+Kentucky,SEC,2012,15,1
+Kentucky,SEC,2012,16,1
+Kentucky,SEC,2012,17,1
+Kentucky,SEC,2012,18,1
+Kentucky,SEC,2012,19,1
+Louisville,Big East,2012,1,9
+Louisville,Big East,2012,2,8
+Louisville,Big East,2012,3,7
+Louisville,Big East,2012,4,6
+Louisville,Big East,2012,5,5
+Louisville,Big East,2012,6,4
+Louisville,Big East,2012,7,4
+Louisville,Big East,2012,8,4
+Louisville,Big East,2012,9,11
+Louisville,Big East,2012,10,14
+Louisville,Big East,2012,11,23
+Louisville,Big East,2012,14,24
+Louisville,Big East,2012,15,19
+Louisville,Big East,2012,16,17
+Louisville,Big East,2012,17,19
+Louisville,Big East,2012,19,17
+Marquette,Big East,2012,1,22
+Marquette,Big East,2012,2,21
+Marquette,Big East,2012,3,16
+Marquette,Big East,2012,4,16
+Marquette,Big East,2012,5,11
+Marquette,Big East,2012,6,11
+Marquette,Big East,2012,7,10
+Marquette,Big East,2012,8,14
+Marquette,Big East,2012,9,20
+Marquette,Big East,2012,10,25
+Marquette,Big East,2012,11,21
+Marquette,Big East,2012,12,17
+Marquette,Big East,2012,13,15
+Marquette,Big East,2012,14,18
+Marquette,Big East,2012,15,12
+Marquette,Big East,2012,16,10
+Marquette,Big East,2012,17,8
+Marquette,Big East,2012,18,9
+Marquette,Big East,2012,19,11
+Memphis,CUSA,2012,1,11
+Memphis,CUSA,2012,2,10
+Memphis,CUSA,2012,3,8
+Memphis,CUSA,2012,4,22
+Memphis,CUSA,2012,5,21
+Michigan,Big Ten,2012,1,18
+Michigan,Big Ten,2012,2,17
+Michigan,Big Ten,2012,3,15
+Michigan,Big Ten,2012,4,14
+Michigan,Big Ten,2012,5,20
+Michigan,Big Ten,2012,6,20
+Michigan,Big Ten,2012,7,20
+Michigan,Big Ten,2012,8,18
+Michigan,Big Ten,2012,9,16
+Michigan,Big Ten,2012,10,13
+Michigan,Big Ten,2012,11,20
+Michigan,Big Ten,2012,12,20
+Michigan,Big Ten,2012,13,23
+Michigan,Big Ten,2012,14,22
+Michigan,Big Ten,2012,15,17
+Michigan,Big Ten,2012,16,11
+Michigan,Big Ten,2012,17,13
+Michigan,Big Ten,2012,18,10
+Michigan,Big Ten,2012,19,13
+Michigan State,Big Ten,2012,6,21
+Michigan State,Big Ten,2012,7,19
+Michigan State,Big Ten,2012,8,16
+Michigan State,Big Ten,2012,9,10
+Michigan State,Big Ten,2012,10,6
+Michigan State,Big Ten,2012,11,9
+Michigan State,Big Ten,2012,12,10
+Michigan State,Big Ten,2012,13,9
+Michigan State,Big Ten,2012,14,11
+Michigan State,Big Ten,2012,15,7
+Michigan State,Big Ten,2012,16,6
+Michigan State,Big Ten,2012,17,5
+Michigan State,Big Ten,2012,18,8
+Michigan State,Big Ten,2012,19,5
+Mississippi State,SEC,2012,3,24
+Mississippi State,SEC,2012,4,21
+Mississippi State,SEC,2012,5,17
+Mississippi State,SEC,2012,6,17
+Mississippi State,SEC,2012,7,18
+Mississippi State,SEC,2012,8,15
+Mississippi State,SEC,2012,9,15
+Mississippi State,SEC,2012,10,20
+Mississippi State,SEC,2012,11,18
+Mississippi State,SEC,2012,12,18
+Mississippi State,SEC,2012,13,22
+Mississippi State,SEC,2012,14,20
+Missouri,Big 12,2012,1,25
+Missouri,Big 12,2012,2,24
+Missouri,Big 12,2012,3,21
+Missouri,Big 12,2012,4,13
+Missouri,Big 12,2012,5,10
+Missouri,Big 12,2012,6,10
+Missouri,Big 12,2012,7,9
+Missouri,Big 12,2012,8,8
+Missouri,Big 12,2012,9,7
+Missouri,Big 12,2012,10,9
+Missouri,Big 12,2012,11,5
+Missouri,Big 12,2012,12,2
+Missouri,Big 12,2012,13,4
+Missouri,Big 12,2012,14,4
+Missouri,Big 12,2012,15,3
+Missouri,Big 12,2012,16,3
+Missouri,Big 12,2012,17,7
+Missouri,Big 12,2012,18,5
+Missouri,Big 12,2012,19,3
+Murray State,OVC,2012,6,24
+Murray State,OVC,2012,7,22
+Murray State,OVC,2012,8,20
+Murray State,OVC,2012,9,19
+Murray State,OVC,2012,10,15
+Murray State,OVC,2012,11,12
+Murray State,OVC,2012,12,11
+Murray State,OVC,2012,13,10
+Murray State,OVC,2012,14,9
+Murray State,OVC,2012,15,16
+Murray State,OVC,2012,16,14
+Murray State,OVC,2012,17,12
+Murray State,OVC,2012,18,11
+Murray State,OVC,2012,19,12
+New Mexico,MWC,2012,16,18
+New Mexico,MWC,2012,19,21
+Notre Dame,Big East,2012,15,23
+Notre Dame,Big East,2012,16,20
+Notre Dame,Big East,2012,17,20
+Notre Dame,Big East,2012,18,23
+Ohio State,Big Ten,2012,1,3
+Ohio State,Big Ten,2012,2,3
+Ohio State,Big Ten,2012,3,3
+Ohio State,Big Ten,2012,4,2
+Ohio State,Big Ten,2012,5,2
+Ohio State,Big Ten,2012,6,2
+Ohio State,Big Ten,2012,7,2
+Ohio State,Big Ten,2012,8,2
+Ohio State,Big Ten,2012,9,6
+Ohio State,Big Ten,2012,10,5
+Ohio State,Big Ten,2012,11,6
+Ohio State,Big Ten,2012,12,4
+Ohio State,Big Ten,2012,13,3
+Ohio State,Big Ten,2012,14,3
+Ohio State,Big Ten,2012,15,6
+Ohio State,Big Ten,2012,16,8
+Ohio State,Big Ten,2012,17,10
+Ohio State,Big Ten,2012,18,7
+Ohio State,Big Ten,2012,19,7
+Pitt,Big East,2012,1,10
+Pitt,Big East,2012,2,9
+Pitt,Big East,2012,3,17
+Pitt,Big East,2012,4,17
+Pitt,Big East,2012,5,15
+Pitt,Big East,2012,6,15
+Pitt,Big East,2012,7,15
+Pitt,Big East,2012,8,22
+Saint Louis,A-10,2012,4,23
+Saint Mary's,WCC,2012,11,24
+Saint Mary's,WCC,2012,12,21
+Saint Mary's,WCC,2012,13,18
+Saint Mary's,WCC,2012,14,16
+Saint Mary's,WCC,2012,15,21
+Saint Mary's,WCC,2012,19,24
+San Diego State,MWC,2012,8,25
+San Diego State,MWC,2012,9,24
+San Diego State,MWC,2012,10,22
+San Diego State,MWC,2012,11,16
+San Diego State,MWC,2012,12,13
+San Diego State,MWC,2012,13,17
+San Diego State,MWC,2012,14,13
+San Diego State,MWC,2012,15,13
+San Diego State,MWC,2012,16,24
+San Diego State,MWC,2012,17,21
+San Diego State,MWC,2012,18,18
+San Diego State,MWC,2012,19,22
+Seton Hall,Big East,2012,10,24
+Syracuse,Big East,2012,1,5
+Syracuse,Big East,2012,2,5
+Syracuse,Big East,2012,3,5
+Syracuse,Big East,2012,4,4
+Syracuse,Big East,2012,5,3
+Syracuse,Big East,2012,6,1
+Syracuse,Big East,2012,7,1
+Syracuse,Big East,2012,8,1
+Syracuse,Big East,2012,9,1
+Syracuse,Big East,2012,10,1
+Syracuse,Big East,2012,11,1
+Syracuse,Big East,2012,12,3
+Syracuse,Big East,2012,13,2
+Syracuse,Big East,2012,14,2
+Syracuse,Big East,2012,15,2
+Syracuse,Big East,2012,16,2
+Syracuse,Big East,2012,17,2
+Syracuse,Big East,2012,18,2
+Syracuse,Big East,2012,19,2
+Temple,A-10,2012,16,22
+Temple,A-10,2012,17,23
+Temple,A-10,2012,18,21
+Texas A&M,Big 12,2012,1,20
+Texas A&M,Big 12,2012,2,19
+Texas A&M,Big 12,2012,3,25
+Texas A&M,Big 12,2012,4,25
+Texas A&M,Big 12,2012,5,22
+Texas A&M,Big 12,2012,6,22
+UCLA,Pac-12,2012,1,17
+UConn,Big East,2012,1,4
+UConn,Big East,2012,2,4
+UConn,Big East,2012,3,4
+UConn,Big East,2012,4,8
+UConn,Big East,2012,5,9
+UConn,Big East,2012,6,9
+UConn,Big East,2012,7,8
+UConn,Big East,2012,8,9
+UConn,Big East,2012,9,8
+UConn,Big East,2012,10,17
+UConn,Big East,2012,11,13
+UConn,Big East,2012,12,24
+UNC,ACC,2012,1,1
+UNC,ACC,2012,2,1
+UNC,ACC,2012,3,1
+UNC,ACC,2012,4,5
+UNC,ACC,2012,5,4
+UNC,ACC,2012,6,5
+UNC,ACC,2012,7,5
+UNC,ACC,2012,8,5
+UNC,ACC,2012,9,3
+UNC,ACC,2012,10,3
+UNC,ACC,2012,11,8
+UNC,ACC,2012,12,7
+UNC,ACC,2012,13,5
+UNC,ACC,2012,14,5
+UNC,ACC,2012,15,8
+UNC,ACC,2012,16,7
+UNC,ACC,2012,17,6
+UNC,ACC,2012,18,4
+UNC,ACC,2012,19,4
+UNLV,MWC,2012,4,18
+UNLV,MWC,2012,7,21
+UNLV,MWC,2012,8,19
+UNLV,MWC,2012,9,17
+UNLV,MWC,2012,10,12
+UNLV,MWC,2012,11,14
+UNLV,MWC,2012,12,12
+UNLV,MWC,2012,13,11
+UNLV,MWC,2012,14,14
+UNLV,MWC,2012,15,11
+UNLV,MWC,2012,16,21
+UNLV,MWC,2012,17,17
+UNLV,MWC,2012,18,20
+UNLV,MWC,2012,19,23
+Vanderbilt,SEC,2012,1,7
+Vanderbilt,SEC,2012,2,18
+Vanderbilt,SEC,2012,3,18
+Vanderbilt,SEC,2012,4,20
+Vanderbilt,SEC,2012,6,25
+Vanderbilt,SEC,2012,13,25
+Vanderbilt,SEC,2012,19,20
+Virginia,ACC,2012,7,24
+Virginia,ACC,2012,8,23
+Virginia,ACC,2012,9,21
+Virginia,ACC,2012,10,16
+Virginia,ACC,2012,11,15
+Virginia,ACC,2012,12,19
+Virginia,ACC,2012,13,16
+Virginia,ACC,2012,14,19
+Virginia,ACC,2012,15,22
+Virginia,ACC,2012,16,25
+Virginia,ACC,2012,17,24
+Wichita State,MVC,2012,15,24
+Wichita State,MVC,2012,16,19
+Wichita State,MVC,2012,17,15
+Wichita State,MVC,2012,18,16
+Wichita State,MVC,2012,19,18
+Wisconsin,Big Ten,2012,1,15
+Wisconsin,Big Ten,2012,2,14
+Wisconsin,Big Ten,2012,3,11
+Wisconsin,Big Ten,2012,4,9
+Wisconsin,Big Ten,2012,5,14
+Wisconsin,Big Ten,2012,6,14
+Wisconsin,Big Ten,2012,7,13
+Wisconsin,Big Ten,2012,8,11
+Wisconsin,Big Ten,2012,9,18
+Wisconsin,Big Ten,2012,12,25
+Wisconsin,Big Ten,2012,13,19
+Wisconsin,Big Ten,2012,14,21
+Wisconsin,Big Ten,2012,15,15
+Wisconsin,Big Ten,2012,16,16
+Wisconsin,Big Ten,2012,17,14
+Wisconsin,Big Ten,2012,18,14
+Wisconsin,Big Ten,2012,19,14
+Xavier,A-10,2012,1,14
+Xavier,A-10,2012,2,13
+Xavier,A-10,2012,3,12
+Xavier,A-10,2012,4,11
+Xavier,A-10,2012,5,8
+Xavier,A-10,2012,6,8
+Xavier,A-10,2012,7,14
+Arizona,Pac-12,2013,1,12
+Arizona,Pac-12,2013,2,12
+Arizona,Pac-12,2013,3,10
+Arizona,Pac-12,2013,4,9
+Arizona,Pac-12,2013,5,8
+Arizona,Pac-12,2013,6,8
+Arizona,Pac-12,2013,7,4
+Arizona,Pac-12,2013,8,3
+Arizona,Pac-12,2013,9,3
+Arizona,Pac-12,2013,10,4
+Arizona,Pac-12,2013,11,7
+Arizona,Pac-12,2013,12,6
+Arizona,Pac-12,2013,13,8
+Arizona,Pac-12,2013,14,7
+Arizona,Pac-12,2013,15,9
+Arizona,Pac-12,2013,16,12
+Arizona,Pac-12,2013,17,11
+Arizona,Pac-12,2013,18,18
+Arizona,Pac-12,2013,19,18
+Arizona,Pac-12,2013,20,21
+Baylor,Big 12,2013,1,19
+Baylor,Big 12,2013,2,16
+Baylor,Big 12,2013,3,24
+Butler,A-10,2013,7,19
+Butler,A-10,2013,8,18
+Butler,A-10,2013,9,17
+Butler,A-10,2013,10,14
+Butler,A-10,2013,11,13
+Butler,A-10,2013,12,9
+Butler,A-10,2013,13,9
+Butler,A-10,2013,14,14
+Butler,A-10,2013,15,11
+Butler,A-10,2013,16,15
+Butler,A-10,2013,17,20
+Cincinnati,Big East,2013,1,24
+Cincinnati,Big East,2013,2,24
+Cincinnati,Big East,2013,3,22
+Cincinnati,Big East,2013,4,17
+Cincinnati,Big East,2013,5,11
+Cincinnati,Big East,2013,6,11
+Cincinnati,Big East,2013,7,11
+Cincinnati,Big East,2013,8,8
+Cincinnati,Big East,2013,9,14
+Cincinnati,Big East,2013,10,21
+Cincinnati,Big East,2013,12,21
+Cincinnati,Big East,2013,13,24
+Cincinnati,Big East,2013,14,17
+Colorado,Pac-12,2013,3,23
+Colorado,Pac-12,2013,4,19
+Colorado State,MWC,2013,15,24
+Colorado State,MWC,2013,16,22
+Creighton,MVC,2013,1,16
+Creighton,MVC,2013,2,15
+Creighton,MVC,2013,3,14
+Creighton,MVC,2013,4,11
+Creighton,MVC,2013,5,16
+Creighton,MVC,2013,6,16
+Creighton,MVC,2013,7,17
+Creighton,MVC,2013,8,16
+Creighton,MVC,2013,9,16
+Creighton,MVC,2013,10,13
+Creighton,MVC,2013,11,12
+Creighton,MVC,2013,12,17
+Creighton,MVC,2013,13,21
+Creighton,MVC,2013,14,16
+Creighton,MVC,2013,19,23
+Creighton,MVC,2013,20,22
+Duke,ACC,2013,1,8
+Duke,ACC,2013,2,9
+Duke,ACC,2013,3,5
+Duke,ACC,2013,4,2
+Duke,ACC,2013,5,2
+Duke,ACC,2013,6,2
+Duke,ACC,2013,7,1
+Duke,ACC,2013,8,1
+Duke,ACC,2013,9,1
+Duke,ACC,2013,10,1
+Duke,ACC,2013,11,3
+Duke,ACC,2013,12,1
+Duke,ACC,2013,13,5
+Duke,ACC,2013,14,4
+Duke,ACC,2013,15,2
+Duke,ACC,2013,16,6
+Duke,ACC,2013,17,3
+Duke,ACC,2013,18,3
+Duke,ACC,2013,19,2
+Duke,ACC,2013,20,6
+Florida,SEC,2013,1,10
+Florida,SEC,2013,2,10
+Florida,SEC,2013,3,7
+Florida,SEC,2013,4,7
+Florida,SEC,2013,5,6
+Florida,SEC,2013,6,5
+Florida,SEC,2013,7,8
+Florida,SEC,2013,8,14
+Florida,SEC,2013,9,13
+Florida,SEC,2013,10,11
+Florida,SEC,2013,11,10
+Florida,SEC,2013,12,8
+Florida,SEC,2013,13,4
+Florida,SEC,2013,14,2
+Florida,SEC,2013,15,7
+Florida,SEC,2013,16,5
+Florida,SEC,2013,17,8
+Florida,SEC,2013,18,11
+Florida,SEC,2013,19,13
+Florida,SEC,2013,20,14
+Florida State,ACC,2013,1,25
+Georgetown,Big East,2013,4,20
+Georgetown,Big East,2013,5,15
+Georgetown,Big East,2013,6,15
+Georgetown,Big East,2013,7,15
+Georgetown,Big East,2013,8,15
+Georgetown,Big East,2013,9,15
+Georgetown,Big East,2013,10,19
+Georgetown,Big East,2013,14,20
+Georgetown,Big East,2013,15,15
+Georgetown,Big East,2013,16,11
+Georgetown,Big East,2013,17,7
+Georgetown,Big East,2013,18,5
+Georgetown,Big East,2013,19,5
+Georgetown,Big East,2013,20,8
+Gonzaga,WCC,2013,1,21
+Gonzaga,WCC,2013,2,19
+Gonzaga,WCC,2013,3,17
+Gonzaga,WCC,2013,4,12
+Gonzaga,WCC,2013,5,10
+Gonzaga,WCC,2013,6,14
+Gonzaga,WCC,2013,7,14
+Gonzaga,WCC,2013,8,13
+Gonzaga,WCC,2013,9,10
+Gonzaga,WCC,2013,10,9
+Gonzaga,WCC,2013,11,8
+Gonzaga,WCC,2013,12,10
+Gonzaga,WCC,2013,13,7
+Gonzaga,WCC,2013,14,6
+Gonzaga,WCC,2013,15,5
+Gonzaga,WCC,2013,16,3
+Gonzaga,WCC,2013,17,2
+Gonzaga,WCC,2013,18,1
+Gonzaga,WCC,2013,19,1
+Gonzaga,WCC,2013,20,1
+Illinois,Big Ten,2013,4,22
+Illinois,Big Ten,2013,5,13
+Illinois,Big Ten,2013,6,10
+Illinois,Big Ten,2013,7,10
+Illinois,Big Ten,2013,8,12
+Illinois,Big Ten,2013,9,11
+Illinois,Big Ten,2013,10,12
+Illinois,Big Ten,2013,11,23
+Indiana,Big Ten,2013,1,1
+Indiana,Big Ten,2013,2,1
+Indiana,Big Ten,2013,3,1
+Indiana,Big Ten,2013,4,1
+Indiana,Big Ten,2013,5,1
+Indiana,Big Ten,2013,6,1
+Indiana,Big Ten,2013,7,6
+Indiana,Big Ten,2013,8,5
+Indiana,Big Ten,2013,9,5
+Indiana,Big Ten,2013,10,5
+Indiana,Big Ten,2013,11,2
+Indiana,Big Ten,2013,12,7
+Indiana,Big Ten,2013,13,3
+Indiana,Big Ten,2013,14,1
+Indiana,Big Ten,2013,15,1
+Indiana,Big Ten,2013,16,1
+Indiana,Big Ten,2013,17,1
+Indiana,Big Ten,2013,18,2
+Indiana,Big Ten,2013,19,3
+Indiana,Big Ten,2013,20,4
+Kansas,Big 12,2013,1,7
+Kansas,Big 12,2013,2,7
+Kansas,Big 12,2013,3,12
+Kansas,Big 12,2013,4,10
+Kansas,Big 12,2013,5,9
+Kansas,Big 12,2013,6,9
+Kansas,Big 12,2013,7,9
+Kansas,Big 12,2013,8,6
+Kansas,Big 12,2013,9,6
+Kansas,Big 12,2013,10,6
+Kansas,Big 12,2013,11,4
+Kansas,Big 12,2013,12,3
+Kansas,Big 12,2013,13,2
+Kansas,Big 12,2013,14,5
+Kansas,Big 12,2013,15,14
+Kansas,Big 12,2013,16,9
+Kansas,Big 12,2013,17,6
+Kansas,Big 12,2013,18,4
+Kansas,Big 12,2013,19,7
+Kansas,Big 12,2013,20,3
+Kansas State,Big 12,2013,8,25
+Kansas State,Big 12,2013,9,25
+Kansas State,Big 12,2013,10,18
+Kansas State,Big 12,2013,11,16
+Kansas State,Big 12,2013,12,11
+Kansas State,Big 12,2013,13,18
+Kansas State,Big 12,2013,14,13
+Kansas State,Big 12,2013,15,10
+Kansas State,Big 12,2013,16,13
+Kansas State,Big 12,2013,17,13
+Kansas State,Big 12,2013,18,9
+Kansas State,Big 12,2013,19,11
+Kansas State,Big 12,2013,20,12
+Kentucky,SEC,2013,1,3
+Kentucky,SEC,2013,2,3
+Kentucky,SEC,2013,3,8
+Kentucky,SEC,2013,4,8
+Kentucky,SEC,2013,15,25
+Louisiana Tech,WAC,2013,17,25
+Louisville,Big East,2013,1,2
+Louisville,Big East,2013,2,2
+Louisville,Big East,2013,3,2
+Louisville,Big East,2013,4,5
+Louisville,Big East,2013,5,5
+Louisville,Big East,2013,6,6
+Louisville,Big East,2013,7,5
+Louisville,Big East,2013,8,4
+Louisville,Big East,2013,9,4
+Louisville,Big East,2013,10,3
+Louisville,Big East,2013,11,1
+Louisville,Big East,2013,12,5
+Louisville,Big East,2013,13,12
+Louisville,Big East,2013,14,11
+Louisville,Big East,2013,15,12
+Louisville,Big East,2013,16,10
+Louisville,Big East,2013,17,10
+Louisville,Big East,2013,18,8
+Louisville,Big East,2013,19,4
+Louisville,Big East,2013,20,2
+Marquette,Big East,2013,11,25
+Marquette,Big East,2013,13,25
+Marquette,Big East,2013,14,24
+Marquette,Big East,2013,15,18
+Marquette,Big East,2013,16,17
+Marquette,Big East,2013,17,22
+Marquette,Big East,2013,18,15
+Marquette,Big East,2013,19,12
+Marquette,Big East,2013,20,15
+Memphis,CUSA,2013,1,17
+Memphis,CUSA,2013,2,17
+Memphis,CUSA,2013,3,19
+Memphis,CUSA,2013,15,22
+Memphis,CUSA,2013,16,21
+Memphis,CUSA,2013,17,19
+Memphis,CUSA,2013,18,25
+Memphis,CUSA,2013,19,20
+Memphis,CUSA,2013,20,19
+Miami (FL),ACC,2013,12,25
+Miami (FL),ACC,2013,13,14
+Miami (FL),ACC,2013,14,8
+Miami (FL),ACC,2013,15,3
+Miami (FL),ACC,2013,16,2
+Miami (FL),ACC,2013,17,5
+Miami (FL),ACC,2013,18,6
+Miami (FL),ACC,2013,19,9
+Miami (FL),ACC,2013,20,5
+Michigan,Big Ten,2013,1,5
+Michigan,Big Ten,2013,2,5
+Michigan,Big Ten,2013,3,4
+Michigan,Big Ten,2013,4,3
+Michigan,Big Ten,2013,5,3
+Michigan,Big Ten,2013,6,3
+Michigan,Big Ten,2013,7,2
+Michigan,Big Ten,2013,8,2
+Michigan,Big Ten,2013,9,2
+Michigan,Big Ten,2013,10,2
+Michigan,Big Ten,2013,11,5
+Michigan,Big Ten,2013,12,2
+Michigan,Big Ten,2013,13,1
+Michigan,Big Ten,2013,14,3
+Michigan,Big Ten,2013,15,4
+Michigan,Big Ten,2013,16,7
+Michigan,Big Ten,2013,17,4
+Michigan,Big Ten,2013,18,7
+Michigan,Big Ten,2013,19,6
+Michigan,Big Ten,2013,20,10
+Michigan State,Big Ten,2013,1,14
+Michigan State,Big Ten,2013,2,21
+Michigan State,Big Ten,2013,3,15
+Michigan State,Big Ten,2013,4,13
+Michigan State,Big Ten,2013,5,19
+Michigan State,Big Ten,2013,6,19
+Michigan State,Big Ten,2013,7,20
+Michigan State,Big Ten,2013,8,19
+Michigan State,Big Ten,2013,9,18
+Michigan State,Big Ten,2013,10,22
+Michigan State,Big Ten,2013,11,18
+Michigan State,Big Ten,2013,12,13
+Michigan State,Big Ten,2013,13,13
+Michigan State,Big Ten,2013,14,12
+Michigan State,Big Ten,2013,15,8
+Michigan State,Big Ten,2013,16,4
+Michigan State,Big Ten,2013,17,9
+Michigan State,Big Ten,2013,18,10
+Michigan State,Big Ten,2013,19,8
+Michigan State,Big Ten,2013,20,9
+Minnesota,Big Ten,2013,4,21
+Minnesota,Big Ten,2013,5,14
+Minnesota,Big Ten,2013,6,13
+Minnesota,Big Ten,2013,7,13
+Minnesota,Big Ten,2013,8,11
+Minnesota,Big Ten,2013,9,9
+Minnesota,Big Ten,2013,10,8
+Minnesota,Big Ten,2013,11,9
+Minnesota,Big Ten,2013,12,12
+Minnesota,Big Ten,2013,13,23
+Minnesota,Big Ten,2013,14,18
+Missouri,SEC,2013,1,15
+Missouri,SEC,2013,2,14
+Missouri,SEC,2013,3,13
+Missouri,SEC,2013,4,16
+Missouri,SEC,2013,5,12
+Missouri,SEC,2013,6,12
+Missouri,SEC,2013,7,12
+Missouri,SEC,2013,8,7
+Missouri,SEC,2013,9,12
+Missouri,SEC,2013,10,10
+Missouri,SEC,2013,11,17
+Missouri,SEC,2013,12,22
+Missouri,SEC,2013,13,17
+Missouri,SEC,2013,14,21
+NC State,ACC,2013,1,6
+NC State,ACC,2013,2,6
+NC State,ACC,2013,3,16
+NC State,ACC,2013,4,18
+NC State,ACC,2013,5,25
+NC State,ACC,2013,6,25
+NC State,ACC,2013,7,25
+NC State,ACC,2013,8,23
+NC State,ACC,2013,9,23
+NC State,ACC,2013,10,20
+NC State,ACC,2013,11,14
+NC State,ACC,2013,12,18
+NC State,ACC,2013,13,19
+New Mexico,MWC,2013,4,25
+New Mexico,MWC,2013,5,18
+New Mexico,MWC,2013,6,17
+New Mexico,MWC,2013,7,16
+New Mexico,MWC,2013,9,20
+New Mexico,MWC,2013,10,25
+New Mexico,MWC,2013,11,19
+New Mexico,MWC,2013,12,15
+New Mexico,MWC,2013,13,20
+New Mexico,MWC,2013,14,15
+New Mexico,MWC,2013,15,19
+New Mexico,MWC,2013,16,16
+New Mexico,MWC,2013,17,14
+New Mexico,MWC,2013,18,12
+New Mexico,MWC,2013,19,15
+New Mexico,MWC,2013,20,10
+Notre Dame,Big East,2013,1,22
+Notre Dame,Big East,2013,2,20
+Notre Dame,Big East,2013,5,22
+Notre Dame,Big East,2013,6,22
+Notre Dame,Big East,2013,7,22
+Notre Dame,Big East,2013,8,21
+Notre Dame,Big East,2013,9,21
+Notre Dame,Big East,2013,10,17
+Notre Dame,Big East,2013,11,20
+Notre Dame,Big East,2013,12,24
+Notre Dame,Big East,2013,14,25
+Notre Dame,Big East,2013,15,21
+Notre Dame,Big East,2013,16,25
+Notre Dame,Big East,2013,17,21
+Notre Dame,Big East,2013,18,24
+Notre Dame,Big East,2013,19,24
+Notre Dame,Big East,2013,20,23
+Ohio State,Big Ten,2013,1,4
+Ohio State,Big Ten,2013,2,4
+Ohio State,Big Ten,2013,3,3
+Ohio State,Big Ten,2013,4,4
+Ohio State,Big Ten,2013,5,7
+Ohio State,Big Ten,2013,6,7
+Ohio State,Big Ten,2013,7,7
+Ohio State,Big Ten,2013,8,10
+Ohio State,Big Ten,2013,9,8
+Ohio State,Big Ten,2013,10,15
+Ohio State,Big Ten,2013,11,11
+Ohio State,Big Ten,2013,12,14
+Ohio State,Big Ten,2013,13,11
+Ohio State,Big Ten,2013,14,10
+Ohio State,Big Ten,2013,15,13
+Ohio State,Big Ten,2013,16,18
+Ohio State,Big Ten,2013,17,16
+Ohio State,Big Ten,2013,18,14
+Ohio State,Big Ten,2013,19,10
+Ohio State,Big Ten,2013,20,7
+Oklahoma State,Big 12,2013,3,20
+Oklahoma State,Big 12,2013,4,15
+Oklahoma State,Big 12,2013,5,23
+Oklahoma State,Big 12,2013,6,24
+Oklahoma State,Big 12,2013,7,24
+Oklahoma State,Big 12,2013,8,22
+Oklahoma State,Big 12,2013,9,22
+Oklahoma State,Big 12,2013,14,22
+Oklahoma State,Big 12,2013,15,17
+Oklahoma State,Big 12,2013,16,14
+Oklahoma State,Big 12,2013,17,15
+Oklahoma State,Big 12,2013,18,13
+Oklahoma State,Big 12,2013,19,14
+Oklahoma State,Big 12,2013,20,17
+Ole Miss,SEC,2013,12,23
+Ole Miss,SEC,2013,13,16
+Oregon,Pac-12,2013,11,21
+Oregon,Pac-12,2013,12,16
+Oregon,Pac-12,2013,13,10
+Oregon,Pac-12,2013,14,19
+Oregon,Pac-12,2013,15,23
+Oregon,Pac-12,2013,16,23
+Oregon,Pac-12,2013,17,24
+Oregon,Pac-12,2013,18,19
+Oregon,Pac-12,2013,20,25
+Pitt,Big East,2013,8,24
+Pitt,Big East,2013,9,24
+Pitt,Big East,2013,14,23
+Pitt,Big East,2013,15,16
+Pitt,Big East,2013,16,20
+Pitt,Big East,2013,17,23
+Pitt,Big East,2013,18,20
+Pitt,Big East,2013,19,17
+Pitt,Big East,2013,20,20
+Saint Louis,A-10,2013,17,18
+Saint Louis,A-10,2013,18,16
+Saint Louis,A-10,2013,19,16
+Saint Louis,A-10,2013,20,13
+San Diego State,MWC,2013,1,20
+San Diego State,MWC,2013,2,25
+San Diego State,MWC,2013,3,25
+San Diego State,MWC,2013,4,23
+San Diego State,MWC,2013,5,17
+San Diego State,MWC,2013,6,18
+San Diego State,MWC,2013,7,18
+San Diego State,MWC,2013,8,17
+San Diego State,MWC,2013,9,19
+San Diego State,MWC,2013,10,16
+San Diego State,MWC,2013,11,15
+San Diego State,MWC,2013,13,22
+Syracuse,Big East,2013,1,9
+Syracuse,Big East,2013,2,8
+Syracuse,Big East,2013,3,6
+Syracuse,Big East,2013,4,6
+Syracuse,Big East,2013,5,4
+Syracuse,Big East,2013,6,4
+Syracuse,Big East,2013,7,3
+Syracuse,Big East,2013,8,9
+Syracuse,Big East,2013,9,7
+Syracuse,Big East,2013,10,7
+Syracuse,Big East,2013,11,6
+Syracuse,Big East,2013,12,3
+Syracuse,Big East,2013,13,6
+Syracuse,Big East,2013,14,9
+Syracuse,Big East,2013,15,6
+Syracuse,Big East,2013,16,8
+Syracuse,Big East,2013,17,12
+Syracuse,Big East,2013,18,17
+Syracuse,Big East,2013,19,19
+Syracuse,Big East,2013,20,16
+UCLA,Pac-12,2013,1,13
+UCLA,Pac-12,2013,2,13
+UCLA,Pac-12,2013,3,11
+UCLA,Pac-12,2013,11,24
+UCLA,Pac-12,2013,18,23
+UCLA,Pac-12,2013,19,21
+UCLA,Pac-12,2013,20,24
+UConn,Big East,2013,2,23
+UConn,Big East,2013,3,21
+UNC,ACC,2013,1,11
+UNC,ACC,2013,2,11
+UNC,ACC,2013,3,9
+UNC,ACC,2013,4,14
+UNC,ACC,2013,5,20
+UNC,ACC,2013,6,21
+UNC,ACC,2013,7,23
+UNLV,MWC,2013,1,18
+UNLV,MWC,2013,2,18
+UNLV,MWC,2013,3,18
+UNLV,MWC,2013,4,24
+UNLV,MWC,2013,5,21
+UNLV,MWC,2013,6,20
+UNLV,MWC,2013,7,21
+UNLV,MWC,2013,8,20
+UNLV,MWC,2013,10,24
+VCU,A-10,2013,11,22
+VCU,A-10,2013,12,19
+VCU,A-10,2013,16,24
+VCU,A-10,2013,18,21
+VCU,A-10,2013,19,25
+Wichita State,MVC,2013,5,24
+Wichita State,MVC,2013,6,23
+Wichita State,MVC,2013,10,23
+Wichita State,MVC,2013,12,20
+Wichita State,MVC,2013,13,15
+Wisconsin,Big Ten,2013,1,23
+Wisconsin,Big Ten,2013,2,22
+Wisconsin,Big Ten,2013,15,20
+Wisconsin,Big Ten,2013,16,19
+Wisconsin,Big Ten,2013,17,17
+Wisconsin,Big Ten,2013,18,22
+Wisconsin,Big Ten,2013,19,22
+Wisconsin,Big Ten,2013,20,18
+Arizona,Pac-12,2014,1,6
+Arizona,Pac-12,2014,2,6
+Arizona,Pac-12,2014,3,5
+Arizona,Pac-12,2014,4,4
+Arizona,Pac-12,2014,5,2
+Arizona,Pac-12,2014,6,1
+Arizona,Pac-12,2014,7,1
+Arizona,Pac-12,2014,8,1
+Arizona,Pac-12,2014,9,1
+Arizona,Pac-12,2014,10,1
+Arizona,Pac-12,2014,11,1
+Arizona,Pac-12,2014,12,1
+Arizona,Pac-12,2014,13,1
+Arizona,Pac-12,2014,14,2
+Arizona,Pac-12,2014,15,2
+Arizona,Pac-12,2014,16,4
+Arizona,Pac-12,2014,17,3
+Arizona,Pac-12,2014,18,3
+Arizona,Pac-12,2014,19,4
+Arizona,Pac-12,2014,20,4
+Baylor,Big 12,2014,1,25
+Baylor,Big 12,2014,2,23
+Baylor,Big 12,2014,3,20
+Baylor,Big 12,2014,4,18
+Baylor,Big 12,2014,5,20
+Baylor,Big 12,2014,6,14
+Baylor,Big 12,2014,7,12
+Baylor,Big 12,2014,8,11
+Baylor,Big 12,2014,9,9
+Baylor,Big 12,2014,10,7
+Baylor,Big 12,2014,11,12
+Baylor,Big 12,2014,12,24
+Baylor,Big 12,2014,20,23
+Cincinnati,AAC,2014,11,19
+Cincinnati,AAC,2014,12,15
+Cincinnati,AAC,2014,13,13
+Cincinnati,AAC,2014,14,7
+Cincinnati,AAC,2014,15,10
+Cincinnati,AAC,2014,16,7
+Cincinnati,AAC,2014,17,11
+Cincinnati,AAC,2014,18,15
+Cincinnati,AAC,2014,19,13
+Cincinnati,AAC,2014,20,15
+Colorado,Pac-12,2014,6,21
+Colorado,Pac-12,2014,7,20
+Colorado,Pac-12,2014,8,21
+Colorado,Pac-12,2014,9,20
+Colorado,Pac-12,2014,10,15
+Colorado,Pac-12,2014,11,21
+Creighton,Big East,2014,3,23
+Creighton,Big East,2014,4,20
+Creighton,Big East,2014,11,20
+Creighton,Big East,2014,13,20
+Creighton,Big East,2014,14,12
+Creighton,Big East,2014,15,18
+Creighton,Big East,2014,16,12
+Creighton,Big East,2014,17,9
+Creighton,Big East,2014,18,13
+Creighton,Big East,2014,19,14
+Creighton,Big East,2014,20,16
+Dayton,A-10,2014,5,25
+Duke,ACC,2014,1,4
+Duke,ACC,2014,2,4
+Duke,ACC,2014,3,6
+Duke,ACC,2014,4,6
+Duke,ACC,2014,5,10
+Duke,ACC,2014,6,8
+Duke,ACC,2014,7,8
+Duke,ACC,2014,8,8
+Duke,ACC,2014,9,7
+Duke,ACC,2014,10,16
+Duke,ACC,2014,11,23
+Duke,ACC,2014,12,18
+Duke,ACC,2014,13,17
+Duke,ACC,2014,14,11
+Duke,ACC,2014,15,8
+Duke,ACC,2014,16,5
+Duke,ACC,2014,17,6
+Duke,ACC,2014,18,4
+Duke,ACC,2014,19,7
+Duke,ACC,2014,20,8
+Florida,SEC,2014,1,10
+Florida,SEC,2014,2,11
+Florida,SEC,2014,3,16
+Florida,SEC,2014,4,15
+Florida,SEC,2014,5,15
+Florida,SEC,2014,6,19
+Florida,SEC,2014,7,16
+Florida,SEC,2014,8,13
+Florida,SEC,2014,9,12
+Florida,SEC,2014,10,10
+Florida,SEC,2014,11,7
+Florida,SEC,2014,12,6
+Florida,SEC,2014,13,3
+Florida,SEC,2014,14,3
+Florida,SEC,2014,15,3
+Florida,SEC,2014,16,2
+Florida,SEC,2014,17,1
+Florida,SEC,2014,18,1
+Florida,SEC,2014,19,1
+Florida,SEC,2014,20,1
+Gonzaga,WCC,2014,1,15
+Gonzaga,WCC,2014,2,15
+Gonzaga,WCC,2014,3,13
+Gonzaga,WCC,2014,4,11
+Gonzaga,WCC,2014,5,19
+Gonzaga,WCC,2014,6,20
+Gonzaga,WCC,2014,7,21
+Gonzaga,WCC,2014,8,24
+Gonzaga,WCC,2014,9,24
+Gonzaga,WCC,2014,10,22
+Gonzaga,WCC,2014,14,23
+Gonzaga,WCC,2014,16,25
+Illinois,Big Ten,2014,10,23
+Iowa,Big Ten,2014,4,23
+Iowa,Big Ten,2014,5,23
+Iowa,Big Ten,2014,6,23
+Iowa,Big Ten,2014,7,25
+Iowa,Big Ten,2014,8,22
+Iowa,Big Ten,2014,9,22
+Iowa,Big Ten,2014,10,20
+Iowa,Big Ten,2014,11,14
+Iowa,Big Ten,2014,12,10
+Iowa,Big Ten,2014,13,15
+Iowa,Big Ten,2014,14,17
+Iowa,Big Ten,2014,15,16
+Iowa,Big Ten,2014,16,15
+Iowa,Big Ten,2014,17,20
+Iowa,Big Ten,2014,18,24
+Iowa State,Big 12,2014,3,21
+Iowa State,Big 12,2014,4,17
+Iowa State,Big 12,2014,5,17
+Iowa State,Big 12,2014,6,17
+Iowa State,Big 12,2014,7,17
+Iowa State,Big 12,2014,8,14
+Iowa State,Big 12,2014,9,13
+Iowa State,Big 12,2014,10,9
+Iowa State,Big 12,2014,11,8
+Iowa State,Big 12,2014,12,16
+Iowa State,Big 12,2014,13,16
+Iowa State,Big 12,2014,14,16
+Iowa State,Big 12,2014,15,11
+Iowa State,Big 12,2014,16,17
+Iowa State,Big 12,2014,17,15
+Iowa State,Big 12,2014,18,16
+Iowa State,Big 12,2014,19,16
+Iowa State,Big 12,2014,20,9
+Kansas,Big 12,2014,1,5
+Kansas,Big 12,2014,2,5
+Kansas,Big 12,2014,3,2
+Kansas,Big 12,2014,4,2
+Kansas,Big 12,2014,5,6
+Kansas,Big 12,2014,6,13
+Kansas,Big 12,2014,7,18
+Kansas,Big 12,2014,8,16
+Kansas,Big 12,2014,9,16
+Kansas,Big 12,2014,10,18
+Kansas,Big 12,2014,11,15
+Kansas,Big 12,2014,12,8
+Kansas,Big 12,2014,13,6
+Kansas,Big 12,2014,14,8
+Kansas,Big 12,2014,15,7
+Kansas,Big 12,2014,16,8
+Kansas,Big 12,2014,17,5
+Kansas,Big 12,2014,18,8
+Kansas,Big 12,2014,19,10
+Kansas,Big 12,2014,20,10
+Kansas State,Big 12,2014,10,25
+Kansas State,Big 12,2014,12,22
+Kentucky,SEC,2014,1,1
+Kentucky,SEC,2014,2,1
+Kentucky,SEC,2014,3,4
+Kentucky,SEC,2014,4,3
+Kentucky,SEC,2014,5,3
+Kentucky,SEC,2014,6,11
+Kentucky,SEC,2014,7,19
+Kentucky,SEC,2014,8,18
+Kentucky,SEC,2014,9,15
+Kentucky,SEC,2014,10,14
+Kentucky,SEC,2014,11,13
+Kentucky,SEC,2014,12,14
+Kentucky,SEC,2014,13,11
+Kentucky,SEC,2014,14,18
+Kentucky,SEC,2014,15,14
+Kentucky,SEC,2014,16,18
+Kentucky,SEC,2014,17,17
+Kentucky,SEC,2014,18,25
+Louisville,AAC,2014,1,3
+Louisville,AAC,2014,2,3
+Louisville,AAC,2014,3,3
+Louisville,AAC,2014,4,9
+Louisville,AAC,2014,5,7
+Louisville,AAC,2014,6,6
+Louisville,AAC,2014,7,6
+Louisville,AAC,2014,8,6
+Louisville,AAC,2014,9,14
+Louisville,AAC,2014,10,12
+Louisville,AAC,2014,11,18
+Louisville,AAC,2014,12,12
+Louisville,AAC,2014,13,12
+Louisville,AAC,2014,14,14
+Louisville,AAC,2014,15,13
+Louisville,AAC,2014,16,11
+Louisville,AAC,2014,17,7
+Louisville,AAC,2014,18,11
+Louisville,AAC,2014,19,5
+Louisville,AAC,2014,20,5
+Marquette,Big East,2014,1,17
+Marquette,Big East,2014,2,17
+Marquette,Big East,2014,3,25
+Marquette,Big East,2014,4,25
+Memphis,AAC,2014,1,13
+Memphis,AAC,2014,2,13
+Memphis,AAC,2014,3,11
+Memphis,AAC,2014,4,21
+Memphis,AAC,2014,5,16
+Memphis,AAC,2014,6,16
+Memphis,AAC,2014,7,15
+Memphis,AAC,2014,8,17
+Memphis,AAC,2014,9,18
+Memphis,AAC,2014,10,24
+Memphis,AAC,2014,11,17
+Memphis,AAC,2014,12,23
+Memphis,AAC,2014,13,22
+Memphis,AAC,2014,14,24
+Memphis,AAC,2014,15,20
+Memphis,AAC,2014,16,22
+Memphis,AAC,2014,17,21
+Memphis,AAC,2014,18,20
+Memphis,AAC,2014,19,19
+Michigan,Big Ten,2014,1,7
+Michigan,Big Ten,2014,2,7
+Michigan,Big Ten,2014,3,15
+Michigan,Big Ten,2014,4,22
+Michigan,Big Ten,2014,5,22
+Michigan,Big Ten,2014,12,21
+Michigan,Big Ten,2014,13,10
+Michigan,Big Ten,2014,14,10
+Michigan,Big Ten,2014,15,15
+Michigan,Big Ten,2014,16,20
+Michigan,Big Ten,2014,17,16
+Michigan,Big Ten,2014,18,12
+Michigan,Big Ten,2014,19,8
+Michigan,Big Ten,2014,20,7
+Michigan State,Big Ten,2014,1,2
+Michigan State,Big Ten,2014,2,2
+Michigan State,Big Ten,2014,3,1
+Michigan State,Big Ten,2014,4,1
+Michigan State,Big Ten,2014,5,1
+Michigan State,Big Ten,2014,6,5
+Michigan State,Big Ten,2014,7,5
+Michigan State,Big Ten,2014,8,5
+Michigan State,Big Ten,2014,9,5
+Michigan State,Big Ten,2014,10,5
+Michigan State,Big Ten,2014,11,4
+Michigan State,Big Ten,2014,12,3
+Michigan State,Big Ten,2014,13,7
+Michigan State,Big Ten,2014,14,9
+Michigan State,Big Ten,2014,15,9
+Michigan State,Big Ten,2014,16,13
+Michigan State,Big Ten,2014,17,18
+Michigan State,Big Ten,2014,18,22
+Michigan State,Big Ten,2014,19,22
+Michigan State,Big Ten,2014,20,11
+Missouri,SEC,2014,6,24
+Missouri,SEC,2014,7,23
+Missouri,SEC,2014,8,25
+Missouri,SEC,2014,9,25
+Missouri,SEC,2014,10,21
+New Mexico,MWC,2014,1,23
+New Mexico,MWC,2014,2,22
+New Mexico,MWC,2014,3,19
+New Mexico,MWC,2014,17,25
+New Mexico,MWC,2014,18,21
+New Mexico,MWC,2014,19,20
+New Mexico,MWC,2014,20,17
+Notre Dame,ACC,2014,1,21
+Notre Dame,ACC,2014,2,21
+Ohio State,Big Ten,2014,1,11
+Ohio State,Big Ten,2014,2,10
+Ohio State,Big Ten,2014,3,8
+Ohio State,Big Ten,2014,4,7
+Ohio State,Big Ten,2014,5,5
+Ohio State,Big Ten,2014,6,3
+Ohio State,Big Ten,2014,7,3
+Ohio State,Big Ten,2014,8,3
+Ohio State,Big Ten,2014,9,3
+Ohio State,Big Ten,2014,10,3
+Ohio State,Big Ten,2014,11,11
+Ohio State,Big Ten,2014,12,17
+Ohio State,Big Ten,2014,13,24
+Ohio State,Big Ten,2014,15,22
+Ohio State,Big Ten,2014,16,24
+Ohio State,Big Ten,2014,17,22
+Ohio State,Big Ten,2014,19,24
+Ohio State,Big Ten,2014,20,22
+Oklahoma,Big 12,2014,11,25
+Oklahoma,Big 12,2014,12,25
+Oklahoma,Big 12,2014,13,23
+Oklahoma,Big 12,2014,14,21
+Oklahoma,Big 12,2014,18,23
+Oklahoma,Big 12,2014,19,17
+Oklahoma,Big 12,2014,20,21
+Oklahoma State,Big 12,2014,1,9
+Oklahoma State,Big 12,2014,2,8
+Oklahoma State,Big 12,2014,3,7
+Oklahoma State,Big 12,2014,4,5
+Oklahoma State,Big 12,2014,5,9
+Oklahoma State,Big 12,2014,6,7
+Oklahoma State,Big 12,2014,7,7
+Oklahoma State,Big 12,2014,8,7
+Oklahoma State,Big 12,2014,9,6
+Oklahoma State,Big 12,2014,10,11
+Oklahoma State,Big 12,2014,11,9
+Oklahoma State,Big 12,2014,12,11
+Oklahoma State,Big 12,2014,13,8
+Oklahoma State,Big 12,2014,14,19
+Oregon,Pac-12,2014,1,19
+Oregon,Pac-12,2014,2,18
+Oregon,Pac-12,2014,3,17
+Oregon,Pac-12,2014,4,14
+Oregon,Pac-12,2014,5,13
+Oregon,Pac-12,2014,6,15
+Oregon,Pac-12,2014,7,13
+Oregon,Pac-12,2014,8,12
+Oregon,Pac-12,2014,9,10
+Oregon,Pac-12,2014,10,17
+Pitt,ACC,2014,11,22
+Pitt,ACC,2014,12,20
+Pitt,ACC,2014,13,18
+Pitt,ACC,2014,14,25
+Pitt,ACC,2014,15,25
+SMU,AAC,2014,15,23
+SMU,AAC,2014,17,23
+SMU,AAC,2014,18,18
+SMU,AAC,2014,19,25
+Saint Louis,A-10,2014,11,24
+Saint Louis,A-10,2014,12,19
+Saint Louis,A-10,2014,13,19
+Saint Louis,A-10,2014,14,13
+Saint Louis,A-10,2014,15,12
+Saint Louis,A-10,2014,16,10
+Saint Louis,A-10,2014,17,10
+Saint Louis,A-10,2014,18,17
+Saint Louis,A-10,2014,19,18
+Saint Louis,A-10,2014,20,25
+San Diego State,MWC,2014,5,24
+San Diego State,MWC,2014,6,25
+San Diego State,MWC,2014,7,24
+San Diego State,MWC,2014,8,20
+San Diego State,MWC,2014,9,21
+San Diego State,MWC,2014,10,13
+San Diego State,MWC,2014,11,10
+San Diego State,MWC,2014,12,7
+San Diego State,MWC,2014,13,5
+San Diego State,MWC,2014,14,5
+San Diego State,MWC,2014,15,5
+San Diego State,MWC,2014,16,6
+San Diego State,MWC,2014,17,13
+San Diego State,MWC,2014,18,10
+San Diego State,MWC,2014,19,9
+San Diego State,MWC,2014,20,13
+Syracuse,ACC,2014,1,8
+Syracuse,ACC,2014,2,9
+Syracuse,ACC,2014,3,9
+Syracuse,ACC,2014,4,8
+Syracuse,ACC,2014,5,4
+Syracuse,ACC,2014,6,2
+Syracuse,ACC,2014,7,2
+Syracuse,ACC,2014,8,2
+Syracuse,ACC,2014,9,2
+Syracuse,ACC,2014,10,2
+Syracuse,ACC,2014,11,2
+Syracuse,ACC,2014,12,2
+Syracuse,ACC,2014,13,2
+Syracuse,ACC,2014,14,1
+Syracuse,ACC,2014,15,1
+Syracuse,ACC,2014,16,1
+Syracuse,ACC,2014,17,4
+Syracuse,ACC,2014,18,7
+Syracuse,ACC,2014,19,11
+Syracuse,ACC,2014,20,14
+Texas,Big 12,2014,13,25
+Texas,Big 12,2014,14,15
+Texas,Big 12,2014,15,19
+Texas,Big 12,2014,16,19
+Texas,Big 12,2014,17,24
+UCLA,Pac-12,2014,1,22
+UCLA,Pac-12,2014,2,24
+UCLA,Pac-12,2014,3,22
+UCLA,Pac-12,2014,4,19
+UCLA,Pac-12,2014,5,18
+UCLA,Pac-12,2014,16,23
+UCLA,Pac-12,2014,20,20
+UConn,AAC,2014,1,18
+UConn,AAC,2014,2,19
+UConn,AAC,2014,3,18
+UConn,AAC,2014,4,13
+UConn,AAC,2014,5,12
+UConn,AAC,2014,6,9
+UConn,AAC,2014,7,10
+UConn,AAC,2014,8,15
+UConn,AAC,2014,9,17
+UConn,AAC,2014,14,22
+UConn,AAC,2014,15,24
+UConn,AAC,2014,16,21
+UConn,AAC,2014,18,19
+UConn,AAC,2014,19,21
+UConn,AAC,2014,20,18
+UMass,A-10,2014,4,24
+UMass,A-10,2014,5,21
+UMass,A-10,2014,6,22
+UMass,A-10,2014,7,22
+UMass,A-10,2014,8,23
+UMass,A-10,2014,9,23
+UMass,A-10,2014,10,19
+UMass,A-10,2014,11,16
+UMass,A-10,2014,12,13
+UMass,A-10,2014,13,21
+UNC,ACC,2014,1,12
+UNC,ACC,2014,2,12
+UNC,ACC,2014,3,24
+UNC,ACC,2014,4,16
+UNC,ACC,2014,6,18
+UNC,ACC,2014,7,14
+UNC,ACC,2014,8,19
+UNC,ACC,2014,9,19
+UNC,ACC,2014,17,19
+UNC,ACC,2014,18,14
+UNC,ACC,2014,19,15
+UNC,ACC,2014,20,19
+VCU,A-10,2014,1,14
+VCU,A-10,2014,2,14
+VCU,A-10,2014,3,10
+VCU,A-10,2014,19,23
+VCU,A-10,2014,20,24
+Villanova,Big East,2014,5,14
+Villanova,Big East,2014,6,10
+Villanova,Big East,2014,7,8
+Villanova,Big East,2014,8,8
+Villanova,Big East,2014,9,11
+Villanova,Big East,2014,10,8
+Villanova,Big East,2014,11,6
+Villanova,Big East,2014,12,4
+Villanova,Big East,2014,13,9
+Villanova,Big East,2014,14,6
+Villanova,Big East,2014,15,6
+Villanova,Big East,2014,16,9
+Villanova,Big East,2014,17,8
+Villanova,Big East,2014,18,6
+Villanova,Big East,2014,19,3
+Villanova,Big East,2014,20,6
+Virginia,ACC,2014,1,24
+Virginia,ACC,2014,2,25
+Virginia,ACC,2014,14,20
+Virginia,ACC,2014,15,17
+Virginia,ACC,2014,16,14
+Virginia,ACC,2014,17,12
+Virginia,ACC,2014,18,5
+Virginia,ACC,2014,19,6
+Virginia,ACC,2014,20,3
+Wichita State,MVC,2014,1,16
+Wichita State,MVC,2014,2,16
+Wichita State,MVC,2014,3,14
+Wichita State,MVC,2014,4,12
+Wichita State,MVC,2014,5,11
+Wichita State,MVC,2014,6,12
+Wichita State,MVC,2014,7,11
+Wichita State,MVC,2014,8,10
+Wichita State,MVC,2014,9,8
+Wichita State,MVC,2014,10,6
+Wichita State,MVC,2014,11,5
+Wichita State,MVC,2014,12,5
+Wichita State,MVC,2014,13,4
+Wichita State,MVC,2014,14,4
+Wichita State,MVC,2014,15,4
+Wichita State,MVC,2014,16,3
+Wichita State,MVC,2014,17,2
+Wichita State,MVC,2014,18,2
+Wichita State,MVC,2014,19,2
+Wichita State,MVC,2014,20,2
+Wisconsin,Big Ten,2014,1,20
+Wisconsin,Big Ten,2014,2,20
+Wisconsin,Big Ten,2014,3,12
+Wisconsin,Big Ten,2014,4,10
+Wisconsin,Big Ten,2014,5,8
+Wisconsin,Big Ten,2014,6,4
+Wisconsin,Big Ten,2014,7,4
+Wisconsin,Big Ten,2014,8,4
+Wisconsin,Big Ten,2014,9,4
+Wisconsin,Big Ten,2014,10,4
+Wisconsin,Big Ten,2014,11,3
+Wisconsin,Big Ten,2014,12,9
+Wisconsin,Big Ten,2014,13,14
+Wisconsin,Big Ten,2014,15,21
+Wisconsin,Big Ten,2014,16,16
+Wisconsin,Big Ten,2014,17,14
+Wisconsin,Big Ten,2014,18,9
+Wisconsin,Big Ten,2014,19,12
+Wisconsin,Big Ten,2014,20,12
+Arizona,Pac-12,2015,1,2
+Arizona,Pac-12,2015,2,2
+Arizona,Pac-12,2015,3,3
+Arizona,Pac-12,2015,4,3
+Arizona,Pac-12,2015,5,3
+Arizona,Pac-12,2015,6,3
+Arizona,Pac-12,2015,7,3
+Arizona,Pac-12,2015,8,8
+Arizona,Pac-12,2015,9,7
+Arizona,Pac-12,2015,10,10
+Arizona,Pac-12,2015,11,7
+Arizona,Pac-12,2015,12,6
+Arizona,Pac-12,2015,13,6
+Arizona,Pac-12,2015,14,7
+Arizona,Pac-12,2015,15,7
+Arizona,Pac-12,2015,16,7
+Arizona,Pac-12,2015,17,5
+Arizona,Pac-12,2015,18,5
+Arizona,Pac-12,2015,19,5
+Arkansas,SEC,2015,3,25
+Arkansas,SEC,2015,4,18
+Arkansas,SEC,2015,9,23
+Arkansas,SEC,2015,10,19
+Arkansas,SEC,2015,14,24
+Arkansas,SEC,2015,15,18
+Arkansas,SEC,2015,16,18
+Arkansas,SEC,2015,17,18
+Arkansas,SEC,2015,18,21
+Arkansas,SEC,2015,19,21
+Baylor,Big 12,2015,7,22
+Baylor,Big 12,2015,8,22
+Baylor,Big 12,2015,9,21
+Baylor,Big 12,2015,10,22
+Baylor,Big 12,2015,11,21
+Baylor,Big 12,2015,12,20
+Baylor,Big 12,2015,13,19
+Baylor,Big 12,2015,14,16
+Baylor,Big 12,2015,15,20
+Baylor,Big 12,2015,16,19
+Baylor,Big 12,2015,17,14
+Baylor,Big 12,2015,18,16
+Baylor,Big 12,2015,19,16
+Boise State,MWC,2015,18,25
+Butler,Big East,2015,4,23
+Butler,Big East,2015,5,15
+Butler,Big East,2015,6,23
+Butler,Big East,2015,12,25
+Butler,Big East,2015,13,22
+Butler,Big East,2015,14,18
+Butler,Big East,2015,15,19
+Butler,Big East,2015,16,23
+Butler,Big East,2015,17,21
+Butler,Big East,2015,18,22
+Butler,Big East,2015,19,24
+Colorado State,MWC,2015,7,24
+Colorado State,MWC,2015,8,24
+Creighton,Big East,2015,3,23
+Davidson,A-10,2015,18,24
+Dayton,A-10,2015,11,22
+Duke,ACC,2015,1,4
+Duke,ACC,2015,2,4
+Duke,ACC,2015,3,4
+Duke,ACC,2015,4,4
+Duke,ACC,2015,5,2
+Duke,ACC,2015,6,2
+Duke,ACC,2015,7,2
+Duke,ACC,2015,8,2
+Duke,ACC,2015,9,2
+Duke,ACC,2015,10,4
+Duke,ACC,2015,11,5
+Duke,ACC,2015,12,4
+Duke,ACC,2015,13,4
+Duke,ACC,2015,14,4
+Duke,ACC,2015,15,4
+Duke,ACC,2015,16,4
+Duke,ACC,2015,17,3
+Duke,ACC,2015,18,2
+Duke,ACC,2015,19,4
+Florida,SEC,2015,1,7
+Florida,SEC,2015,2,8
+Florida,SEC,2015,3,18
+Georgetown,Big East,2015,8,25
+Georgetown,Big East,2015,12,21
+Georgetown,Big East,2015,13,24
+Georgetown,Big East,2015,18,23
+Georgetown,Big East,2015,19,22
+Gonzaga,WCC,2015,1,13
+Gonzaga,WCC,2015,2,13
+Gonzaga,WCC,2015,3,10
+Gonzaga,WCC,2015,4,9
+Gonzaga,WCC,2015,5,9
+Gonzaga,WCC,2015,6,8
+Gonzaga,WCC,2015,7,8
+Gonzaga,WCC,2015,8,7
+Gonzaga,WCC,2015,9,6
+Gonzaga,WCC,2015,10,3
+Gonzaga,WCC,2015,11,3
+Gonzaga,WCC,2015,12,3
+Gonzaga,WCC,2015,13,2
+Gonzaga,WCC,2015,14,3
+Gonzaga,WCC,2015,15,3
+Gonzaga,WCC,2015,16,3
+Gonzaga,WCC,2015,17,7
+Gonzaga,WCC,2015,18,7
+Gonzaga,WCC,2015,19,7
+Harvard,Ivy,2015,1,25
+Illinois,Big Ten,2015,4,24
+Indiana,Big Ten,2015,11,23
+Indiana,Big Ten,2015,12,22
+Iowa,Big Ten,2015,11,25
+Iowa State,Big 12,2015,1,14
+Iowa State,Big 12,2015,2,14
+Iowa State,Big 12,2015,3,13
+Iowa State,Big 12,2015,4,20
+Iowa State,Big 12,2015,5,14
+Iowa State,Big 12,2015,6,13
+Iowa State,Big 12,2015,7,12
+Iowa State,Big 12,2015,8,9
+Iowa State,Big 12,2015,9,17
+Iowa State,Big 12,2015,10,11
+Iowa State,Big 12,2015,11,9
+Iowa State,Big 12,2015,12,15
+Iowa State,Big 12,2015,13,11
+Iowa State,Big 12,2015,14,14
+Iowa State,Big 12,2015,15,14
+Iowa State,Big 12,2015,16,12
+Iowa State,Big 12,2015,17,17
+Iowa State,Big 12,2015,18,13
+Iowa State,Big 12,2015,19,9
+Kansas,Big 12,2015,1,5
+Kansas,Big 12,2015,2,5
+Kansas,Big 12,2015,3,11
+Kansas,Big 12,2015,4,11
+Kansas,Big 12,2015,5,10
+Kansas,Big 12,2015,6,10
+Kansas,Big 12,2015,7,10
+Kansas,Big 12,2015,8,13
+Kansas,Big 12,2015,9,12
+Kansas,Big 12,2015,10,9
+Kansas,Big 12,2015,11,11
+Kansas,Big 12,2015,12,9
+Kansas,Big 12,2015,13,8
+Kansas,Big 12,2015,14,8
+Kansas,Big 12,2015,15,8
+Kansas,Big 12,2015,16,8
+Kansas,Big 12,2015,17,9
+Kansas,Big 12,2015,18,9
+Kansas,Big 12,2015,19,10
+Kentucky,SEC,2015,1,1
+Kentucky,SEC,2015,2,1
+Kentucky,SEC,2015,3,1
+Kentucky,SEC,2015,4,1
+Kentucky,SEC,2015,5,1
+Kentucky,SEC,2015,6,1
+Kentucky,SEC,2015,7,1
+Kentucky,SEC,2015,8,1
+Kentucky,SEC,2015,9,1
+Kentucky,SEC,2015,10,1
+Kentucky,SEC,2015,11,1
+Kentucky,SEC,2015,12,1
+Kentucky,SEC,2015,13,1
+Kentucky,SEC,2015,14,1
+Kentucky,SEC,2015,15,1
+Kentucky,SEC,2015,16,1
+Kentucky,SEC,2015,17,1
+Kentucky,SEC,2015,18,1
+Kentucky,SEC,2015,19,1
+Louisville,ACC,2015,1,8
+Louisville,ACC,2015,2,7
+Louisville,ACC,2015,3,6
+Louisville,ACC,2015,4,5
+Louisville,ACC,2015,5,4
+Louisville,ACC,2015,6,4
+Louisville,ACC,2015,7,4
+Louisville,ACC,2015,8,5
+Louisville,ACC,2015,9,5
+Louisville,ACC,2015,10,6
+Louisville,ACC,2015,11,10
+Louisville,ACC,2015,12,10
+Louisville,ACC,2015,13,9
+Louisville,ACC,2015,14,9
+Louisville,ACC,2015,15,12
+Louisville,ACC,2015,16,17
+Louisville,ACC,2015,17,16
+Louisville,ACC,2015,18,14
+Louisville,ACC,2015,19,17
+Maryland,Big Ten,2015,4,21
+Maryland,Big Ten,2015,5,19
+Maryland,Big Ten,2015,6,17
+Maryland,Big Ten,2015,7,15
+Maryland,Big Ten,2015,8,12
+Maryland,Big Ten,2015,9,11
+Maryland,Big Ten,2015,10,14
+Maryland,Big Ten,2015,11,13
+Maryland,Big Ten,2015,12,16
+Maryland,Big Ten,2015,13,17
+Maryland,Big Ten,2015,14,19
+Maryland,Big Ten,2015,15,16
+Maryland,Big Ten,2015,16,14
+Maryland,Big Ten,2015,17,10
+Maryland,Big Ten,2015,18,8
+Maryland,Big Ten,2015,19,12
+Miami (FL),ACC,2015,3,17
+Miami (FL),ACC,2015,4,15
+Miami (FL),ACC,2015,5,20
+Miami (FL),ACC,2015,6,18
+Miami (FL),ACC,2015,12,23
+Michigan,Big Ten,2015,1,24
+Michigan,Big Ten,2015,2,24
+Michigan,Big Ten,2015,3,19
+Michigan,Big Ten,2015,4,17
+Michigan State,Big Ten,2015,1,18
+Michigan State,Big Ten,2015,2,19
+Michigan State,Big Ten,2015,3,20
+Michigan State,Big Ten,2015,4,19
+Michigan State,Big Ten,2015,6,25
+Michigan State,Big Ten,2015,19,23
+Murray State,OVC,2015,17,25
+Nebraska,Big Ten,2015,1,21
+Nebraska,Big Ten,2015,2,21
+Northern Iowa,MVC,2015,5,23
+Northern Iowa,MVC,2015,7,23
+Northern Iowa,MVC,2015,8,23
+Northern Iowa,MVC,2015,10,23
+Northern Iowa,MVC,2015,11,20
+Northern Iowa,MVC,2015,12,18
+Northern Iowa,MVC,2015,13,14
+Northern Iowa,MVC,2015,14,13
+Northern Iowa,MVC,2015,15,11
+Northern Iowa,MVC,2015,16,10
+Northern Iowa,MVC,2015,17,11
+Northern Iowa,MVC,2015,18,10
+Northern Iowa,MVC,2015,19,11
+Notre Dame,ACC,2015,5,25
+Notre Dame,ACC,2015,6,21
+Notre Dame,ACC,2015,7,16
+Notre Dame,ACC,2015,8,14
+Notre Dame,ACC,2015,9,13
+Notre Dame,ACC,2015,10,12
+Notre Dame,ACC,2015,11,8
+Notre Dame,ACC,2015,12,8
+Notre Dame,ACC,2015,13,10
+Notre Dame,ACC,2015,14,10
+Notre Dame,ACC,2015,15,10
+Notre Dame,ACC,2015,16,9
+Notre Dame,ACC,2015,17,12
+Notre Dame,ACC,2015,18,11
+Notre Dame,ACC,2015,19,8
+Ohio State,Big Ten,2015,1,20
+Ohio State,Big Ten,2015,2,20
+Ohio State,Big Ten,2015,3,16
+Ohio State,Big Ten,2015,4,14
+Ohio State,Big Ten,2015,5,12
+Ohio State,Big Ten,2015,6,12
+Ohio State,Big Ten,2015,7,21
+Ohio State,Big Ten,2015,8,20
+Ohio State,Big Ten,2015,9,22
+Ohio State,Big Ten,2015,13,20
+Ohio State,Big Ten,2015,14,23
+Ohio State,Big Ten,2015,15,24
+Ohio State,Big Ten,2015,17,23
+Oklahoma,Big 12,2015,1,19
+Oklahoma,Big 12,2015,2,18
+Oklahoma,Big 12,2015,4,22
+Oklahoma,Big 12,2015,5,16
+Oklahoma,Big 12,2015,6,15
+Oklahoma,Big 12,2015,7,19
+Oklahoma,Big 12,2015,8,18
+Oklahoma,Big 12,2015,9,16
+Oklahoma,Big 12,2015,10,18
+Oklahoma,Big 12,2015,11,19
+Oklahoma,Big 12,2015,12,24
+Oklahoma,Big 12,2015,13,21
+Oklahoma,Big 12,2015,14,17
+Oklahoma,Big 12,2015,15,17
+Oklahoma,Big 12,2015,16,16
+Oklahoma,Big 12,2015,17,15
+Oklahoma,Big 12,2015,18,15
+Oklahoma,Big 12,2015,19,13
+Oklahoma State,Big 12,2015,10,24
+Oklahoma State,Big 12,2015,14,22
+Oklahoma State,Big 12,2015,15,22
+Old Dominion,CUSA,2015,9,25
+Providence,Big East,2015,16,25
+Providence,Big East,2015,17,24
+SMU,AAC,2015,1,22
+SMU,AAC,2015,2,22
+SMU,AAC,2015,13,23
+SMU,AAC,2015,14,25
+SMU,AAC,2015,15,21
+SMU,AAC,2015,16,21
+SMU,AAC,2015,17,22
+SMU,AAC,2015,18,20
+SMU,AAC,2015,19,18
+San Diego State,MWC,2015,1,16
+San Diego State,MWC,2015,2,16
+San Diego State,MWC,2015,3,15
+San Diego State,MWC,2015,4,13
+San Diego State,MWC,2015,5,18
+San Diego State,MWC,2015,6,19
+San Diego State,MWC,2015,16,24
+Seton Hall,Big East,2015,9,19
+Seton Hall,Big East,2015,10,21
+Seton Hall,Big East,2015,11,24
+St. John's (NY),Big East,2015,5,24
+St. John's (NY),Big East,2015,6,20
+St. John's (NY),Big East,2015,7,17
+St. John's (NY),Big East,2015,8,15
+St. John's (NY),Big East,2015,9,24
+Syracuse,ACC,2015,1,23
+Syracuse,ACC,2015,2,23
+TCU,Big 12,2015,7,25
+Texas,Big 12,2015,1,10
+Texas,Big 12,2015,2,10
+Texas,Big 12,2015,3,7
+Texas,Big 12,2015,4,6
+Texas,Big 12,2015,5,8
+Texas,Big 12,2015,6,9
+Texas,Big 12,2015,7,9
+Texas,Big 12,2015,8,11
+Texas,Big 12,2015,9,10
+Texas,Big 12,2015,10,20
+Texas,Big 12,2015,11,17
+Texas,Big 12,2015,12,19
+Texas,Big 12,2015,13,25
+UCLA,Pac-12,2015,3,22
+UConn,AAC,2015,1,17
+UConn,AAC,2015,2,17
+UConn,AAC,2015,3,24
+UNC,ACC,2015,1,6
+UNC,ACC,2015,2,6
+UNC,ACC,2015,3,5
+UNC,ACC,2015,4,12
+UNC,ACC,2015,5,21
+UNC,ACC,2015,6,24
+UNC,ACC,2015,7,20
+UNC,ACC,2015,8,19
+UNC,ACC,2015,9,18
+UNC,ACC,2015,10,15
+UNC,ACC,2015,11,15
+UNC,ACC,2015,12,13
+UNC,ACC,2015,13,12
+UNC,ACC,2015,14,12
+UNC,ACC,2015,15,15
+UNC,ACC,2015,16,15
+UNC,ACC,2015,17,19
+UNC,ACC,2015,18,19
+UNC,ACC,2015,19,15
+Utah,Pac-12,2015,1,25
+Utah,Pac-12,2015,2,25
+Utah,Pac-12,2015,4,25
+Utah,Pac-12,2015,5,13
+Utah,Pac-12,2015,6,14
+Utah,Pac-12,2015,7,14
+Utah,Pac-12,2015,8,10
+Utah,Pac-12,2015,9,9
+Utah,Pac-12,2015,10,8
+Utah,Pac-12,2015,11,12
+Utah,Pac-12,2015,12,11
+Utah,Pac-12,2015,13,13
+Utah,Pac-12,2015,14,11
+Utah,Pac-12,2015,15,9
+Utah,Pac-12,2015,16,13
+Utah,Pac-12,2015,17,13
+Utah,Pac-12,2015,18,17
+Utah,Pac-12,2015,19,19
+VCU,A-10,2015,1,15
+VCU,A-10,2015,2,15
+VCU,A-10,2015,3,14
+VCU,A-10,2015,9,20
+VCU,A-10,2015,10,17
+VCU,A-10,2015,11,16
+VCU,A-10,2015,12,14
+VCU,A-10,2015,13,18
+VCU,A-10,2015,14,20
+VCU,A-10,2015,15,25
+VCU,A-10,2015,16,22
+VCU,A-10,2015,19,25
+Villanova,Big East,2015,1,12
+Villanova,Big East,2015,2,12
+Villanova,Big East,2015,3,12
+Villanova,Big East,2015,4,10
+Villanova,Big East,2015,5,7
+Villanova,Big East,2015,6,7
+Villanova,Big East,2015,7,7
+Villanova,Big East,2015,8,6
+Villanova,Big East,2015,9,8
+Villanova,Big East,2015,10,5
+Villanova,Big East,2015,11,4
+Villanova,Big East,2015,12,7
+Villanova,Big East,2015,13,7
+Villanova,Big East,2015,14,6
+Villanova,Big East,2015,15,6
+Villanova,Big East,2015,16,6
+Villanova,Big East,2015,17,4
+Villanova,Big East,2015,18,4
+Villanova,Big East,2015,19,2
+Virginia,ACC,2015,1,9
+Virginia,ACC,2015,2,9
+Virginia,ACC,2015,3,8
+Virginia,ACC,2015,4,7
+Virginia,ACC,2015,5,6
+Virginia,ACC,2015,6,6
+Virginia,ACC,2015,7,5
+Virginia,ACC,2015,8,3
+Virginia,ACC,2015,9,3
+Virginia,ACC,2015,10,2
+Virginia,ACC,2015,11,2
+Virginia,ACC,2015,12,2
+Virginia,ACC,2015,13,3
+Virginia,ACC,2015,14,2
+Virginia,ACC,2015,15,2
+Virginia,ACC,2015,16,2
+Virginia,ACC,2015,17,2
+Virginia,ACC,2015,18,3
+Virginia,ACC,2015,19,6
+Washington,Pac-12,2015,5,17
+Washington,Pac-12,2015,6,16
+Washington,Pac-12,2015,7,13
+Washington,Pac-12,2015,8,21
+West Virginia,Big 12,2015,3,21
+West Virginia,Big 12,2015,4,16
+West Virginia,Big 12,2015,5,22
+West Virginia,Big 12,2015,6,22
+West Virginia,Big 12,2015,7,18
+West Virginia,Big 12,2015,8,17
+West Virginia,Big 12,2015,9,14
+West Virginia,Big 12,2015,10,16
+West Virginia,Big 12,2015,11,18
+West Virginia,Big 12,2015,12,17
+West Virginia,Big 12,2015,13,15
+West Virginia,Big 12,2015,14,21
+West Virginia,Big 12,2015,15,23
+West Virginia,Big 12,2015,16,20
+West Virginia,Big 12,2015,17,20
+West Virginia,Big 12,2015,18,18
+West Virginia,Big 12,2015,19,20
+Wichita State,MVC,2015,1,11
+Wichita State,MVC,2015,2,11
+Wichita State,MVC,2015,3,9
+Wichita State,MVC,2015,4,8
+Wichita State,MVC,2015,5,11
+Wichita State,MVC,2015,6,11
+Wichita State,MVC,2015,7,11
+Wichita State,MVC,2015,8,16
+Wichita State,MVC,2015,9,15
+Wichita State,MVC,2015,10,13
+Wichita State,MVC,2015,11,14
+Wichita State,MVC,2015,12,12
+Wichita State,MVC,2015,13,16
+Wichita State,MVC,2015,14,15
+Wichita State,MVC,2015,15,13
+Wichita State,MVC,2015,16,11
+Wichita State,MVC,2015,17,8
+Wichita State,MVC,2015,18,12
+Wichita State,MVC,2015,19,14
+Wisconsin,Big Ten,2015,1,3
+Wisconsin,Big Ten,2015,2,3
+Wisconsin,Big Ten,2015,3,2
+Wisconsin,Big Ten,2015,4,2
+Wisconsin,Big Ten,2015,5,5
+Wisconsin,Big Ten,2015,6,5
+Wisconsin,Big Ten,2015,7,6
+Wisconsin,Big Ten,2015,8,4
+Wisconsin,Big Ten,2015,9,4
+Wisconsin,Big Ten,2015,10,7
+Wisconsin,Big Ten,2015,11,6
+Wisconsin,Big Ten,2015,12,5
+Wisconsin,Big Ten,2015,13,5
+Wisconsin,Big Ten,2015,14,5
+Wisconsin,Big Ten,2015,15,5
+Wisconsin,Big Ten,2015,16,5
+Wisconsin,Big Ten,2015,17,6
+Wisconsin,Big Ten,2015,18,6
+Wisconsin,Big Ten,2015,19,3
+Wyoming,MWC,2015,10,25
+Arizona,Pac-12,2016,1,12
+Arizona,Pac-12,2016,2,12
+Arizona,Pac-12,2016,3,11
+Arizona,Pac-12,2016,4,19
+Arizona,Pac-12,2016,5,13
+Arizona,Pac-12,2016,6,13
+Arizona,Pac-12,2016,7,8
+Arizona,Pac-12,2016,8,8
+Arizona,Pac-12,2016,9,7
+Arizona,Pac-12,2016,10,18
+Arizona,Pac-12,2016,11,12
+Arizona,Pac-12,2016,12,18
+Arizona,Pac-12,2016,13,23
+Arizona,Pac-12,2016,14,17
+Arizona,Pac-12,2016,15,12
+Arizona,Pac-12,2016,16,8
+Arizona,Pac-12,2016,17,18
+Arizona,Pac-12,2016,18,15
+Arizona,Pac-12,2016,19,17
+Baylor,Big 12,2016,1,22
+Baylor,Big 12,2016,2,20
+Baylor,Big 12,2016,4,25
+Baylor,Big 12,2016,5,16
+Baylor,Big 12,2016,6,16
+Baylor,Big 12,2016,7,23
+Baylor,Big 12,2016,8,23
+Baylor,Big 12,2016,10,22
+Baylor,Big 12,2016,11,14
+Baylor,Big 12,2016,12,17
+Baylor,Big 12,2016,13,15
+Baylor,Big 12,2016,14,21
+Baylor,Big 12,2016,15,25
+Baylor,Big 12,2016,16,19
+Baylor,Big 12,2016,17,19
+Baylor,Big 12,2016,18,22
+Baylor,Big 12,2016,19,21
+Butler,Big East,2016,1,24
+Butler,Big East,2016,2,22
+Butler,Big East,2016,5,18
+Butler,Big East,2016,6,17
+Butler,Big East,2016,7,9
+Butler,Big East,2016,8,9
+Butler,Big East,2016,9,18
+Butler,Big East,2016,10,23
+Butler,Big East,2016,11,18
+California,Pac-12,2016,1,14
+California,Pac-12,2016,2,15
+California,Pac-12,2016,3,14
+California,Pac-12,2016,17,25
+California,Pac-12,2016,18,24
+California,Pac-12,2016,19,23
+Cincinnati,AAC,2016,3,24
+Cincinnati,AAC,2016,4,17
+Cincinnati,AAC,2016,5,23
+Cincinnati,AAC,2016,6,23
+Cincinnati,AAC,2016,7,22
+Cincinnati,AAC,2016,8,22
+Dayton,A-10,2016,9,25
+Dayton,A-10,2016,13,24
+Dayton,A-10,2016,14,19
+Dayton,A-10,2016,15,15
+Duke,ACC,2016,1,5
+Duke,ACC,2016,2,5
+Duke,ACC,2016,3,6
+Duke,ACC,2016,4,7
+Duke,ACC,2016,5,8
+Duke,ACC,2016,6,7
+Duke,ACC,2016,7,15
+Duke,ACC,2016,8,15
+Duke,ACC,2016,9,14
+Duke,ACC,2016,10,9
+Duke,ACC,2016,11,20
+Duke,ACC,2016,12,24
+Duke,ACC,2016,15,20
+Duke,ACC,2016,16,15
+Duke,ACC,2016,17,17
+Duke,ACC,2016,18,19
+Duke,ACC,2016,19,19
+George Washington,A-10,2016,6,21
+George Washington,A-10,2016,7,20
+Gonzaga,WCC,2016,1,9
+Gonzaga,WCC,2016,2,10
+Gonzaga,WCC,2016,3,10
+Gonzaga,WCC,2016,4,13
+Gonzaga,WCC,2016,5,20
+Gonzaga,WCC,2016,10,25
+Indiana,Big Ten,2016,1,15
+Indiana,Big Ten,2016,2,14
+Indiana,Big Ten,2016,3,13
+Indiana,Big Ten,2016,11,25
+Indiana,Big Ten,2016,12,19
+Indiana,Big Ten,2016,13,22
+Indiana,Big Ten,2016,15,22
+Indiana,Big Ten,2016,16,18
+Indiana,Big Ten,2016,17,12
+Indiana,Big Ten,2016,18,10
+Indiana,Big Ten,2016,19,14
+Iowa,Big Ten,2016,9,19
+Iowa,Big Ten,2016,10,16
+Iowa,Big Ten,2016,11,9
+Iowa,Big Ten,2016,12,3
+Iowa,Big Ten,2016,13,5
+Iowa,Big Ten,2016,14,4
+Iowa,Big Ten,2016,15,4
+Iowa,Big Ten,2016,16,8
+Iowa,Big Ten,2016,17,16
+Iowa,Big Ten,2016,18,20
+Iowa,Big Ten,2016,19,25
+Iowa State,Big 12,2016,1,7
+Iowa State,Big 12,2016,2,7
+Iowa State,Big 12,2016,3,4
+Iowa State,Big 12,2016,4,5
+Iowa State,Big 12,2016,5,4
+Iowa State,Big 12,2016,6,5
+Iowa State,Big 12,2016,7,11
+Iowa State,Big 12,2016,8,11
+Iowa State,Big 12,2016,9,13
+Iowa State,Big 12,2016,10,17
+Iowa State,Big 12,2016,11,19
+Iowa State,Big 12,2016,12,14
+Iowa State,Big 12,2016,13,13
+Iowa State,Big 12,2016,14,14
+Iowa State,Big 12,2016,15,13
+Iowa State,Big 12,2016,16,17
+Iowa State,Big 12,2016,17,21
+Iowa State,Big 12,2016,18,21
+Iowa State,Big 12,2016,19,22
+Kansas,Big 12,2016,1,4
+Kansas,Big 12,2016,2,4
+Kansas,Big 12,2016,3,5
+Kansas,Big 12,2016,4,4
+Kansas,Big 12,2016,5,2
+Kansas,Big 12,2016,6,2
+Kansas,Big 12,2016,7,2
+Kansas,Big 12,2016,8,2
+Kansas,Big 12,2016,9,1
+Kansas,Big 12,2016,10,1
+Kansas,Big 12,2016,11,3
+Kansas,Big 12,2016,12,4
+Kansas,Big 12,2016,13,7
+Kansas,Big 12,2016,14,6
+Kansas,Big 12,2016,15,2
+Kansas,Big 12,2016,16,2
+Kansas,Big 12,2016,17,1
+Kansas,Big 12,2016,18,1
+Kansas,Big 12,2016,19,1
+Kentucky,SEC,2016,1,2
+Kentucky,SEC,2016,2,2
+Kentucky,SEC,2016,3,1
+Kentucky,SEC,2016,4,1
+Kentucky,SEC,2016,5,5
+Kentucky,SEC,2016,6,4
+Kentucky,SEC,2016,7,12
+Kentucky,SEC,2016,8,10
+Kentucky,SEC,2016,9,9
+Kentucky,SEC,2016,10,14
+Kentucky,SEC,2016,11,23
+Kentucky,SEC,2016,12,20
+Kentucky,SEC,2016,13,20
+Kentucky,SEC,2016,14,22
+Kentucky,SEC,2016,15,14
+Kentucky,SEC,2016,16,16
+Kentucky,SEC,2016,17,22
+Kentucky,SEC,2016,18,16
+Kentucky,SEC,2016,19,10
+LSU,SEC,2016,1,21
+LSU,SEC,2016,2,23
+LSU,SEC,2016,3,22
+Louisville,ACC,2016,4,24
+Louisville,ACC,2016,5,22
+Louisville,ACC,2016,6,19
+Louisville,ACC,2016,7,16
+Louisville,ACC,2016,8,18
+Louisville,ACC,2016,9,16
+Louisville,ACC,2016,10,21
+Louisville,ACC,2016,11,17
+Louisville,ACC,2016,12,16
+Louisville,ACC,2016,13,19
+Louisville,ACC,2016,14,13
+Louisville,ACC,2016,15,18
+Louisville,ACC,2016,16,11
+Louisville,ACC,2016,17,11
+Louisville,ACC,2016,18,14
+Louisville,ACC,2016,19,16
+Maryland,Big Ten,2016,1,3
+Maryland,Big Ten,2016,2,3
+Maryland,Big Ten,2016,3,2
+Maryland,Big Ten,2016,4,2
+Maryland,Big Ten,2016,5,6
+Maryland,Big Ten,2016,6,6
+Maryland,Big Ten,2016,7,4
+Maryland,Big Ten,2016,8,4
+Maryland,Big Ten,2016,9,3
+Maryland,Big Ten,2016,10,3
+Maryland,Big Ten,2016,11,7
+Maryland,Big Ten,2016,12,8
+Maryland,Big Ten,2016,13,4
+Maryland,Big Ten,2016,14,2
+Maryland,Big Ten,2016,15,6
+Maryland,Big Ten,2016,16,10
+Maryland,Big Ten,2016,17,14
+Maryland,Big Ten,2016,18,18
+Maryland,Big Ten,2016,19,18
+Miami (FL),ACC,2016,3,15
+Miami (FL),ACC,2016,4,21
+Miami (FL),ACC,2016,5,17
+Miami (FL),ACC,2016,6,15
+Miami (FL),ACC,2016,7,13
+Miami (FL),ACC,2016,8,13
+Miami (FL),ACC,2016,9,12
+Miami (FL),ACC,2016,10,8
+Miami (FL),ACC,2016,11,15
+Miami (FL),ACC,2016,12,15
+Miami (FL),ACC,2016,13,17
+Miami (FL),ACC,2016,14,12
+Miami (FL),ACC,2016,15,11
+Miami (FL),ACC,2016,16,12
+Miami (FL),ACC,2016,17,7
+Miami (FL),ACC,2016,18,11
+Miami (FL),ACC,2016,19,10
+Michigan,Big Ten,2016,1,25
+Michigan,Big Ten,2016,2,24
+Michigan State,Big Ten,2016,1,13
+Michigan State,Big Ten,2016,2,13
+Michigan State,Big Ten,2016,3,3
+Michigan State,Big Ten,2016,4,3
+Michigan State,Big Ten,2016,5,1
+Michigan State,Big Ten,2016,6,1
+Michigan State,Big Ten,2016,7,1
+Michigan State,Big Ten,2016,8,1
+Michigan State,Big Ten,2016,9,5
+Michigan State,Big Ten,2016,10,4
+Michigan State,Big Ten,2016,11,11
+Michigan State,Big Ten,2016,12,12
+Michigan State,Big Ten,2016,13,10
+Michigan State,Big Ten,2016,14,8
+Michigan State,Big Ten,2016,15,8
+Michigan State,Big Ten,2016,16,6
+Michigan State,Big Ten,2016,17,2
+Michigan State,Big Ten,2016,18,2
+Michigan State,Big Ten,2016,19,2
+Notre Dame,ACC,2016,1,19
+Notre Dame,ACC,2016,2,18
+Notre Dame,ACC,2016,3,17
+Notre Dame,ACC,2016,12,25
+Notre Dame,ACC,2016,15,19
+Notre Dame,ACC,2016,16,23
+Oklahoma,Big 12,2016,1,8
+Oklahoma,Big 12,2016,2,8
+Oklahoma,Big 12,2016,3,7
+Oklahoma,Big 12,2016,4,6
+Oklahoma,Big 12,2016,5,7
+Oklahoma,Big 12,2016,6,3
+Oklahoma,Big 12,2016,7,3
+Oklahoma,Big 12,2016,8,3
+Oklahoma,Big 12,2016,9,2
+Oklahoma,Big 12,2016,10,2
+Oklahoma,Big 12,2016,11,1
+Oklahoma,Big 12,2016,12,1
+Oklahoma,Big 12,2016,13,1
+Oklahoma,Big 12,2016,14,3
+Oklahoma,Big 12,2016,15,3
+Oklahoma,Big 12,2016,16,3
+Oklahoma,Big 12,2016,17,6
+Oklahoma,Big 12,2016,18,6
+Oklahoma,Big 12,2016,19,7
+Oregon,Pac-12,2016,2,25
+Oregon,Pac-12,2016,3,21
+Oregon,Pac-12,2016,4,15
+Oregon,Pac-12,2016,5,24
+Oregon,Pac-12,2016,12,23
+Oregon,Pac-12,2016,13,16
+Oregon,Pac-12,2016,14,11
+Oregon,Pac-12,2016,15,16
+Oregon,Pac-12,2016,16,13
+Oregon,Pac-12,2016,17,9
+Oregon,Pac-12,2016,18,8
+Oregon,Pac-12,2016,19,5
+Pitt,ACC,2016,9,24
+Pitt,ACC,2016,10,20
+Providence,Big East,2016,4,23
+Providence,Big East,2016,5,15
+Providence,Big East,2016,6,14
+Providence,Big East,2016,7,10
+Providence,Big East,2016,8,12
+Providence,Big East,2016,9,8
+Providence,Big East,2016,10,12
+Providence,Big East,2016,11,16
+Providence,Big East,2016,12,10
+Providence,Big East,2016,13,11
+Providence,Big East,2016,14,20
+Providence,Big East,2016,15,23
+Purdue,Big Ten,2016,1,23
+Purdue,Big Ten,2016,2,21
+Purdue,Big Ten,2016,3,16
+Purdue,Big Ten,2016,4,11
+Purdue,Big Ten,2016,5,11
+Purdue,Big Ten,2016,6,9
+Purdue,Big Ten,2016,7,14
+Purdue,Big Ten,2016,8,14
+Purdue,Big Ten,2016,9,20
+Purdue,Big Ten,2016,10,24
+Purdue,Big Ten,2016,11,22
+Purdue,Big Ten,2016,12,21
+Purdue,Big Ten,2016,13,18
+Purdue,Big Ten,2016,14,18
+Purdue,Big Ten,2016,15,17
+Purdue,Big Ten,2016,16,20
+Purdue,Big Ten,2016,17,15
+Purdue,Big Ten,2016,18,13
+Purdue,Big Ten,2016,19,12
+SMU,AAC,2016,3,25
+SMU,AAC,2016,4,22
+SMU,AAC,2016,5,19
+SMU,AAC,2016,6,18
+SMU,AAC,2016,7,18
+SMU,AAC,2016,8,17
+SMU,AAC,2016,9,15
+SMU,AAC,2016,10,10
+SMU,AAC,2016,11,8
+SMU,AAC,2016,12,13
+SMU,AAC,2016,13,12
+SMU,AAC,2016,14,16
+SMU,AAC,2016,15,21
+SMU,AAC,2016,16,24
+SMU,AAC,2016,17,24
+SMU,AAC,2016,18,25
+SMU,AAC,2016,19,24
+Seton Hall,Big East,2016,19,20
+South Carolina,SEC,2016,7,25
+South Carolina,SEC,2016,8,24
+South Carolina,SEC,2016,9,22
+South Carolina,SEC,2016,10,19
+South Carolina,SEC,2016,11,24
+South Carolina,SEC,2016,13,25
+Syracuse,ACC,2016,4,14
+Texas,Big 12,2016,14,24
+Texas,Big 12,2016,15,24
+Texas,Big 12,2016,16,25
+Texas,Big 12,2016,17,23
+Texas,Big 12,2016,18,23
+Texas A&M,SEC,2016,3,25
+Texas A&M,SEC,2016,4,18
+Texas A&M,SEC,2016,6,24
+Texas A&M,SEC,2016,7,21
+Texas A&M,SEC,2016,8,20
+Texas A&M,SEC,2016,9,21
+Texas A&M,SEC,2016,10,15
+Texas A&M,SEC,2016,11,10
+Texas A&M,SEC,2016,12,5
+Texas A&M,SEC,2016,13,8
+Texas A&M,SEC,2016,14,15
+Texas A&M,SEC,2016,16,21
+Texas A&M,SEC,2016,17,20
+Texas A&M,SEC,2016,18,17
+Texas A&M,SEC,2016,19,15
+UCLA,Pac-12,2016,6,22
+UCLA,Pac-12,2016,8,25
+UConn,AAC,2016,1,20
+UConn,AAC,2016,2,19
+UConn,AAC,2016,3,18
+UConn,AAC,2016,6,25
+UConn,AAC,2016,9,23
+UNC,ACC,2016,1,1
+UNC,ACC,2016,2,1
+UNC,ACC,2016,3,9
+UNC,ACC,2016,4,9
+UNC,ACC,2016,5,3
+UNC,ACC,2016,6,11
+UNC,ACC,2016,7,7
+UNC,ACC,2016,8,7
+UNC,ACC,2016,9,6
+UNC,ACC,2016,10,5
+UNC,ACC,2016,11,2
+UNC,ACC,2016,12,2
+UNC,ACC,2016,13,2
+UNC,ACC,2016,14,9
+UNC,ACC,2016,15,5
+UNC,ACC,2016,16,7
+UNC,ACC,2016,17,8
+UNC,ACC,2016,18,7
+UNC,ACC,2016,19,3
+USC,Pac-12,2016,11,21
+USC,Pac-12,2016,14,23
+Utah,Pac-12,2016,1,16
+Utah,Pac-12,2016,2,16
+Utah,Pac-12,2016,5,25
+Utah,Pac-12,2016,7,24
+Utah,Pac-12,2016,8,21
+Utah,Pac-12,2016,16,22
+Utah,Pac-12,2016,17,13
+Utah,Pac-12,2016,18,12
+Utah,Pac-12,2016,19,13
+Vanderbilt,SEC,2016,1,18
+Vanderbilt,SEC,2016,2,17
+Vanderbilt,SEC,2016,3,19
+Vanderbilt,SEC,2016,4,16
+Vanderbilt,SEC,2016,5,21
+Villanova,Big East,2016,1,11
+Villanova,Big East,2016,2,11
+Villanova,Big East,2016,3,8
+Villanova,Big East,2016,4,8
+Villanova,Big East,2016,5,9
+Villanova,Big East,2016,6,12
+Villanova,Big East,2016,7,17
+Villanova,Big East,2016,8,16
+Villanova,Big East,2016,9,11
+Villanova,Big East,2016,10,6
+Villanova,Big East,2016,11,4
+Villanova,Big East,2016,12,6
+Villanova,Big East,2016,13,3
+Villanova,Big East,2016,14,1
+Villanova,Big East,2016,15,1
+Villanova,Big East,2016,16,1
+Villanova,Big East,2016,17,3
+Villanova,Big East,2016,18,3
+Villanova,Big East,2016,19,6
+Virginia,ACC,2016,1,6
+Virginia,ACC,2016,2,6
+Virginia,ACC,2016,3,12
+Virginia,ACC,2016,4,10
+Virginia,ACC,2016,5,10
+Virginia,ACC,2016,6,8
+Virginia,ACC,2016,7,5
+Virginia,ACC,2016,8,5
+Virginia,ACC,2016,9,4
+Virginia,ACC,2016,10,13
+Virginia,ACC,2016,11,13
+Virginia,ACC,2016,12,11
+Virginia,ACC,2016,13,9
+Virginia,ACC,2016,14,7
+Virginia,ACC,2016,15,7
+Virginia,ACC,2016,16,3
+Virginia,ACC,2016,17,4
+Virginia,ACC,2016,18,4
+Virginia,ACC,2016,19,4
+West Virginia,Big 12,2016,4,20
+West Virginia,Big 12,2016,5,14
+West Virginia,Big 12,2016,6,20
+West Virginia,Big 12,2016,7,19
+West Virginia,Big 12,2016,8,19
+West Virginia,Big 12,2016,9,17
+West Virginia,Big 12,2016,10,11
+West Virginia,Big 12,2016,11,6
+West Virginia,Big 12,2016,12,9
+West Virginia,Big 12,2016,13,14
+West Virginia,Big 12,2016,14,10
+West Virginia,Big 12,2016,15,10
+West Virginia,Big 12,2016,16,14
+West Virginia,Big 12,2016,17,10
+West Virginia,Big 12,2016,18,9
+West Virginia,Big 12,2016,19,8
+Wichita State,MVC,2016,1,10
+Wichita State,MVC,2016,2,9
+Wichita State,MVC,2016,3,20
+Wichita State,MVC,2016,12,22
+Wichita State,MVC,2016,13,21
+Wichita State,MVC,2016,14,25
+Wisconsin,Big Ten,2016,1,17
+Xavier,Big East,2016,3,23
+Xavier,Big East,2016,4,12
+Xavier,Big East,2016,5,12
+Xavier,Big East,2016,6,10
+Xavier,Big East,2016,7,6
+Xavier,Big East,2016,8,6
+Xavier,Big East,2016,9,10
+Xavier,Big East,2016,10,7
+Xavier,Big East,2016,11,5
+Xavier,Big East,2016,12,7
+Xavier,Big East,2016,13,6
+Xavier,Big East,2016,14,5
+Xavier,Big East,2016,15,8
+Xavier,Big East,2016,16,5
+Xavier,Big East,2016,17,5
+Xavier,Big East,2016,18,5
+Xavier,Big East,2016,19,9
+Arizona,Pac-12,2017,1,10
+Arizona,Pac-12,2017,2,10
+Arizona,Pac-12,2017,3,8
+Arizona,Pac-12,2017,4,16
+Arizona,Pac-12,2017,5,20
+Arizona,Pac-12,2017,6,19
+Arizona,Pac-12,2017,7,18
+Arizona,Pac-12,2017,8,18
+Arizona,Pac-12,2017,9,17
+Arizona,Pac-12,2017,10,16
+Arizona,Pac-12,2017,11,14
+Arizona,Pac-12,2017,12,7
+Arizona,Pac-12,2017,13,5
+Arizona,Pac-12,2017,14,9
+Arizona,Pac-12,2017,15,5
+Arizona,Pac-12,2017,16,4
+Arizona,Pac-12,2017,17,7
+Arizona,Pac-12,2017,18,7
+Arizona,Pac-12,2017,19,4
+Baylor,Big 12,2017,3,20
+Baylor,Big 12,2017,4,9
+Baylor,Big 12,2017,5,4
+Baylor,Big 12,2017,6,4
+Baylor,Big 12,2017,7,4
+Baylor,Big 12,2017,8,4
+Baylor,Big 12,2017,9,2
+Baylor,Big 12,2017,10,1
+Baylor,Big 12,2017,11,6
+Baylor,Big 12,2017,12,5
+Baylor,Big 12,2017,13,2
+Baylor,Big 12,2017,14,6
+Baylor,Big 12,2017,15,4
+Baylor,Big 12,2017,16,9
+Baylor,Big 12,2017,17,11
+Baylor,Big 12,2017,18,9
+Baylor,Big 12,2017,19,12
+Butler,Big East,2017,4,18
+Butler,Big East,2017,5,16
+Butler,Big East,2017,6,18
+Butler,Big East,2017,7,13
+Butler,Big East,2017,8,13
+Butler,Big East,2017,9,18
+Butler,Big East,2017,10,12
+Butler,Big East,2017,11,13
+Butler,Big East,2017,12,11
+Butler,Big East,2017,13,16
+Butler,Big East,2017,14,22
+Butler,Big East,2017,15,24
+Butler,Big East,2017,16,22
+Butler,Big East,2017,17,13
+Butler,Big East,2017,18,18
+Butler,Big East,2017,19,21
+California,Pac-12,2017,2,25
+Cincinnati,AAC,2017,2,24
+Cincinnati,AAC,2017,5,22
+Cincinnati,AAC,2017,6,25
+Cincinnati,AAC,2017,7,24
+Cincinnati,AAC,2017,8,23
+Cincinnati,AAC,2017,9,22
+Cincinnati,AAC,2017,10,22
+Cincinnati,AAC,2017,11,20
+Cincinnati,AAC,2017,12,19
+Cincinnati,AAC,2017,13,14
+Cincinnati,AAC,2017,14,11
+Cincinnati,AAC,2017,15,18
+Cincinnati,AAC,2017,16,15
+Cincinnati,AAC,2017,17,18
+Cincinnati,AAC,2017,18,15
+Cincinnati,AAC,2017,19,18
+Creighton,Big East,2017,1,22
+Creighton,Big East,2017,2,22
+Creighton,Big East,2017,3,12
+Creighton,Big East,2017,4,10
+Creighton,Big East,2017,5,10
+Creighton,Big East,2017,6,10
+Creighton,Big East,2017,7,9
+Creighton,Big East,2017,8,10
+Creighton,Big East,2017,9,10
+Creighton,Big East,2017,10,8
+Creighton,Big East,2017,11,7
+Creighton,Big East,2017,12,16
+Creighton,Big East,2017,13,22
+Creighton,Big East,2017,14,23
+Creighton,Big East,2017,15,20
+Creighton,Big East,2017,16,23
+Duke,ACC,2017,1,1
+Duke,ACC,2017,2,1
+Duke,ACC,2017,3,6
+Duke,ACC,2017,4,5
+Duke,ACC,2017,5,5
+Duke,ACC,2017,6,5
+Duke,ACC,2017,7,5
+Duke,ACC,2017,8,5
+Duke,ACC,2017,9,8
+Duke,ACC,2017,10,7
+Duke,ACC,2017,11,18
+Duke,ACC,2017,12,17
+Duke,ACC,2017,13,21
+Duke,ACC,2017,14,18
+Duke,ACC,2017,15,12
+Duke,ACC,2017,16,10
+Duke,ACC,2017,17,17
+Duke,ACC,2017,18,14
+Duke,ACC,2017,19,7
+Florida,SEC,2017,4,24
+Florida,SEC,2017,5,21
+Florida,SEC,2017,8,25
+Florida,SEC,2017,9,24
+Florida,SEC,2017,10,23
+Florida,SEC,2017,11,19
+Florida,SEC,2017,12,25
+Florida,SEC,2017,13,24
+Florida,SEC,2017,14,17
+Florida,SEC,2017,15,15
+Florida,SEC,2017,16,13
+Florida,SEC,2017,17,12
+Florida,SEC,2017,18,17
+Florida,SEC,2017,19,20
+Florida State,ACC,2017,3,25
+Florida State,ACC,2017,6,23
+Florida State,ACC,2017,7,21
+Florida State,ACC,2017,8,20
+Florida State,ACC,2017,9,12
+Florida State,ACC,2017,10,9
+Florida State,ACC,2017,11,10
+Florida State,ACC,2017,12,6
+Florida State,ACC,2017,13,15
+Florida State,ACC,2017,14,14
+Florida State,ACC,2017,15,17
+Florida State,ACC,2017,16,19
+Florida State,ACC,2017,17,15
+Florida State,ACC,2017,18,16
+Florida State,ACC,2017,19,16
+Gonzaga,WCC,2017,1,14
+Gonzaga,WCC,2017,2,14
+Gonzaga,WCC,2017,3,11
+Gonzaga,WCC,2017,4,8
+Gonzaga,WCC,2017,5,8
+Gonzaga,WCC,2017,6,8
+Gonzaga,WCC,2017,7,7
+Gonzaga,WCC,2017,8,7
+Gonzaga,WCC,2017,9,5
+Gonzaga,WCC,2017,10,5
+Gonzaga,WCC,2017,11,4
+Gonzaga,WCC,2017,12,3
+Gonzaga,WCC,2017,13,1
+Gonzaga,WCC,2017,14,1
+Gonzaga,WCC,2017,15,1
+Gonzaga,WCC,2017,16,1
+Gonzaga,WCC,2017,17,4
+Gonzaga,WCC,2017,18,4
+Gonzaga,WCC,2017,19,2
+Indiana,Big Ten,2017,1,11
+Indiana,Big Ten,2017,2,6
+Indiana,Big Ten,2017,3,3
+Indiana,Big Ten,2017,4,13
+Indiana,Big Ten,2017,5,9
+Indiana,Big Ten,2017,6,9
+Indiana,Big Ten,2017,7,16
+Indiana,Big Ten,2017,8,16
+Indiana,Big Ten,2017,9,25
+Iowa State,Big 12,2017,1,24
+Iowa State,Big 12,2017,2,20
+Iowa State,Big 12,2017,3,21
+Iowa State,Big 12,2017,4,19
+Iowa State,Big 12,2017,5,25
+Iowa State,Big 12,2017,17,24
+Iowa State,Big 12,2017,18,23
+Iowa State,Big 12,2017,19,16
+Kansas,Big 12,2017,1,3
+Kansas,Big 12,2017,2,7
+Kansas,Big 12,2017,3,5
+Kansas,Big 12,2017,4,4
+Kansas,Big 12,2017,5,3
+Kansas,Big 12,2017,6,3
+Kansas,Big 12,2017,7,3
+Kansas,Big 12,2017,8,3
+Kansas,Big 12,2017,9,3
+Kansas,Big 12,2017,10,2
+Kansas,Big 12,2017,11,2
+Kansas,Big 12,2017,12,2
+Kansas,Big 12,2017,13,3
+Kansas,Big 12,2017,14,3
+Kansas,Big 12,2017,15,3
+Kansas,Big 12,2017,16,3
+Kansas,Big 12,2017,17,1
+Kansas,Big 12,2017,18,1
+Kansas,Big 12,2017,19,3
+Kansas State,Big 12,2017,10,25
+Kentucky,SEC,2017,1,2
+Kentucky,SEC,2017,2,2
+Kentucky,SEC,2017,3,1
+Kentucky,SEC,2017,4,1
+Kentucky,SEC,2017,5,6
+Kentucky,SEC,2017,6,6
+Kentucky,SEC,2017,7,6
+Kentucky,SEC,2017,8,8
+Kentucky,SEC,2017,9,6
+Kentucky,SEC,2017,10,6
+Kentucky,SEC,2017,11,5
+Kentucky,SEC,2017,12,4
+Kentucky,SEC,2017,13,8
+Kentucky,SEC,2017,14,15
+Kentucky,SEC,2017,15,13
+Kentucky,SEC,2017,16,11
+Kentucky,SEC,2017,17,9
+Kentucky,SEC,2017,18,8
+Kentucky,SEC,2017,19,5
+Louisville,ACC,2017,1,13
+Louisville,ACC,2017,2,12
+Louisville,ACC,2017,3,10
+Louisville,ACC,2017,4,14
+Louisville,ACC,2017,5,11
+Louisville,ACC,2017,6,11
+Louisville,ACC,2017,7,10
+Louisville,ACC,2017,8,6
+Louisville,ACC,2017,9,9
+Louisville,ACC,2017,10,14
+Louisville,ACC,2017,11,12
+Louisville,ACC,2017,12,13
+Louisville,ACC,2017,13,6
+Louisville,ACC,2017,14,4
+Louisville,ACC,2017,15,8
+Louisville,ACC,2017,16,7
+Louisville,ACC,2017,17,8
+Louisville,ACC,2017,18,10
+Louisville,ACC,2017,19,10
+Maryland,Big Ten,2017,1,25
+Maryland,Big Ten,2017,11,25
+Maryland,Big Ten,2017,12,22
+Maryland,Big Ten,2017,13,17
+Maryland,Big Ten,2017,14,21
+Maryland,Big Ten,2017,15,23
+Maryland,Big Ten,2017,16,24
+Maryland,Big Ten,2017,18,25
+Miami (FL),ACC,2017,17,25
+Michigan,Big Ten,2017,3,25
+Michigan,Big Ten,2017,19,23
+Michigan State,Big Ten,2017,1,12
+Michigan State,Big Ten,2017,2,13
+Michigan State,Big Ten,2017,3,24
+Minnesota,Big Ten,2017,10,24
+Northwestern,Big Ten,2017,13,25
+Notre Dame,ACC,2017,5,23
+Notre Dame,ACC,2017,6,21
+Notre Dame,ACC,2017,7,25
+Notre Dame,ACC,2017,8,24
+Notre Dame,ACC,2017,9,23
+Notre Dame,ACC,2017,10,20
+Notre Dame,ACC,2017,11,15
+Notre Dame,ACC,2017,12,14
+Notre Dame,ACC,2017,13,20
+Notre Dame,ACC,2017,15,25
+Notre Dame,ACC,2017,16,21
+Notre Dame,ACC,2017,17,19
+Notre Dame,ACC,2017,18,22
+Notre Dame,ACC,2017,19,14
+Oregon,Pac-12,2017,1,5
+Oregon,Pac-12,2017,2,4
+Oregon,Pac-12,2017,3,13
+Oregon,Pac-12,2017,4,23
+Oregon,Pac-12,2017,5,24
+Oregon,Pac-12,2017,6,22
+Oregon,Pac-12,2017,7,20
+Oregon,Pac-12,2017,8,21
+Oregon,Pac-12,2017,9,15
+Oregon,Pac-12,2017,10,13
+Oregon,Pac-12,2017,11,11
+Oregon,Pac-12,2017,12,10
+Oregon,Pac-12,2017,13,13
+Oregon,Pac-12,2017,14,5
+Oregon,Pac-12,2017,15,7
+Oregon,Pac-12,2017,16,6
+Oregon,Pac-12,2017,17,6
+Oregon,Pac-12,2017,18,5
+Oregon,Pac-12,2017,19,9
+Purdue,Big Ten,2017,1,15
+Purdue,Big Ten,2017,2,15
+Purdue,Big Ten,2017,3,17
+Purdue,Big Ten,2017,4,15
+Purdue,Big Ten,2017,5,18
+Purdue,Big Ten,2017,6,15
+Purdue,Big Ten,2017,7,15
+Purdue,Big Ten,2017,8,15
+Purdue,Big Ten,2017,9,20
+Purdue,Big Ten,2017,10,17
+Purdue,Big Ten,2017,11,21
+Purdue,Big Ten,2017,12,20
+Purdue,Big Ten,2017,13,23
+Purdue,Big Ten,2017,14,16
+Purdue,Big Ten,2017,15,16
+Purdue,Big Ten,2017,16,14
+Purdue,Big Ten,2017,17,16
+Purdue,Big Ten,2017,18,13
+Purdue,Big Ten,2017,19,15
+Rhode Island,A-10,2017,1,23
+Rhode Island,A-10,2017,2,21
+Rhode Island,A-10,2017,3,23
+Rhode Island,A-10,2017,4,21
+SMU,AAC,2017,14,25
+SMU,AAC,2017,15,19
+SMU,AAC,2017,16,17
+SMU,AAC,2017,17,14
+SMU,AAC,2017,18,12
+SMU,AAC,2017,19,11
+Saint Mary's,WCC,2017,1,17
+Saint Mary's,WCC,2017,2,17
+Saint Mary's,WCC,2017,3,15
+Saint Mary's,WCC,2017,4,12
+Saint Mary's,WCC,2017,5,12
+Saint Mary's,WCC,2017,6,20
+Saint Mary's,WCC,2017,7,19
+Saint Mary's,WCC,2017,8,19
+Saint Mary's,WCC,2017,9,19
+Saint Mary's,WCC,2017,10,21
+Saint Mary's,WCC,2017,11,23
+Saint Mary's,WCC,2017,12,21
+Saint Mary's,WCC,2017,13,18
+Saint Mary's,WCC,2017,14,20
+Saint Mary's,WCC,2017,15,22
+Saint Mary's,WCC,2017,16,20
+Saint Mary's,WCC,2017,17,20
+Saint Mary's,WCC,2017,18,19
+Saint Mary's,WCC,2017,19,22
+South Carolina,SEC,2017,4,20
+South Carolina,SEC,2017,5,19
+South Carolina,SEC,2017,6,16
+South Carolina,SEC,2017,7,22
+South Carolina,SEC,2017,11,24
+South Carolina,SEC,2017,12,23
+South Carolina,SEC,2017,13,19
+South Carolina,SEC,2017,14,19
+South Carolina,SEC,2017,15,21
+Syracuse,ACC,2017,1,19
+Syracuse,ACC,2017,2,18
+Syracuse,ACC,2017,3,18
+Syracuse,ACC,2017,4,22
+Texas,Big 12,2017,1,21
+Texas,Big 12,2017,2,23
+Texas,Big 12,2017,3,22
+UCLA,Pac-12,2017,1,16
+UCLA,Pac-12,2017,2,16
+UCLA,Pac-12,2017,3,14
+UCLA,Pac-12,2017,4,11
+UCLA,Pac-12,2017,5,2
+UCLA,Pac-12,2017,6,2
+UCLA,Pac-12,2017,7,2
+UCLA,Pac-12,2017,8,2
+UCLA,Pac-12,2017,9,4
+UCLA,Pac-12,2017,10,4
+UCLA,Pac-12,2017,11,3
+UCLA,Pac-12,2017,12,8
+UCLA,Pac-12,2017,13,11
+UCLA,Pac-12,2017,14,10
+UCLA,Pac-12,2017,15,6
+UCLA,Pac-12,2017,16,5
+UCLA,Pac-12,2017,17,3
+UCLA,Pac-12,2017,18,3
+UCLA,Pac-12,2017,19,8
+UConn,AAC,2017,1,18
+UNC,ACC,2017,1,6
+UNC,ACC,2017,2,5
+UNC,ACC,2017,3,4
+UNC,ACC,2017,4,3
+UNC,ACC,2017,5,7
+UNC,ACC,2017,6,7
+UNC,ACC,2017,7,8
+UNC,ACC,2017,8,9
+UNC,ACC,2017,9,14
+UNC,ACC,2017,10,11
+UNC,ACC,2017,11,9
+UNC,ACC,2017,12,9
+UNC,ACC,2017,13,12
+UNC,ACC,2017,14,8
+UNC,ACC,2017,15,10
+UNC,ACC,2017,16,8
+UNC,ACC,2017,17,5
+UNC,ACC,2017,18,6
+UNC,ACC,2017,19,6
+USC,Pac-12,2017,6,24
+USC,Pac-12,2017,7,23
+USC,Pac-12,2017,8,22
+USC,Pac-12,2017,9,25
+USC,Pac-12,2017,10,25
+Villanova,Big East,2017,1,4
+Villanova,Big East,2017,2,3
+Villanova,Big East,2017,3,2
+Villanova,Big East,2017,4,2
+Villanova,Big East,2017,5,1
+Villanova,Big East,2017,6,1
+Villanova,Big East,2017,7,1
+Villanova,Big East,2017,8,1
+Villanova,Big East,2017,9,1
+Villanova,Big East,2017,10,3
+Villanova,Big East,2017,11,1
+Villanova,Big East,2017,12,1
+Villanova,Big East,2017,13,4
+Villanova,Big East,2017,14,2
+Villanova,Big East,2017,15,2
+Villanova,Big East,2017,16,2
+Villanova,Big East,2017,17,2
+Villanova,Big East,2017,18,2
+Villanova,Big East,2017,19,1
+Virginia,ACC,2017,1,8
+Virginia,ACC,2017,2,8
+Virginia,ACC,2017,3,7
+Virginia,ACC,2017,4,6
+Virginia,ACC,2017,5,14
+Virginia,ACC,2017,6,13
+Virginia,ACC,2017,7,12
+Virginia,ACC,2017,8,12
+Virginia,ACC,2017,9,11
+Virginia,ACC,2017,10,19
+Virginia,ACC,2017,11,16
+Virginia,ACC,2017,12,12
+Virginia,ACC,2017,13,9
+Virginia,ACC,2017,14,12
+Virginia,ACC,2017,15,14
+Virginia,ACC,2017,16,18
+Virginia,ACC,2017,17,23
+Virginia,ACC,2017,18,21
+Virginia,ACC,2017,19,24
+Virginia Tech,ACC,2017,9,21
+West Virginia,Big 12,2017,1,20
+West Virginia,Big 12,2017,2,19
+West Virginia,Big 12,2017,3,19
+West Virginia,Big 12,2017,4,25
+West Virginia,Big 12,2017,5,15
+West Virginia,Big 12,2017,6,12
+West Virginia,Big 12,2017,7,11
+West Virginia,Big 12,2017,8,11
+West Virginia,Big 12,2017,9,7
+West Virginia,Big 12,2017,10,10
+West Virginia,Big 12,2017,11,7
+West Virginia,Big 12,2017,12,18
+West Virginia,Big 12,2017,13,7
+West Virginia,Big 12,2017,14,13
+West Virginia,Big 12,2017,15,9
+West Virginia,Big 12,2017,16,12
+West Virginia,Big 12,2017,17,10
+West Virginia,Big 12,2017,18,11
+West Virginia,Big 12,2017,19,13
+Wichita State,MVC,2017,16,25
+Wichita State,MVC,2017,17,21
+Wichita State,MVC,2017,18,20
+Wichita State,MVC,2017,19,19
+Wisconsin,Big Ten,2017,1,9
+Wisconsin,Big Ten,2017,2,9
+Wisconsin,Big Ten,2017,3,16
+Wisconsin,Big Ten,2017,4,17
+Wisconsin,Big Ten,2017,5,17
+Wisconsin,Big Ten,2017,6,14
+Wisconsin,Big Ten,2017,7,14
+Wisconsin,Big Ten,2017,8,14
+Wisconsin,Big Ten,2017,9,13
+Wisconsin,Big Ten,2017,10,18
+Wisconsin,Big Ten,2017,11,17
+Wisconsin,Big Ten,2017,12,15
+Wisconsin,Big Ten,2017,13,10
+Wisconsin,Big Ten,2017,14,7
+Wisconsin,Big Ten,2017,15,11
+Wisconsin,Big Ten,2017,16,16
+Wisconsin,Big Ten,2017,17,22
+Wisconsin,Big Ten,2017,18,24
+Wisconsin,Big Ten,2017,19,25
+Xavier,Big East,2017,1,7
+Xavier,Big East,2017,2,11
+Xavier,Big East,2017,3,9
+Xavier,Big East,2017,4,7
+Xavier,Big East,2017,5,13
+Xavier,Big East,2017,6,17
+Xavier,Big East,2017,7,17
+Xavier,Big East,2017,8,17
+Xavier,Big East,2017,9,16
+Xavier,Big East,2017,10,15
+Xavier,Big East,2017,11,22
+Xavier,Big East,2017,12,24
+Xavier,Big East,2017,14,24
+Alabama,SEC,2018,3,25
+Alabama,SEC,2018,4,24
+Arizona,Pac-12,2018,1,3
+Arizona,Pac-12,2018,2,3
+Arizona,Pac-12,2018,3,2
+Arizona,Pac-12,2018,6,23
+Arizona,Pac-12,2018,7,18
+Arizona,Pac-12,2018,8,17
+Arizona,Pac-12,2018,9,14
+Arizona,Pac-12,2018,10,17
+Arizona,Pac-12,2018,11,14
+Arizona,Pac-12,2018,12,11
+Arizona,Pac-12,2018,13,9
+Arizona,Pac-12,2018,14,13
+Arizona,Pac-12,2018,15,17
+Arizona,Pac-12,2018,16,14
+Arizona,Pac-12,2018,17,19
+Arizona,Pac-12,2018,18,15
+Arizona,Pac-12,2018,19,12
+Arizona State,Pac-12,2018,4,20
+Arizona State,Pac-12,2018,5,16
+Arizona State,Pac-12,2018,6,5
+Arizona State,Pac-12,2018,7,3
+Arizona State,Pac-12,2018,8,3
+Arizona State,Pac-12,2018,9,4
+Arizona State,Pac-12,2018,10,11
+Arizona State,Pac-12,2018,11,16
+Arizona State,Pac-12,2018,12,21
+Arizona State,Pac-12,2018,13,25
+Arizona State,Pac-12,2018,15,25
+Arkansas,SEC,2018,9,22
+Auburn,SEC,2018,10,22
+Auburn,SEC,2018,11,17
+Auburn,SEC,2018,12,19
+Auburn,SEC,2018,13,11
+Auburn,SEC,2018,14,8
+Auburn,SEC,2018,15,10
+Auburn,SEC,2018,16,12
+Auburn,SEC,2018,17,14
+Auburn,SEC,2018,18,16
+Auburn,SEC,2018,19,19
+Baylor,Big 12,2018,1,24
+Baylor,Big 12,2018,2,25
+Baylor,Big 12,2018,3,22
+Baylor,Big 12,2018,4,16
+Baylor,Big 12,2018,5,23
+Baylor,Big 12,2018,6,21
+Baylor,Big 12,2018,7,19
+Baylor,Big 12,2018,8,18
+Cincinnati,AAC,2018,1,12
+Cincinnati,AAC,2018,2,12
+Cincinnati,AAC,2018,3,12
+Cincinnati,AAC,2018,4,11
+Cincinnati,AAC,2018,5,17
+Cincinnati,AAC,2018,6,25
+Cincinnati,AAC,2018,7,20
+Cincinnati,AAC,2018,8,21
+Cincinnati,AAC,2018,9,19
+Cincinnati,AAC,2018,10,14
+Cincinnati,AAC,2018,11,12
+Cincinnati,AAC,2018,12,9
+Cincinnati,AAC,2018,13,8
+Cincinnati,AAC,2018,14,6
+Cincinnati,AAC,2018,15,5
+Cincinnati,AAC,2018,16,11
+Cincinnati,AAC,2018,17,10
+Cincinnati,AAC,2018,18,8
+Cincinnati,AAC,2018,19,6
+Clemson,ACC,2018,9,25
+Clemson,ACC,2018,10,19
+Clemson,ACC,2018,11,20
+Clemson,ACC,2018,12,18
+Clemson,ACC,2018,13,20
+Clemson,ACC,2018,14,16
+Clemson,ACC,2018,15,11
+Clemson,ACC,2018,16,15
+Clemson,ACC,2018,17,18
+Clemson,ACC,2018,18,19
+Clemson,ACC,2018,19,20
+Creighton,Big East,2018,4,25
+Creighton,Big East,2018,7,25
+Creighton,Big East,2018,8,25
+Creighton,Big East,2018,10,25
+Duke,ACC,2018,1,1
+Duke,ACC,2018,2,1
+Duke,ACC,2018,3,1
+Duke,ACC,2018,4,1
+Duke,ACC,2018,5,1
+Duke,ACC,2018,6,4
+Duke,ACC,2018,7,4
+Duke,ACC,2018,8,4
+Duke,ACC,2018,9,2
+Duke,ACC,2018,10,7
+Duke,ACC,2018,11,5
+Duke,ACC,2018,12,4
+Duke,ACC,2018,13,4
+Duke,ACC,2018,14,9
+Duke,ACC,2018,15,12
+Duke,ACC,2018,16,5
+Duke,ACC,2018,17,5
+Duke,ACC,2018,18,5
+Duke,ACC,2018,19,9
+Florida,SEC,2018,1,8
+Florida,SEC,2018,2,8
+Florida,SEC,2018,3,7
+Florida,SEC,2018,4,6
+Florida,SEC,2018,5,5
+Florida,SEC,2018,6,22
+Florida,SEC,2018,12,20
+Florida,SEC,2018,13,23
+Florida,SEC,2018,18,23
+Florida,SEC,2018,19,23
+Florida State,ACC,2018,6,19
+Florida State,ACC,2018,7,24
+Florida State,ACC,2018,8,24
+Florida State,ACC,2018,9,24
+Florida State,ACC,2018,10,23
+Florida State,ACC,2018,16,25
+Gonzaga,WCC,2018,1,18
+Gonzaga,WCC,2018,2,17
+Gonzaga,WCC,2018,3,17
+Gonzaga,WCC,2018,4,15
+Gonzaga,WCC,2018,5,12
+Gonzaga,WCC,2018,6,12
+Gonzaga,WCC,2018,7,12
+Gonzaga,WCC,2018,8,20
+Gonzaga,WCC,2018,9,19
+Gonzaga,WCC,2018,10,15
+Gonzaga,WCC,2018,11,13
+Gonzaga,WCC,2018,12,15
+Gonzaga,WCC,2018,13,14
+Gonzaga,WCC,2018,14,12
+Gonzaga,WCC,2018,15,9
+Gonzaga,WCC,2018,16,6
+Gonzaga,WCC,2018,17,7
+Gonzaga,WCC,2018,18,6
+Gonzaga,WCC,2018,19,8
+Houston,AAC,2018,16,23
+Houston,AAC,2018,17,25
+Houston,AAC,2018,18,21
+Houston,AAC,2018,19,21
+Kansas,Big 12,2018,1,4
+Kansas,Big 12,2018,2,4
+Kansas,Big 12,2018,3,3
+Kansas,Big 12,2018,4,2
+Kansas,Big 12,2018,5,2
+Kansas,Big 12,2018,6,13
+Kansas,Big 12,2018,7,14
+Kansas,Big 12,2018,8,11
+Kansas,Big 12,2018,9,10
+Kansas,Big 12,2018,10,12
+Kansas,Big 12,2018,11,10
+Kansas,Big 12,2018,12,5
+Kansas,Big 12,2018,13,7
+Kansas,Big 12,2018,14,10
+Kansas,Big 12,2018,15,13
+Kansas,Big 12,2018,16,8
+Kansas,Big 12,2018,17,6
+Kansas,Big 12,2018,18,9
+Kansas,Big 12,2018,19,4
+Kentucky,SEC,2018,1,5
+Kentucky,SEC,2018,2,7
+Kentucky,SEC,2018,3,8
+Kentucky,SEC,2018,4,7
+Kentucky,SEC,2018,5,8
+Kentucky,SEC,2018,6,8
+Kentucky,SEC,2018,7,7
+Kentucky,SEC,2018,8,16
+Kentucky,SEC,2018,9,17
+Kentucky,SEC,2018,10,21
+Kentucky,SEC,2018,11,18
+Kentucky,SEC,2018,13,21
+Kentucky,SEC,2018,14,24
+Kentucky,SEC,2018,17,23
+Kentucky,SEC,2018,19,18
+Louisville,ACC,2018,1,16
+Louisville,ACC,2018,2,18
+Louisville,ACC,2018,3,19
+Louisville,ACC,2018,4,17
+Miami (FL),ACC,2018,1,13
+Miami (FL),ACC,2018,2,11
+Miami (FL),ACC,2018,3,11
+Miami (FL),ACC,2018,4,10
+Miami (FL),ACC,2018,5,10
+Miami (FL),ACC,2018,6,6
+Miami (FL),ACC,2018,7,6
+Miami (FL),ACC,2018,8,15
+Miami (FL),ACC,2018,9,15
+Miami (FL),ACC,2018,10,18
+Miami (FL),ACC,2018,11,25
+Miami (FL),ACC,2018,14,25
+Miami (FL),ACC,2018,18,24
+Miami (FL),ACC,2018,19,22
+Michigan,Big Ten,2018,11,23
+Michigan,Big Ten,2018,12,25
+Michigan,Big Ten,2018,13,24
+Michigan,Big Ten,2018,14,20
+Michigan,Big Ten,2018,15,22
+Michigan,Big Ten,2018,16,17
+Michigan,Big Ten,2018,17,15
+Michigan,Big Ten,2018,18,7
+Michigan,Big Ten,2018,19,7
+Michigan State,Big Ten,2018,1,2
+Michigan State,Big Ten,2018,2,2
+Michigan State,Big Ten,2018,3,4
+Michigan State,Big Ten,2018,4,3
+Michigan State,Big Ten,2018,5,3
+Michigan State,Big Ten,2018,6,2
+Michigan State,Big Ten,2018,7,2
+Michigan State,Big Ten,2018,8,2
+Michigan State,Big Ten,2018,9,1
+Michigan State,Big Ten,2018,10,4
+Michigan State,Big Ten,2018,11,9
+Michigan State,Big Ten,2018,12,6
+Michigan State,Big Ten,2018,13,5
+Michigan State,Big Ten,2018,14,4
+Michigan State,Big Ten,2018,15,2
+Michigan State,Big Ten,2018,16,2
+Michigan State,Big Ten,2018,17,2
+Michigan State,Big Ten,2018,18,4
+Michigan State,Big Ten,2018,19,5
+Middle Tennessee,CUSA,2018,16,24
+Middle Tennessee,CUSA,2018,17,24
+Minnesota,Big Ten,2018,1,15
+Minnesota,Big Ten,2018,2,14
+Minnesota,Big Ten,2018,3,14
+Minnesota,Big Ten,2018,4,12
+Minnesota,Big Ten,2018,5,14
+Nevada,MWC,2018,5,22
+Nevada,MWC,2018,12,23
+Nevada,MWC,2018,14,23
+Nevada,MWC,2018,15,24
+Nevada,MWC,2018,16,20
+Nevada,MWC,2018,17,21
+Nevada,MWC,2018,18,22
+Nevada,MWC,2018,19,24
+Northwestern,Big Ten,2018,1,19
+Northwestern,Big Ten,2018,2,20
+Notre Dame,ACC,2018,1,14
+Notre Dame,ACC,2018,2,13
+Notre Dame,ACC,2018,3,13
+Notre Dame,ACC,2018,4,5
+Notre Dame,ACC,2018,5,9
+Notre Dame,ACC,2018,6,18
+Ohio State,Big Ten,2018,11,22
+Ohio State,Big Ten,2018,12,13
+Ohio State,Big Ten,2018,13,17
+Ohio State,Big Ten,2018,14,14
+Ohio State,Big Ten,2018,15,8
+Ohio State,Big Ten,2018,16,16
+Ohio State,Big Ten,2018,17,13
+Ohio State,Big Ten,2018,18,17
+Ohio State,Big Ten,2018,19,17
+Oklahoma,Big 12,2018,7,17
+Oklahoma,Big 12,2018,8,12
+Oklahoma,Big 12,2018,9,7
+Oklahoma,Big 12,2018,10,9
+Oklahoma,Big 12,2018,11,4
+Oklahoma,Big 12,2018,12,12
+Oklahoma,Big 12,2018,13,12
+Oklahoma,Big 12,2018,14,17
+Oklahoma,Big 12,2018,15,23
+Purdue,Big Ten,2018,1,20
+Purdue,Big Ten,2018,2,19
+Purdue,Big Ten,2018,3,18
+Purdue,Big Ten,2018,5,21
+Purdue,Big Ten,2018,6,17
+Purdue,Big Ten,2018,7,16
+Purdue,Big Ten,2018,8,14
+Purdue,Big Ten,2018,9,13
+Purdue,Big Ten,2018,10,5
+Purdue,Big Ten,2018,11,3
+Purdue,Big Ten,2018,12,3
+Purdue,Big Ten,2018,13,3
+Purdue,Big Ten,2018,14,3
+Purdue,Big Ten,2018,15,6
+Purdue,Big Ten,2018,16,9
+Purdue,Big Ten,2018,17,8
+Purdue,Big Ten,2018,18,10
+Purdue,Big Ten,2018,19,11
+Rhode Island,A-10,2018,12,24
+Rhode Island,A-10,2018,13,22
+Rhode Island,A-10,2018,14,18
+Rhode Island,A-10,2018,15,16
+Rhode Island,A-10,2018,16,18
+Rhode Island,A-10,2018,17,17
+Rhode Island,A-10,2018,18,25
+Saint Mary's,WCC,2018,1,22
+Saint Mary's,WCC,2018,2,21
+Saint Mary's,WCC,2018,3,21
+Saint Mary's,WCC,2018,12,16
+Saint Mary's,WCC,2018,13,13
+Saint Mary's,WCC,2018,14,11
+Saint Mary's,WCC,2018,15,15
+Saint Mary's,WCC,2018,16,22
+Saint Mary's,WCC,2018,17,22
+Saint Mary's,WCC,2018,18,20
+Saint Mary's,WCC,2018,19,25
+Seton Hall,Big East,2018,1,23
+Seton Hall,Big East,2018,2,22
+Seton Hall,Big East,2018,3,20
+Seton Hall,Big East,2018,5,19
+Seton Hall,Big East,2018,6,15
+Seton Hall,Big East,2018,7,23
+Seton Hall,Big East,2018,8,23
+Seton Hall,Big East,2018,9,21
+Seton Hall,Big East,2018,10,13
+Seton Hall,Big East,2018,11,19
+TCU,Big 12,2018,4,23
+TCU,Big 12,2018,5,20
+TCU,Big 12,2018,6,14
+TCU,Big 12,2018,7,15
+TCU,Big 12,2018,8,10
+TCU,Big 12,2018,9,16
+TCU,Big 12,2018,10,16
+TCU,Big 12,2018,11,24
+Tennessee,SEC,2018,5,24
+Tennessee,SEC,2018,6,20
+Tennessee,SEC,2018,7,21
+Tennessee,SEC,2018,8,19
+Tennessee,SEC,2018,9,23
+Tennessee,SEC,2018,10,24
+Tennessee,SEC,2018,11,21
+Tennessee,SEC,2018,12,22
+Tennessee,SEC,2018,13,18
+Tennessee,SEC,2018,14,15
+Tennessee,SEC,2018,15,18
+Tennessee,SEC,2018,16,19
+Tennessee,SEC,2018,17,16
+Tennessee,SEC,2018,18,13
+Tennessee,SEC,2018,19,13
+Texas A&M,SEC,2018,1,25
+Texas A&M,SEC,2018,2,16
+Texas A&M,SEC,2018,3,16
+Texas A&M,SEC,2018,4,9
+Texas A&M,SEC,2018,5,7
+Texas A&M,SEC,2018,6,9
+Texas A&M,SEC,2018,7,8
+Texas A&M,SEC,2018,8,5
+Texas A&M,SEC,2018,9,11
+Texas A&M,SEC,2018,15,21
+Texas Tech,Big 12,2018,4,22
+Texas Tech,Big 12,2018,6,24
+Texas Tech,Big 12,2018,7,22
+Texas Tech,Big 12,2018,8,22
+Texas Tech,Big 12,2018,9,18
+Texas Tech,Big 12,2018,10,8
+Texas Tech,Big 12,2018,11,8
+Texas Tech,Big 12,2018,12,14
+Texas Tech,Big 12,2018,13,10
+Texas Tech,Big 12,2018,14,7
+Texas Tech,Big 12,2018,15,7
+Texas Tech,Big 12,2018,16,6
+Texas Tech,Big 12,2018,17,12
+Texas Tech,Big 12,2018,18,14
+Texas Tech,Big 12,2018,19,14
+UCLA,Pac-12,2018,1,21
+UCLA,Pac-12,2018,2,23
+UCLA,Pac-12,2018,3,24
+UNC,ACC,2018,1,9
+UNC,ACC,2018,2,9
+UNC,ACC,2018,3,9
+UNC,ACC,2018,4,13
+UNC,ACC,2018,5,11
+UNC,ACC,2018,6,7
+UNC,ACC,2018,7,5
+UNC,ACC,2018,8,13
+UNC,ACC,2018,9,12
+UNC,ACC,2018,10,20
+UNC,ACC,2018,11,15
+UNC,ACC,2018,12,10
+UNC,ACC,2018,13,19
+UNC,ACC,2018,14,21
+UNC,ACC,2018,15,14
+UNC,ACC,2018,16,10
+UNC,ACC,2018,17,9
+UNC,ACC,2018,18,12
+UNC,ACC,2018,19,10
+USC,Pac-12,2018,1,10
+USC,Pac-12,2018,2,10
+USC,Pac-12,2018,3,10
+USC,Pac-12,2018,4,14
+USC,Pac-12,2018,5,25
+Villanova,Big East,2018,1,6
+Villanova,Big East,2018,2,5
+Villanova,Big East,2018,3,5
+Villanova,Big East,2018,4,4
+Villanova,Big East,2018,5,4
+Villanova,Big East,2018,6,1
+Villanova,Big East,2018,7,1
+Villanova,Big East,2018,8,1
+Villanova,Big East,2018,9,3
+Villanova,Big East,2018,10,1
+Villanova,Big East,2018,11,1
+Villanova,Big East,2018,12,1
+Villanova,Big East,2018,13,1
+Villanova,Big East,2018,14,1
+Villanova,Big East,2018,15,3
+Villanova,Big East,2018,16,3
+Villanova,Big East,2018,17,4
+Villanova,Big East,2018,18,2
+Villanova,Big East,2018,19,2
+Virginia,ACC,2018,4,18
+Virginia,ACC,2018,5,15
+Virginia,ACC,2018,6,16
+Virginia,ACC,2018,7,13
+Virginia,ACC,2018,8,9
+Virginia,ACC,2018,9,8
+Virginia,ACC,2018,10,3
+Virginia,ACC,2018,11,2
+Virginia,ACC,2018,12,2
+Virginia,ACC,2018,13,2
+Virginia,ACC,2018,14,2
+Virginia,ACC,2018,15,1
+Virginia,ACC,2018,16,1
+Virginia,ACC,2018,17,1
+Virginia,ACC,2018,18,1
+Virginia,ACC,2018,19,1
+West Virginia,Big 12,2018,1,11
+West Virginia,Big 12,2018,2,24
+West Virginia,Big 12,2018,3,23
+West Virginia,Big 12,2018,4,19
+West Virginia,Big 12,2018,5,18
+West Virginia,Big 12,2018,6,11
+West Virginia,Big 12,2018,7,10
+West Virginia,Big 12,2018,8,7
+West Virginia,Big 12,2018,9,6
+West Virginia,Big 12,2018,10,2
+West Virginia,Big 12,2018,11,6
+West Virginia,Big 12,2018,12,7
+West Virginia,Big 12,2018,13,15
+West Virginia,Big 12,2018,14,19
+West Virginia,Big 12,2018,15,20
+West Virginia,Big 12,2018,16,21
+West Virginia,Big 12,2018,17,20
+West Virginia,Big 12,2018,18,18
+West Virginia,Big 12,2018,19,15
+Wichita State,AAC,2018,1,7
+Wichita State,AAC,2018,2,6
+Wichita State,AAC,2018,3,6
+Wichita State,AAC,2018,4,8
+Wichita State,AAC,2018,5,6
+Wichita State,AAC,2018,6,3
+Wichita State,AAC,2018,7,11
+Wichita State,AAC,2018,8,8
+Wichita State,AAC,2018,9,9
+Wichita State,AAC,2018,10,6
+Wichita State,AAC,2018,11,7
+Wichita State,AAC,2018,12,17
+Wichita State,AAC,2018,13,16
+Wichita State,AAC,2018,14,22
+Wichita State,AAC,2018,15,19
+Wichita State,AAC,2018,16,13
+Wichita State,AAC,2018,17,11
+Wichita State,AAC,2018,18,11
+Wichita State,AAC,2018,19,16
+Xavier,Big East,2018,1,17
+Xavier,Big East,2018,2,15
+Xavier,Big East,2018,3,15
+Xavier,Big East,2018,4,21
+Xavier,Big East,2018,5,13
+Xavier,Big East,2018,6,10
+Xavier,Big East,2018,7,9
+Xavier,Big East,2018,8,6
+Xavier,Big East,2018,9,5
+Xavier,Big East,2018,10,10
+Xavier,Big East,2018,11,11
+Xavier,Big East,2018,12,8
+Xavier,Big East,2018,13,6
+Xavier,Big East,2018,14,5
+Xavier,Big East,2018,15,4
+Xavier,Big East,2018,16,4
+Xavier,Big East,2018,17,3
+Xavier,Big East,2018,18,3
+Xavier,Big East,2018,19,3
+Arizona State,Pac-12,2019,5,20
+Arizona State,Pac-12,2019,6,20
+Arizona State,Pac-12,2019,7,18
+Arizona State,Pac-12,2019,8,17
+Auburn,SEC,2019,1,11
+Auburn,SEC,2019,2,9
+Auburn,SEC,2019,3,8
+Auburn,SEC,2019,4,8
+Auburn,SEC,2019,5,8
+Auburn,SEC,2019,6,8
+Auburn,SEC,2019,7,7
+Auburn,SEC,2019,8,12
+Auburn,SEC,2019,9,12
+Auburn,SEC,2019,10,11
+Auburn,SEC,2019,11,14
+Auburn,SEC,2019,12,16
+Auburn,SEC,2019,19,22
+Auburn,SEC,2019,20,14
+Buffalo,MAC,2019,2,25
+Buffalo,MAC,2019,3,22
+Buffalo,MAC,2019,4,21
+Buffalo,MAC,2019,5,17
+Buffalo,MAC,2019,6,14
+Buffalo,MAC,2019,7,14
+Buffalo,MAC,2019,8,21
+Buffalo,MAC,2019,9,20
+Buffalo,MAC,2019,10,19
+Buffalo,MAC,2019,11,16
+Buffalo,MAC,2019,12,14
+Buffalo,MAC,2019,13,18
+Buffalo,MAC,2019,14,23
+Buffalo,MAC,2019,15,25
+Buffalo,MAC,2019,16,25
+Buffalo,MAC,2019,17,21
+Buffalo,MAC,2019,18,19
+Buffalo,MAC,2019,19,18
+Buffalo,MAC,2019,20,15
+Cincinnati,AAC,2019,14,25
+Cincinnati,AAC,2019,17,23
+Cincinnati,AAC,2019,18,20
+Cincinnati,AAC,2019,19,24
+Cincinnati,AAC,2019,20,22
+Clemson,ACC,2019,1,22
+Clemson,ACC,2019,2,19
+Clemson,ACC,2019,3,16
+Duke,ACC,2019,1,4
+Duke,ACC,2019,2,1
+Duke,ACC,2019,3,1
+Duke,ACC,2019,4,3
+Duke,ACC,2019,5,3
+Duke,ACC,2019,6,2
+Duke,ACC,2019,7,2
+Duke,ACC,2019,8,1
+Duke,ACC,2019,9,1
+Duke,ACC,2019,10,1
+Duke,ACC,2019,11,1
+Duke,ACC,2019,12,2
+Duke,ACC,2019,13,2
+Duke,ACC,2019,14,2
+Duke,ACC,2019,15,2
+Duke,ACC,2019,16,1
+Duke,ACC,2019,17,3
+Duke,ACC,2019,18,4
+Duke,ACC,2019,19,5
+Duke,ACC,2019,20,1
+Florida State,ACC,2019,1,17
+Florida State,ACC,2019,2,14
+Florida State,ACC,2019,3,14
+Florida State,ACC,2019,4,15
+Florida State,ACC,2019,5,11
+Florida State,ACC,2019,6,10
+Florida State,ACC,2019,7,11
+Florida State,ACC,2019,8,9
+Florida State,ACC,2019,9,9
+Florida State,ACC,2019,10,13
+Florida State,ACC,2019,11,11
+Florida State,ACC,2019,13,25
+Florida State,ACC,2019,14,22
+Florida State,ACC,2019,15,17
+Florida State,ACC,2019,16,16
+Florida State,ACC,2019,17,18
+Florida State,ACC,2019,18,14
+Florida State,ACC,2019,19,12
+Florida State,ACC,2019,20,10
+Furman,Southern,2019,5,25
+Furman,Southern,2019,6,23
+Furman,Southern,2019,7,24
+Gonzaga,WCC,2019,1,3
+Gonzaga,WCC,2019,2,3
+Gonzaga,WCC,2019,3,3
+Gonzaga,WCC,2019,4,1
+Gonzaga,WCC,2019,5,1
+Gonzaga,WCC,2019,6,4
+Gonzaga,WCC,2019,7,8
+Gonzaga,WCC,2019,8,7
+Gonzaga,WCC,2019,9,7
+Gonzaga,WCC,2019,10,5
+Gonzaga,WCC,2019,11,5
+Gonzaga,WCC,2019,12,4
+Gonzaga,WCC,2019,13,4
+Gonzaga,WCC,2019,14,4
+Gonzaga,WCC,2019,15,3
+Gonzaga,WCC,2019,16,2
+Gonzaga,WCC,2019,17,1
+Gonzaga,WCC,2019,18,1
+Gonzaga,WCC,2019,19,1
+Gonzaga,WCC,2019,20,4
+Houston,AAC,2019,6,24
+Houston,AAC,2019,7,21
+Houston,AAC,2019,8,22
+Houston,AAC,2019,9,19
+Houston,AAC,2019,10,17
+Houston,AAC,2019,11,21
+Houston,AAC,2019,12,17
+Houston,AAC,2019,13,13
+Houston,AAC,2019,14,12
+Houston,AAC,2019,15,9
+Houston,AAC,2019,16,9
+Houston,AAC,2019,17,8
+Houston,AAC,2019,18,12
+Houston,AAC,2019,19,11
+Houston,AAC,2019,20,11
+Indiana,Big Ten,2019,6,25
+Indiana,Big Ten,2019,7,22
+Indiana,Big Ten,2019,8,23
+Indiana,Big Ten,2019,9,21
+Indiana,Big Ten,2019,10,22
+Indiana,Big Ten,2019,11,25
+Iowa,Big Ten,2019,3,20
+Iowa,Big Ten,2019,4,14
+Iowa,Big Ten,2019,5,18
+Iowa,Big Ten,2019,6,22
+Iowa,Big Ten,2019,7,23
+Iowa,Big Ten,2019,8,24
+Iowa,Big Ten,2019,9,25
+Iowa,Big Ten,2019,11,23
+Iowa,Big Ten,2019,12,19
+Iowa,Big Ten,2019,14,20
+Iowa,Big Ten,2019,15,21
+Iowa,Big Ten,2019,16,21
+Iowa,Big Ten,2019,17,22
+Iowa State,Big 12,2019,10,20
+Iowa State,Big 12,2019,12,24
+Iowa State,Big 12,2019,13,20
+Iowa State,Big 12,2019,14,17
+Iowa State,Big 12,2019,15,23
+Iowa State,Big 12,2019,16,19
+Iowa State,Big 12,2019,20,24
+Kansas,Big 12,2019,1,1
+Kansas,Big 12,2019,2,2
+Kansas,Big 12,2019,3,2
+Kansas,Big 12,2019,4,2
+Kansas,Big 12,2019,5,2
+Kansas,Big 12,2019,6,1
+Kansas,Big 12,2019,7,1
+Kansas,Big 12,2019,8,5
+Kansas,Big 12,2019,9,5
+Kansas,Big 12,2019,10,7
+Kansas,Big 12,2019,11,7
+Kansas,Big 12,2019,12,9
+Kansas,Big 12,2019,13,11
+Kansas,Big 12,2019,14,13
+Kansas,Big 12,2019,15,14
+Kansas,Big 12,2019,16,12
+Kansas,Big 12,2019,17,15
+Kansas,Big 12,2019,18,13
+Kansas,Big 12,2019,19,17
+Kansas,Big 12,2019,20,17
+Kansas State,Big 12,2019,1,12
+Kansas State,Big 12,2019,2,12
+Kansas State,Big 12,2019,3,12
+Kansas State,Big 12,2019,4,12
+Kansas State,Big 12,2019,5,16
+Kansas State,Big 12,2019,6,25
+Kansas State,Big 12,2019,15,18
+Kansas State,Big 12,2019,16,23
+Kansas State,Big 12,2019,17,16
+Kansas State,Big 12,2019,18,18
+Kansas State,Big 12,2019,19,15
+Kansas State,Big 12,2019,20,18
+Kentucky,SEC,2019,1,2
+Kentucky,SEC,2019,2,10
+Kentucky,SEC,2019,3,10
+Kentucky,SEC,2019,4,10
+Kentucky,SEC,2019,5,9
+Kentucky,SEC,2019,6,19
+Kentucky,SEC,2019,7,19
+Kentucky,SEC,2019,8,16
+Kentucky,SEC,2019,9,13
+Kentucky,SEC,2019,10,18
+Kentucky,SEC,2019,11,12
+Kentucky,SEC,2019,12,8
+Kentucky,SEC,2019,13,7
+Kentucky,SEC,2019,14,5
+Kentucky,SEC,2019,15,5
+Kentucky,SEC,2019,16,4
+Kentucky,SEC,2019,17,4
+Kentucky,SEC,2019,18,6
+Kentucky,SEC,2019,19,4
+Kentucky,SEC,2019,20,7
+LSU,SEC,2019,1,23
+LSU,SEC,2019,2,22
+LSU,SEC,2019,3,19
+LSU,SEC,2019,12,25
+LSU,SEC,2019,13,19
+LSU,SEC,2019,14,21
+LSU,SEC,2019,15,19
+LSU,SEC,2019,16,13
+LSU,SEC,2019,17,13
+LSU,SEC,2019,18,10
+LSU,SEC,2019,19,9
+LSU,SEC,2019,20,12
+Louisville,ACC,2019,12,23
+Louisville,ACC,2019,13,15
+Louisville,ACC,2019,14,16
+Louisville,ACC,2019,15,16
+Louisville,ACC,2019,16,18
+Marquette,Big East,2019,2,24
+Marquette,Big East,2019,6,21
+Marquette,Big East,2019,7,20
+Marquette,Big East,2019,8,18
+Marquette,Big East,2019,9,16
+Marquette,Big East,2019,10,21
+Marquette,Big East,2019,11,15
+Marquette,Big East,2019,12,12
+Marquette,Big East,2019,13,10
+Marquette,Big East,2019,14,10
+Marquette,Big East,2019,15,10
+Marquette,Big East,2019,16,11
+Marquette,Big East,2019,17,10
+Marquette,Big East,2019,18,16
+Marquette,Big East,2019,19,23
+Maryland,Big Ten,2019,4,24
+Maryland,Big Ten,2019,5,23
+Maryland,Big Ten,2019,11,19
+Maryland,Big Ten,2019,12,13
+Maryland,Big Ten,2019,13,21
+Maryland,Big Ten,2019,14,24
+Maryland,Big Ten,2019,15,24
+Maryland,Big Ten,2019,16,24
+Maryland,Big Ten,2019,17,17
+Maryland,Big Ten,2019,18,24
+Maryland,Big Ten,2019,19,21
+Michigan,Big Ten,2019,1,19
+Michigan,Big Ten,2019,2,18
+Michigan,Big Ten,2019,3,9
+Michigan,Big Ten,2019,4,7
+Michigan,Big Ten,2019,5,5
+Michigan,Big Ten,2019,6,5
+Michigan,Big Ten,2019,7,4
+Michigan,Big Ten,2019,8,2
+Michigan,Big Ten,2019,9,2
+Michigan,Big Ten,2019,10,2
+Michigan,Big Ten,2019,11,2
+Michigan,Big Ten,2019,12,5
+Michigan,Big Ten,2019,13,5
+Michigan,Big Ten,2019,14,7
+Michigan,Big Ten,2019,15,6
+Michigan,Big Ten,2019,16,7
+Michigan,Big Ten,2019,17,9
+Michigan,Big Ten,2019,18,7
+Michigan,Big Ten,2019,19,10
+Michigan,Big Ten,2019,20,8
+Michigan State,Big Ten,2019,1,10
+Michigan State,Big Ten,2019,2,11
+Michigan State,Big Ten,2019,3,11
+Michigan State,Big Ten,2019,4,9
+Michigan State,Big Ten,2019,5,10
+Michigan State,Big Ten,2019,6,9
+Michigan State,Big Ten,2019,7,10
+Michigan State,Big Ten,2019,8,8
+Michigan State,Big Ten,2019,9,8
+Michigan State,Big Ten,2019,10,6
+Michigan State,Big Ten,2019,11,6
+Michigan State,Big Ten,2019,12,6
+Michigan State,Big Ten,2019,13,6
+Michigan State,Big Ten,2019,14,9
+Michigan State,Big Ten,2019,15,11
+Michigan State,Big Ten,2019,16,10
+Michigan State,Big Ten,2019,17,6
+Michigan State,Big Ten,2019,18,9
+Michigan State,Big Ten,2019,19,6
+Michigan State,Big Ten,2019,20,5
+Mississippi State,SEC,2019,1,18
+Mississippi State,SEC,2019,2,17
+Mississippi State,SEC,2019,3,15
+Mississippi State,SEC,2019,4,25
+Mississippi State,SEC,2019,5,22
+Mississippi State,SEC,2019,6,18
+Mississippi State,SEC,2019,7,17
+Mississippi State,SEC,2019,8,19
+Mississippi State,SEC,2019,9,17
+Mississippi State,SEC,2019,10,14
+Mississippi State,SEC,2019,11,24
+Mississippi State,SEC,2019,12,22
+Mississippi State,SEC,2019,13,22
+NC State,ACC,2019,8,20
+NC State,ACC,2019,9,18
+NC State,ACC,2019,10,15
+NC State,ACC,2019,11,17
+NC State,ACC,2019,12,21
+NC State,ACC,2019,13,23
+Nebraska,Big Ten,2019,5,24
+Nebraska,Big Ten,2019,7,25
+Nebraska,Big Ten,2019,9,24
+Nevada,MWC,2019,1,7
+Nevada,MWC,2019,2,6
+Nevada,MWC,2019,3,6
+Nevada,MWC,2019,4,5
+Nevada,MWC,2019,5,6
+Nevada,MWC,2019,6,7
+Nevada,MWC,2019,7,6
+Nevada,MWC,2019,8,6
+Nevada,MWC,2019,9,6
+Nevada,MWC,2019,10,10
+Nevada,MWC,2019,11,10
+Nevada,MWC,2019,12,7
+Nevada,MWC,2019,13,8
+Nevada,MWC,2019,14,6
+Nevada,MWC,2019,15,7
+Nevada,MWC,2019,16,6
+Nevada,MWC,2019,17,12
+Nevada,MWC,2019,18,17
+Nevada,MWC,2019,19,14
+Nevada,MWC,2019,20,20
+Ohio State,Big Ten,2019,3,23
+Ohio State,Big Ten,2019,4,16
+Ohio State,Big Ten,2019,5,19
+Ohio State,Big Ten,2019,6,15
+Ohio State,Big Ten,2019,7,15
+Ohio State,Big Ten,2019,8,13
+Ohio State,Big Ten,2019,9,14
+Ohio State,Big Ten,2019,10,16
+Oklahoma,Big 12,2019,8,25
+Oklahoma,Big 12,2019,9,23
+Oklahoma,Big 12,2019,10,23
+Oklahoma,Big 12,2019,11,20
+Ole Miss,SEC,2019,11,18
+Ole Miss,SEC,2019,12,20
+Oregon,Pac-12,2019,1,14
+Oregon,Pac-12,2019,2,13
+Oregon,Pac-12,2019,3,21
+Oregon,Pac-12,2019,4,18
+Purdue,Big Ten,2019,1,24
+Purdue,Big Ten,2019,2,23
+Purdue,Big Ten,2019,3,24
+Purdue,Big Ten,2019,4,19
+Purdue,Big Ten,2019,13,17
+Purdue,Big Ten,2019,14,15
+Purdue,Big Ten,2019,15,12
+Purdue,Big Ten,2019,16,15
+Purdue,Big Ten,2019,17,14
+Purdue,Big Ten,2019,18,11
+Purdue,Big Ten,2019,19,13
+Purdue,Big Ten,2019,20,13
+St. John's (NY),Big East,2019,10,24
+Syracuse,ACC,2019,1,16
+Syracuse,ACC,2019,2,15
+Syracuse,ACC,2019,6,25
+TCU,Big 12,2019,1,20
+TCU,Big 12,2019,2,21
+TCU,Big 12,2019,3,18
+TCU,Big 12,2019,10,25
+Tennessee,SEC,2019,1,6
+Tennessee,SEC,2019,2,5
+Tennessee,SEC,2019,3,5
+Tennessee,SEC,2019,4,6
+Tennessee,SEC,2019,5,7
+Tennessee,SEC,2019,6,3
+Tennessee,SEC,2019,7,3
+Tennessee,SEC,2019,8,3
+Tennessee,SEC,2019,9,3
+Tennessee,SEC,2019,10,3
+Tennessee,SEC,2019,11,3
+Tennessee,SEC,2019,12,1
+Tennessee,SEC,2019,13,1
+Tennessee,SEC,2019,14,1
+Tennessee,SEC,2019,15,1
+Tennessee,SEC,2019,16,5
+Tennessee,SEC,2019,17,7
+Tennessee,SEC,2019,18,5
+Tennessee,SEC,2019,19,8
+Tennessee,SEC,2019,20,6
+Texas,Big 12,2019,4,17
+Texas Tech,Big 12,2019,4,20
+Texas Tech,Big 12,2019,5,13
+Texas Tech,Big 12,2019,6,11
+Texas Tech,Big 12,2019,7,12
+Texas Tech,Big 12,2019,8,11
+Texas Tech,Big 12,2019,9,11
+Texas Tech,Big 12,2019,10,8
+Texas Tech,Big 12,2019,11,8
+Texas Tech,Big 12,2019,12,14
+Texas Tech,Big 12,2019,13,16
+Texas Tech,Big 12,2019,14,18
+Texas Tech,Big 12,2019,15,15
+Texas Tech,Big 12,2019,16,14
+Texas Tech,Big 12,2019,17,11
+Texas Tech,Big 12,2019,18,8
+Texas Tech,Big 12,2019,19,7
+Texas Tech,Big 12,2019,20,9
+UCF,AAC,2019,18,25
+UCLA,Pac-12,2019,1,21
+UCLA,Pac-12,2019,2,20
+UCLA,Pac-12,2019,3,17
+UNC,ACC,2019,1,8
+UNC,ACC,2019,2,7
+UNC,ACC,2019,3,7
+UNC,ACC,2019,4,11
+UNC,ACC,2019,5,14
+UNC,ACC,2019,6,12
+UNC,ACC,2019,7,9
+UNC,ACC,2019,8,14
+UNC,ACC,2019,9,15
+UNC,ACC,2019,10,12
+UNC,ACC,2019,11,13
+UNC,ACC,2019,12,11
+UNC,ACC,2019,13,9
+UNC,ACC,2019,14,8
+UNC,ACC,2019,15,8
+UNC,ACC,2019,16,8
+UNC,ACC,2019,17,5
+UNC,ACC,2019,18,3
+UNC,ACC,2019,19,3
+UNC,ACC,2019,20,3
+Utah State,MWC,2019,20,25
+Villanova,Big East,2019,1,9
+Villanova,Big East,2019,2,8
+Villanova,Big East,2019,4,23
+Villanova,Big East,2019,5,21
+Villanova,Big East,2019,6,17
+Villanova,Big East,2019,11,22
+Villanova,Big East,2019,12,18
+Villanova,Big East,2019,13,14
+Villanova,Big East,2019,14,14
+Villanova,Big East,2019,15,13
+Villanova,Big East,2019,16,17
+Villanova,Big East,2019,18,23
+Villanova,Big East,2019,19,25
+Villanova,Big East,2019,20,23
+Virginia,ACC,2019,1,5
+Virginia,ACC,2019,2,4
+Virginia,ACC,2019,3,4
+Virginia,ACC,2019,4,4
+Virginia,ACC,2019,5,4
+Virginia,ACC,2019,6,6
+Virginia,ACC,2019,7,5
+Virginia,ACC,2019,8,4
+Virginia,ACC,2019,9,4
+Virginia,ACC,2019,10,4
+Virginia,ACC,2019,11,4
+Virginia,ACC,2019,12,3
+Virginia,ACC,2019,13,3
+Virginia,ACC,2019,14,3
+Virginia,ACC,2019,15,4
+Virginia,ACC,2019,16,3
+Virginia,ACC,2019,17,2
+Virginia,ACC,2019,18,2
+Virginia,ACC,2019,19,2
+Virginia,ACC,2019,20,2
+Virginia Tech,ACC,2019,1,15
+Virginia Tech,ACC,2019,2,16
+Virginia Tech,ACC,2019,3,13
+Virginia Tech,ACC,2019,4,13
+Virginia Tech,ACC,2019,5,15
+Virginia Tech,ACC,2019,6,13
+Virginia Tech,ACC,2019,7,13
+Virginia Tech,ACC,2019,8,10
+Virginia Tech,ACC,2019,9,10
+Virginia Tech,ACC,2019,10,9
+Virginia Tech,ACC,2019,11,9
+Virginia Tech,ACC,2019,12,10
+Virginia Tech,ACC,2019,13,12
+Virginia Tech,ACC,2019,14,11
+Virginia Tech,ACC,2019,15,22
+Virginia Tech,ACC,2019,16,20
+Virginia Tech,ACC,2019,17,20
+Virginia Tech,ACC,2019,18,15
+Virginia Tech,ACC,2019,19,16
+Virginia Tech,ACC,2019,20,16
+Washington,Pac-12,2019,1,25
+Washington,Pac-12,2019,17,25
+West Virginia,Big 12,2019,1,13
+Wisconsin,Big Ten,2019,3,25
+Wisconsin,Big Ten,2019,4,22
+Wisconsin,Big Ten,2019,5,12
+Wisconsin,Big Ten,2019,6,16
+Wisconsin,Big Ten,2019,7,16
+Wisconsin,Big Ten,2019,8,15
+Wisconsin,Big Ten,2019,9,22
+Wisconsin,Big Ten,2019,13,24
+Wisconsin,Big Ten,2019,14,19
+Wisconsin,Big Ten,2019,15,20
+Wisconsin,Big Ten,2019,16,22
+Wisconsin,Big Ten,2019,17,19
+Wisconsin,Big Ten,2019,18,21
+Wisconsin,Big Ten,2019,19,19
+Wisconsin,Big Ten,2019,20,21
+Wofford,Southern,2019,17,24
+Wofford,Southern,2019,18,22
+Wofford,Southern,2019,19,20
+Wofford,Southern,2019,20,19
+Arizona,Pac-12,2020,1,21
+Arizona,Pac-12,2020,2,19
+Arizona,Pac-12,2020,3,14
+Arizona,Pac-12,2020,4,14
+Arizona,Pac-12,2020,5,12
+Arizona,Pac-12,2020,6,15
+Arizona,Pac-12,2020,7,16
+Arizona,Pac-12,2020,8,24
+Arizona,Pac-12,2020,9,25
+Arizona,Pac-12,2020,10,24
+Arizona,Pac-12,2020,12,22
+Arizona,Pac-12,2020,14,23
+Arizona,Pac-12,2020,16,24
+Auburn,SEC,2020,1,24
+Auburn,SEC,2020,2,22
+Auburn,SEC,2020,3,19
+Auburn,SEC,2020,4,18
+Auburn,SEC,2020,5,14
+Auburn,SEC,2020,6,12
+Auburn,SEC,2020,7,12
+Auburn,SEC,2020,8,8
+Auburn,SEC,2020,9,8
+Auburn,SEC,2020,10,5
+Auburn,SEC,2020,11,4
+Auburn,SEC,2020,12,16
+Auburn,SEC,2020,13,17
+Auburn,SEC,2020,14,11
+Auburn,SEC,2020,15,11
+Auburn,SEC,2020,16,13
+Auburn,SEC,2020,17,15
+Auburn,SEC,2020,18,17
+Auburn,SEC,2020,19,20
+Auburn,SEC,2020,20,20
+BYU,WCC,2020,16,23
+BYU,WCC,2020,17,17
+BYU,WCC,2020,18,15
+BYU,WCC,2020,19,14
+BYU,WCC,2020,20,18
+Baylor,Big 12,2020,1,16
+Baylor,Big 12,2020,2,24
+Baylor,Big 12,2020,3,24
+Baylor,Big 12,2020,4,19
+Baylor,Big 12,2020,5,18
+Baylor,Big 12,2020,6,11
+Baylor,Big 12,2020,7,10
+Baylor,Big 12,2020,8,7
+Baylor,Big 12,2020,9,6
+Baylor,Big 12,2020,10,4
+Baylor,Big 12,2020,11,2
+Baylor,Big 12,2020,12,1
+Baylor,Big 12,2020,13,1
+Baylor,Big 12,2020,14,1
+Baylor,Big 12,2020,15,1
+Baylor,Big 12,2020,16,1
+Baylor,Big 12,2020,17,2
+Baylor,Big 12,2020,18,4
+Baylor,Big 12,2020,19,5
+Baylor,Big 12,2020,20,5
+Butler,Big East,2020,5,24
+Butler,Big East,2020,6,18
+Butler,Big East,2020,7,17
+Butler,Big East,2020,8,12
+Butler,Big East,2020,9,11
+Butler,Big East,2020,10,6
+Butler,Big East,2020,11,5
+Butler,Big East,2020,12,13
+Butler,Big East,2020,13,16
+Butler,Big East,2020,14,19
+Butler,Big East,2020,15,19
+Butler,Big East,2020,16,21
+Butler,Big East,2020,19,24
+Butler,Big East,2020,20,23
+Colorado,Pac-12,2020,2,25
+Colorado,Pac-12,2020,3,23
+Colorado,Pac-12,2020,4,21
+Colorado,Pac-12,2020,5,20
+Colorado,Pac-12,2020,6,24
+Colorado,Pac-12,2020,10,25
+Colorado,Pac-12,2020,11,20
+Colorado,Pac-12,2020,12,23
+Colorado,Pac-12,2020,13,20
+Colorado,Pac-12,2020,14,24
+Colorado,Pac-12,2020,15,16
+Colorado,Pac-12,2020,16,18
+Colorado,Pac-12,2020,17,21
+Creighton,Big East,2020,11,25
+Creighton,Big East,2020,14,21
+Creighton,Big East,2020,15,23
+Creighton,Big East,2020,16,15
+Creighton,Big East,2020,17,10
+Creighton,Big East,2020,18,11
+Creighton,Big East,2020,19,7
+Creighton,Big East,2020,20,7
+Dayton,A-10,2020,5,19
+Dayton,A-10,2020,6,14
+Dayton,A-10,2020,7,13
+Dayton,A-10,2020,8,18
+Dayton,A-10,2020,9,20
+Dayton,A-10,2020,10,15
+Dayton,A-10,2020,11,13
+Dayton,A-10,2020,12,7
+Dayton,A-10,2020,13,7
+Dayton,A-10,2020,14,6
+Dayton,A-10,2020,15,6
+Dayton,A-10,2020,16,5
+Dayton,A-10,2020,17,4
+Dayton,A-10,2020,18,3
+Dayton,A-10,2020,19,3
+Dayton,A-10,2020,20,3
+Duke,ACC,2020,1,4
+Duke,ACC,2020,2,2
+Duke,ACC,2020,3,1
+Duke,ACC,2020,4,1
+Duke,ACC,2020,5,10
+Duke,ACC,2020,6,7
+Duke,ACC,2020,7,4
+Duke,ACC,2020,8,4
+Duke,ACC,2020,9,2
+Duke,ACC,2020,10,2
+Duke,ACC,2020,11,3
+Duke,ACC,2020,12,8
+Duke,ACC,2020,13,9
+Duke,ACC,2020,14,7
+Duke,ACC,2020,15,7
+Duke,ACC,2020,16,6
+Duke,ACC,2020,17,7
+Duke,ACC,2020,18,12
+Duke,ACC,2020,19,10
+Duke,ACC,2020,20,11
+Florida,SEC,2020,1,6
+Florida,SEC,2020,2,15
+Florida,SEC,2020,4,24
+Florida State,ACC,2020,5,17
+Florida State,ACC,2020,6,21
+Florida State,ACC,2020,7,19
+Florida State,ACC,2020,8,17
+Florida State,ACC,2020,9,18
+Florida State,ACC,2020,10,10
+Florida State,ACC,2020,11,9
+Florida State,ACC,2020,12,5
+Florida State,ACC,2020,13,5
+Florida State,ACC,2020,14,8
+Florida State,ACC,2020,15,8
+Florida State,ACC,2020,16,8
+Florida State,ACC,2020,17,6
+Florida State,ACC,2020,18,7
+Florida State,ACC,2020,19,4
+Florida State,ACC,2020,20,4
+Gonzaga,WCC,2020,1,8
+Gonzaga,WCC,2020,2,8
+Gonzaga,WCC,2020,3,8
+Gonzaga,WCC,2020,4,8
+Gonzaga,WCC,2020,5,9
+Gonzaga,WCC,2020,6,6
+Gonzaga,WCC,2020,7,2
+Gonzaga,WCC,2020,8,1
+Gonzaga,WCC,2020,9,1
+Gonzaga,WCC,2020,10,1
+Gonzaga,WCC,2020,11,1
+Gonzaga,WCC,2020,12,2
+Gonzaga,WCC,2020,13,2
+Gonzaga,WCC,2020,14,2
+Gonzaga,WCC,2020,15,2
+Gonzaga,WCC,2020,16,2
+Gonzaga,WCC,2020,17,3
+Gonzaga,WCC,2020,18,2
+Gonzaga,WCC,2020,19,2
+Gonzaga,WCC,2020,20,2
+Houston,AAC,2020,12,25
+Houston,AAC,2020,13,21
+Houston,AAC,2020,14,25
+Houston,AAC,2020,15,20
+Houston,AAC,2020,16,22
+Houston,AAC,2020,17,25
+Houston,AAC,2020,18,21
+Houston,AAC,2020,19,22
+Houston,AAC,2020,20,22
+Illinois,Big Ten,2020,11,24
+Illinois,Big Ten,2020,12,21
+Illinois,Big Ten,2020,13,19
+Illinois,Big Ten,2020,14,20
+Illinois,Big Ten,2020,15,22
+Illinois,Big Ten,2020,18,23
+Illinois,Big Ten,2020,19,21
+Illinois,Big Ten,2020,20,21
+Iowa,Big Ten,2020,8,25
+Iowa,Big Ten,2020,9,23
+Iowa,Big Ten,2020,12,19
+Iowa,Big Ten,2020,13,18
+Iowa,Big Ten,2020,14,17
+Iowa,Big Ten,2020,15,21
+Iowa,Big Ten,2020,16,20
+Iowa,Big Ten,2020,17,18
+Iowa,Big Ten,2020,18,18
+Iowa,Big Ten,2020,19,25
+Iowa,Big Ten,2020,20,25
+Kansas,Big 12,2020,1,3
+Kansas,Big 12,2020,2,5
+Kansas,Big 12,2020,3,4
+Kansas,Big 12,2020,4,4
+Kansas,Big 12,2020,5,2
+Kansas,Big 12,2020,6,2
+Kansas,Big 12,2020,7,1
+Kansas,Big 12,2020,8,5
+Kansas,Big 12,2020,9,3
+Kansas,Big 12,2020,10,3
+Kansas,Big 12,2020,11,6
+Kansas,Big 12,2020,12,3
+Kansas,Big 12,2020,13,3
+Kansas,Big 12,2020,14,3
+Kansas,Big 12,2020,15,3
+Kansas,Big 12,2020,16,3
+Kansas,Big 12,2020,17,1
+Kansas,Big 12,2020,18,1
+Kansas,Big 12,2020,19,1
+Kansas,Big 12,2020,20,1
+Kentucky,SEC,2020,1,2
+Kentucky,SEC,2020,2,1
+Kentucky,SEC,2020,3,9
+Kentucky,SEC,2020,4,9
+Kentucky,SEC,2020,5,8
+Kentucky,SEC,2020,6,8
+Kentucky,SEC,2020,7,6
+Kentucky,SEC,2020,8,19
+Kentucky,SEC,2020,9,17
+Kentucky,SEC,2020,10,14
+Kentucky,SEC,2020,11,10
+Kentucky,SEC,2020,12,15
+Kentucky,SEC,2020,13,13
+Kentucky,SEC,2020,14,15
+Kentucky,SEC,2020,15,12
+Kentucky,SEC,2020,16,10
+Kentucky,SEC,2020,17,8
+Kentucky,SEC,2020,18,6
+Kentucky,SEC,2020,19,8
+Kentucky,SEC,2020,20,8
+LSU,SEC,2020,1,22
+LSU,SEC,2020,2,23
+LSU,SEC,2020,13,22
+LSU,SEC,2020,14,18
+LSU,SEC,2020,15,25
+Louisville,ACC,2020,1,5
+Louisville,ACC,2020,2,4
+Louisville,ACC,2020,3,2
+Louisville,ACC,2020,4,2
+Louisville,ACC,2020,5,1
+Louisville,ACC,2020,6,1
+Louisville,ACC,2020,7,3
+Louisville,ACC,2020,8,3
+Louisville,ACC,2020,9,7
+Louisville,ACC,2020,10,13
+Louisville,ACC,2020,11,11
+Louisville,ACC,2020,12,6
+Louisville,ACC,2020,13,6
+Louisville,ACC,2020,14,5
+Louisville,ACC,2020,15,5
+Louisville,ACC,2020,16,11
+Louisville,ACC,2020,17,11
+Louisville,ACC,2020,18,10
+Louisville,ACC,2020,19,15
+Louisville,ACC,2020,20,14
+Marquette,Big East,2020,15,18
+Marquette,Big East,2020,16,19
+Maryland,Big Ten,2020,1,7
+Maryland,Big Ten,2020,2,7
+Maryland,Big Ten,2020,3,6
+Maryland,Big Ten,2020,4,5
+Maryland,Big Ten,2020,5,3
+Maryland,Big Ten,2020,6,4
+Maryland,Big Ten,2020,7,7
+Maryland,Big Ten,2020,8,13
+Maryland,Big Ten,2020,9,15
+Maryland,Big Ten,2020,10,12
+Maryland,Big Ten,2020,11,17
+Maryland,Big Ten,2020,12,17
+Maryland,Big Ten,2020,13,15
+Maryland,Big Ten,2020,14,9
+Maryland,Big Ten,2020,15,9
+Maryland,Big Ten,2020,16,7
+Maryland,Big Ten,2020,17,9
+Maryland,Big Ten,2020,18,9
+Maryland,Big Ten,2020,19,12
+Maryland,Big Ten,2020,20,12
+Memphis,AAC,2020,1,14
+Memphis,AAC,2020,2,13
+Memphis,AAC,2020,3,16
+Memphis,AAC,2020,4,16
+Memphis,AAC,2020,5,15
+Memphis,AAC,2020,6,13
+Memphis,AAC,2020,7,11
+Memphis,AAC,2020,8,9
+Memphis,AAC,2020,9,9
+Memphis,AAC,2020,10,21
+Memphis,AAC,2020,11,22
+Memphis,AAC,2020,12,20
+Michigan,Big Ten,2020,5,4
+Michigan,Big Ten,2020,6,5
+Michigan,Big Ten,2020,7,14
+Michigan,Big Ten,2020,8,11
+Michigan,Big Ten,2020,9,12
+Michigan,Big Ten,2020,10,19
+Michigan,Big Ten,2020,11,19
+Michigan,Big Ten,2020,17,19
+Michigan,Big Ten,2020,18,25
+Michigan State,Big Ten,2020,1,1
+Michigan State,Big Ten,2020,2,3
+Michigan State,Big Ten,2020,3,3
+Michigan State,Big Ten,2020,4,3
+Michigan State,Big Ten,2020,5,11
+Michigan State,Big Ten,2020,6,16
+Michigan State,Big Ten,2020,7,15
+Michigan State,Big Ten,2020,8,14
+Michigan State,Big Ten,2020,9,14
+Michigan State,Big Ten,2020,10,8
+Michigan State,Big Ten,2020,11,15
+Michigan State,Big Ten,2020,12,11
+Michigan State,Big Ten,2020,13,14
+Michigan State,Big Ten,2020,14,16
+Michigan State,Big Ten,2020,17,24
+Michigan State,Big Ten,2020,18,16
+Michigan State,Big Ten,2020,19,9
+Michigan State,Big Ten,2020,20,9
+Ohio State,Big Ten,2020,1,18
+Ohio State,Big Ten,2020,2,16
+Ohio State,Big Ten,2020,3,10
+Ohio State,Big Ten,2020,4,10
+Ohio State,Big Ten,2020,5,6
+Ohio State,Big Ten,2020,6,3
+Ohio State,Big Ten,2020,7,5
+Ohio State,Big Ten,2020,8,2
+Ohio State,Big Ten,2020,9,5
+Ohio State,Big Ten,2020,10,11
+Ohio State,Big Ten,2020,11,21
+Ohio State,Big Ten,2020,16,25
+Ohio State,Big Ten,2020,17,23
+Ohio State,Big Ten,2020,18,19
+Ohio State,Big Ten,2020,19,19
+Ohio State,Big Ten,2020,20,19
+Oregon,Pac-12,2020,1,15
+Oregon,Pac-12,2020,2,14
+Oregon,Pac-12,2020,3,11
+Oregon,Pac-12,2020,4,11
+Oregon,Pac-12,2020,5,13
+Oregon,Pac-12,2020,6,10
+Oregon,Pac-12,2020,7,8
+Oregon,Pac-12,2020,8,6
+Oregon,Pac-12,2020,9,4
+Oregon,Pac-12,2020,10,9
+Oregon,Pac-12,2020,11,8
+Oregon,Pac-12,2020,12,12
+Oregon,Pac-12,2020,13,11
+Oregon,Pac-12,2020,14,14
+Oregon,Pac-12,2020,15,17
+Oregon,Pac-12,2020,16,14
+Oregon,Pac-12,2020,17,14
+Oregon,Pac-12,2020,18,13
+Oregon,Pac-12,2020,19,13
+Oregon,Pac-12,2020,20,13
+Penn State,Big Ten,2020,7,23
+Penn State,Big Ten,2020,8,20
+Penn State,Big Ten,2020,9,21
+Penn State,Big Ten,2020,10,20
+Penn State,Big Ten,2020,13,24
+Penn State,Big Ten,2020,14,22
+Penn State,Big Ten,2020,15,13
+Penn State,Big Ten,2020,16,9
+Penn State,Big Ten,2020,17,16
+Penn State,Big Ten,2020,18,20
+Purdue,Big Ten,2020,1,23
+Rutgers,Big Ten,2020,12,24
+Rutgers,Big Ten,2020,13,25
+Saint Mary's,WCC,2020,1,20
+Saint Mary's,WCC,2020,2,18
+San Diego State,MWC,2020,6,25
+San Diego State,MWC,2020,7,20
+San Diego State,MWC,2020,8,15
+San Diego State,MWC,2020,9,13
+San Diego State,MWC,2020,10,7
+San Diego State,MWC,2020,11,7
+San Diego State,MWC,2020,12,4
+San Diego State,MWC,2020,13,4
+San Diego State,MWC,2020,14,4
+San Diego State,MWC,2020,15,4
+San Diego State,MWC,2020,16,4
+San Diego State,MWC,2020,17,5
+San Diego State,MWC,2020,18,5
+San Diego State,MWC,2020,19,6
+San Diego State,MWC,2020,20,6
+Seton Hall,Big East,2020,1,12
+Seton Hall,Big East,2020,2,12
+Seton Hall,Big East,2020,3,13
+Seton Hall,Big East,2020,4,13
+Seton Hall,Big East,2020,5,16
+Seton Hall,Big East,2020,6,22
+Seton Hall,Big East,2020,11,18
+Seton Hall,Big East,2020,12,10
+Seton Hall,Big East,2020,13,10
+Seton Hall,Big East,2020,14,12
+Seton Hall,Big East,2020,15,10
+Seton Hall,Big East,2020,16,16
+Seton Hall,Big East,2020,17,13
+Seton Hall,Big East,2020,18,8
+Seton Hall,Big East,2020,19,16
+Seton Hall,Big East,2020,20,15
+Tennessee,SEC,2020,3,20
+Tennessee,SEC,2020,4,17
+Tennessee,SEC,2020,5,21
+Tennessee,SEC,2020,6,19
+Tennessee,SEC,2020,7,21
+Texas,Big 12,2020,3,22
+Texas Tech,Big 12,2020,1,13
+Texas Tech,Big 12,2020,2,11
+Texas Tech,Big 12,2020,3,12
+Texas Tech,Big 12,2020,4,12
+Texas Tech,Big 12,2020,7,24
+Texas Tech,Big 12,2020,8,23
+Texas Tech,Big 12,2020,9,22
+Texas Tech,Big 12,2020,10,22
+Texas Tech,Big 12,2020,11,23
+Texas Tech,Big 12,2020,12,18
+Texas Tech,Big 12,2020,15,24
+Texas Tech,Big 12,2020,17,22
+UNC,ACC,2020,1,9
+UNC,ACC,2020,2,6
+UNC,ACC,2020,3,5
+UNC,ACC,2020,4,6
+UNC,ACC,2020,5,7
+UNC,ACC,2020,6,17
+Utah State,MWC,2020,1,17
+Utah State,MWC,2020,2,17
+Utah State,MWC,2020,3,15
+Utah State,MWC,2020,4,15
+Utah State,MWC,2020,5,25
+VCU,A-10,2020,1,25
+VCU,A-10,2020,3,21
+VCU,A-10,2020,4,20
+Villanova,Big East,2020,1,10
+Villanova,Big East,2020,2,10
+Villanova,Big East,2020,3,17
+Villanova,Big East,2020,4,22
+Villanova,Big East,2020,5,23
+Villanova,Big East,2020,6,20
+Villanova,Big East,2020,7,18
+Villanova,Big East,2020,8,10
+Villanova,Big East,2020,9,10
+Villanova,Big East,2020,10,16
+Villanova,Big East,2020,11,14
+Villanova,Big East,2020,12,9
+Villanova,Big East,2020,13,8
+Villanova,Big East,2020,14,10
+Villanova,Big East,2020,15,15
+Villanova,Big East,2020,16,12
+Villanova,Big East,2020,17,12
+Villanova,Big East,2020,18,14
+Villanova,Big East,2020,19,11
+Villanova,Big East,2020,20,10
+Virginia,ACC,2020,1,11
+Virginia,ACC,2020,2,9
+Virginia,ACC,2020,3,7
+Virginia,ACC,2020,4,7
+Virginia,ACC,2020,5,5
+Virginia,ACC,2020,6,9
+Virginia,ACC,2020,7,9
+Virginia,ACC,2020,8,16
+Virginia,ACC,2020,9,19
+Virginia,ACC,2020,10,18
+Virginia,ACC,2020,18,22
+Virginia,ACC,2020,19,17
+Virginia,ACC,2020,20,16
+Washington,Pac-12,2020,2,20
+Washington,Pac-12,2020,3,25
+Washington,Pac-12,2020,4,23
+Washington,Pac-12,2020,5,22
+Washington,Pac-12,2020,7,22
+Washington,Pac-12,2020,8,21
+West Virginia,Big 12,2020,7,25
+West Virginia,Big 12,2020,8,22
+West Virginia,Big 12,2020,9,16
+West Virginia,Big 12,2020,10,17
+West Virginia,Big 12,2020,11,12
+West Virginia,Big 12,2020,12,14
+West Virginia,Big 12,2020,13,12
+West Virginia,Big 12,2020,14,13
+West Virginia,Big 12,2020,15,14
+West Virginia,Big 12,2020,16,17
+West Virginia,Big 12,2020,17,20
+West Virginia,Big 12,2020,19,23
+West Virginia,Big 12,2020,20,24
+Wichita State,AAC,2020,9,24
+Wichita State,AAC,2020,10,23
+Wichita State,AAC,2020,11,16
+Wichita State,AAC,2020,13,23
+Wisconsin,Big Ten,2020,18,24
+Wisconsin,Big Ten,2020,19,18
+Wisconsin,Big Ten,2020,20,17
+Xavier,Big East,2020,1,19
+Xavier,Big East,2020,2,21
+Xavier,Big East,2020,3,18
+Xavier,Big East,2020,4,25
+Xavier,Big East,2020,6,23
+Alabama,SEC,2021,9,18
+Alabama,SEC,2021,10,9
+Alabama,SEC,2021,11,10
+Alabama,SEC,2021,12,11
+Alabama,SEC,2021,13,8
+Alabama,SEC,2021,14,6
+Alabama,SEC,2021,15,8
+Alabama,SEC,2021,16,6
+Alabama,SEC,2021,17,5
+Arizona State,Pac-12,2021,1,18
+Arizona State,Pac-12,2021,2,25
+Arizona State,Pac-12,2021,3,23
+Arkansas,SEC,2021,13,24
+Arkansas,SEC,2021,14,20
+Arkansas,SEC,2021,15,12
+Arkansas,SEC,2021,16,8
+Arkansas,SEC,2021,17,10
+BYU,WCC,2021,17,23
+Baylor,Big 12,2021,1,2
+Baylor,Big 12,2021,2,2
+Baylor,Big 12,2021,3,2
+Baylor,Big 12,2021,4,2
+Baylor,Big 12,2021,5,2
+Baylor,Big 12,2021,6,2
+Baylor,Big 12,2021,7,2
+Baylor,Big 12,2021,8,2
+Baylor,Big 12,2021,9,2
+Baylor,Big 12,2021,10,2
+Baylor,Big 12,2021,11,2
+Baylor,Big 12,2021,12,2
+Baylor,Big 12,2021,13,2
+Baylor,Big 12,2021,14,2
+Baylor,Big 12,2021,15,3
+Baylor,Big 12,2021,16,2
+Baylor,Big 12,2021,17,3
+Clemson,ACC,2021,4,24
+Clemson,ACC,2021,7,19
+Clemson,ACC,2021,8,12
+Clemson,ACC,2021,9,20
+Colorado,Pac-12,2021,15,24
+Colorado,Pac-12,2021,16,23
+Colorado,Pac-12,2021,17,22
+Creighton,Big East,2021,1,11
+Creighton,Big East,2021,2,9
+Creighton,Big East,2021,3,8
+Creighton,Big East,2021,4,9
+Creighton,Big East,2021,5,13
+Creighton,Big East,2021,6,11
+Creighton,Big East,2021,7,7
+Creighton,Big East,2021,8,8
+Creighton,Big East,2021,9,11
+Creighton,Big East,2021,10,17
+Creighton,Big East,2021,11,15
+Creighton,Big East,2021,12,19
+Creighton,Big East,2021,13,14
+Creighton,Big East,2021,14,13
+Creighton,Big East,2021,15,14
+Creighton,Big East,2021,16,17
+Creighton,Big East,2021,17,19
+Drake,MVC,2021,11,25
+Duke,ACC,2021,1,9
+Duke,ACC,2021,2,6
+Duke,ACC,2021,3,10
+Duke,ACC,2021,4,21
+Duke,ACC,2021,5,20
+Duke,ACC,2021,6,20
+Duke,ACC,2021,7,21
+Duke,ACC,2021,8,19
+Florida,SEC,2021,11,22
+Florida State,ACC,2021,1,21
+Florida State,ACC,2021,2,22
+Florida State,ACC,2021,3,20
+Florida State,ACC,2021,4,15
+Florida State,ACC,2021,5,21
+Florida State,ACC,2021,6,18
+Florida State,ACC,2021,7,25
+Florida State,ACC,2021,10,16
+Florida State,ACC,2021,11,20
+Florida State,ACC,2021,12,17
+Florida State,ACC,2021,13,16
+Florida State,ACC,2021,14,11
+Florida State,ACC,2021,15,11
+Florida State,ACC,2021,16,15
+Florida State,ACC,2021,17,14
+Gonzaga,WCC,2021,1,1
+Gonzaga,WCC,2021,2,1
+Gonzaga,WCC,2021,3,1
+Gonzaga,WCC,2021,4,1
+Gonzaga,WCC,2021,5,1
+Gonzaga,WCC,2021,6,1
+Gonzaga,WCC,2021,7,1
+Gonzaga,WCC,2021,8,1
+Gonzaga,WCC,2021,9,1
+Gonzaga,WCC,2021,10,1
+Gonzaga,WCC,2021,11,1
+Gonzaga,WCC,2021,12,1
+Gonzaga,WCC,2021,13,1
+Gonzaga,WCC,2021,14,1
+Gonzaga,WCC,2021,15,1
+Gonzaga,WCC,2021,16,1
+Gonzaga,WCC,2021,17,1
+Houston,AAC,2021,1,17
+Houston,AAC,2021,2,10
+Houston,AAC,2021,3,7
+Houston,AAC,2021,4,6
+Houston,AAC,2021,5,6
+Houston,AAC,2021,6,5
+Houston,AAC,2021,7,11
+Houston,AAC,2021,8,11
+Houston,AAC,2021,9,8
+Houston,AAC,2021,10,6
+Houston,AAC,2021,11,5
+Houston,AAC,2021,12,8
+Houston,AAC,2021,13,6
+Houston,AAC,2021,14,12
+Houston,AAC,2021,15,9
+Houston,AAC,2021,16,7
+Houston,AAC,2021,17,6
+Illinois,Big Ten,2021,1,8
+Illinois,Big Ten,2021,2,5
+Illinois,Big Ten,2021,3,6
+Illinois,Big Ten,2021,4,13
+Illinois,Big Ten,2021,5,18
+Illinois,Big Ten,2021,6,15
+Illinois,Big Ten,2021,7,12
+Illinois,Big Ten,2021,8,14
+Illinois,Big Ten,2021,9,22
+Illinois,Big Ten,2021,10,19
+Illinois,Big Ten,2021,11,12
+Illinois,Big Ten,2021,12,6
+Illinois,Big Ten,2021,13,5
+Illinois,Big Ten,2021,14,5
+Illinois,Big Ten,2021,15,4
+Illinois,Big Ten,2021,16,3
+Illinois,Big Ten,2021,17,2
+Iowa,Big Ten,2021,1,5
+Iowa,Big Ten,2021,2,3
+Iowa,Big Ten,2021,3,3
+Iowa,Big Ten,2021,4,3
+Iowa,Big Ten,2021,5,4
+Iowa,Big Ten,2021,6,10
+Iowa,Big Ten,2021,7,5
+Iowa,Big Ten,2021,8,5
+Iowa,Big Ten,2021,9,4
+Iowa,Big Ten,2021,10,7
+Iowa,Big Ten,2021,11,8
+Iowa,Big Ten,2021,12,15
+Iowa,Big Ten,2021,13,11
+Iowa,Big Ten,2021,14,9
+Iowa,Big Ten,2021,15,5
+Iowa,Big Ten,2021,16,5
+Iowa,Big Ten,2021,17,8
+Kansas,Big 12,2021,1,6
+Kansas,Big 12,2021,2,7
+Kansas,Big 12,2021,3,5
+Kansas,Big 12,2021,4,5
+Kansas,Big 12,2021,5,3
+Kansas,Big 12,2021,6,3
+Kansas,Big 12,2021,7,6
+Kansas,Big 12,2021,8,6
+Kansas,Big 12,2021,9,9
+Kansas,Big 12,2021,10,15
+Kansas,Big 12,2021,11,23
+Kansas,Big 12,2021,13,23
+Kansas,Big 12,2021,14,17
+Kansas,Big 12,2021,15,13
+Kansas,Big 12,2021,16,11
+Kansas,Big 12,2021,17,12
+Kentucky,SEC,2021,1,10
+Kentucky,SEC,2021,2,20
+Louisville,ACC,2021,3,25
+Louisville,ACC,2021,4,23
+Louisville,ACC,2021,8,16
+Louisville,ACC,2021,10,25
+Loyola (IL),MVC,2021,12,22
+Loyola (IL),MVC,2021,13,22
+Loyola (IL),MVC,2021,14,21
+Loyola (IL),MVC,2021,15,20
+Loyola (IL),MVC,2021,16,18
+Loyola (IL),MVC,2021,17,17
+Michigan,Big Ten,2021,1,25
+Michigan,Big Ten,2021,4,25
+Michigan,Big Ten,2021,5,19
+Michigan,Big Ten,2021,6,16
+Michigan,Big Ten,2021,7,10
+Michigan,Big Ten,2021,8,7
+Michigan,Big Ten,2021,9,7
+Michigan,Big Ten,2021,10,4
+Michigan,Big Ten,2021,11,4
+Michigan,Big Ten,2021,12,3
+Michigan,Big Ten,2021,13,3
+Michigan,Big Ten,2021,14,3
+Michigan,Big Ten,2021,15,2
+Michigan,Big Ten,2021,16,4
+Michigan,Big Ten,2021,17,4
+Michigan State,Big Ten,2021,1,13
+Michigan State,Big Ten,2021,2,8
+Michigan State,Big Ten,2021,3,4
+Michigan State,Big Ten,2021,4,4
+Michigan State,Big Ten,2021,5,12
+Michigan State,Big Ten,2021,6,17
+Michigan State,Big Ten,2021,7,23
+Minnesota,Big Ten,2021,6,21
+Minnesota,Big Ten,2021,7,16
+Minnesota,Big Ten,2021,8,23
+Minnesota,Big Ten,2021,9,17
+Minnesota,Big Ten,2021,10,21
+Missouri,SEC,2021,4,16
+Missouri,SEC,2021,5,14
+Missouri,SEC,2021,6,12
+Missouri,SEC,2021,7,13
+Missouri,SEC,2021,8,17
+Missouri,SEC,2021,9,19
+Missouri,SEC,2021,10,12
+Missouri,SEC,2021,11,18
+Missouri,SEC,2021,12,10
+Missouri,SEC,2021,13,20
+Missouri,SEC,2021,14,24
+Northwestern,Big Ten,2021,6,19
+Ohio State,Big Ten,2021,1,23
+Ohio State,Big Ten,2021,2,23
+Ohio State,Big Ten,2021,3,22
+Ohio State,Big Ten,2021,4,20
+Ohio State,Big Ten,2021,5,23
+Ohio State,Big Ten,2021,6,25
+Ohio State,Big Ten,2021,8,21
+Ohio State,Big Ten,2021,9,15
+Ohio State,Big Ten,2021,10,13
+Ohio State,Big Ten,2021,11,7
+Ohio State,Big Ten,2021,12,4
+Ohio State,Big Ten,2021,13,4
+Ohio State,Big Ten,2021,14,4
+Ohio State,Big Ten,2021,15,7
+Ohio State,Big Ten,2021,16,9
+Ohio State,Big Ten,2021,17,7
+Oklahoma,Big 12,2021,10,24
+Oklahoma,Big 12,2021,11,9
+Oklahoma,Big 12,2021,12,12
+Oklahoma,Big 12,2021,13,9
+Oklahoma,Big 12,2021,14,7
+Oklahoma,Big 12,2021,15,16
+Oklahoma,Big 12,2021,16,25
+Oklahoma State,Big 12,2021,12,23
+Oklahoma State,Big 12,2021,15,17
+Oklahoma State,Big 12,2021,16,12
+Oklahoma State,Big 12,2021,17,11
+Oregon,Pac-12,2021,1,20
+Oregon,Pac-12,2021,2,21
+Oregon,Pac-12,2021,5,25
+Oregon,Pac-12,2021,6,21
+Oregon,Pac-12,2021,7,17
+Oregon,Pac-12,2021,8,22
+Oregon,Pac-12,2021,9,21
+Purdue,Big Ten,2021,11,24
+Purdue,Big Ten,2021,12,24
+Purdue,Big Ten,2021,15,23
+Purdue,Big Ten,2021,16,20
+Purdue,Big Ten,2021,17,20
+Richmond,A-10,2021,2,19
+Richmond,A-10,2021,3,19
+Rutgers,Big Ten,2021,1,24
+Rutgers,Big Ten,2021,2,24
+Rutgers,Big Ten,2021,3,21
+Rutgers,Big Ten,2021,4,19
+Rutgers,Big Ten,2021,5,11
+Rutgers,Big Ten,2021,6,14
+Rutgers,Big Ten,2021,7,15
+Rutgers,Big Ten,2021,12,25
+Saint Louis,A-10,2021,7,23
+Saint Louis,A-10,2021,8,24
+Saint Louis,A-10,2021,9,25
+Saint Louis,A-10,2021,10,22
+San Diego State,MWC,2021,3,24
+San Diego State,MWC,2021,4,18
+San Diego State,MWC,2021,13,25
+San Diego State,MWC,2021,14,22
+San Diego State,MWC,2021,15,19
+San Diego State,MWC,2021,16,19
+San Diego State,MWC,2021,17,16
+Tennessee,SEC,2021,1,12
+Tennessee,SEC,2021,2,13
+Tennessee,SEC,2021,3,12
+Tennessee,SEC,2021,4,10
+Tennessee,SEC,2021,5,8
+Tennessee,SEC,2021,6,7
+Tennessee,SEC,2021,7,9
+Tennessee,SEC,2021,8,10
+Tennessee,SEC,2021,9,6
+Tennessee,SEC,2021,10,18
+Tennessee,SEC,2021,11,11
+Tennessee,SEC,2021,12,16
+Tennessee,SEC,2021,13,19
+Tennessee,SEC,2021,14,25
+Texas,Big 12,2021,1,19
+Texas,Big 12,2021,2,17
+Texas,Big 12,2021,3,13
+Texas,Big 12,2021,4,11
+Texas,Big 12,2021,5,10
+Texas,Big 12,2021,6,8
+Texas,Big 12,2021,7,4
+Texas,Big 12,2021,8,4
+Texas,Big 12,2021,9,5
+Texas,Big 12,2021,10,5
+Texas,Big 12,2021,11,6
+Texas,Big 12,2021,12,13
+Texas,Big 12,2021,13,12
+Texas,Big 12,2021,14,14
+Texas,Big 12,2021,15,15
+Texas,Big 12,2021,16,13
+Texas,Big 12,2021,17,9
+Texas Tech,Big 12,2021,1,14
+Texas Tech,Big 12,2021,2,17
+Texas Tech,Big 12,2021,3,17
+Texas Tech,Big 12,2021,4,14
+Texas Tech,Big 12,2021,5,15
+Texas Tech,Big 12,2021,6,13
+Texas Tech,Big 12,2021,7,18
+Texas Tech,Big 12,2021,8,15
+Texas Tech,Big 12,2021,9,12
+Texas Tech,Big 12,2021,10,10
+Texas Tech,Big 12,2021,11,13
+Texas Tech,Big 12,2021,12,7
+Texas Tech,Big 12,2021,13,15
+Texas Tech,Big 12,2021,14,18
+Texas Tech,Big 12,2021,15,18
+Texas Tech,Big 12,2021,16,20
+Texas Tech,Big 12,2021,17,21
+UCLA,Pac-12,2021,1,22
+UCLA,Pac-12,2021,9,24
+UCLA,Pac-12,2021,10,23
+UCLA,Pac-12,2021,11,21
+UConn,Big East,2021,8,25
+UConn,Big East,2021,9,23
+UNC,ACC,2021,1,16
+UNC,ACC,2021,2,14
+UNC,ACC,2021,3,16
+UNC,ACC,2021,4,22
+UNC,ACC,2021,5,17
+USC,Pac-12,2021,12,20
+USC,Pac-12,2021,13,17
+USC,Pac-12,2021,14,19
+USC,Pac-12,2021,16,24
+USC,Pac-12,2021,17,24
+Villanova,Big East,2021,1,3
+Villanova,Big East,2021,2,12
+Villanova,Big East,2021,3,9
+Villanova,Big East,2021,4,7
+Villanova,Big East,2021,5,5
+Villanova,Big East,2021,6,4
+Villanova,Big East,2021,7,3
+Villanova,Big East,2021,8,3
+Villanova,Big East,2021,9,3
+Villanova,Big East,2021,10,3
+Villanova,Big East,2021,11,3
+Villanova,Big East,2021,12,5
+Villanova,Big East,2021,13,10
+Villanova,Big East,2021,14,8
+Villanova,Big East,2021,15,10
+Villanova,Big East,2021,16,14
+Villanova,Big East,2021,17,18
+Virginia,ACC,2021,1,4
+Virginia,ACC,2021,2,15
+Virginia,ACC,2021,3,18
+Virginia,ACC,2021,4,17
+Virginia,ACC,2021,5,16
+Virginia,ACC,2021,6,23
+Virginia,ACC,2021,7,22
+Virginia,ACC,2021,8,18
+Virginia,ACC,2021,9,13
+Virginia,ACC,2021,10,8
+Virginia,ACC,2021,11,14
+Virginia,ACC,2021,12,9
+Virginia,ACC,2021,13,7
+Virginia,ACC,2021,14,15
+Virginia,ACC,2021,15,21
+Virginia,ACC,2021,16,16
+Virginia,ACC,2021,17,15
+Virginia Tech,ACC,2021,2,16
+Virginia Tech,ACC,2021,3,15
+Virginia Tech,ACC,2021,5,24
+Virginia Tech,ACC,2021,6,24
+Virginia Tech,ACC,2021,7,19
+Virginia Tech,ACC,2021,8,20
+Virginia Tech,ACC,2021,9,16
+Virginia Tech,ACC,2021,10,20
+Virginia Tech,ACC,2021,11,16
+Virginia Tech,ACC,2021,12,18
+Virginia Tech,ACC,2021,13,18
+Virginia Tech,ACC,2021,14,16
+Virginia Tech,ACC,2021,15,22
+Virginia Tech,ACC,2021,16,22
+Virginia Tech,ACC,2021,17,25
+West Virginia,Big 12,2021,1,15
+West Virginia,Big 12,2021,2,11
+West Virginia,Big 12,2021,3,11
+West Virginia,Big 12,2021,4,8
+West Virginia,Big 12,2021,5,7
+West Virginia,Big 12,2021,6,9
+West Virginia,Big 12,2021,7,14
+West Virginia,Big 12,2021,8,13
+West Virginia,Big 12,2021,9,14
+West Virginia,Big 12,2021,10,11
+West Virginia,Big 12,2021,11,17
+West Virginia,Big 12,2021,12,14
+West Virginia,Big 12,2021,13,13
+West Virginia,Big 12,2021,14,10
+West Virginia,Big 12,2021,15,6
+West Virginia,Big 12,2021,16,10
+West Virginia,Big 12,2021,17,13
+Wisconsin,Big Ten,2021,1,7
+Wisconsin,Big Ten,2021,2,4
+Wisconsin,Big Ten,2021,3,13
+Wisconsin,Big Ten,2021,4,12
+Wisconsin,Big Ten,2021,5,9
+Wisconsin,Big Ten,2021,6,6
+Wisconsin,Big Ten,2021,7,8
+Wisconsin,Big Ten,2021,8,9
+Wisconsin,Big Ten,2021,9,10
+Wisconsin,Big Ten,2021,10,14
+Wisconsin,Big Ten,2021,11,19
+Wisconsin,Big Ten,2021,12,21
+Wisconsin,Big Ten,2021,13,21
+Wisconsin,Big Ten,2021,14,23
+Wisconsin,Big Ten,2021,15,25
+Xavier,Big East,2021,5,22
+Alabama,SEC,2022,1,14
+Alabama,SEC,2022,2,14
+Alabama,SEC,2022,3,10
+Alabama,SEC,2022,4,16
+Alabama,SEC,2022,5,9
+Alabama,SEC,2022,6,6
+Alabama,SEC,2022,7,10
+Alabama,SEC,2022,8,19
+Alabama,SEC,2022,9,15
+Alabama,SEC,2022,10,24
+Alabama,SEC,2022,15,25
+Alabama,SEC,2022,16,24
+Alabama,SEC,2022,17,25
+Arizona,Pac-12,2022,3,17
+Arizona,Pac-12,2022,4,11
+Arizona,Pac-12,2022,5,11
+Arizona,Pac-12,2022,6,8
+Arizona,Pac-12,2022,7,6
+Arizona,Pac-12,2022,8,9
+Arizona,Pac-12,2022,9,8
+Arizona,Pac-12,2022,10,6
+Arizona,Pac-12,2022,11,3
+Arizona,Pac-12,2022,12,3
+Arizona,Pac-12,2022,13,7
+Arizona,Pac-12,2022,14,4
+Arizona,Pac-12,2022,15,3
+Arizona,Pac-12,2022,16,2
+Arizona,Pac-12,2022,17,2
+Arizona,Pac-12,2022,18,2
+Arizona,Pac-12,2022,19,2
+Arkansas,SEC,2022,1,16
+Arkansas,SEC,2022,2,16
+Arkansas,SEC,2022,3,13
+Arkansas,SEC,2022,4,10
+Arkansas,SEC,2022,5,12
+Arkansas,SEC,2022,6,24
+Arkansas,SEC,2022,15,23
+Arkansas,SEC,2022,16,18
+Arkansas,SEC,2022,17,14
+Arkansas,SEC,2022,18,15
+Arkansas,SEC,2022,19,17
+Auburn,SEC,2022,1,22
+Auburn,SEC,2022,2,21
+Auburn,SEC,2022,3,19
+Auburn,SEC,2022,4,21
+Auburn,SEC,2022,5,18
+Auburn,SEC,2022,6,13
+Auburn,SEC,2022,7,12
+Auburn,SEC,2022,8,11
+Auburn,SEC,2022,9,9
+Auburn,SEC,2022,10,4
+Auburn,SEC,2022,11,2
+Auburn,SEC,2022,12,1
+Auburn,SEC,2022,13,1
+Auburn,SEC,2022,14,1
+Auburn,SEC,2022,15,2
+Auburn,SEC,2022,16,3
+Auburn,SEC,2022,17,5
+Auburn,SEC,2022,18,4
+Auburn,SEC,2022,19,8
+BYU,WCC,2022,3,18
+BYU,WCC,2022,4,12
+BYU,WCC,2022,5,24
+Baylor,Big 12,2022,1,8
+Baylor,Big 12,2022,2,9
+Baylor,Big 12,2022,3,6
+Baylor,Big 12,2022,4,4
+Baylor,Big 12,2022,5,2
+Baylor,Big 12,2022,6,1
+Baylor,Big 12,2022,7,1
+Baylor,Big 12,2022,8,1
+Baylor,Big 12,2022,9,1
+Baylor,Big 12,2022,10,1
+Baylor,Big 12,2022,11,5
+Baylor,Big 12,2022,12,4
+Baylor,Big 12,2022,13,8
+Baylor,Big 12,2022,14,10
+Baylor,Big 12,2022,15,7
+Baylor,Big 12,2022,16,10
+Baylor,Big 12,2022,17,3
+Baylor,Big 12,2022,18,3
+Baylor,Big 12,2022,19,4
+Boise State,MWC,2022,19,23
+Colorado State,MWC,2022,6,23
+Colorado State,MWC,2022,7,21
+Colorado State,MWC,2022,8,20
+Colorado State,MWC,2022,9,20
+Colorado State,MWC,2022,18,23
+Colorado State,MWC,2022,19,24
+Davidson,A-10,2022,12,25
+Duke,ACC,2022,1,9
+Duke,ACC,2022,2,7
+Duke,ACC,2022,3,5
+Duke,ACC,2022,4,1
+Duke,ACC,2022,5,3
+Duke,ACC,2022,6,2
+Duke,ACC,2022,7,2
+Duke,ACC,2022,8,2
+Duke,ACC,2022,9,2
+Duke,ACC,2022,10,8
+Duke,ACC,2022,11,6
+Duke,ACC,2022,12,9
+Duke,ACC,2022,13,9
+Duke,ACC,2022,14,7
+Duke,ACC,2022,15,9
+Duke,ACC,2022,16,7
+Duke,ACC,2022,17,4
+Duke,ACC,2022,18,7
+Duke,ACC,2022,19,9
+Florida,SEC,2022,2,24
+Florida,SEC,2022,3,23
+Florida,SEC,2022,4,14
+Florida,SEC,2022,5,20
+Florida State,ACC,2022,1,20
+Gonzaga,WCC,2022,1,1
+Gonzaga,WCC,2022,2,1
+Gonzaga,WCC,2022,3,1
+Gonzaga,WCC,2022,4,3
+Gonzaga,WCC,2022,5,5
+Gonzaga,WCC,2022,6,5
+Gonzaga,WCC,2022,7,4
+Gonzaga,WCC,2022,8,4
+Gonzaga,WCC,2022,9,4
+Gonzaga,WCC,2022,10,2
+Gonzaga,WCC,2022,11,1
+Gonzaga,WCC,2022,12,2
+Gonzaga,WCC,2022,13,2
+Gonzaga,WCC,2022,14,2
+Gonzaga,WCC,2022,15,1
+Gonzaga,WCC,2022,16,1
+Gonzaga,WCC,2022,17,1
+Gonzaga,WCC,2022,18,1
+Gonzaga,WCC,2022,19,1
+Houston,AAC,2022,1,15
+Houston,AAC,2022,2,15
+Houston,AAC,2022,3,12
+Houston,AAC,2022,4,15
+Houston,AAC,2022,5,14
+Houston,AAC,2022,6,14
+Houston,AAC,2022,7,13
+Houston,AAC,2022,8,12
+Houston,AAC,2022,9,12
+Houston,AAC,2022,10,11
+Houston,AAC,2022,11,10
+Houston,AAC,2022,12,7
+Houston,AAC,2022,13,6
+Houston,AAC,2022,14,6
+Houston,AAC,2022,15,14
+Houston,AAC,2022,16,14
+Houston,AAC,2022,17,14
+Houston,AAC,2022,18,18
+Houston,AAC,2022,19,15
+Illinois,Big Ten,2022,1,11
+Illinois,Big Ten,2022,2,10
+Illinois,Big Ten,2022,3,14
+Illinois,Big Ten,2022,10,25
+Illinois,Big Ten,2022,11,17
+Illinois,Big Ten,2022,12,24
+Illinois,Big Ten,2022,13,18
+Illinois,Big Ten,2022,14,13
+Illinois,Big Ten,2022,15,12
+Illinois,Big Ten,2022,16,15
+Illinois,Big Ten,2022,17,20
+Illinois,Big Ten,2022,18,16
+Illinois,Big Ten,2022,19,19
+Iowa,Big Ten,2022,16,25
+Iowa,Big Ten,2022,17,24
+Iowa,Big Ten,2022,18,24
+Iowa,Big Ten,2022,19,16
+Iowa State,Big 12,2022,4,19
+Iowa State,Big 12,2022,5,17
+Iowa State,Big 12,2022,6,11
+Iowa State,Big 12,2022,7,9
+Iowa State,Big 12,2022,8,8
+Iowa State,Big 12,2022,9,11
+Iowa State,Big 12,2022,10,15
+Iowa State,Big 12,2022,11,15
+Iowa State,Big 12,2022,12,23
+Iowa State,Big 12,2022,13,20
+Kansas,Big 12,2022,1,3
+Kansas,Big 12,2022,2,3
+Kansas,Big 12,2022,3,4
+Kansas,Big 12,2022,4,8
+Kansas,Big 12,2022,5,8
+Kansas,Big 12,2022,6,7
+Kansas,Big 12,2022,7,7
+Kansas,Big 12,2022,8,6
+Kansas,Big 12,2022,9,6
+Kansas,Big 12,2022,10,9
+Kansas,Big 12,2022,11,7
+Kansas,Big 12,2022,12,5
+Kansas,Big 12,2022,13,10
+Kansas,Big 12,2022,14,8
+Kansas,Big 12,2022,15,6
+Kansas,Big 12,2022,16,5
+Kansas,Big 12,2022,17,6
+Kansas,Big 12,2022,18,6
+Kansas,Big 12,2022,19,3
+Kentucky,SEC,2022,1,10
+Kentucky,SEC,2022,2,13
+Kentucky,SEC,2022,3,10
+Kentucky,SEC,2022,4,9
+Kentucky,SEC,2022,5,10
+Kentucky,SEC,2022,6,21
+Kentucky,SEC,2022,7,20
+Kentucky,SEC,2022,8,18
+Kentucky,SEC,2022,9,16
+Kentucky,SEC,2022,10,18
+Kentucky,SEC,2022,11,12
+Kentucky,SEC,2022,12,12
+Kentucky,SEC,2022,13,5
+Kentucky,SEC,2022,14,5
+Kentucky,SEC,2022,15,4
+Kentucky,SEC,2022,16,6
+Kentucky,SEC,2022,17,7
+Kentucky,SEC,2022,18,5
+Kentucky,SEC,2022,19,7
+LSU,SEC,2022,5,25
+LSU,SEC,2022,6,19
+LSU,SEC,2022,7,17
+LSU,SEC,2022,8,16
+LSU,SEC,2022,9,21
+LSU,SEC,2022,10,12
+LSU,SEC,2022,11,13
+LSU,SEC,2022,12,19
+LSU,SEC,2022,13,25
+Loyola (IL),MVC,2022,11,22
+Marquette,Big East,2022,12,22
+Marquette,Big East,2022,13,24
+Marquette,Big East,2022,14,18
+Maryland,Big Ten,2022,1,21
+Maryland,Big Ten,2022,2,20
+Memphis,AAC,2022,1,12
+Memphis,AAC,2022,2,11
+Memphis,AAC,2022,3,9
+Memphis,AAC,2022,4,18
+Michigan,Big Ten,2022,1,6
+Michigan,Big Ten,2022,2,4
+Michigan,Big Ten,2022,3,20
+Michigan,Big Ten,2022,4,24
+Michigan State,Big Ten,2022,4,22
+Michigan State,Big Ten,2022,5,19
+Michigan State,Big Ten,2022,6,12
+Michigan State,Big Ten,2022,7,11
+Michigan State,Big Ten,2022,8,10
+Michigan State,Big Ten,2022,9,10
+Michigan State,Big Ten,2022,10,10
+Michigan State,Big Ten,2022,11,14
+Michigan State,Big Ten,2022,12,10
+Michigan State,Big Ten,2022,13,13
+Michigan State,Big Ten,2022,14,17
+Michigan State,Big Ten,2022,15,19
+Murray State,OVC,2022,14,23
+Murray State,OVC,2022,15,21
+Murray State,OVC,2022,16,19
+Murray State,OVC,2022,17,22
+Murray State,OVC,2022,18,19
+Murray State,OVC,2022,19,20
+Ohio State,Big Ten,2022,1,17
+Ohio State,Big Ten,2022,2,19
+Ohio State,Big Ten,2022,5,21
+Ohio State,Big Ten,2022,6,15
+Ohio State,Big Ten,2022,7,14
+Ohio State,Big Ten,2022,8,13
+Ohio State,Big Ten,2022,9,13
+Ohio State,Big Ten,2022,10,16
+Ohio State,Big Ten,2022,11,19
+Ohio State,Big Ten,2022,12,16
+Ohio State,Big Ten,2022,13,16
+Ohio State,Big Ten,2022,14,16
+Ohio State,Big Ten,2022,15,18
+Ohio State,Big Ten,2022,16,22
+Ohio State,Big Ten,2022,17,23
+Oregon,Pac-12,2022,1,13
+Oregon,Pac-12,2022,2,12
+Providence,Big East,2022,7,22
+Providence,Big East,2022,8,21
+Providence,Big East,2022,9,16
+Providence,Big East,2022,10,23
+Providence,Big East,2022,11,21
+Providence,Big East,2022,12,17
+Providence,Big East,2022,13,15
+Providence,Big East,2022,14,11
+Providence,Big East,2022,15,8
+Providence,Big East,2022,16,11
+Providence,Big East,2022,17,9
+Providence,Big East,2022,18,11
+Providence,Big East,2022,19,13
+Purdue,Big Ten,2022,1,7
+Purdue,Big Ten,2022,2,6
+Purdue,Big Ten,2022,3,3
+Purdue,Big Ten,2022,4,2
+Purdue,Big Ten,2022,5,1
+Purdue,Big Ten,2022,6,3
+Purdue,Big Ten,2022,7,3
+Purdue,Big Ten,2022,8,3
+Purdue,Big Ten,2022,9,3
+Purdue,Big Ten,2022,10,7
+Purdue,Big Ten,2022,11,4
+Purdue,Big Ten,2022,12,6
+Purdue,Big Ten,2022,13,4
+Purdue,Big Ten,2022,14,3
+Purdue,Big Ten,2022,15,5
+Purdue,Big Ten,2022,16,4
+Purdue,Big Ten,2022,17,8
+Purdue,Big Ten,2022,18,9
+Purdue,Big Ten,2022,19,10
+Saint Mary's,WCC,2022,14,22
+Saint Mary's,WCC,2022,16,23
+Saint Mary's,WCC,2022,17,19
+Saint Mary's,WCC,2022,18,17
+Saint Mary's,WCC,2022,19,18
+Seton Hall,Big East,2022,3,21
+Seton Hall,Big East,2022,4,25
+Seton Hall,Big East,2022,5,23
+Seton Hall,Big East,2022,6,16
+Seton Hall,Big East,2022,7,15
+Seton Hall,Big East,2022,8,15
+Seton Hall,Big East,2022,9,24
+Seton Hall,Big East,2022,10,20
+St. Bonaventure,A-10,2022,1,23
+St. Bonaventure,A-10,2022,2,22
+St. Bonaventure,A-10,2022,3,16
+Tennessee,SEC,2022,1,18
+Tennessee,SEC,2022,2,17
+Tennessee,SEC,2022,3,15
+Tennessee,SEC,2022,4,13
+Tennessee,SEC,2022,5,13
+Tennessee,SEC,2022,6,18
+Tennessee,SEC,2022,7,19
+Tennessee,SEC,2022,8,14
+Tennessee,SEC,2022,9,18
+Tennessee,SEC,2022,10,22
+Tennessee,SEC,2022,11,24
+Tennessee,SEC,2022,12,18
+Tennessee,SEC,2022,13,22
+Tennessee,SEC,2022,14,19
+Tennessee,SEC,2022,15,16
+Tennessee,SEC,2022,16,17
+Tennessee,SEC,2022,17,13
+Tennessee,SEC,2022,18,9
+Tennessee,SEC,2022,19,5
+Texas,Big 12,2022,1,5
+Texas,Big 12,2022,2,8
+Texas,Big 12,2022,3,8
+Texas,Big 12,2022,4,7
+Texas,Big 12,2022,5,7
+Texas,Big 12,2022,6,17
+Texas,Big 12,2022,7,16
+Texas,Big 12,2022,8,17
+Texas,Big 12,2022,9,14
+Texas,Big 12,2022,10,21
+Texas,Big 12,2022,11,23
+Texas,Big 12,2022,13,23
+Texas,Big 12,2022,14,20
+Texas,Big 12,2022,15,20
+Texas,Big 12,2022,16,20
+Texas,Big 12,2022,17,21
+Texas,Big 12,2022,18,22
+Texas,Big 12,2022,19,25
+Texas Tech,Big 12,2022,6,25
+Texas Tech,Big 12,2022,7,25
+Texas Tech,Big 12,2022,8,25
+Texas Tech,Big 12,2022,9,25
+Texas Tech,Big 12,2022,10,19
+Texas Tech,Big 12,2022,11,18
+Texas Tech,Big 12,2022,12,13
+Texas Tech,Big 12,2022,13,14
+Texas Tech,Big 12,2022,14,9
+Texas Tech,Big 12,2022,15,11
+Texas Tech,Big 12,2022,16,9
+Texas Tech,Big 12,2022,17,12
+Texas Tech,Big 12,2022,18,14
+Texas Tech,Big 12,2022,19,12
+UCLA,Pac-12,2022,1,2
+UCLA,Pac-12,2022,2,2
+UCLA,Pac-12,2022,3,2
+UCLA,Pac-12,2022,4,5
+UCLA,Pac-12,2022,5,4
+UCLA,Pac-12,2022,6,4
+UCLA,Pac-12,2022,7,5
+UCLA,Pac-12,2022,8,5
+UCLA,Pac-12,2022,9,5
+UCLA,Pac-12,2022,10,3
+UCLA,Pac-12,2022,11,9
+UCLA,Pac-12,2022,12,7
+UCLA,Pac-12,2022,13,3
+UCLA,Pac-12,2022,14,12
+UCLA,Pac-12,2022,15,13
+UCLA,Pac-12,2022,16,12
+UCLA,Pac-12,2022,17,17
+UCLA,Pac-12,2022,18,13
+UCLA,Pac-12,2022,19,11
+UConn,Big East,2022,1,24
+UConn,Big East,2022,2,23
+UConn,Big East,2022,3,22
+UConn,Big East,2022,4,17
+UConn,Big East,2022,5,15
+UConn,Big East,2022,6,20
+UConn,Big East,2022,11,25
+UConn,Big East,2022,12,20
+UConn,Big East,2022,13,17
+UConn,Big East,2022,14,24
+UConn,Big East,2022,15,24
+UConn,Big East,2022,16,21
+UConn,Big East,2022,17,18
+UConn,Big East,2022,18,20
+UConn,Big East,2022,19,21
+UNC,ACC,2022,1,19
+UNC,ACC,2022,2,18
+UNC,ACC,2022,18,25
+USC,Pac-12,2022,2,25
+USC,Pac-12,2022,3,24
+USC,Pac-12,2022,4,20
+USC,Pac-12,2022,5,16
+USC,Pac-12,2022,6,10
+USC,Pac-12,2022,7,8
+USC,Pac-12,2022,8,7
+USC,Pac-12,2022,9,7
+USC,Pac-12,2022,10,5
+USC,Pac-12,2022,11,16
+USC,Pac-12,2022,12,15
+USC,Pac-12,2022,13,19
+USC,Pac-12,2022,14,21
+USC,Pac-12,2022,15,17
+USC,Pac-12,2022,16,16
+USC,Pac-12,2022,17,16
+USC,Pac-12,2022,18,21
+USC,Pac-12,2022,19,22
+Villanova,Big East,2022,1,4
+Villanova,Big East,2022,2,5
+Villanova,Big East,2022,3,7
+Villanova,Big East,2022,4,6
+Villanova,Big East,2022,5,6
+Villanova,Big East,2022,6,9
+Villanova,Big East,2022,7,23
+Villanova,Big East,2022,8,22
+Villanova,Big East,2022,9,19
+Villanova,Big East,2022,10,14
+Villanova,Big East,2022,11,11
+Villanova,Big East,2022,12,14
+Villanova,Big East,2022,13,12
+Villanova,Big East,2022,14,15
+Villanova,Big East,2022,15,10
+Villanova,Big East,2022,16,8
+Villanova,Big East,2022,17,11
+Villanova,Big East,2022,18,8
+Villanova,Big East,2022,19,6
+Virginia,ACC,2022,1,25
+Wisconsin,Big Ten,2022,4,23
+Wisconsin,Big Ten,2022,5,22
+Wisconsin,Big Ten,2022,7,24
+Wisconsin,Big Ten,2022,8,24
+Wisconsin,Big Ten,2022,9,23
+Wisconsin,Big Ten,2022,10,13
+Wisconsin,Big Ten,2022,11,8
+Wisconsin,Big Ten,2022,12,11
+Wisconsin,Big Ten,2022,13,11
+Wisconsin,Big Ten,2022,14,14
+Wisconsin,Big Ten,2022,15,15
+Wisconsin,Big Ten,2022,16,13
+Wisconsin,Big Ten,2022,17,10
+Wisconsin,Big Ten,2022,18,12
+Wisconsin,Big Ten,2022,19,14
+Wyoming,MWC,2022,15,22
+Xavier,Big East,2022,3,25
+Xavier,Big East,2022,6,22
+Xavier,Big East,2022,7,18
+Xavier,Big East,2022,8,23
+Xavier,Big East,2022,9,22
+Xavier,Big East,2022,10,17
+Xavier,Big East,2022,11,20
+Xavier,Big East,2022,12,21
+Xavier,Big East,2022,13,21
+Xavier,Big East,2022,14,25
