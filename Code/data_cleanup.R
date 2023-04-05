@@ -334,19 +334,19 @@ home_team_stats_tbl <- team_stats_tbl  %>%
   ) %>% 
   mutate(value_type = case_when(
     value_type == "value" ~ ""
-    , value_type == "lag1_val" ~ "_lag1"
-    , value_type == "season_avg" ~ "_season_avg"
+    , value_type == "lag1_val" ~ "lag1"
+    , value_type == "season_avg" ~ "season_avg"
     # , value_type == "roll1_val" ~ "_roll1"
     # , value_type == "roll2_val" ~ "_roll2"
-    , value_type == "roll3_val" ~ "_roll3"
+    , value_type == "roll3_val" ~ "roll3"
     # , value_type == "roll4_val" ~ "_roll4"
-    , value_type == "roll5_val" ~ "_roll5"
+    , value_type == "roll5_val" ~ "roll5"
     , TRUE ~ NA_character_)
   ) %>%
   unite(
     "temp"
     , c(home_away,name,value_type)
-    , sep = ""
+    , sep = "_"
   ) %>%
   pivot_wider(
     names_from = temp
@@ -372,19 +372,19 @@ away_team_stats_tbl <- team_stats_tbl  %>%
   ) %>% 
   mutate(value_type = case_when(
     value_type == "value" ~ ""
-    , value_type == "lag1_val" ~ "_lag1"
-    , value_type == "season_avg" ~ "_season_avg"
+    , value_type == "lag1_val" ~ "lag1"
+    , value_type == "season_avg" ~ "season_avg"
     # , value_type == "roll1_val" ~ "_roll1"
     # , value_type == "roll2_val" ~ "_roll2"
-    , value_type == "roll3_val" ~ "_roll3"
+    , value_type == "roll3_val" ~ "roll3"
     # , value_type == "roll4_val" ~ "_roll4"
-    , value_type == "roll5_val" ~ "_roll5"
+    , value_type == "roll5_val" ~ "roll5"
     , TRUE ~ NA_character_)
   ) %>%
   unite(
     "temp"
     , c(home_away,name,value_type)
-    , sep = ""
+    , sep = "_"
   ) %>%
   pivot_wider(
     names_from = temp
