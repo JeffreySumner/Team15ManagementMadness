@@ -269,7 +269,7 @@ date_tbl <- temp %>%
 
 readr::write_csv(date_tbl, "Data/clean/date_tbl.csv")
 
-# Game Distances ----
+# Game Information ----
 team_home_locations <- mbb_attendance_2012_2022_tbl %>%
   select(fullName, city, state, homeTeam_id, awayTeam_id) %>%
   group_by(homeTeam_id,fullName) %>%
