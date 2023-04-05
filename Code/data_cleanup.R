@@ -255,7 +255,7 @@ team_home_locations <- mbb_attendance_2012_2022_tbl %>%
   left_join(geocoded_tbl %>% select(fullName, lat, lon, city, state), by = c("arena_name" = "fullName")) %>%
   filter(!is.na(arena_name))
 
-game_distance_tbl <- mbb_attendance_2012_2022_tbl %>%
+game_information_tbl <- mbb_attendance_2012_2022_tbl %>%
   select(game_id,fullName, city, state, homeTeam_id, awayTeam_id, home_espn_probability = homeTeam_gameProjection, neutral_site, type) %>%
   left_join(team_home_locations %>%
               rename(homeTeam_id = team_id
@@ -286,7 +286,7 @@ game_distance_tbl <- mbb_attendance_2012_2022_tbl %>%
          , away_distance = geosphere::distVincentyEllipsoid(cbind(arena_lon,arena_lat),cbind(away_lon,away_lat)) / 1609
          )
 
-readr::write_csv(game_distance_tbl, "Data/clean/game_distance_tbl.csv")
+readr::write_csv(game_information_tbl, "Data/clean/game_information_tbl.csv")
 # Team Statistics ----
 
 home_team_stats_tbl <- team_stats_tbl  %>%
