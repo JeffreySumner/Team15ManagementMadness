@@ -256,7 +256,7 @@ team_home_locations <- mbb_attendance_2012_2022_tbl %>%
   filter(!is.na(arena_name))
 
 game_distance_tbl <- mbb_attendance_2012_2022_tbl %>%
-  select(game_id,fullName, city, state, homeTeam_id, awayTeam_id) %>%
+  select(game_id,fullName, city, state, homeTeam_id, awayTeam_id, home_espn_probability = homeTeam_gameProjection, neutral_site, type) %>%
   left_join(team_home_locations %>%
               rename(homeTeam_id = team_id
                      , home_arena_name = arena_name
