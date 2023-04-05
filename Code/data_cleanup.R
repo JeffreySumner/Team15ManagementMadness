@@ -208,6 +208,9 @@ attendance_clean <- mbb_attendance_2012_2022_tbl %>%
   )
 
 # Clean AP Poll Data ----
+team_names_id_tbl <- mbb_box_score_2012_2022_tbl %>%
+  select(team_short_display_name, team_id) %>%
+  distinct()
 
 ap_poll_clean_tbl <- ap_poll_2012_2022_raw_tbl %>%
   filter(!is.na(school)) %>%
@@ -221,7 +224,9 @@ ap_poll_clean_tbl <- ap_poll_2012_2022_raw_tbl %>%
     , season = year
     , week = name
     , ap_rank = value
-  )
+  ) %>%
+  left_join(team_names_id_tbl, by = c("team_name" = "team_short_display_name")) %>%
+  filter(!team_id %in% 108808)
 
 readr::write_csv(ap_poll_clean_tbl, "Data/clean/ap_poll_clean_tbl.csv")
 
@@ -242,6 +247,27 @@ readr::write_csv(ap_poll_clean_tbl, "Data/clean/ap_poll_clean_tbl.csv")
 
 # readr::write_csv(geocoded_data, "Data/geocoded_locations_tbl.csv")
 geocoded_tbl <- readr::read_csv("Data/raw/geocoded_locations_tbl.csv")
+
+# Clean Game Dates ----
+temp <- mbb_box_score_2012_2022_tbl %>%
+  select(game_date, season) %>%
+  distinct() %>%
+  mutate(week_end = ifelse(lubridate::wday(game_date) == 1
+                           , lubridate::floor_date(game_date, "week") 
+                           , lubridate::ceiling_date(game_date, "week") 
+                           ) %>% lubridate::as_date()
+         ) 
+week_numbers <- temp %>%
+  select(season, week_end) %>%
+  distinct() %>%
+  group_by(season) %>%
+  mutate(week = row_number()) %>%
+  ungroup()
+
+date_tbl <- temp %>%
+  left_join(week_numbers %>% select(-season), by = "week_end")
+
+readr::write_csv(date_tbl, "Data/clean/date_tbl.csv")
 
 # Game Distances ----
 team_home_locations <- mbb_attendance_2012_2022_tbl %>%
