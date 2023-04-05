@@ -114,19 +114,19 @@ box_score_clean1 <- mbb_box_score_2012_2022_tbl %>%
     , FTM
     , FTA
     , offensive_rebounds
-    # , defensive_rebounds
-    # , total_rebounds
-    # , team_rebounds
-    # , assists
-    # , steals
-    # , blocks
+    , defensive_rebounds
+    , total_rebounds
+    , team_rebounds
+    , assists
+    , steals
+    , blocks
     , turnovers
     , team_turnovers
     , total_turnovers
-    # , fouls
-    # , technical_fouls
-    # , flagrant_fouls
-    # , largest_lead
+    , fouls
+    , technical_fouls
+    , flagrant_fouls
+    , largest_lead
   ) %>%
   mutate(
     across(FGM:FTA, as.numeric)
@@ -183,6 +183,10 @@ team_stats_tbl <- box_score_clean1 %>%
   # group_by(season, team_id, name) %>%
   mutate(
     roll5_val = zoo::rollmean(lag1_val, k = 5,fill = NA, align = "right")
+    # , roll1_val = zoo::rollmean(lag1_val, k = 1,fill = NA, align = "right")
+    # , roll2_val = zoo::rollmean(lag1_val, k = 2,fill = NA, align = "right")
+    # , roll3_val = zoo::rollmean(lag1_val, k = 3,fill = NA, align = "right")
+    # , roll4_val = zoo::rollmean(lag1_val, k = 4,fill = NA, align = "right")
   )
 
 
@@ -221,30 +225,80 @@ ap_poll_clean <- ap_poll_2012_2022_raw_tbl %>%
 
 
 
-# Clean Colleges and Universities
+# Clean Colleges and Universities ----
 
-locations <- mbb_attendance_2012_2022_tbl %>%
-  select(fullName, city, state) %>%
-  distinct() %>%
-  filter(!is.na(fullName)) 
+# locations <- mbb_attendance_2012_2022_tbl %>%
+#   select(fullName, city, state) %>%
+#   distinct() %>%
+#   filter(!is.na(fullName)) 
 
-geocoded_data <- locations %>%
-  # top_n(5) %>%
-  mutate(
-    location = glue::glue("{fullName}, {city}, {state}")
-    , geocode_data = geocode(location = location, output = "more")
-  ) %>%
-  unnest_wider(geocode_data) 
+# geocoded_data <- locations %>%
+#   # top_n(5) %>%
+#   mutate(
+#     location = glue::glue("{fullName}, {city}, {state}")
+#     , geocode_data = geocode(location = location, output = "more")
+#   ) %>%
+#   unnest_wider(geocode_data) 
 
 # readr::write_csv(geocoded_data, "Data/geocoded_locations_tbl.csv")
-geocoded_tbl <- readr::read_csv("Data/geocoded_locations_tbl.csv")
+geocoded_tbl <- readr::read_csv("Data/raw/geocoded_locations_tbl.csv")
 
-# Additional Tests ----
+# Game Distances ----
+team_home_locations <- mbb_attendance_2012_2022_tbl %>%
+  select(fullName, city, state, homeTeam_id, awayTeam_id) %>%
+  group_by(homeTeam_id,fullName) %>%
+  summarize(counts=  n()) %>% 
+  filter(counts %in% max(counts)) %>%
+  rename(team_id = homeTeam_id, arena_name = fullName) %>%
+  select(-counts) %>%
+  ungroup() %>%
+  left_join(geocoded_tbl %>% select(fullName, lat, lon, city, state), by = c("arena_name" = "fullName")) %>%
+  filter(!is.na(arena_name))
 
+game_distance_tbl <- mbb_attendance_2012_2022_tbl %>%
+  select(fullName, city, state, homeTeam_id, awayTeam_id) %>%
+  left_join(team_home_locations %>%
+              rename(homeTeam_id = team_id
+                     , home_arena_name = arena_name
+                     , home_lat = lat
+                     , home_lon = lon
+                     , home_city = city
+                     , home_state = state
+                     )
+            , by = "homeTeam_id")%>%
+  left_join(team_home_locations %>% 
+              rename(awayTeam_id = team_id
+                     , away_arena_name = arena_name
+                     , away_lat = lat
+                     , away_lon = lon
+                     , away_city = city
+                     , away_state = state
+                     )
+            , by = "awayTeam_id") %>%
+  left_join(geocoded_tbl %>% 
+              select(fullName, arena_lat = lat, arena_lon = lon, arena_city = city, arena_state = state)
+            , by = "fullName"
+            ) %>%
+  filter(!is.na(fullName)) %>% 
+  # head(5)  %>% 
+  # mutate(point_1 = c(arena_lon,arena_lat))
+  mutate(home_distance = geosphere::distVincentyEllipsoid(cbind(arena_lon,arena_lat),cbind(home_lon,home_lat))  / 1609
+         , away_distance = geosphere::distVincentyEllipsoid(cbind(arena_lon,arena_lat),cbind(away_lon,away_lat)) / 1609
+         )
+
+readr::write_csv(game_distance_tbl, "Data/clean/game_distance_tbl.csv")
+# Team Statistics ----
 
 team_stats_complete_tbl <- team_stats_tbl  %>%
   pivot_longer(
-    cols = c(value, lag1_val, season_avg, roll5_val)
+    cols = c(value
+             , lag1_val
+             , season_avg
+             # , roll1_val
+             # , roll2_val
+             , roll3_val
+             # , roll4_val
+             , roll5_val)
     , names_to = "value_type"
     , values_to = "value"
   ) %>% 
@@ -252,6 +306,10 @@ team_stats_complete_tbl <- team_stats_tbl  %>%
     value_type == "value" ~ ""
     , value_type == "lag1_val" ~ "_lag1"
     , value_type == "season_avg" ~ "_season_avg"
+    # , value_type == "roll1_val" ~ "_roll1"
+    # , value_type == "roll2_val" ~ "_roll2"
+    , value_type == "roll3_val" ~ "_roll3"
+    # , value_type == "roll4_val" ~ "_roll4"
     , value_type == "roll5_val" ~ "_roll5"
     , TRUE ~ NA_character_)
   ) %>%
