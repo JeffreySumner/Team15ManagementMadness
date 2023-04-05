@@ -256,7 +256,7 @@ team_home_locations <- mbb_attendance_2012_2022_tbl %>%
   filter(!is.na(arena_name))
 
 game_distance_tbl <- mbb_attendance_2012_2022_tbl %>%
-  select(fullName, city, state, homeTeam_id, awayTeam_id) %>%
+  select(game_id,fullName, city, state, homeTeam_id, awayTeam_id) %>%
   left_join(team_home_locations %>%
               rename(homeTeam_id = team_id
                      , home_arena_name = arena_name
@@ -289,14 +289,18 @@ game_distance_tbl <- mbb_attendance_2012_2022_tbl %>%
 readr::write_csv(game_distance_tbl, "Data/clean/game_distance_tbl.csv")
 # Team Statistics ----
 
-team_stats_complete_tbl <- team_stats_tbl  %>%
+home_team_stats_tbl <- team_stats_tbl  %>%
+  ungroup() %>%
+  # filter(!str_detect(name,"_opp"))
+  filter(home_away == "home") %>%
+  select(-lag1_val) %>%
   pivot_longer(
     cols = c(value
-             , lag1_val
+             # , lag1_val
              , season_avg
              # , roll1_val
              # , roll2_val
-             , roll3_val
+             # , roll3_val
              # , roll4_val
              , roll5_val)
     , names_to = "value_type"
@@ -315,13 +319,54 @@ team_stats_complete_tbl <- team_stats_tbl  %>%
   ) %>%
   unite(
     "temp"
-    , c(name,value_type)
+    , c(home_away,name,value_type)
     , sep = ""
   ) %>%
   pivot_wider(
     names_from = temp
     , values_from = value
   )
+
+away_team_stats_tbl <- team_stats_tbl  %>%
+  ungroup() %>%
+  # filter(!str_detect(name,"_opp"))
+  filter(home_away == "away") %>%
+  select(-lag1_val) %>%
+  pivot_longer(
+    cols = c(value
+             # , lag1_val
+             , season_avg
+             # , roll1_val
+             # , roll2_val
+             # , roll3_val
+             # , roll4_val
+             , roll5_val)
+    , names_to = "value_type"
+    , values_to = "value"
+  ) %>% 
+  mutate(value_type = case_when(
+    value_type == "value" ~ ""
+    , value_type == "lag1_val" ~ "_lag1"
+    , value_type == "season_avg" ~ "_season_avg"
+    # , value_type == "roll1_val" ~ "_roll1"
+    # , value_type == "roll2_val" ~ "_roll2"
+    , value_type == "roll3_val" ~ "_roll3"
+    # , value_type == "roll4_val" ~ "_roll4"
+    , value_type == "roll5_val" ~ "_roll5"
+    , TRUE ~ NA_character_)
+  ) %>%
+  unite(
+    "temp"
+    , c(home_away,name,value_type)
+    , sep = ""
+  ) %>%
+  pivot_wider(
+    names_from = temp
+    , values_from = value
+  )
+
+readr::write_csv(home_team_stats_tbl,"Data/clean/home_team_stats_tbl.csv")
+readr::write_csv(away_team_stats_tbl,"Data/clean/away_team_stats_tbl.csv")
 
 # Contingency Table ----
 contingency_tbl <- team_stats_complete_tbl %>%
