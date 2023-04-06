@@ -16,4 +16,4 @@ validation_split <- initial_split(test_temp_tbl, prop = .5)
 test_tbl <- training(validation_split)
 validation_tbl <- testing(validation_split)
 
-rm(initial_split_data, validation_split, test_temp_tbl)
+rm(initial_split_data, validation_split, test_temp_tbl) # run as needed
