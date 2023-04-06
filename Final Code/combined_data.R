@@ -32,17 +32,26 @@ model_data_tbl <- game_information_tbl %>%
       select(-conference,-team_name) %>%
       rename(away_ap_rank = ap_rank)
     , by = c("season", "week", "awayTeam_id" = "team_id")
-  )
+  ) %>%
+  select(!contains("largest_lead")) %>%
+  filter(!is.na(home_defensive_rating_roll5), !is.na(away_defensive_rating_roll5), !is.na(away_distance), !is.na(home_distance)) %>%
+  mutate(home_ap_rank_fct = ifelse(is.na(home_ap_rank),"Not Ranked",as.character(home_ap_rank)) %>% forcats::as_factor()
+         , away_ap_rank_fct = ifelse(is.na(away_ap_rank),"Not Ranked",as.character(away_ap_rank)) %>% forcats::as_factor()
+  ) %>% 
+  mutate(home_winner = home_points_ > away_points_)
 
 # Model Data Readr ----
 # run this if you want to store the data then read on ONLY this section... doesn't matter, up to you
 # this file is too large for github
+# make sure to get the zip file and unzip then place it in data/clean
+
 # readr::write_csv(model_data_tbl, "Data/clean/model_data_tbl.csv")
-# model_data_tbl <- readr::read_csv("Data/clean/model_data_tbl.csv")
+model_data_tbl <- readr::read_csv("Data/clean/model_data_tbl.csv")
 # Split Model Data ----
 
 set.seed(15) # for reproducibility
 initial_split_data <- initial_split(model_data_tbl, prop = .7)
 train_tbl <- training(initial_split_data)
 test_tbl <- testing(initial_split_data)
+
 
