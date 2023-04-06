@@ -40,6 +40,18 @@ model_data_tbl <- game_information_tbl %>%
   ) %>% 
   mutate(home_winner = home_points_ > away_points_)
 
+# validate that NAs are taken care of
+
+# colSums(is.na(model_data_tbl %>%
+#                 select(!contains("largest_lead")) %>%
+#                 filter(!is.na(home_defensive_rating_roll5), !is.na(away_defensive_rating_roll5), !is.na(away_distance), !is.na(home_distance)) %>%
+#                 mutate(home_ap_rank_fct = ifelse(is.na(home_ap_rank),"Not Ranked",as.character(home_ap_rank)) %>% forcats::as_factor()
+#                        , away_ap_rank_fct = ifelse(is.na(away_ap_rank),"Not Ranked",as.character(away_ap_rank)) %>% forcats::as_factor()
+#                 ) %>% 
+#                 mutate(home_winner = home_points_ > away_points_)
+# )
+# )
+
 # Model Data Readr ----
 # run this if you want to store the data then read on ONLY this section... doesn't matter, up to you
 # this file is too large for github
