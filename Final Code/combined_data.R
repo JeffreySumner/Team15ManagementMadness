@@ -49,9 +49,19 @@ model_data_tbl <- game_information_tbl %>%
 model_data_tbl <- readr::read_csv("Data/clean/model_data_tbl.csv")
 # Split Model Data ----
 
+model_data_tbl <- readr::read_csv("Data/clean/model_data_tbl.csv")
 set.seed(15) # for reproducibility
-initial_split_data <- initial_split(model_data_tbl, prop = .7)
+initial_split_data <- initial_split(model_data_tbl, prop = .6)
 train_tbl <- training(initial_split_data)
-test_tbl <- testing(initial_split_data)
+test_temp_tbl <- testing(initial_split_data)
+
+set.seed(15)
+validation_split <- initial_split(test_temp_tbl, prop = .5)
+test_tbl <- training(validation_split)
+validation_tbl <- testing(validation_split)
+
+rm(initial_split_data, validation_split, test_temp_tbl)
+gc()
+
 
 
