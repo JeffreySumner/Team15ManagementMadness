@@ -3,6 +3,9 @@ if (!require('tidymodels')) install.packages('tidymodels')
 
 model_data_tbl <- readr::read_csv("Data/clean/model_data_tbl.csv")
 
+model_data_tbl <- model_data_tbl %>%
+  mutate(home_winner_response = as.numeric(home_winner))
+
 set.seed(15) # for reproducibility
 initial_split_data <- initial_split(model_data_tbl, prop = .6)
 train_tbl <- training(initial_split_data)
