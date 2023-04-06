@@ -208,6 +208,9 @@ attendance_clean <- mbb_attendance_2012_2022_tbl %>%
   )
 
 # Clean AP Poll Data ----
+
+# interesting thing - Penn State has multiple teams
+# Penn State Beaver has same team name
 team_names_id_tbl <- mbb_box_score_2012_2022_tbl %>%
   select(team_short_display_name, team_id) %>%
   distinct()
