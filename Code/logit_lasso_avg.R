@@ -1,7 +1,7 @@
 if (!require('tidyverse')) install.packages('tidyverse')
 if (!require('tidymodels')) install.packages('tidymodels')
 setwd("C:/Users/mattg/OneDrive/Documents/Team-15/Data/clean")
-model_data_tbl <- readr::read_csv("model_data_tbl.csv")
+model_data_tbl <- readr::read_csv("Data/clean/model_data_tbl.csv")
 
 model_data_tbl <- model_data_tbl %>%
   mutate(home_winner_response = as.numeric(home_winner) %>% factor()
@@ -78,9 +78,13 @@ lasso_model <- cv.glmnet(
 
 # Extract the coefficients using the lambda value that minimizes cross-validation error
 coef_vals <- coef(lasso_model, s = "lambda.min")
+coef_vals <- as.matrix(coef_vals)
 
 # Identify the predictors with non-zero coefficients
-selected_predictors <- rownames(coef_vals)[-1]
+# selected_predictors <- rownames(coef_vals)[-1]
+
+# There is a major difference between the logical operator of "!=0! and ">0", ">0" cuts out more
+selected_predictors <- rownames(coef_vals)[coef_vals>10^-3]
 
 # Fit a logistic regression model on the reduced dataset using the selected predictors
 logit_model <- glm(
@@ -116,6 +120,7 @@ library(vip)
 vip(logit_model)
 
 
-
-
-
+# for "!=0", 38 predictors, acc = 0.6751, prec = 0.7010, spec = 0.5941, auc = 0.7104
+# for ">0", 17 predictors, acc = 0.6751, prec = 0.7010, spec = 0.5941, auc = 0.7104
+# for ">10^-7", 16 predictors, acc, prec, spec, auc are same as previous two.
+# finally at ">10^-3", 15 predictors, acc = 0.6750, prec = 0.7005, spec = 0.5944, auc = 0.7098
