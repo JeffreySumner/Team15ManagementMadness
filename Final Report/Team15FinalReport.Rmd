@@ -350,56 +350,101 @@ to prepare our final presentation and summary of results.
     Check,* 16 Mar 2022,
     <https://tvnewscheck.com/business/article/advertisers-go-mad-for-march-madness/>
 
-Project Final Report, Data, & Code
-What is it?
+## Project Final Report, Data, & Code
+
+#### What is it?
+
 It will be a detailed description of what you did, what results you obtained, clear interpretations of the results and what you have learned and/or can conclude from your work. 
+
 All deliverables and work created throughout your project including code, notebooks, reports, etc.
+
 Imagine this deliverable as the official and final project in its entirety. This would be what you deliver to your client/manager on the completion of a project.
-What to Include & What is Required? 
+
+#### What to Include & What is Required? 
 “Academic-like” paper with dense text inline figures, no direct code within the paper. Code files related to the project are included in the repository files but are self-contained. Detailed instructions are provided accordingly. 
 Any relevant code files
 Key visualizations or other supplementary files
 Readme/Documentation for code
 
-Overview of Project:
-Team members names listed in heading
-Necessary background information/framing of the problem
-Include an overview of the problem in general as well as your general approach
-State initial hypotheses
+## Overview of Project:
+- Team members names listed in heading
+  - Complete
+- Necessary background information/framing of the problem
+  - Complete
+- Include an overview of the problem in general as well as your general approach
+  - Could edit to only reflect predicting outcomes of games
+- State initial hypotheses
+  - Could edit to only reflect predicting outcomes of games
 
-Overview of Data:
-How involved was the cleaning process?
-What were your key variables?
-Any interesting insights from EDA?
-If you used feature engineering how and was it successful?
-Where did the dataset come from?
-Super quick overview of the data
+## Overview of Data:
+- How involved was the cleaning process?
+  - Could expand more on this, but have a good start.
+- What were your key variables?
+  - If this is asking for stuff from results, then we would still be wanting to include this
+  - If this is about our initial hypothesis, then this is complete
+- Any interesting insights from EDA?
+  - add some pca and UMAP with tidymodels...
+- If you used feature engineering how and was it successful?
+  - Discussion of distance, roll 5, season ave...
+  - Roll5... the goal of using the last 5 games was to capture team's current gameplay. This was our attempt at capturing team momentum (such as win or losing streaks).
+- Where did the dataset come from?
+  - Complete
+- Super quick overview of the data
+  - Complete
 
-Overview of Modeling
-What type of models did you use and how do they compare?
-How did you perform model selection and hyperparameter optimization?
-How did the models perform generally speaking?
-Are they useful and in what ways?
+## Overview of Modeling
+- What type of models did you use and how do they compare?
+  - For our simple exploratory model, we used a logit model with only a few of our features (turnovers, possessions, points, rebounds, offensive rating and defensive rating). Logit model's accuracy = 65.35%,
+precision = 65.78%, specificity = 63.59% This model (included in the progress report) helped us get our bearings and set a baseline for our own improvements.
+  - We also created a simple probit model. Like the previous logit model, our goal was to create a baseline in performance. Unlike the previous logit model, we used a large amount of features (99 features). Two of these models were created; one where the game statistics were from the season average, the other with game statistics from only the last 5 games. For these probit models, the season averages provided a slightly better prediction of game outcomes than the last 5 games averages. [could be a table... Roll5: acc = 0.704, prec = 0.628, spec = 0.832, auc = 0.658, AIC = 30616... Season Average: acc = 0.717, prec = 0.644, spec = 0.832 (same), auc = 0.676, AIC = 29824]. Although the probit model trained on the season averages data was better, it didn't outperform the last 5 games averages by enough for us to abandon the last 5 games averages as a separate data set.
+  - In order to explore feature selection, we deployed stepwise regression and LASSO methods upon logit models.
+    - According to the stepwise regression, the most important features were...
+    - According to the LASSO method, ... were the most important features.
+  - The features from LASSO were then fed into the probit model.
+  - Besides logit and probit models, decision tree classifiers and support vector machine classifiers were developed. Both of these models had hyperparameters to consider... The decision tree parameters were mostly automatically tuned through <...>, except the number of trees was set to 10 due to runtime. With the support vector machine classifier, <...> was used to determine the best <...>
+  - (optional) Finally, we created an aggregated model which combined all of our models
+  
+- How did you perform model selection and hyperparameter optimization?
+  - In the "conclusions" for model selection
+  - In the tree and svm for hyperparameters
+- How did the models perform generally speaking?
+  - reflected in the accuracy, precision, ...
+- Are they useful and in what ways?
+  - We might have to revisit the sections to include this!
 
-Include a couple of key visualizations inline and be sure to include captions, labels, legends, and most importantly context where needed!
-If you encounter any unexpected problems, challenges, or interesting findings please mention these. Discussion of things that didn’t work is also encouraged. 
-Is there any unfinished business or areas which if given more time or resources you would deem promising or interesting to further pursue?
-Detailed discussion of methodology.
-Detailed discussion and evaluation of results.
-Overall conclusion and key takeaways from your project as a closing message.
-Describe in depth the novelties of your approach and your discoveries/insights/experiments.
-Works cited section. 
+## Overall Considerations:
+- Include a couple of key visualizations inline and be sure to include captions, labels, legends, and most importantly context where needed!
+- If you encounter any unexpected problems, challenges, or interesting findings please mention these.
+  - Possibly mention problems with the data with "_" at the end.
+  - Possibly mention runtime problems for `MASS` stepwise
+- Discussion of things that didn’t work is also encouraged.
+- Is there any unfinished business or areas which if given more time or resources you would deem promising or interesting to further pursue?
+  - Attendance predictions!
+- Detailed discussion of methodology.
+  - Possibly add coding description for data cleaning
+  - Should have methodology of modeling
+- Detailed discussion and evaluation of results.
+  - Most likely will be found in the conclusions section
+  - Also included with the model results.
+- Overall conclusion and key takeaways from your project as a closing message.
+  - needed in the conclusion
+- Describe in depth the novelties of your approach and your discoveries/insights/experiments.
+  - Better callouts could be added for feature engineering
+- Works cited section.
+  - Completed
 
-Code Files
-Code used to generate the project and accompanying figures.
-Include a Readme with installation and running instructions as well as an overview of your directory structure and any other important elements. 
-Requirements.txt/.yml file if you are using libraries outside of those used in the course.
-Any extra documentation/explanation for a user/TA to run the code to see the results or ideally a notebook that shows all the results in a logical sequence
+## Code Files
+- Code used to generate the project and accompanying figures.
+- Include a Readme with installation and running instructions as well as an overview of your directory structure and any other important elements. 
+- Requirements.txt/.yml file if you are using libraries outside of those used in the course.
+- Any extra documentation/explanation for a user/TA to run the code to see the results or ideally a notebook that shows all the results in a logical sequence
 
-Data
-See the “Submitting Data” section for details on how to submit your dataset
-Submission
-Group Primary Contact will submit your Project Final Report, Data, Slides, & Code on behalf of the group via the corresponding assignment on Canvas/Edx. The easiest way to do this is to download your entire GitHub repository and upload that resulting zip file as your submission. This cloned repository should contain all the necessary deliverables mentioned above. 
-Grading
-TA feedback/grades on Project Final Report, Data, Slides, & Code will be available prior to the conclusion of the course. Rubric Coming Soon…
+## Data
+- See the “Submitting Data” section for details on how to submit your dataset
+
+## Submission
+- Group Primary Contact will submit your Project Final Report, Data, Slides, & Code on behalf of the group via the corresponding assignment on Canvas/Edx. The easiest way to do this is to download your entire GitHub repository and upload that resulting zip file as your submission. This cloned repository should contain all the necessary deliverables mentioned above. 
+
+## Grading
+- TA feedback/grades on Project Final Report, Data, Slides, & Code will be available prior to the conclusion of the course.
 
