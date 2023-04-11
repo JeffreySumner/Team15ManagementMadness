@@ -364,6 +364,7 @@ Imagine this deliverable as the official and final project in its entirety. This
 “Academic-like” paper with dense text inline figures, no direct code within the paper. Code files related to the project are included in the repository files but are self-contained. Detailed instructions are provided accordingly. 
 Any relevant code files
 Key visualizations or other supplementary files
+
 Readme/Documentation for code
 
 ## Overview of Project:
@@ -395,57 +396,95 @@ Readme/Documentation for code
 ## Overview of Modeling
 - What type of models did you use and how do they compare?
 
+#### Baseline Modeling
   - For our simple exploratory model, we used a logit model with only a few of our features (turnovers, possessions, points, rebounds, offensive rating and defensive rating). Logit model's accuracy = 65.35%,
 precision = 65.78%, specificity = 63.59% This model (included in the progress report) helped us get our bearings and set a baseline for our own improvements.
+  - [Michael]
 
   - Possibly mention how we created the train / validation / test splits... and used them for the rest of the modeling.
+    [Matthew Royalty]
   
   - We also created a simple probit model. Like the previous logit model, our goal was to create a baseline in performance. Unlike the previous logit model, we used a large amount of features (99 features). Two of these models were created; one where the game statistics were from the season average, the other with game statistics from only the last 5 games. For these probit models, the season averages provided a slightly better prediction of game outcomes than the last 5 games averages. [could be a table... Roll5: acc = 0.704, prec = 0.628, spec = 0.832, auc = 0.658, AIC = 30616... Season Average: acc = 0.717, prec = 0.644, spec = 0.832 (same), auc = 0.676, AIC = 29824]. Although the probit model trained on the season averages data was better, it didn't outperform the last 5 games averages by enough for us to abandon the last 5 games averages as a separate data set.
-  
-  - In order to explore feature selection, we used stepwise regression through the `MASS` package. The steps were bidirectional elimination with AIC as the model improvement criterion.<awk wording> This method resulted in 23 features (from 49) being selected. The logit model trained on these features had a performance that includes: accuracy = 0.7000, precision = 0.7238, specification = 0.6326, and AUC = 0.7457. <potentially add how this compares / contrasts to the previous probit or logit models above>
-  
-  - [show fip of stepwise]
-    - According to stepwise method... were the most important features
+    [Michael]
+
+  - ESPN metrics
+    - In the Progress Report section
     
-  - To find the best lambda value for LASSO, we used `cv.glmnet(family = "binomial", alpha = 1, nfolds = 10)`. We then used the coefficients using the lambda value that minimized the cross-validation error to select our significant predictors from an original list of 49 potential predictors. These significant predictors were then used to create logit models. Altering the syntax for the coefficient cutoff changed the selected predictors. For instance, using the input `coefficient!=0` resulted in 38 predictors (accuracy = 0.6751, precision = 0.7010, specification = 0.5941, auc = 0.7104). Using `coefficient>0` surprisingly resulted in 17 predictors and had the same performance as the previous syntax. Ultimately, we could set `coefficient>10^-3` before seeing a drop in performance (resulted in 15 predictors, accuracy = 0.6750, precision = 0.7005, specification = 0.5944, auc = 0.7098). 
+#### Feature Selection Exploration
+  
+  - In order to explore feature selection, we used stepwise regression through the `MASS` package. The steps were bidirectional elimination with AIC as the model improvement criterion.<awk wording> This method resulted in 23 features (from 49) being selected. The logit model trained on these features had a performance that includes: accuracy = 0.7000, precision = 0.7238, specification = 0.6326, and AUC = 0.7457. According to stepwise method... were the most important features.  <potentially add how this compares / contrasts to the previous probit or logit models above>
+    [Matthew Rosenthal, Michael]
+  
+  - [show vip of stepwise]
+    [Jeffrey]
+    
+  - To find the best lambda value for LASSO, we used `cv.glmnet(family = "binomial", alpha = 1, nfolds = 10)`. We then used the coefficients using the lambda value that minimized the cross-validation error to select our significant predictors from an original list of 49 potential predictors. These significant predictors were then used to create logit models. Altering the syntax for the coefficient cutoff changed the selected predictors. For instance, using the input `coefficient!=0` resulted in 38 predictors (accuracy = 0.6751, precision = 0.7010, specification = 0.5941, auc = 0.7104). Using `coefficient>0` surprisingly resulted in 17 predictors and had the same performance as the previous syntax. Ultimately, we could set `coefficient>10^-3` before seeing a drop in performance (resulted in 15 predictors, accuracy = 0.6750, precision = 0.7005, specification = 0.5944, auc = 0.7098).According to the LASSO method, ... were the most important features
+    [Matthew Royalty]
   
   - [show vip of logit model]
-    - According to the LASSO method, ... were the most important features
+    [Jeffrey]
     
   - Compare / contrast the stepwise and LASSO results.
-    
+    - Include run times for deciding which set of features used for the rest of the report.
+    - Then we pca with the selected features
+    [see on Wednesday]
+  
+#### Modeling
+
   - The features from LASSO were then fed into the probit model.
+    [Michael]
   
   - Besides logit and probit models, decision tree classifiers and support vector machine classifiers were developed. Both of these models had hyperparameters to consider... The decision tree parameters were mostly automatically tuned through <...>, except the number of trees was set to 10 due to runtime. With the support vector machine classifier, <...> was used to determine the best <...>
+    [see on Wednesday to check]
   
-  - (optional) Finally, we created an aggregated model which combined all of our models
+  - Finally, we created an aggregated model which combined all of our models
+    [see on Wednesday to check]
   
 - How did you perform model selection and hyperparameter optimization?
   - In the "conclusions" for model selection
   - In the tree and svm for hyperparameters
+  
 - How did the models perform generally speaking?
   - reflected in the accuracy, precision, ...
+  
 - Are they useful and in what ways?
   - We might have to revisit the sections to include this!
+  [Goes into a conclusion section]
 
 ## Overall Considerations:
 - Include a couple of key visualizations inline and be sure to include captions, labels, legends, and most importantly context where needed!
+  - Planned
+  
 - If you encounter any unexpected problems, challenges, or interesting findings please mention these.
   - Possibly mention problems with the data with "_" at the end.
   - Possibly mention runtime problems for `MASS` stepwise
+  
 - Discussion of things that didn’t work is also encouraged.
+
 - Is there any unfinished business or areas which if given more time or resources you would deem promising or interesting to further pursue?
   - Attendance predictions!
+  - Time between games
+  - Direction of Travel
+  - Geographical Bias of Ratings
+  - Individual Player Stats (star player effect)
+  - Injuries Data
+  
 - Detailed discussion of methodology.
   - Possibly add coding description for data cleaning
+    - In earlier HEAD of Progress Report
   - Should have methodology of modeling
+  
 - Detailed discussion and evaluation of results.
   - Most likely will be found in the conclusions section
   - Also included with the model results.
+  
 - Overall conclusion and key takeaways from your project as a closing message.
   - needed in the conclusion
+  
 - Describe in depth the novelties of your approach and your discoveries/insights/experiments.
   - Better callouts could be added for feature engineering
+    - Roll5, distance
+  
 - Works cited section.
   - Completed
 
