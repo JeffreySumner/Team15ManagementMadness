@@ -2,6 +2,7 @@
 if (!require('tidyverse')) install.packages('tidyverse')
 if (!require('tidymodels')) install.packages('tidymodels')
 if (!require('glmnet')) install.packages('glmnet')
+if (!require('vip')) install.packages('vip')
 
 # Step 1: Split Data into Train, Test and Validation ----
 ## Read in Data ----
@@ -291,7 +292,7 @@ final_glm_log_season <- finalize_workflow(
 final_glm_log_season
 
 final_glm_log_season %>%
-  fit(data = train_season_tbl) %>%
+  fit(data = train_season_lasso_tbl) %>%
   pull_workflow_fit() %>%
   vip(geom = "point")
 
@@ -300,6 +301,7 @@ final_res_glm_log_season <- last_fit(final_glm_log_season, initial_split_data)
 collect_metrics(final_res_glm_log_season)
 
 fitted_glm_log_best_season <- fit(final_glm_log_season, train_season_lasso_tbl)
+readr::write_rds(fitted_glm_log_best_season, "Data/models/enhanced_season_logit_model.rds")
 # glm_log_season_test_pred <- predict(fitted_glm_log_best_season, test_tbl, type = "prob")
 # glm_log_season_valid_pred <- predict(fitted_glm_log_best_season, validation_tbl, type = "prob")
 
@@ -344,6 +346,7 @@ final_res_glm_log_rolling <- last_fit(final_glm_log_rolling, initial_split_data)
 collect_metrics(final_res_glm_log_rolling)
 
 fitted_glm_log_best_rolling <- fit(final_glm_log_rolling, train_rolling_lasso_tbl)
+readr::write_rds(fitted_glm_log_best_rolling, "Data/models/enhanced_rolling_logit_model.rds")
 # glm_log_rolling_test_pred <- predict(fitted_glm_log_best_rolling, test_tbl, type = "prob")
 # glm_log_rolling_valid_pred <- predict(fitted_glm_log_best_rolling, validation_tbl, type = "prob")
 
@@ -387,7 +390,8 @@ final_res_glm_log_standard <- last_fit(final_glm_log_standard, initial_split_dat
 
 collect_metrics(final_res_glm_log_standard)
 
-# fitted_glm_log_best_standard <- fit(final_glm_log_standard, train_standard_tbl)
+fitted_glm_log_best_standard <- fit(final_glm_log_standard, train_standard_tbl)
+readr::write_rds(fitted_glm_log_best_standard, "Data/models/enhanced_standard_logit_model.rds")
 # glm_log_standard_test_pred <- predict(fitted_glm_log_best_standard, test_tbl, type = "prob") 
 # glm_log_standard_valid_pred <- predict(fitted_glm_log_best_standard, validation_tbl, type = "prob") 
 
@@ -520,7 +524,7 @@ final_xgb_season <- finalize_workflow(
 final_xgb_season
 
 final_xgb_season %>%
-  fit(data = train_season_tbl) %>%
+  fit(data = train_season_lasso_tbl) %>%
   pull_workflow_fit() %>%
   vip(geom = "point")
 
@@ -529,6 +533,7 @@ final_res_xgb_season <- last_fit(final_xgb_season, initial_split_data)
 collect_metrics(final_res_xgb_season)
 
 fitted_xgb_best_season <- fit(final_xgb_season, train_season_lasso_tbl)
+readr::write_rds(fitted_xgb_best_season, "Data/models/enhanced_season_xgb_model.rds")
 # xgb_season_test_pred <- predict(fitted_xgb_best_season, test_tbl, type = "prob")
 # xgb_season_valid_pred <- predict(fitted_xgb_best_season, validation_tbl, type = "prob")
 
@@ -570,7 +575,7 @@ final_xgb_rolling <- finalize_workflow(
 final_xgb_rolling
 
 final_xgb_rolling %>%
-  fit(data = train_rolling_tbl) %>%
+  fit(data = train_rolling_lasso_tbl) %>%
   pull_workflow_fit() %>%
   vip(geom = "point")
 
@@ -579,6 +584,7 @@ final_res_xgb_rolling <- last_fit(final_xgb_rolling, initial_split_data)
 collect_metrics(final_res_xgb_rolling)
 
 fitted_xgb_best_rolling <- fit(final_xgb_rolling, train_rolling_lasso_tbl)
+readr::write_rds(fitted_xgb_best_rolling, "Data/models/enhanced_rolling_xgb_model.rds")
 # xgb_rolling_test_pred <- predict(fitted_xgb_best_rolling, test_tbl, type = "prob")
 # xgb_rolling_valid_pred <- predict(fitted_xgb_best_rolling, validation_tbl, type = "prob")
 
@@ -619,7 +625,7 @@ final_xgb_standard <- finalize_workflow(
 final_xgb_standard
 
 final_xgb_standard %>%
-  fit(data = train_standard_tbl) %>%
+  fit(data = train_standard_lasso_tbl) %>%
   pull_workflow_fit() %>%
   vip(geom = "point")
 
@@ -628,5 +634,6 @@ final_res_xgb_standard <- last_fit(final_xgb_standard, initial_split_data)
 collect_metrics(final_res_xgb_standard)
 
 fitted_xgb_best_standard <- fit(final_xgb_standard, train_standard_lasso_tbl)
+readr::write_rds(fitted_xgb_best_standard, "Data/models/enhanced_standard_xgb_model.rds")
 # xgb_standard_test_pred <- predict(fitted_xgb_best_standard, test_tbl, type = "prob")
 # xgb_standard_valid_pred <- predict(fitted_xgb_best_standard, validation_tbl, type = "prob")
