@@ -16,6 +16,18 @@ always_allow_html: yes
 Group Members: Michael Munson, Matthew Rosenthal, Matthew Royalty,
 Jeffrey Sumner
 
+## Overview of Project:
+
+-   Team members names listed in heading
+    -   Complete
+-   Necessary background information/framing of the problem
+    -   Complete
+-   Include an overview of the problem in general as well as your
+    general approach
+    -   Could edit to only reflect predicting outcomes of games
+-   State initial hypotheses
+    -   Could edit to only reflect predicting outcomes of games
+
 ### Project Background:
 
 Sports, especially the NCAA March Madness tournament, are popular for
@@ -24,18 +36,7 @@ and spectators, generating significant revenue for the NCAA. In 2022,
 the tournament had 10.7 million TV viewers, 685,000 attendees, and
 generated an estimated \$1.15 billion in revenue [1].
 
-With millions watching and even more following on social media, March
-Madness is a great opportunity for advertising. With a huge captive
-audience, companies can convert consumers into loyal brand users, create
-brand exposure, and introduce new products and services. However, the
-same number of viewers do not watch all 67 games. So advertisers need to
-determine which games to focus advertising efforts on. Although this is
-a complex task, in-game attendance can be used to approximate overall
-"demand" for a game. For example, a First Four game with approximately
-4,000 spectators will more than likely not have the same number of
-viewers as a Final Four game with around 70,000 spectators.
-
-In addition, March Madness is a gold mine for sports betting. Firms such
+March Madness is a gold mine for sports betting. Firms such
 as DraftKings and FanDuel earn a commission with each bet made, in
 addition to revenue from their websites and app ads. Reliable game
 prediction models are essential to maximizing this revenue through
@@ -58,53 +59,13 @@ winning based on factors like location, conference, and game type, are
 also used.
 
 The goal of MGT Madness is to create machine learning models that
-reliably predict the attendance at NCAA tournament games and the outcome
-of games given different match ups between teams, other pre-game
-characteristics and player statistics.
+reliably predict the outcome of NCAA games given different match ups between 
+teams, other pre-game characteristics and team statistics. The main driving
+question was: What predictors can be used to accurately predict the outcome of 
+NCAA tournament games?
 
-### Planned Approach and Models
-
-In this project, we want to answer the following questions:
-
-1.  What factors are the biggest influencers on NCAA tournament game
-    attendance?
-
-2.  What predictors can be used to accurately predict the outcome of
-    NCAA tournament games?
-
-To answer these questions, we plan to use a generalized linear model
-(GLM) to predict game attendance, and a probit regression model to
-predict game winners. Models will be trained, validated, and tested, and
-various comparison methods will be used to select the final models
-(accuracy, summary statistics, principal component analysis, decision
-trees, etc.)
-
-#### **Modeling Attendance:**
-
-Since attendance is a numeric value, a generalized linear or multiple
-linear regression model can be used to predict game attendance.
-Depending on how our data cleaning goes, we may use predicted % arena
-capacity in lieu of predicted raw attendance. This would make the model
-more realistic, and ensure that predictions do not go well over the
-capacity of a game's arena.
-
-In any case, we plan to test multiple combinations of factors to find
-the best model, using the root mean square error (RMSE) and adjusted
-R-squared as points of comparison.
-
-Potential factors to investigate include:
-
--   Team rankings (such as Massey Ordinal, Elo, AP Polls, Net Ranking,
-    and Coaches Poll)
--   Relative strength of each team's conference
--   "Excitement factor" of each team
--   Game location relative to each team's campus
--   University enrollment of each team
--   Game's round in tournament
-
-Of these factors, we hypothesize that game location, tournament round,
-and relative conference strength will be the most influential on game
-attendance.
+To answer this question, we planned to: collect large amounts of disparate data on games
+in the past, process the data while also creating unique features, train and validate multiple types models, and finally compare these models against each other on various methods. The models will then be combined into one ensemble model...
 
 #### Modeling Game Results:
 
@@ -126,6 +87,44 @@ Potential factors to investigate include:
 We anticipate that each team's ranking differential, quality wins,
 location, and efficiency will be the biggest factors determining the
 win/loss outcome of a game.
+
+
+## Overview of Data:
+
+-   How involved was the cleaning process?
+    -   Could expand more on this, but have a good start.
+-   What were your key variables?
+    -   If this is asking for stuff from results, then we would still be
+        wanting to include this
+    -   If this is about our initial hypothesis, then this is complete
+-   Any interesting insights from EDA?
+    -   add some pca and UMAP with tidymodels...
+-   If you used feature engineering how and was it successful?
+    -   Discussion of distance, roll 5, season ave...
+    -   Roll5... the goal of using the last 5 games was to capture
+        team's current gameplay. This was our attempt at capturing team
+        momentum (such as win or losing streaks).
+    -   Offensive and Defensive Efficiency: We created predictors for
+        team offensive and defensive efficiency. The efficiency
+        predictors provide useful measures of a team's overall
+        performance by considering both offensive and defensive
+        statistics while not skewing the offensive and defensive metrics
+        based on a team's pace of play. Offensive efficiency is
+        calculated using offensive points per 100 possessions. Defensive
+        efficiency is calculated using defensive points allowed per 100
+        possessions. Possession data wasn't inherently available in our
+        datasets. We engineered possessions using the following formula.
+        The 0.44 factor was suggested in by kenpom. **\<need
+        reference\>**
+        -   Team Possessions = (team field goal attempts - team
+            offensive rebounds) + team total turnovers + (0.44 \* team
+            free throw attempts)
+-   Where did the dataset come from?
+    -   Complete
+-   Super quick overview of the data
+    -   Complete
+
+
 
 ### Data Preparation and Cleaning
 
@@ -376,52 +375,8 @@ other supplementary files
 
 Readme/Documentation for code
 
-## Overview of Project:
 
--   Team members names listed in heading
-    -   Complete
--   Necessary background information/framing of the problem
-    -   Complete
--   Include an overview of the problem in general as well as your
-    general approach
-    -   Could edit to only reflect predicting outcomes of games
--   State initial hypotheses
-    -   Could edit to only reflect predicting outcomes of games
 
-## Overview of Data:
-
--   How involved was the cleaning process?
-    -   Could expand more on this, but have a good start.
--   What were your key variables?
-    -   If this is asking for stuff from results, then we would still be
-        wanting to include this
-    -   If this is about our initial hypothesis, then this is complete
--   Any interesting insights from EDA?
-    -   add some pca and UMAP with tidymodels...
--   If you used feature engineering how and was it successful?
-    -   Discussion of distance, roll 5, season ave...
-    -   Roll5... the goal of using the last 5 games was to capture
-        team's current gameplay. This was our attempt at capturing team
-        momentum (such as win or losing streaks).
-    -   Offensive and Defensive Efficiency: We created predictors for
-        team offensive and defensive efficiency. The efficiency
-        predictors provide useful measures of a team's overall
-        performance by considering both offensive and defensive
-        statistics while not skewing the offensive and defensive metrics
-        based on a team's pace of play. Offensive efficiency is
-        calculated using offensive points per 100 possessions. Defensive
-        efficiency is calculated using defensive points allowed per 100
-        possessions. Possession data wasn't inherently available in our
-        datasets. We engineered possessions using the following formula.
-        The 0.44 factor was suggested in by kenpom. **\<need
-        reference\>**
-        -   Team Possessions = (team field goal attempts - team
-            offensive rebounds) + team total turnovers + (0.44 \* team
-            free throw attempts)
--   Where did the dataset come from?
-    -   Complete
--   Super quick overview of the data
-    -   Complete
 
 ## Overview of Modeling
 
