@@ -13,7 +13,8 @@ always_allow_html: yes
 
 ## MGT Madness - Team 15 Progress Report
 
-Group Members: Michael Munson, Matthew Rosenthal, Matthew Royalty, Jeffrey Sumner
+Group Members: Michael Munson, Matthew Rosenthal, Matthew Royalty,
+Jeffrey Sumner
 
 ### Project Background:
 
@@ -354,113 +355,281 @@ to prepare our final presentation and summary of results.
 
 #### What is it?
 
-It will be a detailed description of what you did, what results you obtained, clear interpretations of the results and what you have learned and/or can conclude from your work. 
+It will be a detailed description of what you did, what results you
+obtained, clear interpretations of the results and what you have learned
+and/or can conclude from your work.
 
-All deliverables and work created throughout your project including code, notebooks, reports, etc.
+All deliverables and work created throughout your project including
+code, notebooks, reports, etc.
 
-Imagine this deliverable as the official and final project in its entirety. This would be what you deliver to your client/manager on the completion of a project.
+Imagine this deliverable as the official and final project in its
+entirety. This would be what you deliver to your client/manager on the
+completion of a project.
 
-#### What to Include & What is Required? 
-“Academic-like” paper with dense text inline figures, no direct code within the paper. Code files related to the project are included in the repository files but are self-contained. Detailed instructions are provided accordingly. 
-Any relevant code files
-Key visualizations or other supplementary files
+#### What to Include & What is Required?
+
+"Academic-like" paper with dense text inline figures, no direct code
+within the paper. Code files related to the project are included in the
+repository files but are self-contained. Detailed instructions are
+provided accordingly. Any relevant code files Key visualizations or
+other supplementary files
+
 Readme/Documentation for code
 
 ## Overview of Project:
-- Team members names listed in heading
-  - Complete
-- Necessary background information/framing of the problem
-  - Complete
-- Include an overview of the problem in general as well as your general approach
-  - Could edit to only reflect predicting outcomes of games
-- State initial hypotheses
-  - Could edit to only reflect predicting outcomes of games
+
+-   Team members names listed in heading
+    -   Complete
+-   Necessary background information/framing of the problem
+    -   Complete
+-   Include an overview of the problem in general as well as your
+    general approach
+    -   Could edit to only reflect predicting outcomes of games
+-   State initial hypotheses
+    -   Could edit to only reflect predicting outcomes of games
 
 ## Overview of Data:
-- How involved was the cleaning process?
-  - Could expand more on this, but have a good start.
-- What were your key variables?
-  - If this is asking for stuff from results, then we would still be wanting to include this
-  - If this is about our initial hypothesis, then this is complete
-- Any interesting insights from EDA?
-  - add some pca and UMAP with tidymodels...
-- If you used feature engineering how and was it successful?
-  - Discussion of distance, roll 5, season ave...
-  - Roll5... the goal of using the last 5 games was to capture team's current gameplay. This was our attempt at capturing team momentum (such as win or losing streaks).
-- Where did the dataset come from?
-  - Complete
-- Super quick overview of the data
-  - Complete
+
+-   How involved was the cleaning process?
+    -   Could expand more on this, but have a good start.
+-   What were your key variables?
+    -   If this is asking for stuff from results, then we would still be
+        wanting to include this
+    -   If this is about our initial hypothesis, then this is complete
+-   Any interesting insights from EDA?
+    -   add some pca and UMAP with tidymodels...
+-   If you used feature engineering how and was it successful?
+    -   Discussion of distance, roll 5, season ave...
+    -   Roll5... the goal of using the last 5 games was to capture
+        team's current gameplay. This was our attempt at capturing team
+        momentum (such as win or losing streaks).
+    -   Offensive and Defensive Efficiency: We created predictors for
+        team offensive and defensive efficiency. The efficiency
+        predictors provide useful measures of a team's overall
+        performance by considering both offensive and defensive
+        statistics while not skewing the offensive and defensive metrics
+        based on a team's pace of play. Offensive efficiency is
+        calculated using offensive points per 100 possessions. Defensive
+        efficiency is calculated using defensive points allowed per 100
+        possessions. Possession data wasn't inherently available in our
+        datasets. We engineered possessions using the following formula.
+        The 0.44 factor was suggested in by kenpom. **\<need
+        reference\>**
+        -   Team Possessions = (team field goal attempts - team
+            offensive rebounds) + team total turnovers + (0.44 \* team
+            free throw attempts)
+-   Where did the dataset come from?
+    -   Complete
+-   Super quick overview of the data
+    -   Complete
 
 ## Overview of Modeling
-- What type of models did you use and how do they compare?
 
-  - For our simple exploratory model, we used a logit model with only a few of our features (turnovers, possessions, points, rebounds, offensive rating and defensive rating). Logit model's accuracy = 65.35%,
-precision = 65.78%, specificity = 63.59% This model (included in the progress report) helped us get our bearings and set a baseline for our own improvements.
+-   What type of models did you use and how do they compare?
 
-  - Possibly mention how we created the train / validation / test splits... and used them for the rest of the modeling.
-  
-  - We also created a simple probit model. Like the previous logit model, our goal was to create a baseline in performance. Unlike the previous logit model, we used a large amount of features (99 features). Two of these models were created; one where the game statistics were from the season average, the other with game statistics from only the last 5 games. For these probit models, the season averages provided a slightly better prediction of game outcomes than the last 5 games averages. [could be a table... Roll5: acc = 0.704, prec = 0.628, spec = 0.832, auc = 0.658, AIC = 30616... Season Average: acc = 0.717, prec = 0.644, spec = 0.832 (same), auc = 0.676, AIC = 29824]. Although the probit model trained on the season averages data was better, it didn't outperform the last 5 games averages by enough for us to abandon the last 5 games averages as a separate data set.
-  
-  - In order to explore feature selection, we used stepwise regression through the `MASS` package. The steps were bidirectional elimination with AIC as the model improvement criterion.<awk wording> This method resulted in 23 features (from 49) being selected. The logit model trained on these features had a performance that includes: accuracy = 0.7000, precision = 0.7238, specification = 0.6326, and AUC = 0.7457. <potentially add how this compares / contrasts to the previous probit or logit models above>
-  
-  - [show fip of stepwise]
-    - According to stepwise method... were the most important features
-    
-  - To find the best lambda value for LASSO, we used `cv.glmnet(family = "binomial", alpha = 1, nfolds = 10)`. We then used the coefficients using the lambda value that minimized the cross-validation error to select our significant predictors from an original list of 49 potential predictors. These significant predictors were then used to create logit models. Altering the syntax for the coefficient cutoff changed the selected predictors. For instance, using the input `coefficient!=0` resulted in 38 predictors (accuracy = 0.6751, precision = 0.7010, specification = 0.5941, auc = 0.7104). Using `coefficient>0` surprisingly resulted in 17 predictors and had the same performance as the previous syntax. Ultimately, we could set `coefficient>10^-3` before seeing a drop in performance (resulted in 15 predictors, accuracy = 0.6750, precision = 0.7005, specification = 0.5944, auc = 0.7098). 
-  
-  - [show vip of logit model]
-    - According to the LASSO method, ... were the most important features
-    
-  - Compare / contrast the stepwise and LASSO results.
-    
-  - The features from LASSO were then fed into the probit model.
-  
-  - Besides logit and probit models, decision tree classifiers and support vector machine classifiers were developed. Both of these models had hyperparameters to consider... The decision tree parameters were mostly automatically tuned through <...>, except the number of trees was set to 10 due to runtime. With the support vector machine classifier, <...> was used to determine the best <...>
-  
-  - (optional) Finally, we created an aggregated model which combined all of our models
-  
-- How did you perform model selection and hyperparameter optimization?
-  - In the "conclusions" for model selection
-  - In the tree and svm for hyperparameters
-- How did the models perform generally speaking?
-  - reflected in the accuracy, precision, ...
-- Are they useful and in what ways?
-  - We might have to revisit the sections to include this!
+#### Baseline Modeling
+
+-   For our simple exploratory model, we used a logit model with only a
+    few of our features (turnovers, possessions, points, rebounds,
+    offensive rating and defensive rating). Logit model's accuracy =
+    65.35%, precision = 65.78%, specificity = 63.59% This model
+    (included in the progress report) helped us get our bearings and set
+    a baseline for our own improvements.
+
+-   [Michael]
+
+#### Splitting Data
+
+-   We randomly split our data into train, test, and validation sets
+    with 60% going into the training set, 20% into the test set and 20%
+    into the validation set.
+
+    The training set was used to fit our lasso model which was created
+    to select our optimal set of predictors. Using the `cv.glmnet`
+    function, we performed 10-fold cross-validation on our lasso model.
+    Cross-validation is a technique used to evaluate the performance of
+    a model by splitting the dataset into multiple parts, training the
+    model on one part, and testing it on another. This process is
+    repeated multiple times, with different parts of the dataset used
+    for training and testing each time.\
+    \
+    After predictors were selected with the lasso model model, we then
+    trained each of our models with the training dataset. The
+    performance was then evaluated with the validation set to insure it
+    did not overfit the training data. Finally, performance of the model
+    was evaluated using the test set. The test set was held out during
+    the modeling process to ensure an unbiased representation of each
+    model's perforance.
+
+-   We also created a simple probit model. Like the previous logit
+    model, our goal was to create a baseline in performance. Unlike the
+    previous logit model, we used a large amount of features (99
+    features). Two of these models were created; one where the game
+    statistics were from the season average, the other with game
+    statistics from only the last 5 games. For these probit models, the
+    season averages provided a slightly better prediction of game
+    outcomes than the last 5 games averages. [could be a table... Roll5:
+    acc = 0.704, prec = 0.628, spec = 0.832, auc = 0.658, AIC = 30616...
+    Season Average: acc = 0.717, prec = 0.644, spec = 0.832 (same), auc
+    = 0.676, AIC = 29824]. Although the probit model trained on the
+    season averages data was better, it didn't outperform the last 5
+    games averages by enough for us to abandon the last 5 games averages
+    as a separate data set. [Michael]
+
+-   ESPN metrics
+
+    -   In the Progress Report section
+
+#### Feature Selection Exploration
+
+-   In order to explore feature selection, we used stepwise regression
+    through the `MASS` package. The steps were bidirectional elimination
+    with AIC as the model improvement criterion.<awk wording> This
+    method resulted in 23 features (from 49) being selected. The logit
+    model trained on these features had a performance that includes:
+    accuracy = 0.7000, precision = 0.7238, specification = 0.6326, and
+    AUC = 0.7457. According to stepwise method... were the most
+    important features.
+    <potentially add how this compares / contrasts to the previous probit or logit models above>
+    [Matthew Rosenthal, Michael]
+
+-   [show vip of stepwise] [Jeffrey]
+
+-   To find the best lambda value for LASSO, we used
+    `cv.glmnet(family = "binomial", alpha = 1, nfolds = 10)`. We then
+    used the coefficients using the lambda value that minimized the
+    cross-validation error to select our significant predictors from an
+    original list of 49 potential predictors. These significant
+    predictors were then used to create logit models. Altering the
+    syntax for the coefficient cutoff changed the selected predictors.
+    For instance, using the input `coefficient!=0` resulted in 38
+    predictors (accuracy = 0.6751, precision = 0.7010, specification =
+    0.5941, auc = 0.7104). Using `coefficient>0` surprisingly resulted
+    in 17 predictors and had the same performance as the previous
+    syntax. Ultimately, we could set `coefficient>10^-3` before seeing a
+    drop in performance (resulted in 15 predictors, accuracy = 0.6750,
+    precision = 0.7005, specification = 0.5944, auc = 0.7098).According
+    to the LASSO method, ... were the most important features [Matthew
+    Royalty]
+
+-   [show vip of logit model] [Jeffrey]
+
+-   Compare / contrast the stepwise and LASSO results.
+
+    -   Include run times for deciding which set of features used for
+        the rest of the report.
+    -   Then we pca with the selected features [see on Wednesday]
+
+#### Modeling
+
+-   The features from LASSO were then fed into the probit model.
+    [Michael]
+
+-   Besides logit and probit models, decision tree classifiers and
+    support vector machine classifiers were developed. Both of these
+    models had hyperparameters to consider... The decision tree
+    parameters were mostly automatically tuned through \<...\>, except
+    the number of trees was set to 10 due to runtime. With the support
+    vector machine classifier, \<...\> was used to determine the best
+    \<...\> [see on Wednesday to check]
+
+-   Finally, we created an aggregated model which combined all of our
+    models [see on Wednesday to check]
+
+-   How did you perform model selection and hyperparameter optimization?
+
+    -   In the "conclusions" for model selection
+    -   In the tree and svm for hyperparameters
+
+-   How did the models perform generally speaking?
+
+    -   reflected in the accuracy, precision, ...
+
+-   Are they useful and in what ways?
+
+    -   We might have to revisit the sections to include this! [Goes
+        into a conclusion section]
 
 ## Overall Considerations:
-- Include a couple of key visualizations inline and be sure to include captions, labels, legends, and most importantly context where needed!
-- If you encounter any unexpected problems, challenges, or interesting findings please mention these.
-  - Possibly mention problems with the data with "_" at the end.
-  - Possibly mention runtime problems for `MASS` stepwise
-- Discussion of things that didn’t work is also encouraged.
-- Is there any unfinished business or areas which if given more time or resources you would deem promising or interesting to further pursue?
-  - Attendance predictions!
-- Detailed discussion of methodology.
-  - Possibly add coding description for data cleaning
-  - Should have methodology of modeling
-- Detailed discussion and evaluation of results.
-  - Most likely will be found in the conclusions section
-  - Also included with the model results.
-- Overall conclusion and key takeaways from your project as a closing message.
-  - needed in the conclusion
-- Describe in depth the novelties of your approach and your discoveries/insights/experiments.
-  - Better callouts could be added for feature engineering
-- Works cited section.
-  - Completed
+
+-   Include a couple of key visualizations inline and be sure to include
+    captions, labels, legends, and most importantly context where
+    needed!
+
+    -   Planned
+
+-   If you encounter any unexpected problems, challenges, or interesting
+    findings please mention these.
+
+    -   Possibly mention problems with the data with "\_" at the end.
+    -   Possibly mention runtime problems for `MASS` stepwise
+
+-   Discussion of things that didn't work is also encouraged.
+
+-   Is there any unfinished business or areas which if given more time
+    or resources you would deem promising or interesting to further
+    pursue?
+
+    -   Attendance predictions!
+    -   Time between games
+    -   Direction of Travel
+    -   Geographical Bias of Ratings
+    -   Individual Player Stats (star player effect)
+    -   Injuries Data
+
+-   Detailed discussion of methodology.
+
+    -   Possibly add coding description for data cleaning
+        -   In earlier HEAD of Progress Report
+    -   Should have methodology of modeling
+
+-   Detailed discussion and evaluation of results.
+
+    -   Most likely will be found in the conclusions section
+    -   Also included with the model results.
+
+-   Overall conclusion and key takeaways from your project as a closing
+    message.
+
+    -   needed in the conclusion
+
+-   Describe in depth the novelties of your approach and your
+    discoveries/insights/experiments.
+
+    -   Better callouts could be added for feature engineering
+        -   Roll5, distance
+
+-   Works cited section.
+
+    -   Completed
 
 ## Code Files
-- Code used to generate the project and accompanying figures.
-- Include a Readme with installation and running instructions as well as an overview of your directory structure and any other important elements. 
-- Requirements.txt/.yml file if you are using libraries outside of those used in the course.
-- Any extra documentation/explanation for a user/TA to run the code to see the results or ideally a notebook that shows all the results in a logical sequence
+
+-   Code used to generate the project and accompanying figures.
+-   Include a Readme with installation and running instructions as well
+    as an overview of your directory structure and any other important
+    elements.
+-   Requirements.txt/.yml file if you are using libraries outside of
+    those used in the course.
+-   Any extra documentation/explanation for a user/TA to run the code to
+    see the results or ideally a notebook that shows all the results in
+    a logical sequence
 
 ## Data
-- See the “Submitting Data” section for details on how to submit your dataset
+
+-   See the "Submitting Data" section for details on how to submit your
+    dataset
 
 ## Submission
-- Group Primary Contact will submit your Project Final Report, Data, Slides, & Code on behalf of the group via the corresponding assignment on Canvas/Edx. The easiest way to do this is to download your entire GitHub repository and upload that resulting zip file as your submission. This cloned repository should contain all the necessary deliverables mentioned above. 
+
+-   Group Primary Contact will submit your Project Final Report, Data,
+    Slides, & Code on behalf of the group via the corresponding
+    assignment on Canvas/Edx. The easiest way to do this is to download
+    your entire GitHub repository and upload that resulting zip file as
+    your submission. This cloned repository should contain all the
+    necessary deliverables mentioned above.
 
 ## Grading
-- TA feedback/grades on Project Final Report, Data, Slides, & Code will be available prior to the conclusion of the course.
 
+-   TA feedback/grades on Project Final Report, Data, Slides, & Code
+    will be available prior to the conclusion of the course.
