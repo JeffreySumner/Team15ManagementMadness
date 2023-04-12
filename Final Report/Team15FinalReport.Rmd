@@ -16,6 +16,9 @@ always_allow_html: yes
 Group Members: Michael Munson, Matthew Rosenthal, Matthew Royalty,
 Jeffrey Sumner
 
+
+
+
 ## Overview of Project:
 
 -   Team members names listed in heading
@@ -87,6 +90,9 @@ Potential factors to investigate include:
 We anticipate that each team's ranking differential, quality wins,
 location, and efficiency will be the biggest factors determining the
 win/loss outcome of a game.
+
+
+
 
 
 ## Overview of Data:
@@ -242,7 +248,21 @@ our predictors were approximately normal.
 ![Data Exploration - Density Plot of Win Probability
 Predictors](images/Data%20Exploration%20-%20Density%20Plot%20of%20Win%20Probability%20Predictors.png)
 
-### Initial Modeling
+
+
+
+## Overview of Modeling
+
+-   What type of models did you use and how do they compare?
+- <Could add more here to give an overview... check to see if redundant with above introduction sections>
+
+#### Splitting Data
+
+-   We randomly split our data into train, test, and validation sets
+    with 60% going into the training set, 20% into the test set and 20%
+    into the validation set.
+
+### Baseline Modeling
 
 Initially, we aimed to predict game outcomes by creating models based on
 select features. We engineered new columns to transform data into a
@@ -250,6 +270,7 @@ time-series format, focusing on recent games rather than future ones.
 Our exploratory model analyzed stats like the point differential,
 offensive/defensive efficiency ratings, turnover differential, and
 home/away/neutral status of teams in the last five games.
+<can probably move this to the feature engineering section>
 
 To establish a performance baseline for our own win probability
 predictive models, we used ESPN's contingency table predictions. We
@@ -266,12 +287,12 @@ to refine our own predictions.
 : ESPN Confusion Matrix (omitting the first 5 games of each team of each
 season)
 
+For our simple exploratory model, we used a logit model with only a few of our features (turnovers, possessions, points, rebounds, offensive rating and defensive rating).
 Our initial win probability model was a logistic regression model
-through the `glm(, family='binomial')` function in R. We considered all
-factors from our correlation matrix. From this, we found that there was
-no real difference in terms of AIC between the logit and probit. The
+through the `glm(, family='binomial')` function in R. For this model, we only considered a small amount a features. The
 confusion matrix below shows that our Logit model's accuracy = 65.35%,
-precision = 65.78%, specificity = 63.59%.
+precision = 65.78%, specificity = 63.59%. This model helped us get our bearings and set
+a baseline for our own improvements.
 
 |             | Predicted Win | Predicted Loss |
 |-------------|---------------|----------------|
@@ -281,7 +302,22 @@ precision = 65.78%, specificity = 63.59%.
 : Logit Model Confusion Matrix (omitting the first 5 games of each team
 of each season)
 
-As expected, ESPN does outperform our initial logit model. This will
+We also created a simple probit model. Like the previous logit
+    model, our goal was to create a baseline in performance. Unlike the
+    previous logit model, we used a large amount of features (99
+    features). Two of these models were created; one where the game
+    statistics were from the season average, the other with game
+    statistics from only the last 5 games. For these probit models, the
+    season averages provided a slightly better prediction of game
+    outcomes than the last 5 games averages. [could be a table... Roll5:
+    acc = 0.704, prec = 0.628, spec = 0.832, auc = 0.658, AIC = 30616...
+    Season Average: acc = 0.717, prec = 0.644, spec = 0.832 (same), auc
+    = 0.676, AIC = 29824]. Although the probit model trained on the
+    season averages data was better, it didn't outperform the last 5
+    games averages by enough for us to abandon the last 5 games averages
+    as a separate data set.
+
+As expected, ESPN does outperform our initial logit and probit models. This will
 provide us with a good baseline to reference for our future modeling
 attempts.
 
@@ -290,7 +326,238 @@ model initially confirmed the common assumption that there is a home
 field advantage. These results may change as we continue to develop our
 models.
 
-### Next Steps
+
+
+
+#### Feature Selection Exploration
+
+-   In order to explore feature selection, we used stepwise regression
+    through the `MASS` package. The steps were bidirectional elimination
+    with AIC as the model improvement criterion.<awk wording> This
+    method resulted in 23 features (from 49) being selected. The logit
+    model trained on these features had a performance that includes:
+    accuracy = 0.7000, precision = 0.7238, specification = 0.6326, and
+    AUC = 0.7457. According to stepwise method... were the most
+    important features.
+    <potentially add how this compares / contrasts to the previous probit or logit models above>
+    [Matthew Rosenthal, Michael]
+
+-   [show vip of stepwise] [Jeffrey]
+
+-   To find the best lambda value for LASSO, we used
+    `cv.glmnet(family = "binomial", alpha = 1, nfolds = 10)`. We then
+    used the coefficients using the lambda value that minimized the
+    cross-validation error to select our significant predictors from an
+    original list of 49 potential predictors. These significant
+    predictors were then used to create logit models. Altering the
+    syntax for the coefficient cutoff changed the selected predictors.
+    For instance, using the input `coefficient!=0` resulted in 38
+    predictors (accuracy = 0.6751, precision = 0.7010, specification =
+    0.5941, auc = 0.7104). Using `coefficient>0` surprisingly resulted
+    in 17 predictors and had the same performance as the previous
+    syntax. Ultimately, we could set `coefficient>10^-3` before seeing a
+    drop in performance (resulted in 15 predictors, accuracy = 0.6750,
+    precision = 0.7005, specification = 0.5944, auc = 0.7098).According
+    to the LASSO method, ... were the most important features [Matthew
+    Royalty]
+    
+        The training set was used to fit our lasso model which was created
+    to select our optimal set of predictors. Using the `cv.glmnet`
+    function, we performed 10-fold cross-validation on our lasso model.
+    Cross-validation is a technique used to evaluate the performance of
+    a model by splitting the dataset into multiple parts, training the
+    model on one part, and testing it on another. This process is
+    repeated multiple times, with different parts of the dataset used
+    for training and testing each time.\
+    \
+    After predictors were selected with the lasso model model, we then
+    trained each of our models with the training dataset. The
+    performance was then evaluated with the validation set to insure it
+    did not overfit the training data. Finally, performance of the model
+    was evaluated using the test set. The test set was held out during
+    the modeling process to ensure an unbiased representation of each
+    model's perforance.
+
+-   [show vip of logit model] [Jeffrey]
+
+-   Compare / contrast the stepwise and LASSO results.
+
+    -   Include run times for deciding which set of features used for
+        the rest of the report.
+    -   Then we pca with the selected features [see on Wednesday]
+
+
+-   The features from LASSO were then fed into the probit model.
+    [Michael]
+
+-   Besides logit and probit models, decision tree classifiers and
+    support vector machine classifiers were developed. Both of these
+    models had hyperparameters to consider... The decision tree
+    parameters were mostly automatically tuned through \<...\>, except
+    the number of trees was set to 10 due to runtime. With the support
+    vector machine classifier, \<...\> was used to determine the best
+    \<...\> [see on Wednesday to check]
+
+-   Finally, we created an ensemble model which combined all of our
+    models [see on Wednesday to check]
+
+-   How did you perform model selection and hyperparameter optimization?
+
+    -   In the "conclusions" for model selection
+    -   In the tree and svm for hyperparameters
+
+-   How did the models perform generally speaking?
+
+    -   reflected in the accuracy, precision, ...
+
+-   Are they useful and in what ways?
+
+    -   We might have to revisit the sections to include this! [Goes
+        into a conclusion section]
+        
+-   Detailed discussion and evaluation of results.
+
+    -   Most likely will be found in the conclusions section
+    -   Also included with the model results.
+
+-   Overall conclusion and key takeaways from your project as a closing
+    message.
+
+    -   needed in the conclusion
+
+-   Is there any unfinished business or areas which if given more time
+    or resources you would deem promising or interesting to further
+    pursue?
+
+    -   Attendance predictions!
+    -   Time between games
+    -   Direction of Travel
+    -   Geographical Bias of Ratings
+    -   Individual Player Stats (star player effect)
+    -   Injuries Data
+    
+    
+
+### Works Cited
+
+-   [1] Bubel, Jennifer. "How Much Money Do Universities Get for Going
+    to the NCAA March Madness Tournament?" *Diario AS*, 28 Feb. 2023,
+    <https://en.as.com/ncaa/how-much-money-do-universities-get-for-going-to-the-ncaa-march-madness-tournament-n/.>
+
+-   [2] Parker, Tim. "How Much Does the NCAA Make off March Madness?"
+    Edited by Jefreda R Brown, *Investopedia*, Investopedia, 9 Mar.
+    2023,
+    <https://www.investopedia.com/articles/investing/031516/how-much-does-ncaa-make-march-madness.asp#:~:text=In%202022%2C%2045%20million%20Americans,see%20the%20heftiest%20cash%2Dout.>
+
+-   [3] Pomeroy, Ken. "The Possession", *Kenpom*, 19 Mar. 2004,
+    [https://kenpom.com/blog/the-possession/#:\\\~:text=The%20most%20common%20formula%20for,and%20FTA%20%3D%20free%20throw%20attempts](https://kenpom.com/blog/the-possession/#:~:text=The%20most%20common%20formula%20for,and%20FTA%20%3D%20free%20throw%20attempts){.uri}
+
+-   [4] Korpar, Lora. "March Madness Betting Expected to Exceed \$3
+    Billion, Set All-Time High", *Newsweek*, 14 Mar. 2022,
+    <https://www.newsweek.com/march-madness-betting-expected-exceed-3-billion-set-all-time-high-1687917>
+
+-   [5] Coleman, Madeline. "March Madness: How a fan used a machine to
+    nail his bracket", *Sports Illustrated*, 31 Mar. 2021,
+    <https://www.si.com/college/2021/03/31/march-madness-fan-trained-machine-predict-bracket-will-geoghegan>
+
+-   [6] Consoli, John. "Advertisers Go Mad For March Madness", *TV News
+    Check,* 16 Mar 2022,
+    <https://tvnewscheck.com/business/article/advertisers-go-mad-for-march-madness/>
+
+
+
+
+
+
+## Project Final Report, Data, & Code
+
+#### What is it?
+
+It will be a detailed description of what you did, what results you
+obtained, clear interpretations of the results and what you have learned
+and/or can conclude from your work.
+
+All deliverables and work created throughout your project including
+code, notebooks, reports, etc.
+
+Imagine this deliverable as the official and final project in its
+entirety. This would be what you deliver to your client/manager on the
+completion of a project.
+
+#### What to Include & What is Required?
+
+"Academic-like" paper with dense text inline figures, no direct code
+within the paper. Code files related to the project are included in the
+repository files but are self-contained. Detailed instructions are
+provided accordingly. Any relevant code files Key visualizations or
+other supplementary files
+
+Readme/Documentation for code
+
+
+
+## Overall Considerations:
+
+-   Include a couple of key visualizations inline and be sure to include
+    captions, labels, legends, and most importantly context where
+    needed!
+
+    -   Planned
+
+-   If you encounter any unexpected problems, challenges, or interesting
+    findings please mention these.
+
+    -   Possibly mention problems with the data with "\_" at the end.
+    -   Possibly mention runtime problems for `MASS` stepwise
+
+-   Discussion of things that didn't work is also encouraged.
+-   Detailed discussion of methodology.
+
+    -   Possibly add coding description for data cleaning
+        -   In earlier HEAD of Progress Report
+    -   Should have methodology of modeling
+
+
+
+-   Describe in depth the novelties of your approach and your
+    discoveries/insights/experiments.
+
+    -   Better callouts could be added for feature engineering
+        -   Roll5, distance
+
+
+## Code Files
+
+-   Code used to generate the project and accompanying figures.
+-   Include a Readme with installation and running instructions as well
+    as an overview of your directory structure and any other important
+    elements.
+-   Requirements.txt/.yml file if you are using libraries outside of
+    those used in the course.
+-   Any extra documentation/explanation for a user/TA to run the code to
+    see the results or ideally a notebook that shows all the results in
+    a logical sequence
+
+## Data
+
+-   See the "Submitting Data" section for details on how to submit your
+    dataset
+
+## Submission
+
+-   Group Primary Contact will submit your Project Final Report, Data,
+    Slides, & Code on behalf of the group via the corresponding
+    assignment on Canvas/Edx. The easiest way to do this is to download
+    your entire GitHub repository and upload that resulting zip file as
+    your submission. This cloned repository should contain all the
+    necessary deliverables mentioned above.
+
+## Grading
+
+-   TA feedback/grades on Project Final Report, Data, Slides, & Code
+    will be available prior to the conclusion of the course.
+    
+### Next Steps <From Progress Report>
 
 The next steps involve building different models and performing
 validation for a dataset. The models that will be built include
@@ -324,267 +591,3 @@ the proportion of actual outcomes that were correctly predicted.
 We expect our modeling next steps to be completed by April 8th in order
 to prepare our final presentation and summary of results.
 
-### Works Cited
-
--   [1] Bubel, Jennifer. "How Much Money Do Universities Get for Going
-    to the NCAA March Madness Tournament?" *Diario AS*, 28 Feb. 2023,
-    <https://en.as.com/ncaa/how-much-money-do-universities-get-for-going-to-the-ncaa-march-madness-tournament-n/.>
-
--   [2] Parker, Tim. "How Much Does the NCAA Make off March Madness?"
-    Edited by Jefreda R Brown, *Investopedia*, Investopedia, 9 Mar.
-    2023,
-    <https://www.investopedia.com/articles/investing/031516/how-much-does-ncaa-make-march-madness.asp#:~:text=In%202022%2C%2045%20million%20Americans,see%20the%20heftiest%20cash%2Dout.>
-
--   [3] Pomeroy, Ken. "The Possession", *Kenpom*, 19 Mar. 2004,
-    [https://kenpom.com/blog/the-possession/#:\\\~:text=The%20most%20common%20formula%20for,and%20FTA%20%3D%20free%20throw%20attempts](https://kenpom.com/blog/the-possession/#:~:text=The%20most%20common%20formula%20for,and%20FTA%20%3D%20free%20throw%20attempts){.uri}
-
--   [4] Korpar, Lora. "March Madness Betting Expected to Exceed \$3
-    Billion, Set All-Time High", *Newsweek*, 14 Mar. 2022,
-    <https://www.newsweek.com/march-madness-betting-expected-exceed-3-billion-set-all-time-high-1687917>
-
--   [5] Coleman, Madeline. "March Madness: How a fan used a machine to
-    nail his bracket", *Sports Illustrated*, 31 Mar. 2021,
-    <https://www.si.com/college/2021/03/31/march-madness-fan-trained-machine-predict-bracket-will-geoghegan>
-
--   [6] Consoli, John. "Advertisers Go Mad For March Madness", *TV News
-    Check,* 16 Mar 2022,
-    <https://tvnewscheck.com/business/article/advertisers-go-mad-for-march-madness/>
-
-## Project Final Report, Data, & Code
-
-#### What is it?
-
-It will be a detailed description of what you did, what results you
-obtained, clear interpretations of the results and what you have learned
-and/or can conclude from your work.
-
-All deliverables and work created throughout your project including
-code, notebooks, reports, etc.
-
-Imagine this deliverable as the official and final project in its
-entirety. This would be what you deliver to your client/manager on the
-completion of a project.
-
-#### What to Include & What is Required?
-
-"Academic-like" paper with dense text inline figures, no direct code
-within the paper. Code files related to the project are included in the
-repository files but are self-contained. Detailed instructions are
-provided accordingly. Any relevant code files Key visualizations or
-other supplementary files
-
-Readme/Documentation for code
-
-
-
-
-## Overview of Modeling
-
--   What type of models did you use and how do they compare?
-
-#### Baseline Modeling
-
--   For our simple exploratory model, we used a logit model with only a
-    few of our features (turnovers, possessions, points, rebounds,
-    offensive rating and defensive rating). Logit model's accuracy =
-    65.35%, precision = 65.78%, specificity = 63.59% This model
-    (included in the progress report) helped us get our bearings and set
-    a baseline for our own improvements.
-
--   [Michael]
-
-#### Splitting Data
-
--   We randomly split our data into train, test, and validation sets
-    with 60% going into the training set, 20% into the test set and 20%
-    into the validation set.
-
-    The training set was used to fit our lasso model which was created
-    to select our optimal set of predictors. Using the `cv.glmnet`
-    function, we performed 10-fold cross-validation on our lasso model.
-    Cross-validation is a technique used to evaluate the performance of
-    a model by splitting the dataset into multiple parts, training the
-    model on one part, and testing it on another. This process is
-    repeated multiple times, with different parts of the dataset used
-    for training and testing each time.\
-    \
-    After predictors were selected with the lasso model model, we then
-    trained each of our models with the training dataset. The
-    performance was then evaluated with the validation set to insure it
-    did not overfit the training data. Finally, performance of the model
-    was evaluated using the test set. The test set was held out during
-    the modeling process to ensure an unbiased representation of each
-    model's perforance.
-
--   We also created a simple probit model. Like the previous logit
-    model, our goal was to create a baseline in performance. Unlike the
-    previous logit model, we used a large amount of features (99
-    features). Two of these models were created; one where the game
-    statistics were from the season average, the other with game
-    statistics from only the last 5 games. For these probit models, the
-    season averages provided a slightly better prediction of game
-    outcomes than the last 5 games averages. [could be a table... Roll5:
-    acc = 0.704, prec = 0.628, spec = 0.832, auc = 0.658, AIC = 30616...
-    Season Average: acc = 0.717, prec = 0.644, spec = 0.832 (same), auc
-    = 0.676, AIC = 29824]. Although the probit model trained on the
-    season averages data was better, it didn't outperform the last 5
-    games averages by enough for us to abandon the last 5 games averages
-    as a separate data set. [Michael]
-
--   ESPN metrics
-
-    -   In the Progress Report section
-
-#### Feature Selection Exploration
-
--   In order to explore feature selection, we used stepwise regression
-    through the `MASS` package. The steps were bidirectional elimination
-    with AIC as the model improvement criterion.<awk wording> This
-    method resulted in 23 features (from 49) being selected. The logit
-    model trained on these features had a performance that includes:
-    accuracy = 0.7000, precision = 0.7238, specification = 0.6326, and
-    AUC = 0.7457. According to stepwise method... were the most
-    important features.
-    <potentially add how this compares / contrasts to the previous probit or logit models above>
-    [Matthew Rosenthal, Michael]
-
--   [show vip of stepwise] [Jeffrey]
-
--   To find the best lambda value for LASSO, we used
-    `cv.glmnet(family = "binomial", alpha = 1, nfolds = 10)`. We then
-    used the coefficients using the lambda value that minimized the
-    cross-validation error to select our significant predictors from an
-    original list of 49 potential predictors. These significant
-    predictors were then used to create logit models. Altering the
-    syntax for the coefficient cutoff changed the selected predictors.
-    For instance, using the input `coefficient!=0` resulted in 38
-    predictors (accuracy = 0.6751, precision = 0.7010, specification =
-    0.5941, auc = 0.7104). Using `coefficient>0` surprisingly resulted
-    in 17 predictors and had the same performance as the previous
-    syntax. Ultimately, we could set `coefficient>10^-3` before seeing a
-    drop in performance (resulted in 15 predictors, accuracy = 0.6750,
-    precision = 0.7005, specification = 0.5944, auc = 0.7098).According
-    to the LASSO method, ... were the most important features [Matthew
-    Royalty]
-
--   [show vip of logit model] [Jeffrey]
-
--   Compare / contrast the stepwise and LASSO results.
-
-    -   Include run times for deciding which set of features used for
-        the rest of the report.
-    -   Then we pca with the selected features [see on Wednesday]
-
-#### Modeling
-
--   The features from LASSO were then fed into the probit model.
-    [Michael]
-
--   Besides logit and probit models, decision tree classifiers and
-    support vector machine classifiers were developed. Both of these
-    models had hyperparameters to consider... The decision tree
-    parameters were mostly automatically tuned through \<...\>, except
-    the number of trees was set to 10 due to runtime. With the support
-    vector machine classifier, \<...\> was used to determine the best
-    \<...\> [see on Wednesday to check]
-
--   Finally, we created an aggregated model which combined all of our
-    models [see on Wednesday to check]
-
--   How did you perform model selection and hyperparameter optimization?
-
-    -   In the "conclusions" for model selection
-    -   In the tree and svm for hyperparameters
-
--   How did the models perform generally speaking?
-
-    -   reflected in the accuracy, precision, ...
-
--   Are they useful and in what ways?
-
-    -   We might have to revisit the sections to include this! [Goes
-        into a conclusion section]
-
-## Overall Considerations:
-
--   Include a couple of key visualizations inline and be sure to include
-    captions, labels, legends, and most importantly context where
-    needed!
-
-    -   Planned
-
--   If you encounter any unexpected problems, challenges, or interesting
-    findings please mention these.
-
-    -   Possibly mention problems with the data with "\_" at the end.
-    -   Possibly mention runtime problems for `MASS` stepwise
-
--   Discussion of things that didn't work is also encouraged.
-
--   Is there any unfinished business or areas which if given more time
-    or resources you would deem promising or interesting to further
-    pursue?
-
-    -   Attendance predictions!
-    -   Time between games
-    -   Direction of Travel
-    -   Geographical Bias of Ratings
-    -   Individual Player Stats (star player effect)
-    -   Injuries Data
-
--   Detailed discussion of methodology.
-
-    -   Possibly add coding description for data cleaning
-        -   In earlier HEAD of Progress Report
-    -   Should have methodology of modeling
-
--   Detailed discussion and evaluation of results.
-
-    -   Most likely will be found in the conclusions section
-    -   Also included with the model results.
-
--   Overall conclusion and key takeaways from your project as a closing
-    message.
-
-    -   needed in the conclusion
-
--   Describe in depth the novelties of your approach and your
-    discoveries/insights/experiments.
-
-    -   Better callouts could be added for feature engineering
-        -   Roll5, distance
-
--   Works cited section.
-
-    -   Completed
-
-## Code Files
-
--   Code used to generate the project and accompanying figures.
--   Include a Readme with installation and running instructions as well
-    as an overview of your directory structure and any other important
-    elements.
--   Requirements.txt/.yml file if you are using libraries outside of
-    those used in the course.
--   Any extra documentation/explanation for a user/TA to run the code to
-    see the results or ideally a notebook that shows all the results in
-    a logical sequence
-
-## Data
-
--   See the "Submitting Data" section for details on how to submit your
-    dataset
-
-## Submission
-
--   Group Primary Contact will submit your Project Final Report, Data,
-    Slides, & Code on behalf of the group via the corresponding
-    assignment on Canvas/Edx. The easiest way to do this is to download
-    your entire GitHub repository and upload that resulting zip file as
-    your submission. This cloned repository should contain all the
-    necessary deliverables mentioned above.
-
-## Grading
-
--   TA feedback/grades on Project Final Report, Data, Slides, & Code
-    will be available prior to the conclusion of the course.
