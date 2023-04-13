@@ -344,7 +344,7 @@ models.
 
 -   [show vip of stepwise] [Jeffrey]
 
--   To find the best lambda value for LASSO, we used
+-   <To be updated> To find the best lambda value for LASSO, we used
     `cv.glmnet(family = "binomial", alpha = 1, nfolds = 10)`. We then
     used the coefficients using the lambda value that minimized the
     cross-validation error to select our significant predictors from an
@@ -360,6 +360,10 @@ models.
     precision = 0.7005, specification = 0.5944, auc = 0.7098).According
     to the LASSO method, ... were the most important features [Matthew
     Royalty]
+    - season new results: 93 to 47 features...
+      - ratings made the cut, but home-distance traveled is not
+      
+    - roll5: 93 to 18 features...
     
         The training set was used to fit our lasso model which was created
     to select our optimal set of predictors. Using the `cv.glmnet`
