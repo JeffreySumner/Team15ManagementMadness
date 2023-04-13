@@ -408,7 +408,7 @@ models.
     [Matthew Rosenthal, Michael]
     <if you are interested in seeing the stepwise... go to ... file>
 
--   As we were exploring methods for predictor regularization, we looked at
+-   As we were exploring methods for predictor selection, we looked at
     stepwise regression as well as LASSO regression.  We eventually settled on
     LASSO regression due to overall performance of stepwise regression.  Running
     stepwise regression using large number of predictors was not as efficient 
