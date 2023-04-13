@@ -34,6 +34,7 @@ Jeffrey Sumner
 ### Project Background:
 
 <Possibly reword to include all season!! Inspired by March Madness>
+[Royalty-added some comments about including regular season as well.]
 
 Sports, especially the NCAA March Madness tournament, are popular for
 entertainment and analysis. The tournament attracts millions of viewers
@@ -41,7 +42,7 @@ and spectators, generating significant revenue for the NCAA. In 2022,
 the tournament had 10.7 million TV viewers, 685,000 attendees, and
 generated an estimated \$1.15 billion in revenue [1].
 
-March Madness is a gold mine for sports betting. Firms such
+March Madness and college basketball in general is a gold mine for sports betting. Firms such
 as DraftKings and FanDuel earn a commission with each bet made, in
 addition to revenue from their websites and app ads. Reliable game
 prediction models are essential to maximizing this revenue through
@@ -52,7 +53,9 @@ Predicting the Men's Division I March Madness Tournament outcome is a
 challenging task for analytics enthusiasts. It involves forecasting 67
 games played over three weeks, including possible upsets, player
 injuries, and changing data. Achieving certainty in this prediction
-process is difficult.
+process is difficult.  Given the interest in college basketball throughout 
+the season, our team decided to expand our project to include regular season 
+NCAA games as well.
 
 To predict the outcomes of matchups in March Madness, various analyses
 are conducted. Live win probabilities, calculated on a play-by-play
@@ -64,7 +67,7 @@ winning based on factors like location, conference, and game type, are
 also used.
 
 The goal of MGT Madness is to create machine learning models that
-reliably predict the outcome of NCAA games given different match ups between 
+reliably predict the outcome of NCAA games for both March Madness and regular season given different match ups between 
 teams, other pre-game characteristics and team statistics. The main driving
 question was: What predictors can be used to accurately predict the outcome of 
 NCAA tournament games?
@@ -267,9 +270,11 @@ Predictors](../Progress Report/images/Data%20Exploration%20-%20Density%20Plot%20
 
 #### Splitting Data
 
--   We randomly split our data into train, test, and validation sets
-    with 60% going into the training set, 20% into the test set and 20%
-    into the validation set.
+-   To help avoid the risk of overfitting, We randomly split our data into 
+    train, test, and validation sets with 60% going into the training set, 20% 
+    into the test set and 20% into the validation set.  The test set provides us
+    a way to rank our model's accuracy and aid in model selection.  The validation
+    set provides an evaluation of our final model.
 
 ### Baseline Modeling
 
@@ -361,8 +366,7 @@ models.
     syntax. Ultimately, we could set `coefficient>10^-3` before seeing a
     drop in performance (resulted in 15 predictors, accuracy = 0.6750,
     precision = 0.7005, specification = 0.5944, auc = 0.7098).According
-    to the LASSO method, ... were the most important features [Matthew
-    Royalty]
+    to the LASSO method, ... were the most important features 
     
     - Also, coefficient cutoffs were limited to coefficients with magnitudes larger than 0.05
     - season  results: 95 to 46 features...
@@ -404,7 +408,14 @@ models.
     [Matthew Rosenthal, Michael]
     <if you are interested in seeing the stepwise... go to ... file>
 
-- <We tested stepwise in addition to LASSO... Ultimately stayed with LASSO because...>
+-   As we were exploring methods for predictor regularization, we looked at
+    stepwise regression as well as LASSO regression.  We eventually settled on
+    LASSO regression due to overall performance of stepwise regression.  Running
+    stepwise regression using large number of predictors was not as efficient 
+    as LASSO regression due to how stepwise regression interactively adds and 
+    removes predictors based on metrics until a subset of predictors is found.
+    LASSO regression provided us with a subset of predictors without sacrificing
+    performance training our models.
 
 
 
