@@ -46,6 +46,9 @@ validation_tbl <- testing(validation_split)
 
 # Read in Model Data ----
 ## Create Season, Rolling and Standard Training
+baseline_rolling_logit_model <- readr::read_rds("Data/models/baseline_rolling_logit_model.rds")
+baseline_season_logit_model <- readr::read_rds("Data/models/baseline_season_logit_model.rds")
+baseline_standard_logit_model <- readr::read_rds("Data/models/baseline_standard_logit_model.rds")
 enhanced_rolling_logit_model <- readr::read_rds("Data/models/enhanced_rolling_logit_model.rds")
 enhanced_season_logit_model <- readr::read_rds("Data/models/enhanced_season_logit_model.rds")
 enhanced_standard_logit_model <- readr::read_rds("Data/models/enhanced_standard_logit_model.rds")
@@ -74,12 +77,12 @@ model_tbl <- lapply(ls(), create_tibble) %>%
   mutate(
     pred_test = ifelse(stringr::str_detect(name,"enhanced"), list(predict(model, test_tbl, type = 'prob') %>% pull(2) %>% round()), list(predict(model, test_tbl, type = 'response') %>% as.vector() %>% round() ))
     , pred_validation = ifelse(stringr::str_detect(name,"enhanced"), list(predict(model, validation_tbl, type = 'prob') %>% pull(2) %>% round() ), list(predict(model, validation_tbl, type = 'response') %>% as.vector() %>% round() ))
-    , test_response = list(test_tbl %>% pull(home_winner_response) %>% as.numeric() %>% -1)
-    , validation_response = list(validation_tbl %>% pull(home_winner_response) %>% as.numeric() %>% -1)
-    , test_confusion_matrix = list(caret::confusionMatrix(reference = test_response %>% factor(), data=pred_test %>% factor()))
-    , test_confusion_matrix2 = list(table(test_response,pred_test))
-    , validation_confusion_matrix = list(caret::confusionMatrix(reference = validation_response %>% factor(), data=pred_validation %>% factor()))
+    , response_test = list(test_tbl %>% pull(home_winner_response) %>% as.numeric() %>% -1)
+    , response_validation = list(validation_tbl %>% pull(home_winner_response) %>% as.numeric() %>% -1)
+    , test_confusion_matrix = list(caret::confusionMatrix(reference = response_test %>% factor(), data=pred_test %>% factor()))
+    , validation_confusion_matrix = list(caret::confusionMatrix(reference = response_validation %>% factor(), data=pred_validation %>% factor()))
   )  %>%
+  ungroup() %>%
   select(-model)  %>%
   separate(name, into = c("Simplicity","Metric","Model Type","Temp"), remove = FALSE)
 
@@ -91,22 +94,32 @@ create_tibble <- function(x){
   return(tibble(name = x))
   
 }
+element_wise_add <- function(vec1, vec2) {
+  map2_dbl(vec1, vec2, `+`)
+}
 
-model_tbl <- lapply(ls(), create_tibble) %>% 
+element_wise_sum <- reduce(pred_test, element_wise_add)
+
+model_ensemble_tbl <- lapply(ls(), create_tibble) %>% 
   bind_rows() %>% 
   rowwise() %>% 
   mutate(model = list(get(name))) %>%
   filter(stringr::str_detect(name,"_model")) %>%
   mutate(
-    pred_test = ifelse(stringr::str_detect(name,"enhanced"), list(predict(model, test_tbl, type = 'prob') %>% pull(2) %>% round()), list(predict(model, test_tbl, type = 'response') %>% as.vector() %>% round() ))
-    , pred_validation = ifelse(stringr::str_detect(name,"enhanced"), list(predict(model, validation_tbl, type = 'prob') %>% pull(2) %>% round() ), list(predict(model, validation_tbl, type = 'response') %>% as.vector() %>% round() ))
-    , test_response = list(test_tbl %>% pull(home_winner_response) %>% as.numeric() %>% -1)
-    , validation_response = list(validation_tbl %>% pull(home_winner_response) %>% as.numeric() %>% -1)
-    , test_confusion_matrix = list(caret::confusionMatrix(reference = test_response %>% factor(), data=pred_test %>% factor()))
-    , test_confusion_matrix2 = list(table(test_response,pred_test))
-    , validation_confusion_matrix = list(caret::confusionMatrix(reference = validation_response %>% factor(), data=pred_validation %>% factor()))
-  )  %>%
+    pred_test = ifelse(stringr::str_detect(name,"enhanced"), list(predict(model, test_tbl, type = 'prob') %>% pull(2)), list(predict(model, test_tbl, type = 'response') %>% as.vector() ))
+    , pred_validation = ifelse(stringr::str_detect(name,"enhanced"), list(predict(model, validation_tbl, type = 'prob') %>% pull(2) ), list(predict(model, validation_tbl, type = 'response') %>% as.vector() ))
+    , response_test = list(test_tbl %>% pull(home_winner_response) %>% as.numeric() %>% -1)
+    , response_validation = list(validation_tbl %>% pull(home_winner_response) %>% as.numeric() %>% -1)
+  ) %>%
   select(-model)  %>%
-  separate(name, into = c("Simplicity","Metric","Model Type","Temp"), remove = FALSE)
+  separate(name, into = c("Simplicity","Metric","Model Type","Temp"), remove = FALSE) %>%
+  filter(!Metric %in% "standard") %>%
+  summarize(pred_test = list(reduce(pred_test, element_wise_add)) %>% lapply(function(x) round(x/10))
+            , pred_validation = list(reduce(pred_validation, element_wise_add)) %>% lapply(function(x) round(x/10))
+            , response_test = list(reduce(response_test, element_wise_add)) %>% lapply(function(x) round(x/10))
+            , response_validation = list(reduce(response_validation, element_wise_add)) %>% lapply(function(x) round(x/10))
 
-readr::write_rds(model_tbl, "Data/clean/model_prediction_tbl.rds")
+  ) %>%
+  mutate(test_confusion_matrix = list(caret::confusionMatrix(reference = response_test  %>% unlist() %>% factor(), data=pred_test  %>% unlist() %>% factor()))
+         , validation_confusion_matrix = list(caret::confusionMatrix(reference = response_validation  %>% unlist() %>% factor(), data=pred_validation  %>% unlist() %>% factor())))
+# readr::write_rds(model_tbl, "Data/clean/model_prediction_tbl.rds")

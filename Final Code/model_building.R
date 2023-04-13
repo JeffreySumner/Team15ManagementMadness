@@ -51,12 +51,20 @@ train_season_tbl <- train_tbl %>%
   select(home_winner_response
          , contains("season")
          , -id
+         , home_distance
+         , away_distance
+         # , home_ap_rank_fct
+         # , away_ap_rank_fct
   )
 
 train_rolling_tbl <- train_tbl %>%
   select(home_winner_response
          , contains("roll")
          , -id
+         , home_distance
+         , away_distance
+         # , home_ap_rank_fct
+         # , away_ap_rank_fct
   )
 
 train_standard_tbl <- train_tbl %>%
@@ -67,6 +75,10 @@ train_standard_tbl <- train_tbl %>%
          , -away_points_opp_
          , -home_points_
          , -home_points_opp_
+         , home_distance
+         , away_distance
+         # , home_ap_rank_fct
+         # , away_ap_rank_fct
   )
 
 # Step 2: Perform Lasso Regression to select influential parameters ----
@@ -77,6 +89,7 @@ standard_predictor_cols <- names(train_standard_tbl)[!names(train_standard_tbl) 
 
 
 ## Fit a lasso model to each training tibble ----
+set.seed(15)
 season_lasso_model <- cv.glmnet(
   x = as.matrix(train_season_tbl[, season_predictor_cols]), 
   y = train_season_tbl$home_winner_response, 
@@ -84,7 +97,7 @@ season_lasso_model <- cv.glmnet(
   alpha = 1, 
   nfolds = 10
 )
-
+set.seed(15)
 rolling_lasso_model <- cv.glmnet(
   x = as.matrix(train_rolling_tbl[, rolling_predictor_cols]), 
   y = train_rolling_tbl$home_winner_response, 
@@ -92,7 +105,7 @@ rolling_lasso_model <- cv.glmnet(
   alpha = 1, 
   nfolds = 10
 )
-
+set.seed(15)
 standard_lasso_model <- cv.glmnet(
   x = as.matrix(train_standard_tbl[, standard_predictor_cols]), 
   y = train_standard_tbl$home_winner_response, 
@@ -152,7 +165,30 @@ train_standard_lasso_tbl <- train_standard_tbl %>%
   )
 
 ## Fit Models ----
-### Simple Logit ----
+### 1. Simple Logit ----
+#### Season Model ----
+baseline_season_logit_model <- glm(
+  formula = home_winner_response ~ ., 
+  data = train_season_tbl, 
+  family = binomial(link = 'logit')
+)
+readr::write_rds(baseline_season_logit_model, "Data/models/baseline_season_logit_model.rds")
+#### Rolling Model ----
+baseline_rolling_logit_model <- glm(
+  formula = home_winner_response ~ ., 
+  data = train_rolling_tbl, 
+  family = binomial(link = 'logit')
+)
+readr::write_rds(baseline_rolling_logit_model, "Data/models/baseline_rolling_logit_model.rds")
+#### Standard Model ----
+baseline_standard_logit_model <- glm(
+  formula = home_winner_response ~ ., 
+  data = train_standard_tbl, 
+  family = binomial(link = 'logit')
+)
+readr::write_rds(baseline_standard_logit_model, "Data/models/baseline_standard_logit_model.rds")
+
+### 1. Simple Logit ----
 #### Season Model ----
 simple_season_logit_model <- glm(
   formula = home_winner_response ~ ., 
@@ -175,7 +211,7 @@ simple_standard_logit_model <- glm(
 )
 readr::write_rds(simple_standard_logit_model, "Data/models/simple_standard_logit_model.rds")
 
-### Simple Probit ----
+### 2. Simple Probit ----
 #### Season Model ----
 simple_season_probit_model <- glm(
   formula = home_winner_response ~ ., 
@@ -198,7 +234,7 @@ simple_standard_probit_model <- glm(
 )
 readr::write_rds(simple_standard_probit_model, "Data/models/simple_standard_probit_model.rds")
 
-### Enhanced Logit ----
+### 3. Enhanced Logit ----
 #### Tidymodel Initiation----
 
 glm_log <- logistic_reg(
@@ -396,7 +432,7 @@ readr::write_rds(fitted_glm_log_best_standard, "Data/models/enhanced_standard_lo
 # glm_log_standard_valid_pred <- predict(fitted_glm_log_best_standard, validation_tbl, type = "prob") 
 
 
-### Enhanced Decision Trees (XGBOOST) ----
+### 4. Enhanced Decision Trees (XGBOOST) ----
 #### Tidymodel Initiation ----
 
 boosted_tree <- boost_tree(

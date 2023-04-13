@@ -43,3 +43,4 @@ draw_confusion_matrix <- function(cm) {
   text(70, 35, names(cm$overall[2]), cex=1.5, font=2)
   text(70, 20, round(as.numeric(cm$overall[2]), 3), cex=1.4)
 }  
+
