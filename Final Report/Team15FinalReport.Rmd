@@ -33,6 +33,8 @@ Jeffrey Sumner
 
 ### Project Background:
 
+<Possibly reword to include all season!! Inspired by March Madness>
+
 Sports, especially the NCAA March Madness tournament, are popular for
 entertainment and analysis. The tournament attracts millions of viewers
 and spectators, generating significant revenue for the NCAA. In 2022,
@@ -238,7 +240,7 @@ the last 5 games as strongly as expected. Meaning that points off
 turnovers isn't as large of a factor to points scored as anticipated.
 
 ![Data Exploration - Correlation Plot of Win Probability
-Predictors](images/Data%20Exploration%20-%20Correlation%20Plot%20of%20Win%20Probability%20Predictors-01.png)
+Predictors](../Progress Report/images/Data%20Exploration%20-%20Correlation%20Plot%20of%20Win%20Probability%20Predictors-01.png)
 
 In addition to our correlations, we examined the distributions of
 factors to determine how well we hit normality assumptions and for
@@ -246,7 +248,7 @@ scaling purposes in later analyses. Due to the large size of the data,
 our predictors were approximately normal.
 
 ![Data Exploration - Density Plot of Win Probability
-Predictors](images/Data%20Exploration%20-%20Density%20Plot%20of%20Win%20Probability%20Predictors.png)
+Predictors](../Progress Report/images/Data%20Exploration%20-%20Density%20Plot%20of%20Win%20Probability%20Predictors.png)
 
 
 
@@ -255,6 +257,13 @@ Predictors](images/Data%20Exploration%20-%20Density%20Plot%20of%20Win%20Probabil
 
 -   What type of models did you use and how do they compare?
 - <Could add more here to give an overview... check to see if redundant with above introduction sections>
+- Multiple parts
+  - Splitting data
+  - Non-LASSO models ("Baseline models")
+    - Train season tbl -> All 95 features
+  - LASSO
+  - Creating LASSO "simple" models
+  - Using LASSO selected features + normalization + PCA (>80% explained variance) to create new models ("enhanced models")
 
 #### Splitting Data
 
@@ -264,14 +273,14 @@ Predictors](images/Data%20Exploration%20-%20Density%20Plot%20of%20Win%20Probabil
 
 ### Baseline Modeling
 
+<Intro to Baseline>
 Initially, we aimed to predict game outcomes by creating models based on
-select features. We engineered new columns to transform data into a
-time-series format, focusing on recent games rather than future ones.
-Our exploratory model analyzed stats like the point differential,
+select features. Our exploratory models analyzed stats like the point differential,
 offensive/defensive efficiency ratings, turnover differential, and
 home/away/neutral status of teams in the last five games.
-<can probably move this to the feature engineering section>
 
+
+<NEED TO CHANGE TO MATCH THE NUMBER OF GAMES>
 To establish a performance baseline for our own win probability
 predictive models, we used ESPN's contingency table predictions. We
 compared the actual outcomes of games with ESPN's predictions and found
@@ -287,7 +296,8 @@ to refine our own predictions.
 : ESPN Confusion Matrix (omitting the first 5 games of each team of each
 season)
 
-For our simple exploratory model, we used a logit model with only a few of our features (turnovers, possessions, points, rebounds, offensive rating and defensive rating).
+<Amend to reflect new Final Code, different games...>
+For our simple exploratory model, we used a logit model with only a few of our features .
 Our initial win probability model was a logistic regression model
 through the `glm(, family='binomial')` function in R. For this model, we only considered a small amount a features. The
 confusion matrix below shows that our Logit model's accuracy = 65.35%,
@@ -302,6 +312,7 @@ a baseline for our own improvements.
 : Logit Model Confusion Matrix (omitting the first 5 games of each team
 of each season)
 
+<Amend to reflect new Final code>
 We also created a simple probit model. Like the previous logit
     model, our goal was to create a baseline in performance. Unlike the
     previous logit model, we used a large amount of features (99
@@ -317,11 +328,16 @@ We also created a simple probit model. Like the previous logit
     games averages by enough for us to abandon the last 5 games averages
     as a separate data set.
 
+
+<Probably stays same>
 As expected, ESPN does outperform our initial logit and probit models. This will
 provide us with a good baseline to reference for our future modeling
 attempts.
 
-Of note, the coefficient of the factor of home / away from our logit
+<Add statement, does season avg outperform roll5?>
+
+<Still a valid statement, might omit this later...>
+Of note, the coefficient of the factor of home_distance / away_distance from our logit
 model initially confirmed the common assumption that there is a home
 field advantage. These results may change as we continue to develop our
 models.
@@ -331,20 +347,7 @@ models.
 
 #### Feature Selection Exploration
 
--   In order to explore feature selection, we used stepwise regression
-    through the `MASS` package. The steps were bidirectional elimination
-    with AIC as the model improvement criterion.<awk wording> This
-    method resulted in 23 features (from 49) being selected. The logit
-    model trained on these features had a performance that includes:
-    accuracy = 0.7000, precision = 0.7238, specification = 0.6326, and
-    AUC = 0.7457. According to stepwise method... were the most
-    important features.
-    <potentially add how this compares / contrasts to the previous probit or logit models above>
-    [Matthew Rosenthal, Michael]
-
--   [show vip of stepwise] [Jeffrey]
-
--   <To be updated> To find the best lambda value for LASSO, we used
+-   <To be updated / deleted> To find the best lambda value for LASSO, we used
     `cv.glmnet(family = "binomial", alpha = 1, nfolds = 10)`. We then
     used the coefficients using the lambda value that minimized the
     cross-validation error to select our significant predictors from an
@@ -360,10 +363,14 @@ models.
     precision = 0.7005, specification = 0.5944, auc = 0.7098).According
     to the LASSO method, ... were the most important features [Matthew
     Royalty]
-    - season new results: 93 to 47 features...
-      - ratings made the cut, but home-distance traveled is not
+    
+    - Also, coefficient cutoffs were limited to coefficients with magnitudes larger than 0.05
+    - season  results: 95 to 46 features...
+      - ratings made the cut, but home-distance traveled did NOT make the cut!
       
-    - roll5: 93 to 18 features...
+    - roll5: 95 to 19 features...
+      - Still no distances selected.
+      
     
         The training set was used to fit our lasso model which was created
     to select our optimal set of predictors. Using the `cv.glmnet`
@@ -384,26 +391,47 @@ models.
 
 -   [show vip of logit model] [Jeffrey]
 
--   Compare / contrast the stepwise and LASSO results.
+    <probably omit this paragraph, but mention>
+-   In order to explore feature selection, we used stepwise regression
+    through the `MASS` package. The steps were bidirectional elimination
+    with AIC as the model improvement criterion.<awk wording> This
+    method resulted in 23 features (from 49) being selected. The logit
+    model trained on these features had a performance that includes:
+    accuracy = 0.7000, precision = 0.7238, specification = 0.6326, and
+    AUC = 0.7457. According to stepwise method... were the most
+    important features.
+    <potentially add how this compares / contrasts to the previous probit or logit models above>
+    [Matthew Rosenthal, Michael]
+    <if you are interested in seeing the stepwise... go to ... file>
 
-    -   Include run times for deciding which set of features used for
-        the rest of the report.
-    -   Then we pca with the selected features [see on Wednesday]
+- <We tested stepwise in addition to LASSO... Ultimately stayed with LASSO because...>
 
 
--   The features from LASSO were then fed into the probit model.
-    [Michael]
 
--   Besides logit and probit models, decision tree classifiers and
-    support vector machine classifiers were developed. Both of these
-    models had hyperparameters to consider... The decision tree
-    parameters were mostly automatically tuned through \<...\>, except
-    the number of trees was set to 10 due to runtime. With the support
-    vector machine classifier, \<...\> was used to determine the best
-    \<...\> [see on Wednesday to check]
+## Simple Models
 
+-     <Explain Simple Models how built>
+- Logit results
+  - rolling, season
+  - Confusion Table
+- Probit results
+  - season, mention rolling
+- xgb trees results
+  - season, mention rolling
+
+
+## Enhanced Models
+
+<Paragraph here possibly... if not covered above: what is meant by "enhanced?">
+- Logit results
+  - Confusion Table
+- Probit results
+- Xgb Trees results
+
+## Ensemble
 -   Finally, we created an ensemble model which combined all of our
     models [see on Wednesday to check]
+    - Confusion Table
 
 -   How did you perform model selection and hyperparameter optimization?
 
@@ -418,6 +446,7 @@ models.
 
     -   We might have to revisit the sections to include this! [Goes
         into a conclusion section]
+        - our model(s) could be combined with ESPN's predictions...
         
 -   Detailed discussion and evaluation of results.
 
@@ -428,7 +457,13 @@ models.
     message.
 
     -   needed in the conclusion
-
+    
+-   If you encounter any unexpected problems, challenges, or interesting
+    findings please mention these.
+    - "Standard Dataset" How it was built...
+    - How it performed (overfit)
+    - Why we dropped it.
+    
 -   Is there any unfinished business or areas which if given more time
     or resources you would deem promising or interesting to further
     pursue?
@@ -439,6 +474,7 @@ models.
     -   Geographical Bias of Ratings
     -   Individual Player Stats (star player effect)
     -   Injuries Data
+    -   Continue analysis with stepwise feature selection instead of LASSO, see if results differ.
     
     
 
@@ -508,8 +544,7 @@ Readme/Documentation for code
 
     -   Planned
 
--   If you encounter any unexpected problems, challenges, or interesting
-    findings please mention these.
+
 
     -   Possibly mention problems with the data with "\_" at the end.
     -   Possibly mention runtime problems for `MASS` stepwise
