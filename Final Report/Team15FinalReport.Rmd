@@ -405,7 +405,7 @@ data.frame(summary(baseline_season_logit_model)$coef[summary(baseline_season_log
 data.frame(summary(baseline_rolling_logit_model)$coef[summary(baseline_rolling_logit_model)$coef[,4]<=.05, 4])
 ```
 <code change, need to update!>
-From the summary of the baseline models, about .... features (of the original 78) were statistically significant. Of note, the
+From the summary of the baseline models, about 40 features (of the original 78) were statistically significant. Of note, the
 coefficient of the factor of home_distance / away_distance from our
 logit model initially confirmed the common assumption that there is a
 home field advantage. These results may change as we continue to develop
@@ -415,13 +415,13 @@ our models.
 
 -   To find the best lambda value for LASSO,
     we used `cv.glmnet(family = "binomial", alpha = 1, nfolds = 10)`. We
-    then used the coefficients using the lambda value that minimized the
+    then used the coefficients using the lambda value that was one standard error away from that minimized the
     cross-validation error to select our significant predictors from an
     original list of 78 potential predictors.
     
-    Altering the coefficient cutoff changed the selected predictors. We changed the cutoffs multiple times until we found a good balance between number of predictors remaining and logistic regression model performance. Ultimately, we decided to limit our predictors to ones with coefficient magnitudes larger than 0.05.
+    Altering the coefficient cutoff changed the selected predictors. We changed the cutoffs multiple times until we found a good balance between number of predictors remaining and logistic regression model performance. Ultimately, we decided to limit our predictors to ones with coefficient not equal to zero.
     
-  The results of our LASSO exploration upon the season averaged data led to ..... features being selected (closely matching the number of significant features in the summary of the baseline logit model). The results of our LASSO exploration upon the rolling averaged data led to ...... features being selected. All of the features selected in the rolling averaged LASSO were included in the season averaged LASSO with the exception of away_team_rebounds_opp. Both included predictors such as: offensive ratings, blocks, field goals made, possessions, turnovers, and fouls. Of note, however, is that neither selected the distance traveled as being significant.
+  The results of our LASSO exploration upon the season averaged data led to 30 features being selected (compared to 37 in the baseline). The results of our LASSO exploration upon the rolling averaged data led to 44 features being selected (compared to 40 in the baseline). All of the features selected in the season averaged LASSO were included in the rolling averaged LASSO. Both included predictors such as: offensive ratings, blocks, field goals attempted, assists, turnovers, and steals. Of note is ratings and distance traveled are still chosen as significant predictors for both LASSO feature selections.
   
 ```{r}
 data.frame(season_selected_predictors)
@@ -430,6 +430,9 @@ data.frame(season_selected_predictors)
 ```{r}
 data.frame(rolling_selected_predictors)
 ```  
+```{r}
+rolling_selected_predictors[!(rolling_selected_predictors %in% season_selected_predictors)]
+```
 
 
             The training set was used to fit our lasso model which was
