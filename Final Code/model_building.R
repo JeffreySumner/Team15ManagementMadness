@@ -33,6 +33,35 @@ model_data_tbl <- model_data_tbl %>%
     # , -home_ap_rank_fct
   ) %>% mutate(id = row_number())
 
+
+## Data Quality Checks ----
+model_data_tbl_dq <- model_data_tbl %>%
+  select(-home_espn_probability
+         , -home_winner_response
+         ,-home_distance
+         , -awayTeam_id
+         ,-homeTeam_id
+         ,-id
+         ,-home_ap_rank_fct
+         ,-away_ap_rank_fct) %>%
+  pivot_longer(everything()) %>%
+  group_by(name) %>%
+  summarize(mean_ = mean(value)
+            , sd_ = sd(value)) %>%
+  filter(mean_ > 1) 
+
+model_data_tbl <- model_data_tbl %>%
+  select(home_espn_probability
+         , home_winner_response
+         , home_distance
+         , awayTeam_id
+         , homeTeam_id
+         , id
+         , home_ap_rank_fct
+         , away_ap_rank_fct
+         , any_of(model_data_tbl_dq$name)
+         )
+
 ## Split Data ----
 set.seed(15) # for reproducibility
 initial_split_data <- initial_split(model_data_tbl, prop = .6)
@@ -118,34 +147,37 @@ plot(standard_lasso_model)
 
 ## Determine Influential coefficients ----
 ### Season ----
-season_coef_vals <- coef(season_lasso_model, s = "lambda.min")
+season_coef_vals <- coef(season_lasso_model, s = "lambda.1se")
 season_coef_vals <- as.matrix(season_coef_vals)
 
 # Identify the predictors with non-zero coefficients
 # selected_predictors <- rownames(coef_vals)[-1]
 
 # There is a major difference between the logical operator of "!=0! and ">0", ">0" cuts out more
-season_selected_predictors <- rownames(season_coef_vals)[season_coef_vals>.05 | season_coef_vals < -.05]
+# season_selected_predictors <- rownames(season_coef_vals)[season_coef_vals>.05 | season_coef_vals < -.05]
+season_selected_predictors <- rownames(season_coef_vals)[season_coef_vals!=0]
+
 readr::write_rds(season_lasso_model,"Data/clean/lasso_season_model.rds")
 ### Rolling ----
-rolling_coef_vals <- coef(rolling_lasso_model, s = "lambda.min")
+rolling_coef_vals <- coef(rolling_lasso_model, s = "lambda.1se")
 rolling_coef_vals <- as.matrix(rolling_coef_vals)
 
 # Identify the predictors with non-zero coefficients
 # selected_predictors <- rownames(coef_vals)[-1]
 
 # There is a major difference between the logical operator of "!=0! and ">0", ">0" cuts out more
-rolling_selected_predictors <- rownames(rolling_coef_vals)[rolling_coef_vals>.05 | rolling_coef_vals < -.05]
+rolling_selected_predictors <- rownames(rolling_coef_vals)[rolling_coef_vals!=0]
+
 readr::write_rds(rolling_lasso_model,"Data/clean/lasso_rolling_model.rds")
 ### Standard ----
-standard_coef_vals <- coef(standard_lasso_model, s = "lambda.min")
+standard_coef_vals <- coef(standard_lasso_model, s = "lambda.1se")
 standard_coef_vals <- as.matrix(standard_coef_vals)
 
 # Identify the predictors with non-zero coefficients
 # selected_predictors <- rownames(coef_vals)[-1]
 
 # There is a major difference between the logical operator of "!=0! and ">0", ">0" cuts out more
-standard_selected_predictors <- rownames(standard_coef_vals)[standard_coef_vals>.05 | standard_coef_vals < -.05]
+standard_selected_predictors <- rownames(standard_coef_vals)[standard_coef_vals != 0]
 readr::write_rds(standard_lasso_model,"Data/clean/lasso_standard_model.rds")
 # Step 3: Create Models with Lasso Influential coefficients ----
 ## Condense training data once more ----
@@ -254,23 +286,23 @@ glm_log_grid_standard <- tibble(penalty = 10^seq(-4, -1, length.out = 30))
 
 #### Normalize & PCA ----
 
-glm_log_season_recipe <- recipe(home_winner_response ~ . , data = train_season_lasso_tbl) %>%
+glm_log_season_recipe <- recipe(home_winner_response ~ . , data = train_season_tbl) %>%
   step_dummy(all_nominal_predictors()) %>%
   # step_zv(all_predictors()) %>%
   step_normalize(all_predictors()) %>%
-  step_pca(all_predictors())
+  step_pca(all_predictors(),threshold = .8)
 
-glm_log_rolling_recipe <- recipe(home_winner_response ~ . , data = train_rolling_lasso_tbl) %>%
+glm_log_rolling_recipe <- recipe(home_winner_response ~ . , data = train_rolling_tbl) %>%
   step_dummy(all_nominal_predictors()) %>%
-  # step_zv(all_predictors()) %>%
+  step_zv(all_predictors()) %>%
   step_normalize(all_predictors()) %>%
-  step_pca(all_predictors())
+  step_pca(all_predictors(),threshold = .8)
 
-glm_log_standard_recipe <- recipe(home_winner_response ~ . , data = train_standard_lasso_tbl) %>%
+glm_log_standard_recipe <- recipe(home_winner_response ~ . , data = train_standard_tbl) %>%
   step_dummy(all_nominal_predictors()) %>%
   # step_zv(all_predictors()) %>%
   step_normalize(all_predictors()) %>%
-  step_pca(all_predictors())
+  step_pca(all_predictors(),threshold = .8)
 
 #### Create Workflows ----
 glm_log_season_workflow <- workflow() %>% 
@@ -288,13 +320,13 @@ glm_log_standard_workflow <- workflow() %>%
 #### cv ----
 
 set.seed(15)
-glm_log_season_fold <- vfold_cv(train_season_lasso_tbl, strata = home_winner_response)
+glm_log_season_fold <- vfold_cv(train_season_tbl, strata = home_winner_response)
 
 set.seed(15)
-glm_log_rolling_fold <- vfold_cv(train_rolling_lasso_tbl, strata = home_winner_response)
+glm_log_rolling_fold <- vfold_cv(train_rolling_tbl, strata = home_winner_response)
 
 set.seed(15)
-glm_log_standard_fold <- vfold_cv(train_standard_lasso_tbl, strata = home_winner_response)
+glm_log_standard_fold <- vfold_cv(train_standard_tbl, strata = home_winner_response)
 
 #### Enhanced Logit Season Model ----
 doParallel::registerDoParallel()
@@ -328,7 +360,7 @@ final_glm_log_season <- finalize_workflow(
 final_glm_log_season
 
 final_glm_log_season %>%
-  fit(data = train_season_lasso_tbl) %>%
+  fit(data = train_season_tbl) %>%
   pull_workflow_fit() %>%
   vip(geom = "point")
 
@@ -336,7 +368,7 @@ final_res_glm_log_season <- last_fit(final_glm_log_season, initial_split_data)
 
 collect_metrics(final_res_glm_log_season)
 
-fitted_glm_log_best_season <- fit(final_glm_log_season, train_season_lasso_tbl)
+fitted_glm_log_best_season <- fit(final_glm_log_season, train_season_tbl)
 readr::write_rds(fitted_glm_log_best_season, "Data/models/enhanced_season_logit_model.rds")
 # glm_log_season_test_pred <- predict(fitted_glm_log_best_season, test_tbl, type = "prob")
 # glm_log_season_valid_pred <- predict(fitted_glm_log_best_season, validation_tbl, type = "prob")
@@ -381,7 +413,7 @@ final_res_glm_log_rolling <- last_fit(final_glm_log_rolling, initial_split_data)
 
 collect_metrics(final_res_glm_log_rolling)
 
-fitted_glm_log_best_rolling <- fit(final_glm_log_rolling, train_rolling_lasso_tbl)
+fitted_glm_log_best_rolling <- fit(final_glm_log_rolling, train_rolling_tbl)
 readr::write_rds(fitted_glm_log_best_rolling, "Data/models/enhanced_rolling_logit_model.rds")
 # glm_log_rolling_test_pred <- predict(fitted_glm_log_best_rolling, test_tbl, type = "prob")
 # glm_log_rolling_valid_pred <- predict(fitted_glm_log_best_rolling, validation_tbl, type = "prob")
@@ -454,7 +486,7 @@ xgb_grid_season <- grid_latin_hypercube(
   min_n(),
   loss_reduction(),
   sample_size = sample_prop(),
-  finalize(mtry(), train_season_lasso_tbl),
+  finalize(mtry(), train_season_tbl),
   learn_rate(),
   size = 30
 )
@@ -465,7 +497,7 @@ xgb_grid_rolling <- grid_latin_hypercube(
   min_n(),
   loss_reduction(),
   sample_size = sample_prop(),
-  finalize(mtry(), train_rolling_lasso_tbl),
+  finalize(mtry(), train_rolling_tbl),
   learn_rate(),
   size = 30
 )
@@ -475,7 +507,7 @@ xgb_grid_standard <- grid_latin_hypercube(
   min_n(),
   loss_reduction(),
   sample_size = sample_prop(),
-  finalize(mtry(), train_standard_lasso_tbl),
+  finalize(mtry(), train_standard_tbl),
   learn_rate(),
   size = 30
 )
@@ -485,13 +517,13 @@ xgb_season_recipe <- recipe(home_winner_response ~ . , data = train_season_lasso
   step_dummy(all_nominal_predictors()) %>%
   # step_zv(all_predictors()) %>%
   step_normalize(all_predictors()) %>%
-  step_pca(all_predictors())
+  step_pca(all_predictors(),threshold = .8)
 
 xgb_rolling_recipe <- recipe(home_winner_response ~ . , data = train_rolling_lasso_tbl) %>%
   step_dummy(all_nominal_predictors()) %>%
   # step_zv(all_predictors()) %>%
   step_normalize(all_predictors()) %>%
-  step_pca(all_predictors())
+  step_pca(all_predictors(),threshold = .8)
 
 xgb_standard_recipe <- recipe(home_winner_response ~ . , data = train_standard_lasso_tbl) %>%
   step_dummy(all_nominal_predictors()) %>%
@@ -515,13 +547,13 @@ xgb_standard_workflow <- workflow() %>%
 #### cv ----
 
 set.seed(15)
-xgb_season_fold <- vfold_cv(train_season_lasso_tbl, strata = home_winner_response)
+xgb_season_fold <- vfold_cv(train_season_tbl, strata = home_winner_response)
 
 set.seed(15)
-xgb_rolling_fold <- vfold_cv(train_rolling_lasso_tbl, strata = home_winner_response)
+xgb_rolling_fold <- vfold_cv(train_rolling_tbl, strata = home_winner_response)
 
 set.seed(15)
-xgb_standard_fold <- vfold_cv(train_standard_lasso_tbl, strata = home_winner_response)
+xgb_standard_fold <- vfold_cv(train_standard_tbl, strata = home_winner_response)
 
 #### Enhanced DT Season Model ----
 doParallel::registerDoParallel()
@@ -568,7 +600,7 @@ final_res_xgb_season <- last_fit(final_xgb_season, initial_split_data)
 
 collect_metrics(final_res_xgb_season)
 
-fitted_xgb_best_season <- fit(final_xgb_season, train_season_lasso_tbl)
+fitted_xgb_best_season <- fit(final_xgb_season, train_season_tbl)
 readr::write_rds(fitted_xgb_best_season, "Data/models/enhanced_season_xgb_model.rds")
 # xgb_season_test_pred <- predict(fitted_xgb_best_season, test_tbl, type = "prob")
 # xgb_season_valid_pred <- predict(fitted_xgb_best_season, validation_tbl, type = "prob")
