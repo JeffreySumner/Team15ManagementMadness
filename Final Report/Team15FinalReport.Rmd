@@ -265,6 +265,7 @@ Predictors](../Progress%20Report/images/Data%20Exploration%20-%20Density%20Plot%
     -   Roll5... the goal of using the last 5 games was to capture
         team's current gameplay. This was our attempt at capturing team
         momentum (such as win or losing streaks).
+   
     -   Offensive and Defensive Efficiency: We created predictors for
         team offensive and defensive efficiency. The efficiency
         predictors provide useful measures of a team's overall
@@ -339,6 +340,8 @@ throw off our modeling. However, we do see that we have a clear bias
 towards wins as essentially each dataset has a 63% `Winning Percentage`.
 This may lead us to over-predict wins across all types.
 
+ - Data was also segmented by the type of averaging (mentioned above). Either rolling or season...
+ 
 ### Baseline Modeling
 
 With our data split into train, test and validation, we want to predict
