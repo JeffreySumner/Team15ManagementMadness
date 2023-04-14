@@ -11,13 +11,21 @@ fontsize: 11pt
 always_allow_html: yes
 ---
 
+```{r setup}
+
+knitr::opts_knit$set(root.dir = here::here())
+```
+
+```{r}
+
+source("Final Code/model_predictions.R")
+source("Final Code/draw_confusion_matrix.R")
+```
+
 ## MGT Madness - Team 15 Progress Report
 
 Group Members: Michael Munson, Matthew Rosenthal, Matthew Royalty,
 Jeffrey Sumner
-
-
-
 
 ## Overview of Project:
 
@@ -33,7 +41,7 @@ Jeffrey Sumner
 
 ### Project Background:
 
-<Possibly reword to include all season!! Inspired by March Madness>
+\<Possibly reword to include all season!! Inspired by March Madness\>
 [Royalty-added some comments about including regular season as well.]
 
 Sports, especially the NCAA March Madness tournament, are popular for
@@ -42,20 +50,21 @@ and spectators, generating significant revenue for the NCAA. In 2022,
 the tournament had 10.7 million TV viewers, 685,000 attendees, and
 generated an estimated \$1.15 billion in revenue [1].
 
-March Madness and college basketball in general is a gold mine for sports betting. Firms such
-as DraftKings and FanDuel earn a commission with each bet made, in
-addition to revenue from their websites and app ads. Reliable game
-prediction models are essential to maximizing this revenue through
-improving lines and parlays, increasing the monetary value of bets made,
-and encouraging more bettors to use their website and app.
+March Madness and college basketball in general is a gold mine for
+sports betting. Firms such as DraftKings and FanDuel earn a commission
+with each bet made, in addition to revenue from their websites and app
+ads. Reliable game prediction models are essential to maximizing this
+revenue through improving lines and parlays, increasing the monetary
+value of bets made, and encouraging more bettors to use their website
+and app.
 
 Predicting the Men's Division I March Madness Tournament outcome is a
 challenging task for analytics enthusiasts. It involves forecasting 67
 games played over three weeks, including possible upsets, player
 injuries, and changing data. Achieving certainty in this prediction
-process is difficult.  Given the interest in college basketball throughout 
-the season, our team decided to expand our project to include regular season 
-NCAA games as well.
+process is difficult. Given the interest in college basketball
+throughout the season, our team decided to expand our project to include
+regular season NCAA games as well.
 
 To predict the outcomes of matchups in March Madness, various analyses
 are conducted. Live win probabilities, calculated on a play-by-play
@@ -67,13 +76,17 @@ winning based on factors like location, conference, and game type, are
 also used.
 
 The goal of MGT Madness is to create machine learning models that
-reliably predict the outcome of NCAA games for both March Madness and regular season given different match ups between 
-teams, other pre-game characteristics and team statistics. The main driving
-question was: What predictors can be used to accurately predict the outcome of 
-NCAA tournament games?
+reliably predict the outcome of NCAA games for both March Madness and
+regular season given different match ups between teams, other pre-game
+characteristics and team statistics. The main driving question was: What
+predictors can be used to accurately predict the outcome of NCAA
+tournament games?
 
-To answer this question, we planned to: collect large amounts of disparate data on games
-in the past, process the data while also creating unique features, train and validate multiple types models, and finally compare these models against each other on various methods. The models will then be combined into one ensemble model...
+To answer this question, we planned to: collect large amounts of
+disparate data on games in the past, process the data while also
+creating unique features, train and validate multiple types models, and
+finally compare these models against each other on various methods. The
+models will then be combined into one ensemble model...
 
 #### Modeling Game Results:
 
@@ -95,10 +108,6 @@ Potential factors to investigate include:
 We anticipate that each team's ranking differential, quality wins,
 location, and efficiency will be the biggest factors determining the
 win/loss outcome of a game.
-
-
-
-
 
 ## Overview of Data:
 
@@ -134,8 +143,6 @@ win/loss outcome of a game.
     -   Complete
 -   Super quick overview of the data
     -   Complete
-
-
 
 ### Data Preparation and Cleaning
 
@@ -243,7 +250,7 @@ the last 5 games as strongly as expected. Meaning that points off
 turnovers isn't as large of a factor to points scored as anticipated.
 
 ![Data Exploration - Correlation Plot of Win Probability
-Predictors](../Progress Report/images/Data%20Exploration%20-%20Correlation%20Plot%20of%20Win%20Probability%20Predictors-01.png)
+Predictors](../Progress%20Report/images/Data%20Exploration%20-%20Correlation%20Plot%20of%20Win%20Probability%20Predictors-01.png)
 
 In addition to our correlations, we examined the distributions of
 factors to determine how well we hit normality assumptions and for
@@ -251,63 +258,119 @@ scaling purposes in later analyses. Due to the large size of the data,
 our predictors were approximately normal.
 
 ![Data Exploration - Density Plot of Win Probability
-Predictors](../Progress Report/images/Data%20Exploration%20-%20Density%20Plot%20of%20Win%20Probability%20Predictors.png)
-
-
-
+Predictors](../Progress%20Report/images/Data%20Exploration%20-%20Density%20Plot%20of%20Win%20Probability%20Predictors.png)
 
 ## Overview of Modeling
 
--   What type of models did you use and how do they compare?
-- <Could add more here to give an overview... check to see if redundant with above introduction sections>
-- Multiple parts
-  - Splitting data
-  - Non-LASSO models ("Baseline models")
-    - Train season tbl -> All 95 features
-  - LASSO
-  - Creating LASSO "simple" models
-  - Using LASSO selected features + normalization + PCA (>80% explained variance) to create new models ("enhanced models")
+Now that we have explored our data, we are ready to begin modeling it.
+As stated previously, our goal is to model the outcome, of any
+particular NCAA basketball game. Our response variable is whether or not
+the home team wins or loses the game. We will explore common techniques
+used to predict win probabilities such as logistic regression, probit
+regression and decision tree classification. In order to do this, we've
+broken our modeling out into multiple parts:
+
+1.  Splitting the data
+2.  Baseline models
+3.  Feature selection
+4.  "Simple" models with feature selection
+5.  "Enhanced" models with feature selection
+
+-   ~~What type of models did you use and how do they compare?~~
+-   ~~\<Could add more here to give an overview... check to see if
+    redundant with above introduction sections\>~~
+-   ~~Multiple parts~~
+    -   ~~Splitting data~~
+    -   ~~Non-LASSO models ("Baseline models")~~
+        -   ~~Train season tbl -\> All 95 features~~
+    -   ~~LASSO~~
+    -   ~~Creating LASSO "simple" models~~
+    -   ~~Using LASSO selected features + normalization + PCA (\>80%
+        explained variance) to create new models ("enhanced models")~~
 
 #### Splitting Data
 
--   To help avoid the risk of overfitting, We randomly split our data into 
-    train, test, and validation sets with 60% going into the training set, 20% 
-    into the test set and 20% into the validation set.  The test set provides us
-    a way to rank our model's accuracy and aid in model selection.  The validation
-    set provides an evaluation of our final model.
+To ensure the validity of our models and to help avoid the risk of
+overfitting, we randomly split our data into train, test, and validation
+sets with 60% going into the training set, 20% into the test set and 20%
+into the validation set. The validation set provides us a way to rank
+our model's accuracy and aid in model selection. The test set provides
+an evaluation of our final model. Below is a summary of each dataset
+with the number of observations, total wins and winning percentage to
+understand the distribution of wins across each.
+
+```{r}
+bind_rows(
+  train_tbl %>% select(home_winner_response) %>% mutate(type = "Train")
+  , validation_tbl %>% select(home_winner_response) %>% mutate(type = "Validation")
+  , test_tbl %>% select(home_winner_response) %>% mutate(type = "Test")
+) %>%
+  group_by(type) %>%
+  summarize(Wins = sum(home_winner_response %>% as.numeric() -1)
+            , `Total Games` = n()
+            , `Winning Percentage` = Wins/`Total Games`
+            )
+```
+
+The split above does appear to be even as far as winning percentage goes
+and therefore no varying bias across the different types that could
+throw off our modeling. However, we do see that we have a clear bias
+towards wins as essentially each dataset has a 63% `Winning Percentage`.
+This may lead us to over-predict wins across all types.
 
 ### Baseline Modeling
 
-<Intro to Baseline>
-Initially, we aimed to predict game outcomes by creating models based on
-select features. Our exploratory models analyzed stats like the point differential,
-offensive/defensive efficiency ratings, turnover differential, and
-home/away/neutral status of teams in the last five games.
+With our data split into train, test and validation, we want to predict
+outcomes using all features. This exercise is meant to give us something
+to compare to and hopefully beat as we attempt to improve out models.
+For the purposes of this paper, we will focus on the comparing the test
+unless specified otherwise.
 
+#### ESPN Baseline
 
-<NEED TO CHANGE TO MATCH THE NUMBER OF GAMES>
+Let's first examine the ESPN baseline. ESPN predicts outcomes before and
+during most sporting events. Below is the contingency table and
+associated metrics:
+
+```{r}
+espn_prob_tmp <- test_tbl %>% 
+  select(home_espn_probability, home_winner_response) %>%
+  mutate(home_espn_probability = round(home_espn_probability/100)
+         , home_winner_response = home_winner_response %>% as.numeric() -1 
+         )
+
+caret::confusionMatrix(reference = espn_prob_tmp$home_winner_response  %>% factor(), data=espn_prob_tmp$home_espn_probability  %>% factor()) %>%
+  draw_confusion_matrix()
+
+```
+
+Based on these results, the ESPN baseline accuracy is roughly 72%.
+
+#### Team 15 Baseline
+
 To establish a performance baseline for our own win probability
-predictive models, we used ESPN's contingency table predictions. We
-compared the actual outcomes of games with ESPN's predictions and found
-their accuracy to be approximately 73.26% (precision = 73.81%,
-specificity = 72.64%). This serves as a useful benchmark as we continue
-to refine our own predictions.
+predictive models, we created a simple logistic regression model using
+all parameters in our dataset. In all likelihood, we anticipate a decent
+model albeit very overfit. Below are the results:
 
-|             | Predicted Win | Predicted Loss |
-|-------------|---------------|----------------|
-| Actual Win  | 36,564        | 12,946         |
-| Actual Loss | 12,976        | 34,445         |
+```{r}
+model_tbl %>% filter(Simplicity == "baseline", Metric == "season", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
+```
 
-: ESPN Confusion Matrix (omitting the first 5 games of each team of each
-season)
+Based on the results, our baseline accuracy is roughly 70%. Overall,
+this is a decent model but is likely to be overfit and unstable
+long-term.
 
-<Amend to reflect new Final Code, different games...>
-For our simple exploratory model, we used a logit model with only a few of our features .
-Our initial win probability model was a logistic regression model
-through the `glm(, family='binomial')` function in R. For this model, we only considered a small amount a features. The
-confusion matrix below shows that our Logit model's accuracy = 65.35%,
-precision = 65.78%, specificity = 63.59%. This model helped us get our bearings and set
-a baseline for our own improvements.
+\-\-\-\-\-\-\-\-\-\-\-\--
+
+\<Amend to reflect new Final Code, different games...\> For our simple
+exploratory model, we used a logit model with only a few of our features
+. Our initial win probability model was a logistic regression model
+through the `glm(, family='binomial')` function in R. For this model, we
+only considered a small amount a features. The confusion matrix below
+shows that our Logit model's accuracy = 65.35%, precision = 65.78%,
+specificity = 63.59%. This model helped us get our bearings and set a
+baseline for our own improvements.
 
 |             | Predicted Win | Predicted Loss |
 |-------------|---------------|----------------|
@@ -317,44 +380,37 @@ a baseline for our own improvements.
 : Logit Model Confusion Matrix (omitting the first 5 games of each team
 of each season)
 
-<Amend to reflect new Final code>
-We also created a simple probit model. Like the previous logit
-    model, our goal was to create a baseline in performance. Unlike the
-    previous logit model, we used a large amount of features (99
-    features). Two of these models were created; one where the game
-    statistics were from the season average, the other with game
-    statistics from only the last 5 games. For these probit models, the
-    season averages provided a slightly better prediction of game
-    outcomes than the last 5 games averages. [could be a table... Roll5:
-    acc = 0.704, prec = 0.628, spec = 0.832, auc = 0.658, AIC = 30616...
-    Season Average: acc = 0.717, prec = 0.644, spec = 0.832 (same), auc
-    = 0.676, AIC = 29824]. Although the probit model trained on the
-    season averages data was better, it didn't outperform the last 5
-    games averages by enough for us to abandon the last 5 games averages
-    as a separate data set.
+<Amend to reflect new Final code> We also created a simple probit model.
+Like the previous logit model, our goal was to create a baseline in
+performance. Unlike the previous logit model, we used a large amount of
+features (99 features). Two of these models were created; one where the
+game statistics were from the season average, the other with game
+statistics from only the last 5 games. For these probit models, the
+season averages provided a slightly better prediction of game outcomes
+than the last 5 games averages. [could be a table... Roll5: acc = 0.704,
+prec = 0.628, spec = 0.832, auc = 0.658, AIC = 30616... Season Average:
+acc = 0.717, prec = 0.644, spec = 0.832 (same), auc = 0.676, AIC =
+29824]. Although the probit model trained on the season averages data
+was better, it didn't outperform the last 5 games averages by enough for
+us to abandon the last 5 games averages as a separate data set.
 
+<Probably stays same> As expected, ESPN does outperform our initial
+logit and probit models. This will provide us with a good baseline to
+reference for our future modeling attempts.
 
-<Probably stays same>
-As expected, ESPN does outperform our initial logit and probit models. This will
-provide us with a good baseline to reference for our future modeling
-attempts.
+\<Add statement, does season avg outperform roll5?\>
 
-<Add statement, does season avg outperform roll5?>
-
-<Still a valid statement, might omit this later...>
-Of note, the coefficient of the factor of home_distance / away_distance from our logit
-model initially confirmed the common assumption that there is a home
-field advantage. These results may change as we continue to develop our
-models.
-
-
-
+\<Still a valid statement, might omit this later...\> Of note, the
+coefficient of the factor of home_distance / away_distance from our
+logit model initially confirmed the common assumption that there is a
+home field advantage. These results may change as we continue to develop
+our models.
 
 #### Feature Selection Exploration
 
--   <To be updated / deleted> To find the best lambda value for LASSO, we used
-    `cv.glmnet(family = "binomial", alpha = 1, nfolds = 10)`. We then
-    used the coefficients using the lambda value that minimized the
+-   <To be updated / deleted> To find the best lambda value for LASSO,
+    we used `cv.glmnet(family = "binomial", alpha = 1, nfolds = 10)`. We
+    then used the coefficients using the lambda value that minimized the
     cross-validation error to select our significant predictors from an
     original list of 49 potential predictors. These significant
     predictors were then used to create logit models. Altering the
@@ -366,36 +422,39 @@ models.
     syntax. Ultimately, we could set `coefficient>10^-3` before seeing a
     drop in performance (resulted in 15 predictors, accuracy = 0.6750,
     precision = 0.7005, specification = 0.5944, auc = 0.7098).According
-    to the LASSO method, ... were the most important features 
-    
-    - Also, coefficient cutoffs were limited to coefficients with magnitudes larger than 0.05
-    - season  results: 95 to 46 features...
-      - ratings made the cut, but home-distance traveled did NOT make the cut!
-      
-    - roll5: 95 to 19 features...
-      - Still no distances selected.
-      
-    
-        The training set was used to fit our lasso model which was created
-    to select our optimal set of predictors. Using the `cv.glmnet`
-    function, we performed 10-fold cross-validation on our lasso model.
-    Cross-validation is a technique used to evaluate the performance of
-    a model by splitting the dataset into multiple parts, training the
-    model on one part, and testing it on another. This process is
-    repeated multiple times, with different parts of the dataset used
-    for training and testing each time.\
-    \
-    After predictors were selected with the lasso model model, we then
-    trained each of our models with the training dataset. The
-    performance was then evaluated with the validation set to insure it
-    did not overfit the training data. Finally, performance of the model
-    was evaluated using the test set. The test set was held out during
-    the modeling process to ensure an unbiased representation of each
-    model's perforance.
+    to the LASSO method, ... were the most important features
+
+    -   Also, coefficient cutoffs were limited to coefficients with
+        magnitudes larger than 0.05
+    -   season results: 95 to 46 features...
+        -   ratings made the cut, but home-distance traveled did NOT
+            make the cut!
+    -   roll5: 95 to 19 features...
+        -   Still no distances selected.
+
+            The training set was used to fit our lasso model which was
+            created to select our optimal set of predictors. Using the
+            `cv.glmnet` function, we performed 10-fold cross-validation
+            on our lasso model. Cross-validation is a technique used to
+            evaluate the performance of a model by splitting the dataset
+            into multiple parts, training the model on one part, and
+            testing it on another. This process is repeated multiple
+            times, with different parts of the dataset used for training
+            and testing each time.\
+            \
+            After predictors were selected with the lasso model model,
+            we then trained each of our models with the training
+            dataset. The performance was then evaluated with the
+            validation set to insure it did not overfit the training
+            data. Finally, performance of the model was evaluated using
+            the test set. The test set was held out during the modeling
+            process to ensure an unbiased representation of each model's
+            perforance.
 
 -   [show vip of logit model] [Jeffrey]
 
-    <probably omit this paragraph, but mention>
+    \<probably omit this paragraph, but mention\>
+
 -   In order to explore feature selection, we used stepwise regression
     through the `MASS` package. The steps were bidirectional elimination
     with AIC as the model improvement criterion.<awk wording> This
@@ -405,44 +464,52 @@ models.
     AUC = 0.7457. According to stepwise method... were the most
     important features.
     <potentially add how this compares / contrasts to the previous probit or logit models above>
-    [Matthew Rosenthal, Michael]
-    <if you are interested in seeing the stepwise... go to ... file>
+    [Matthew Rosenthal, Michael] \<if you are interested in seeing the
+    stepwise... go to ... file\>
 
 -   As we were exploring methods for predictor selection, we looked at
-    stepwise regression as well as LASSO regression.  We eventually settled on
-    LASSO regression due to overall performance of stepwise regression.  Running
-    stepwise regression using large number of predictors was not as efficient 
-    as LASSO regression due to how stepwise regression interactively adds and 
-    removes predictors based on metrics until a subset of predictors is found.
-    LASSO regression provided us with a subset of predictors without sacrificing
+    stepwise regression as well as LASSO regression. We eventually
+    settled on LASSO regression due to overall performance of stepwise
+    regression. Running stepwise regression using large number of
+    predictors was not as efficient as LASSO regression due to how
+    stepwise regression interactively adds and removes predictors based
+    on metrics until a subset of predictors is found. LASSO regression
+    provided us with a subset of predictors without sacrificing
     performance training our models.
-
-
 
 ## Simple Models
 
--     <Explain Simple Models how built>
-- Logit results
-  - rolling, season
-  - Confusion Table
-- Probit results
-  - season, mention rolling
-- xgb trees results
-  - season, mention rolling
+-   
 
+    ```         
+    <Explain Simple Models how built>
+    ```
+
+-   Logit results
+
+    -   rolling, season
+    -   Confusion Table
+
+-   Probit results
+
+    -   season, mention rolling
+
+-   xgb trees results
+
+    -   season, mention rolling
 
 ## Enhanced Models
 
-<Paragraph here possibly... if not covered above: what is meant by "enhanced?">
-- Logit results
-  - Confusion Table
-- Probit results
-- Xgb Trees results
+\<Paragraph here possibly... if not covered above: what is meant by
+"enhanced?"\> - Logit results - Confusion Table - Probit results - Xgb
+Trees results
 
 ## Ensemble
+
 -   Finally, we created an ensemble model which combined all of our
     models [see on Wednesday to check]
-    - Confusion Table
+
+    -   Confusion Table
 
 -   How did you perform model selection and hyperparameter optimization?
 
@@ -457,8 +524,8 @@ models.
 
     -   We might have to revisit the sections to include this! [Goes
         into a conclusion section]
-        - our model(s) could be combined with ESPN's predictions...
-        
+        -   our model(s) could be combined with ESPN's predictions...
+
 -   Detailed discussion and evaluation of results.
 
     -   Most likely will be found in the conclusions section
@@ -468,13 +535,14 @@ models.
     message.
 
     -   needed in the conclusion
-    
+
 -   If you encounter any unexpected problems, challenges, or interesting
     findings please mention these.
-    - "Standard Dataset" How it was built...
-    - How it performed (overfit)
-    - Why we dropped it.
-    
+
+    -   "Standard Dataset" How it was built...
+    -   How it performed (overfit)
+    -   Why we dropped it.
+
 -   Is there any unfinished business or areas which if given more time
     or resources you would deem promising or interesting to further
     pursue?
@@ -485,9 +553,8 @@ models.
     -   Geographical Bias of Ratings
     -   Individual Player Stats (star player effect)
     -   Injuries Data
-    -   Continue analysis with stepwise feature selection instead of LASSO, see if results differ.
-    
-    
+    -   Continue analysis with stepwise feature selection instead of
+        LASSO, see if results differ.
 
 ### Works Cited
 
@@ -515,11 +582,6 @@ models.
     Check,* 16 Mar 2022,
     <https://tvnewscheck.com/business/article/advertisers-go-mad-for-march-madness/>
 
-
-
-
-
-
 ## Project Final Report, Data, & Code
 
 #### What is it?
@@ -545,8 +607,6 @@ other supplementary files
 
 Readme/Documentation for code
 
-
-
 ## Overall Considerations:
 
 -   Include a couple of key visualizations inline and be sure to include
@@ -555,26 +615,23 @@ Readme/Documentation for code
 
     -   Planned
 
-
-
     -   Possibly mention problems with the data with "\_" at the end.
+
     -   Possibly mention runtime problems for `MASS` stepwise
 
 -   Discussion of things that didn't work is also encouraged.
+
 -   Detailed discussion of methodology.
 
     -   Possibly add coding description for data cleaning
         -   In earlier HEAD of Progress Report
     -   Should have methodology of modeling
 
-
-
 -   Describe in depth the novelties of your approach and your
     discoveries/insights/experiments.
 
     -   Better callouts could be added for feature engineering
         -   Roll5, distance
-
 
 ## Code Files
 
@@ -606,7 +663,7 @@ Readme/Documentation for code
 
 -   TA feedback/grades on Project Final Report, Data, Slides, & Code
     will be available prior to the conclusion of the course.
-    
+
 ### Next Steps <From Progress Report>
 
 The next steps involve building different models and performing
@@ -640,4 +697,3 @@ the proportion of actual outcomes that were correctly predicted.
 
 We expect our modeling next steps to be completed by April 8th in order
 to prepare our final presentation and summary of results.
-
