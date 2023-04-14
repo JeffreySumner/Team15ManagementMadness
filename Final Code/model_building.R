@@ -126,7 +126,7 @@ season_coef_vals <- as.matrix(season_coef_vals)
 
 # There is a major difference between the logical operator of "!=0! and ">0", ">0" cuts out more
 season_selected_predictors <- rownames(season_coef_vals)[season_coef_vals>.05 | season_coef_vals < -.05]
-
+readr::write_rds(season_lasso_model,"Data/clean/lasso_season_model.rds")
 ### Rolling ----
 rolling_coef_vals <- coef(rolling_lasso_model, s = "lambda.min")
 rolling_coef_vals <- as.matrix(rolling_coef_vals)
@@ -136,7 +136,7 @@ rolling_coef_vals <- as.matrix(rolling_coef_vals)
 
 # There is a major difference between the logical operator of "!=0! and ">0", ">0" cuts out more
 rolling_selected_predictors <- rownames(rolling_coef_vals)[rolling_coef_vals>.05 | rolling_coef_vals < -.05]
-
+readr::write_rds(rolling_lasso_model,"Data/clean/lasso_rolling_model.rds")
 ### Standard ----
 standard_coef_vals <- coef(standard_lasso_model, s = "lambda.min")
 standard_coef_vals <- as.matrix(standard_coef_vals)
@@ -146,7 +146,7 @@ standard_coef_vals <- as.matrix(standard_coef_vals)
 
 # There is a major difference between the logical operator of "!=0! and ">0", ">0" cuts out more
 standard_selected_predictors <- rownames(standard_coef_vals)[standard_coef_vals>.05 | standard_coef_vals < -.05]
-
+readr::write_rds(standard_lasso_model,"Data/clean/lasso_standard_model.rds")
 # Step 3: Create Models with Lasso Influential coefficients ----
 ## Condense training data once more ----
 train_season_lasso_tbl <- train_season_tbl %>%
