@@ -41,89 +41,59 @@ Jeffrey Sumner
 
 ### Project Background:
 
-\<Possibly reword to include all season!! Inspired by March Madness\>
-[Royalty-added some comments about including regular season as well.]
+Every March, millions of Americans come together to watch the NCAA
+Basketball Championships, AKA "March Madness". The college tournament
+attracts, which consists of 67 games spread over a 3-week period, has
+millions of viewers and spectators, generating significant revenue for
+the NCAA. In 2022, the tournament had 10.7 million TV viewers, 685,000
+attendees, and generated an estimated \$1.15 billion in revenue [1].
 
-Sports, especially the NCAA March Madness tournament, are popular for
-entertainment and analysis. The tournament attracts millions of viewers
-and spectators, generating significant revenue for the NCAA. In 2022,
-the tournament had 10.7 million TV viewers, 685,000 attendees, and
-generated an estimated \$1.15 billion in revenue [1].
+Naturally, March Madness is a gold mine for sports betting. Firms such
+as DraftKings and FanDuel earn a commission with each bet made, in
+addition to revenue from their websites and app ads. In order to
+encourage bettors to their sites and to maximize this revenue, betting
+companies must have the most accurate models possible. This is a
+challenging task for even the most seasoned data analysts; games are
+influenced by a near-infinite number of factors, ranging from "obvious"
+ones like team statistics to more abstract ones like injuries, momentum,
+and crowd noise.
 
-March Madness and college basketball in general is a gold mine for
-sports betting. Firms such as DraftKings and FanDuel earn a commission
-with each bet made, in addition to revenue from their websites and app
-ads. Reliable game prediction models are essential to maximizing this
-revenue through improving lines and parlays, increasing the monetary
-value of bets made, and encouraging more bettors to use their website
-and app.
+The goal of MGT Madness was to create a machine learning model that
+reliably predicted the outcome of both March Madness and regular season
+college basketball games at a level equal or better to ESPN's
+industry-standard prediction models. To achieve this, our main driving
+question was: What predictors could be used to accurately predict the
+outcome of a college basketball game?
 
-Predicting the Men's Division I March Madness Tournament outcome is a
-challenging task for analytics enthusiasts. It involves forecasting 67
-games played over three weeks, including possible upsets, player
-injuries, and changing data. Achieving certainty in this prediction
-process is difficult. Given the interest in college basketball
-throughout the season, our team decided to expand our project to include
-regular season NCAA games as well.
-
-To predict the outcomes of matchups in March Madness, various analyses
-are conducted. Live win probabilities, calculated on a play-by-play
-basis, consider factors like remaining game time, score difference,
-possession, and pre-game win probabilities. The excitement index
-measures the rate of change of a team's chance of winning during a game,
-impacting viewership. Elo ratings, which rate a team's chances of
-winning based on factors like location, conference, and game type, are
-also used.
-
-The goal of MGT Madness is to create machine learning models that
-reliably predict the outcome of NCAA games for both March Madness and
-regular season given different match ups between teams, other pre-game
-characteristics and team statistics. The main driving question was: What
-predictors can be used to accurately predict the outcome of NCAA
-tournament games?
-
-To answer this question, we planned to: collect large amounts of
-disparate data on games in the past, process the data while also
-creating unique features, train and validate multiple types models, and
-finally compare these models against each other on various methods. The
-models will then be combined into one ensemble model...
-
-#### Modeling Game Results:
-
-Since basketball game results are binary (either a win or loss), a
-probit or logistic regression model is great fit. We will compare
-potential models using accuracy, precision, and specificity, among other
-statistics.
-
-Potential factors to investigate include:
-
--   Team ranking differential
--   Team's quality regular season wins
--   Game location relative to each team's campus
--   Game's round in tournament
--   Team efficiency (eg. offensive points per 100 possessions and points
-    allowed per 100 possessions)
--   Statistics over the last 5 games
-
-We anticipate that each team's ranking differential, quality wins,
-location, and efficiency will be the biggest factors determining the
-win/loss outcome of a game.
+To answer this question, we collected large amounts past game data,
+processed the data, selected influential features, trained and validated
+numerous models, and finally compared these models against each other on
+various methods.
 
 ## Overview of Data:
 
 -   How involved was the cleaning process?
+
     -   Could expand more on this, but have a good start.
+
 -   What were your key variables?
+
     -   If this is asking for stuff from results, then we would still be
         wanting to include this
     -   If this is about our initial hypothesis, then this is complete
+
 -   Any interesting insights from EDA?
+
     -   add some pca and UMAP with tidymodels...
+
 -   If you used feature engineering how and was it successful?
 
 -   Where did the dataset come from?
+
     -   Complete
+
 -   Super quick overview of the data
+
     -   Complete
 
 ### Data Preparation and Cleaning
@@ -260,37 +230,46 @@ train_tbl %>%
 ![Data Exploration - Density Plot of Win Probability
 Predictors](../Progress%20Report/images/Data%20Exploration%20-%20Density%20Plot%20of%20Win%20Probability%20Predictors.png)
 
-
-We also processed our data so that predictors with distributions closely centered around zero were omitted from the data. This included things like flagrant fouls and blocks. Initially, we explored modeling with this data, however, some of the mentioned features were selected as significant and would therefore contribute to our model's lack of performance. This brought our features down from 286 to 237 features remaining.
-
+We also processed our data so that predictors with distributions closely
+centered around zero were omitted from the data. This included things
+like flagrant fouls and blocks. Initially, we explored modeling with
+this data, however, some of the mentioned features were selected as
+significant and would therefore contribute to our model's lack of
+performance. This brought our features down from 286 to 237 features
+remaining.
 
 ## Feature Engineering
-    -   Discussion of distance, roll 5, season ave...
-    -   Roll5... the goal of using the last 5 games was to capture
-        team's current gameplay. This was our attempt at capturing team
-        momentum (such as win or losing streaks).
-   
-    -   Offensive and Defensive Efficiency: We created predictors for
-        team offensive and defensive efficiency. The efficiency
-        predictors provide useful measures of a team's overall
-        performance by considering both offensive and defensive
-        statistics while not skewing the offensive and defensive metrics
-        based on a team's pace of play. Offensive efficiency is
-        calculated using offensive points per 100 possessions. Defensive
-        efficiency is calculated using defensive points allowed per 100
-        possessions. Possession data wasn't inherently available in our
-        datasets. We engineered possessions using the following formula.
-        The 0.44 factor was suggested in by kenpom. **\<need
-        reference\>**
-        -   Team Possessions = (team field goal attempts - team
-            offensive rebounds) + team total turnovers + (0.44 \* team
-            free throw attempts)
+
+```         
+-   Discussion of distance, roll 5, season ave...
+-   Roll5... the goal of using the last 5 games was to capture
+    team's current gameplay. This was our attempt at capturing team
+    momentum (such as win or losing streaks).
+
+-   Offensive and Defensive Efficiency: We created predictors for
+    team offensive and defensive efficiency. The efficiency
+    predictors provide useful measures of a team's overall
+    performance by considering both offensive and defensive
+    statistics while not skewing the offensive and defensive metrics
+    based on a team's pace of play. Offensive efficiency is
+    calculated using offensive points per 100 possessions. Defensive
+    efficiency is calculated using defensive points allowed per 100
+    possessions. Possession data wasn't inherently available in our
+    datasets. We engineered possessions using the following formula.
+    The 0.44 factor was suggested in by kenpom. **\<need
+    reference\>**
+    -   Team Possessions = (team field goal attempts - team
+        offensive rebounds) + team total turnovers + (0.44 \* team
+        free throw attempts)
+```
 
 ## Explain the resulting dataset!!!!
-- Overall number of datapoints = (27310 training + 18208 test and validation = 45518)
-- 247 features
-- Most features were game statistics (rebounds, field goals attempted, etc.)
 
+-   Overall number of datapoints = (27310 training + 18208 test and
+    validation = 45518)
+-   247 features
+-   Most features were game statistics (rebounds, field goals attempted,
+    etc.)
 
 ## Overview of Modeling
 
@@ -350,8 +329,9 @@ throw off our modeling. However, we do see that we have a clear bias
 towards wins as essentially each dataset has a 63% `Winning Percentage`.
 This may lead us to over-predict wins across all types.
 
- - Data was also segmented by the type of averaging (mentioned above). Either rolling or season...
- 
+-   Data was also segmented by the type of averaging (mentioned above).
+    Either rolling or season...
+
 ### Baseline Modeling
 
 With our data split into train, test and validation, we want to predict
@@ -384,88 +364,108 @@ Based on these results, the ESPN baseline accuracy is roughly 72%.
 
 To establish a performance baseline for our own win probability
 predictive models, we created a simple logistic regression model using
-all parameters in our dataset for both rolling averages and season averages. In all likelihood, we anticipate a decent
-model albeit very overfit. Below are the results for the season averaged dataset, and the results for the rolling averages dataset were comparable:
+all parameters in our dataset for both rolling averages and season
+averages. In all likelihood, we anticipate a decent model albeit very
+overfit. Below are the results for the season averaged dataset, and the
+results for the rolling averages dataset were comparable:
 
 ```{r}
 model_tbl %>% filter(Simplicity == "baseline", Metric == "season", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
 ```
+
 ```{r}
 model_tbl %>% filter(Simplicity == "baseline", Metric == "rolling", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
 ```
 
-Based on the results, our baseline accuracy built upon season averages is roughly 70%. Overall,
-this is a decent model but is likely to be overfit and unstable
-long-term. The same can be said about the baseline accuracy built upon rolling averages.
+Based on the results, our baseline accuracy built upon season averages
+is roughly 70%. Overall, this is a decent model but is likely to be
+overfit and unstable long-term. The same can be said about the baseline
+accuracy built upon rolling averages.
 
-This shows that the rolling averages perform roughly as well as the season averages. We continued creating parallel models to further explore the effect of rolling averages vs season averages.
+This shows that the rolling averages perform roughly as well as the
+season averages. We continued creating parallel models to further
+explore the effect of rolling averages vs season averages.
 
 ```{r}
 data.frame(summary(baseline_season_logit_model)$coef[summary(baseline_season_logit_model)$coef[,4]<=.05, 4])
 data.frame(summary(baseline_rolling_logit_model)$coef[summary(baseline_rolling_logit_model)$coef[,4]<=.05, 4])
 ```
-<code change, need to update!>
-From the summary of the baseline models, about 40 features (of the original 78) were statistically significant. Of note, the
-coefficient of the factor of home_distance / away_distance from our
-logit model initially confirmed the common assumption that there is a
-home field advantage. These results may change as we continue to develop
-our models.
+
+\<code change, need to update!\> From the summary of the baseline
+models, about 40 features (of the original 78) were statistically
+significant. Of note, the coefficient of the factor of home_distance /
+away_distance from our logit model initially confirmed the common
+assumption that there is a home field advantage. These results may
+change as we continue to develop our models.
 
 #### Feature Selection Exploration
 
--   To find the best lambda value for LASSO,
-    we used `cv.glmnet(family = "binomial", alpha = 1, nfolds = 10)`. We
-    then used the coefficients using the lambda value that was one standard error away from that minimized the
-    cross-validation error to select our significant predictors from an
-    original list of 78 potential predictors.
-    
-    Altering the coefficient cutoff changed the selected predictors. We changed the cutoffs multiple times until we found a good balance between number of predictors remaining and logistic regression model performance. Ultimately, we decided to limit our predictors to ones with coefficient not equal to zero.
-    
-  The results of our LASSO exploration upon the season averaged data led to 30 features being selected (compared to 37 in the baseline). The results of our LASSO exploration upon the rolling averaged data led to 44 features being selected (compared to 40 in the baseline). All of the features selected in the season averaged LASSO were included in the rolling averaged LASSO. Both included predictors such as: offensive ratings, blocks, field goals attempted, assists, turnovers, and steals. Of note is ratings and distance traveled are still chosen as significant predictors for both LASSO feature selections.
-  
+-   To find the best lambda value for LASSO, we used
+    `cv.glmnet(family = "binomial", alpha = 1, nfolds = 10)`. We then
+    used the coefficients using the lambda value that was one standard
+    error away from that minimized the cross-validation error to select
+    our significant predictors from an original list of 78 potential
+    predictors.
+
+    Altering the coefficient cutoff changed the selected predictors. We
+    changed the cutoffs multiple times until we found a good balance
+    between number of predictors remaining and logistic regression model
+    performance. Ultimately, we decided to limit our predictors to ones
+    with coefficient not equal to zero.
+
+The results of our LASSO exploration upon the season averaged data led
+to 30 features being selected (compared to 37 in the baseline). The
+results of our LASSO exploration upon the rolling averaged data led to
+44 features being selected (compared to 40 in the baseline). All of the
+features selected in the season averaged LASSO were included in the
+rolling averaged LASSO. Both included predictors such as: offensive
+ratings, blocks, field goals attempted, assists, turnovers, and steals.
+Of note is ratings and distance traveled are still chosen as significant
+predictors for both LASSO feature selections.
+
 ```{r}
 data.frame(season_selected_predictors)
-```  
-  
+```
+
 ```{r}
 data.frame(rolling_selected_predictors)
-```  
+```
+
 ```{r}
 rolling_selected_predictors[!(rolling_selected_predictors %in% season_selected_predictors)]
 ```
 
-
-            The training set was used to fit our lasso model which was
-            created to select our optimal set of predictors. Using the
-            `cv.glmnet` function, we performed 10-fold cross-validation
-            on our lasso model. Cross-validation is a technique used to
-            evaluate the performance of a model by splitting the dataset
-            into multiple parts, training the model on one part, and
-            testing it on another. This process is repeated multiple
-            times, with different parts of the dataset used for training
-            and testing each time.\
-            \
-            After predictors were selected with the lasso model model,
-            we then trained each of our models with the training
-            dataset. The performance was then evaluated with the
-            validation set to insure it did not overfit the training
-            data. Finally, performance of the model was evaluated using
-            the test set. The test set was held out during the modeling
-            process to ensure an unbiased representation of each model's
-            perforance.
-
+```         
+        The training set was used to fit our lasso model which was
+        created to select our optimal set of predictors. Using the
+        `cv.glmnet` function, we performed 10-fold cross-validation
+        on our lasso model. Cross-validation is a technique used to
+        evaluate the performance of a model by splitting the dataset
+        into multiple parts, training the model on one part, and
+        testing it on another. This process is repeated multiple
+        times, with different parts of the dataset used for training
+        and testing each time.\
+        \
+        After predictors were selected with the lasso model model,
+        we then trained each of our models with the training
+        dataset. The performance was then evaluated with the
+        validation set to insure it did not overfit the training
+        data. Finally, performance of the model was evaluated using
+        the test set. The test set was held out during the modeling
+        process to ensure an unbiased representation of each model's
+        perforance.
+```
 
 \<probably omit this paragraph, but mention\>
-
 
 -   In order to explore feature selection, we used stepwise regression
     through the `MASS` package. The steps were bidirectional elimination
     with AIC as the model improvement criterion.<awk wording> This
-    method resulted in ..... features (from .....) being selected. The logit
-    model trained on these features had a performance that includes:
-    accuracy = 0.7000, precision = 0.7238, specification = 0.6326, and
-    AUC = 0.7457. According to stepwise method... were the most
-    important features.
+    method resulted in ..... features (from .....) being selected. The
+    logit model trained on these features had a performance that
+    includes: accuracy = 0.7000, precision = 0.7238, specification =
+    0.6326, and AUC = 0.7457. According to stepwise method... were the
+    most important features.
     <potentially add how this compares / contrasts to the previous probit or logit models above>
     [Matthew Rosenthal, Michael] \<if you are interested in seeing the
     stepwise... go to ... file\>
@@ -482,10 +482,13 @@ rolling_selected_predictors[!(rolling_selected_predictors %in% season_selected_p
 
 ## Simple Models
 
-After predictors were selected with LASSO regression, we trained a logistic, probabilistic and gradient boosted decision tree models upon both the rolling averaged and season averaged datasets. These so-called "simple models" were trained with the features selected by LASSO regression and no other processing of the data.
+After predictors were selected with LASSO regression, we trained a
+logistic, probabilistic and gradient boosted decision tree models upon
+both the rolling averaged and season averaged datasets. These so-called
+"simple models" were trained with the features selected by LASSO
+regression and no other processing of the data.
 
 -   Logit results
-
 
 ```{r}
 model_tbl %>% filter(Simplicity == "baseline", Metric == "season", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
@@ -494,21 +497,37 @@ model_tbl %>% filter(Simplicity == "simple", Metric == "season", `Model Type` ==
 model_tbl %>% filter(Simplicity == "baseline", Metric == "rolling", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
 model_tbl %>% filter(Simplicity == "simple", Metric == "rolling", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
 ```
-Simple season Logit: Accuracy = 0.695, Baseline Logit = 0.700, all metrics decreased slightly as less features were included.
-Simple rolling logit: Accuracy = 0.634, Baseline Logit = 0.684, most drops in sensitivity (-.231 change), recall (-.231), F1 (-.228) and Kappa (-0.179). However there were gains in Specificity (+0.058) and Precision (+91)
+
+Simple season Logit: Accuracy = 0.695, Baseline Logit = 0.700, all
+metrics decreased slightly as less features were included. Simple
+rolling logit: Accuracy = 0.634, Baseline Logit = 0.684, most drops in
+sensitivity (-.231 change), recall (-.231), F1 (-.228) and Kappa
+(-0.179). However there were gains in Specificity (+0.058) and Precision
+(+91)
 
 -   Probit results
+
 ```{r}
 model_tbl %>% filter(Simplicity == "simple", Metric == "season", `Model Type` == "probit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
 model_tbl %>% filter(Simplicity == "simple", Metric == "rolling", `Model Type` == "probit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
 ```
-From the results, you can see that the simple probit model performed extremely closely with the simple logit model. This is not an unexpected result as the two models are sometimes used interchangeably.
 
+From the results, you can see that the simple probit model performed
+extremely closely with the simple logit model. This is not an unexpected
+result as the two models are sometimes used interchangeably.
 
 ## Enhanced Models
 
-For our next set of models, our goals were to further protect against overfitting and increasing generalization of our models by normalizing the training data fed into the models. Data is also mapped to principal components, which were automatically picked by the `tidymodels` package to include at least 80% of the explained variance. We are also using glmnet versions of the logit, meaning that the lambda is chosen automatically to be the most optimal one. It still uses 10-fold cross validation through `rsample::vfold_cv()`. There are 30 different penalties we are cross-validating on. The metric set that it is optimizing on is ROC and AUC.
-
+For our next set of models, our goals were to further protect against
+overfitting and increasing generalization of our models by normalizing
+the training data fed into the models. Data is also mapped to principal
+components, which were automatically picked by the `tidymodels` package
+to include at least 80% of the explained variance. We are also using
+glmnet versions of the logit, meaning that the lambda is chosen
+automatically to be the most optimal one. It still uses 10-fold cross
+validation through `rsample::vfold_cv()`. There are 30 different
+penalties we are cross-validating on. The metric set that it is
+optimizing on is ROC and AUC.
 
 \<Paragraph here possibly... if not covered above: what is meant by
 "enhanced?"\> - Logit results - Confusion Table - Probit results - Xgb
@@ -524,9 +543,11 @@ model_tbl %>% filter(Simplicity == "simple", Metric == "rolling", `Model Type` =
 model_tbl %>% filter(Simplicity == "enhanced", Metric == "season", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
 model_tbl %>% filter(Simplicity == "enhanced", Metric == "rolling", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
 ```
-For the seasons average based logit models, the enhancements to the dataset reduce the performance across all metrics except for specificity. However, we feel like this helps protect this model from overfitting.
 
-
+For the seasons average based logit models, the enhancements to the
+dataset reduce the performance across all metrics except for
+specificity. However, we feel like this helps protect this model from
+overfitting.
 
 ## Ensemble
 
@@ -564,7 +585,14 @@ For the seasons average based logit models, the enhancements to the dataset redu
     findings please mention these.
 
     -   "Standard Dataset" How it was built...
-    -   During our Enhanced modeling, for some reason, many of the models trained on the rolling averages data would only predict a certain class (such as predicting all wins, no loses, or vice versa). We believe this was because the rolling averages features selected from LASSO were sparse and not well correlated with game outcomes. For instance, some of the predictors selected were "flagrant fouls," of which there were mostly zeros in the data.
+    -   During our Enhanced modeling, for some reason, many of the
+        models trained on the rolling averages data would only predict a
+        certain class (such as predicting all wins, no loses, or vice
+        versa). We believe this was because the rolling averages
+        features selected from LASSO were sparse and not well correlated
+        with game outcomes. For instance, some of the predictors
+        selected were "flagrant fouls," of which there were mostly zeros
+        in the data.
     -   How it performed (overfit)
     -   Why we dropped it.
 
