@@ -374,57 +374,27 @@ Based on these results, the ESPN baseline accuracy is roughly 72%.
 
 To establish a performance baseline for our own win probability
 predictive models, we created a simple logistic regression model using
-all parameters in our dataset. In all likelihood, we anticipate a decent
-model albeit very overfit. Below are the results:
+all parameters in our dataset for both rolling averages and season averages. In all likelihood, we anticipate a decent
+model albeit very overfit. Below are the results for the season averaged dataset, and the results for the rolling averages dataset were comparable:
 
 ```{r}
 model_tbl %>% filter(Simplicity == "baseline", Metric == "season", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
 ```
+```{r}
+model_tbl %>% filter(Simplicity == "baseline", Metric == "rolling", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
+```
 
-Based on the results, our baseline accuracy is roughly 70%. Overall,
+Based on the results, our baseline accuracy built upon season averages is roughly 70%. Overall,
 this is a decent model but is likely to be overfit and unstable
-long-term.
+long-term. The same can be said about the baseline accuracy built upon rolling averages.
 
-\-\-\-\-\-\-\-\-\-\-\-\--
+This shows that the rolling averages perform roughly as well as the season averages. We continued creating parallel models to further explore the effect of rolling averages vs season averages.
 
-\<Amend to reflect new Final Code, different games...\> For our simple
-exploratory model, we used a logit model with only a few of our features
-. Our initial win probability model was a logistic regression model
-through the `glm(, family='binomial')` function in R. For this model, we
-only considered a small amount a features. The confusion matrix below
-shows that our Logit model's accuracy = 65.35%, precision = 65.78%,
-specificity = 63.59%. This model helped us get our bearings and set a
-baseline for our own improvements.
+```{r}
+data.frame(summary(baseline_season_logit_model)$coef[summary(baseline_season_logit_model)$coef[,4]<=.05, 4])
+```
 
-|             | Predicted Win | Predicted Loss |
-|-------------|---------------|----------------|
-| Actual Win  | 33,193        | 16,317         |
-| Actual Loss | 17,267        | 30,154         |
-
-: Logit Model Confusion Matrix (omitting the first 5 games of each team
-of each season)
-
-<Amend to reflect new Final code> We also created a simple probit model.
-Like the previous logit model, our goal was to create a baseline in
-performance. Unlike the previous logit model, we used a large amount of
-features (99 features). Two of these models were created; one where the
-game statistics were from the season average, the other with game
-statistics from only the last 5 games. For these probit models, the
-season averages provided a slightly better prediction of game outcomes
-than the last 5 games averages. [could be a table... Roll5: acc = 0.704,
-prec = 0.628, spec = 0.832, auc = 0.658, AIC = 30616... Season Average:
-acc = 0.717, prec = 0.644, spec = 0.832 (same), auc = 0.676, AIC =
-29824]. Although the probit model trained on the season averages data
-was better, it didn't outperform the last 5 games averages by enough for
-us to abandon the last 5 games averages as a separate data set.
-
-<Probably stays same> As expected, ESPN does outperform our initial
-logit and probit models. This will provide us with a good baseline to
-reference for our future modeling attempts.
-
-\<Add statement, does season avg outperform roll5?\>
-
-\<Still a valid statement, might omit this later...\> Of note, the
+From the summary of the baseline models, about 44 features (of the original 95) were statistically significant. Of note, the
 coefficient of the factor of home_distance / away_distance from our
 logit model initially confirmed the common assumption that there is a
 home field advantage. These results may change as we continue to develop
