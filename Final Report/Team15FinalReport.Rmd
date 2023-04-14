@@ -282,6 +282,12 @@ Predictors](../Progress%20Report/images/Data%20Exploration%20-%20Density%20Plot%
             offensive rebounds) + team total turnovers + (0.44 \* team
             free throw attempts)
 
+## Explain the resulting dataset!!!!
+- Overall number of datapoints = (27310 training + 18208 test and validation = 45518)
+- 285 features
+- Most features were game statistics (rebounds, field goals attempted, etc.)
+
+
 ## Overview of Modeling
 
 Now that we have explored our data, we are ready to begin modeling it.
@@ -304,7 +310,7 @@ broken our modeling out into multiple parts:
 -   ~~Multiple parts~~
     -   ~~Splitting data~~
     -   ~~Non-LASSO models ("Baseline models")~~
-        -   ~~Train season tbl -\> All 95 features~~
+        -   ~~Train season tbl -\> All 94 features~~
     -   ~~LASSO~~
     -   ~~Creating LASSO "simple" models~~
     -   ~~Using LASSO selected features + normalization + PCA (\>80%
@@ -394,7 +400,7 @@ This shows that the rolling averages perform roughly as well as the season avera
 data.frame(summary(baseline_season_logit_model)$coef[summary(baseline_season_logit_model)$coef[,4]<=.05, 4])
 ```
 
-From the summary of the baseline models, about 44 features (of the original 95) were statistically significant. Of note, the
+From the summary of the baseline models, about 44 features (of the original 94) were statistically significant. Of note, the
 coefficient of the factor of home_distance / away_distance from our
 logit model initially confirmed the common assumption that there is a
 home field advantage. These results may change as we continue to develop
@@ -402,29 +408,24 @@ our models.
 
 #### Feature Selection Exploration
 
--   <To be updated / deleted> To find the best lambda value for LASSO,
+-   To find the best lambda value for LASSO,
     we used `cv.glmnet(family = "binomial", alpha = 1, nfolds = 10)`. We
     then used the coefficients using the lambda value that minimized the
     cross-validation error to select our significant predictors from an
-    original list of 49 potential predictors. These significant
-    predictors were then used to create logit models. Altering the
-    syntax for the coefficient cutoff changed the selected predictors.
-    For instance, using the input `coefficient!=0` resulted in 38
-    predictors (accuracy = 0.6751, precision = 0.7010, specification =
-    0.5941, auc = 0.7104). Using `coefficient>0` surprisingly resulted
-    in 17 predictors and had the same performance as the previous
-    syntax. Ultimately, we could set `coefficient>10^-3` before seeing a
-    drop in performance (resulted in 15 predictors, accuracy = 0.6750,
-    precision = 0.7005, specification = 0.5944, auc = 0.7098).According
-    to the LASSO method, ... were the most important features
+    original list of 94 potential predictors.
+    
+    Altering the coefficient cutoff changed the selected predictors. We changed the cutoffs multiple times until we found a good balance between number of predictors remaining and logistic regression model performance. Ultimately, we decided to limit our predictors to ones with coefficient magnitudes larger than 0.05.
+    
+  The results of our LASSO exploration upon the season averaged data led to 46 features being selected (closely matching the number of significant features in the summary of the baseline logit model). The results of our LASSO exploration upon the rolling averaged data led to 19 features being selected. All of the features selected in the rolling averaged LASSO were included in the season averaged LASSO with the exception of away_team_rebounds_opp. Both included predictors such as: offensive ratings, blocks, field goals made, possessions, turnovers, and fouls. Of note, however, is that neither selected the distance traveled as being significant.
+  
+```{r}
+data.frame(season_selected_predictors)
+```  
+  
+```{r}
+data.frame(rolling_selected_predictors)
+```  
 
-    -   Also, coefficient cutoffs were limited to coefficients with
-        magnitudes larger than 0.05
-    -   season results: 95 to 46 features...
-        -   ratings made the cut, but home-distance traveled did NOT
-            make the cut!
-    -   roll5: 95 to 19 features...
-        -   Still no distances selected.
 
             The training set was used to fit our lasso model which was
             created to select our optimal set of predictors. Using the
@@ -445,15 +446,9 @@ our models.
             process to ensure an unbiased representation of each model's
             perforance.
 
--   [show vip of logit model] [Jeffrey]
 
-```{r}
-vip(baseline_rolling_logit_model)
-```
-
-```         
 \<probably omit this paragraph, but mention\>
-```
+
 
 -   In order to explore feature selection, we used stepwise regression
     through the `MASS` package. The steps were bidirectional elimination
@@ -479,16 +474,21 @@ vip(baseline_rolling_logit_model)
 
 ## Simple Models
 
--   
-
-    ```         
-    <Explain Simple Models how built>
-    ```
+After predictors were selected with LASSO regression, we trained a logistic, probabilistic and gradient boosted decision tree models upon both the rolling averaged and season averaged datasets. These so-called "simple models" were trained with the features selected by LASSO regression and no other processing of the data.
 
 -   Logit results
 
-    -   rolling, season
-    -   Confusion Table
+
+```{r}
+model_tbl %>% filter(Simplicity == "baseline", Metric == "season", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
+model_tbl %>% filter(Simplicity == "simple", Metric == "season", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
+```
+```{r}
+model_tbl %>% filter(Simplicity == "baseline", Metric == "rolling", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
+model_tbl %>% filter(Simplicity == "simple", Metric == "rolling", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
+```
+Simple season Logit: Accuracy = 0.695, Baseline Logit = 0.700, all metrics decreased slightly as less features were included.
+Simple rolling logit: Accuracy = 0.634, Baseline Logit = 0.684, most drops in sensitivity (-.231 change), recall (-.231), F1 (-.228) and Kappa (-0.179). However there were gains in Specificity (+0.058) and Precision (+91)
 
 -   Probit results
 
