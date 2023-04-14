@@ -398,9 +398,10 @@ This shows that the rolling averages perform roughly as well as the season avera
 
 ```{r}
 data.frame(summary(baseline_season_logit_model)$coef[summary(baseline_season_logit_model)$coef[,4]<=.05, 4])
+data.frame(summary(baseline_rolling_logit_model)$coef[summary(baseline_rolling_logit_model)$coef[,4]<=.05, 4])
 ```
 
-From the summary of the baseline models, about 44 features (of the original 94) were statistically significant. Of note, the
+From the summary of the baseline models, about 48 features (of the original 94) were statistically significant. Of note, the
 coefficient of the factor of home_distance / away_distance from our
 logit model initially confirmed the common assumption that there is a
 home field advantage. These results may change as we continue to develop
@@ -482,8 +483,7 @@ After predictors were selected with LASSO regression, we trained a logistic, pro
 ```{r}
 model_tbl %>% filter(Simplicity == "baseline", Metric == "season", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
 model_tbl %>% filter(Simplicity == "simple", Metric == "season", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
-```
-```{r}
+
 model_tbl %>% filter(Simplicity == "baseline", Metric == "rolling", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
 model_tbl %>% filter(Simplicity == "simple", Metric == "rolling", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
 ```
@@ -491,12 +491,12 @@ Simple season Logit: Accuracy = 0.695, Baseline Logit = 0.700, all metrics decre
 Simple rolling logit: Accuracy = 0.634, Baseline Logit = 0.684, most drops in sensitivity (-.231 change), recall (-.231), F1 (-.228) and Kappa (-0.179). However there were gains in Specificity (+0.058) and Precision (+91)
 
 -   Probit results
+```{r}
+model_tbl %>% filter(Simplicity == "simple", Metric == "season", `Model Type` == "probit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
+model_tbl %>% filter(Simplicity == "simple", Metric == "rolling", `Model Type` == "probit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
+```
+From the results, you can see that the simple probit model performed extremely closely with the simple logit model. This is not an unexpected result as the two models are sometimes used interchangeably.
 
-    -   season, mention rolling
-
--   xgb trees results
-
-    -   season, mention rolling
 
 ## Enhanced Models
 
