@@ -86,7 +86,7 @@ model_tbl <- lapply(ls(), create_tibble) %>%
   select(-model)  %>%
   separate(name, into = c("Simplicity","Metric","Model Type","Temp"), remove = FALSE)
 
-readr::write_rds(model_tbl, "Data/clean/model_prediction_tbl.rds")
+# readr::write_rds(model_tbl, "Data/clean/model_prediction_tbl.rds")
 
 # Create Ensemble Prediction Tibble ----
 create_tibble <- function(x){
@@ -97,8 +97,6 @@ create_tibble <- function(x){
 element_wise_add <- function(vec1, vec2) {
   map2_dbl(vec1, vec2, `+`)
 }
-
-element_wise_sum <- reduce(pred_test, element_wise_add)
 
 model_ensemble_tbl <- lapply(ls(), create_tibble) %>% 
   bind_rows() %>% 
