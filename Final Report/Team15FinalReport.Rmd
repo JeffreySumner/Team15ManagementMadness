@@ -120,25 +120,7 @@ win/loss outcome of a game.
 -   Any interesting insights from EDA?
     -   add some pca and UMAP with tidymodels...
 -   If you used feature engineering how and was it successful?
-    -   Discussion of distance, roll 5, season ave...
-    -   Roll5... the goal of using the last 5 games was to capture
-        team's current gameplay. This was our attempt at capturing team
-        momentum (such as win or losing streaks).
-    -   Offensive and Defensive Efficiency: We created predictors for
-        team offensive and defensive efficiency. The efficiency
-        predictors provide useful measures of a team's overall
-        performance by considering both offensive and defensive
-        statistics while not skewing the offensive and defensive metrics
-        based on a team's pace of play. Offensive efficiency is
-        calculated using offensive points per 100 possessions. Defensive
-        efficiency is calculated using defensive points allowed per 100
-        possessions. Possession data wasn't inherently available in our
-        datasets. We engineered possessions using the following formula.
-        The 0.44 factor was suggested in by kenpom. **\<need
-        reference\>**
-        -   Team Possessions = (team field goal attempts - team
-            offensive rebounds) + team total turnovers + (0.44 \* team
-            free throw attempts)
+
 -   Where did the dataset come from?
     -   Complete
 -   Super quick overview of the data
@@ -277,6 +259,27 @@ train_tbl %>%
 
 ![Data Exploration - Density Plot of Win Probability
 Predictors](../Progress%20Report/images/Data%20Exploration%20-%20Density%20Plot%20of%20Win%20Probability%20Predictors.png)
+
+## Feature Engineering
+    -   Discussion of distance, roll 5, season ave...
+    -   Roll5... the goal of using the last 5 games was to capture
+        team's current gameplay. This was our attempt at capturing team
+        momentum (such as win or losing streaks).
+    -   Offensive and Defensive Efficiency: We created predictors for
+        team offensive and defensive efficiency. The efficiency
+        predictors provide useful measures of a team's overall
+        performance by considering both offensive and defensive
+        statistics while not skewing the offensive and defensive metrics
+        based on a team's pace of play. Offensive efficiency is
+        calculated using offensive points per 100 possessions. Defensive
+        efficiency is calculated using defensive points allowed per 100
+        possessions. Possession data wasn't inherently available in our
+        datasets. We engineered possessions using the following formula.
+        The 0.44 factor was suggested in by kenpom. **\<need
+        reference\>**
+        -   Team Possessions = (team field goal attempts - team
+            offensive rebounds) + team total turnovers + (0.44 \* team
+            free throw attempts)
 
 ## Overview of Modeling
 
