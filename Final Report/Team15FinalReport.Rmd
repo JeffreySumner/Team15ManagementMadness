@@ -419,69 +419,29 @@ our models.
 
 #### Feature Selection Exploration
 
--   To find the best lambda value for LASSO,
-    we used `cv.glmnet(family = "binomial", alpha = 1, nfolds = 10)`. We
-    then used the coefficients using the lambda value that was one standard error away from that minimized the
-    cross-validation error to select our significant predictors from an
-    original list of 78 potential predictors.
-    
-    Altering the coefficient cutoff changed the selected predictors. We changed the cutoffs multiple times until we found a good balance between number of predictors remaining and logistic regression model performance. Ultimately, we decided to limit our predictors to ones with coefficient not equal to zero.
-    
-  The results of our LASSO exploration upon the season averaged data led to 30 features being selected (compared to 37 in the baseline). The results of our LASSO exploration upon the rolling averaged data led to 44 features being selected (compared to 40 in the baseline). All of the features selected in the season averaged LASSO were included in the rolling averaged LASSO. Both included predictors such as: offensive ratings, blocks, field goals attempted, assists, turnovers, and steals. Of note is ratings and distance traveled are still chosen as significant predictors for both LASSO feature selections.
-  
+In order to explore feature selection, we looked at stepwise regression using the `MASS` package as well as LASSO regression using `glmnet`.  For stepwise, we tested bidirectional elimination.   For both feature selection techniques, AIC was used as the model improvement criterion.  Both, stepwise and LASSO, produced similar results.  Ultimately, LASSO regression was selected due to overall performance due to how quickly it returned results versus stepwise regression. Running stepwise regression using large number of predictors was not as efficient as LASSO regression due to how stepwise regression interactively adds and removes predictors based on metrics until a subset of predictors is found. LASSO regression provided us with a subset of predictors without sacrificing performance training our models.
+
+The training set was used to fit our lasso model which was created to select our optimal set of predictors. Using the `cv.glmnet` function, we performed 10-fold cross-validation on our lasso model.
+
+To find the best lambda value for LASSO, we used cv.glmnet(family = "binomial", alpha = 1, nfolds = 10). We then used the coefficients using the lambda value that was one standard error away from that minimized the cross-validation error to select our significant predictors from an original list of 78 potential predictors.
+
+Altering the coefficient cutoff changed the selected predictors. We changed the cutoffs multiple times until we found a good balance between number of predictors remaining and logistic regression model performance. Ultimately, we decided to limit our predictors to ones with coefficient not equal to zero.
+
+The results of our LASSO exploration upon the season averaged data led to 30 features being selected (compared to 37 in the baseline). The results of our LASSO exploration upon the rolling averaged data led to 44 features being selected (compared to 40 in the baseline). All of the features selected in the season averaged LASSO were included in the rolling averaged LASSO. Both included predictors such as: offensive ratings, blocks, field goals attempted, assists, turnovers, and steals. Of note is ratings and distance traveled are still chosen as significant predictors for both LASSO feature selections.
+
+
 ```{r}
 data.frame(season_selected_predictors)
-```  
-  
+```
+
 ```{r}
 data.frame(rolling_selected_predictors)
-```  
+```
 
+```{r}
+rolling_selected_predictors[!(rolling_selected_predictors %in% season_selected_predictors)]
+```
 
-            The training set was used to fit our lasso model which was
-            created to select our optimal set of predictors. Using the
-            `cv.glmnet` function, we performed 10-fold cross-validation
-            on our lasso model. Cross-validation is a technique used to
-            evaluate the performance of a model by splitting the dataset
-            into multiple parts, training the model on one part, and
-            testing it on another. This process is repeated multiple
-            times, with different parts of the dataset used for training
-            and testing each time.\
-            \
-            After predictors were selected with the lasso model model,
-            we then trained each of our models with the training
-            dataset. The performance was then evaluated with the
-            validation set to insure it did not overfit the training
-            data. Finally, performance of the model was evaluated using
-            the test set. The test set was held out during the modeling
-            process to ensure an unbiased representation of each model's
-            perforance.
-
-
-\<probably omit this paragraph, but mention\>
-
-
--   In order to explore feature selection, we used stepwise regression
-    through the `MASS` package. The steps were bidirectional elimination
-    with AIC as the model improvement criterion.<awk wording> This
-    method resulted in ..... features (from .....) being selected. The logit
-    model trained on these features had a performance that includes:
-    accuracy = 0.7000, precision = 0.7238, specification = 0.6326, and
-    AUC = 0.7457. According to stepwise method... were the most
-    important features.
-    <potentially add how this compares / contrasts to the previous probit or logit models above>
-    [Matthew Rosenthal, Michael] \<if you are interested in seeing the
-    stepwise... go to ... file\>
-
--   As we were exploring methods for predictor selection, we looked at
-    stepwise regression as well as LASSO regression. We eventually
-    settled on LASSO regression due to overall performance of stepwise
-    regression. Running stepwise regression using large number of
-    predictors was not as efficient as LASSO regression due to how
-    stepwise regression interactively adds and removes predictors based
-    on metrics until a subset of predictors is found. LASSO regression
-    provided us with a subset of predictors without sacrificing
-    performance training our models.
 
 ## Simple Models
 
