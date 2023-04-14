@@ -500,9 +500,26 @@ From the results, you can see that the simple probit model performed extremely c
 
 ## Enhanced Models
 
+For our next set of models, our goals were to further protect against overfitting and increasing generalization of our models by normalizing the training data fed into the models. Data is also mapped to principal components, which were automatically picked by the `tidymodels` package to include at least 80% of the explained variance. We are also using glmnet versions of the logit, meaning that the lambda is chosen automatically to be the most optimal one. It still uses 10-fold cross validation through `rsample::vfold_cv()`. There are 30 different penalties we are cross-validating on. The metric set that it is optimizing on is ROC and AUC.
+
+
 \<Paragraph here possibly... if not covered above: what is meant by
 "enhanced?"\> - Logit results - Confusion Table - Probit results - Xgb
 Trees results
+
+```{r}
+model_tbl %>% filter(Simplicity == "baseline", Metric == "season", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
+model_tbl %>% filter(Simplicity == "baseline", Metric == "rolling", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
+
+model_tbl %>% filter(Simplicity == "simple", Metric == "season", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
+model_tbl %>% filter(Simplicity == "simple", Metric == "rolling", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
+
+model_tbl %>% filter(Simplicity == "enhanced", Metric == "season", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
+model_tbl %>% filter(Simplicity == "enhanced", Metric == "rolling", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
+```
+For the seasons average based logit models, the enhancements to the dataset reduce the performance across all metrics except for specificity. However, we feel like this helps protect this model from overfitting.
+
+
 
 ## Ensemble
 
@@ -540,6 +557,7 @@ Trees results
     findings please mention these.
 
     -   "Standard Dataset" How it was built...
+    -   During our Enhanced modeling, for some reason, many of the models trained on the rolling averages data would only predict a certain class (such as predicting all wins, no loses, or vice versa). We believe this was because the rolling averages features selected from LASSO were sparse and not well correlated with game outcomes. For instance, some of the predictors selected were "flagrant fouls," of which there were mostly zeros in the data.
     -   How it performed (overfit)
     -   Why we dropped it.
 
