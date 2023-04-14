@@ -1,22 +1,22 @@
 ---
-  editor_options:
+editor_options:
   markdown:
-  wrap: 72
+    wrap: 72
 output:
   html_document:
-  df_print: paged
-pdf_document: default
+    df_print: paged
+  pdf_document: default
 geometry: margin=.5in
 fontsize: 11pt
 always_allow_html: yes
 ---
-  
-  ```{r setup}
+
+```{r setup, echo=FALSE}
 
 knitr::opts_knit$set(root.dir = here::here())
 ```
 
-```{r}
+```{r source_files, echo=FALSE, warning=FALSE, message=FALSE}
 
 source("Final Code/model_predictions.R")
 source("Final Code/draw_confusion_matrix.R")
@@ -28,16 +28,6 @@ Group Members: Michael Munson, Matthew Rosenthal, Matthew Royalty,
 Jeffrey Sumner
 
 ## Overview of Project:
-
--   Team members names listed in heading
--   Complete
--   Necessary background information/framing of the problem
--   Complete
--   Include an overview of the problem in general as well as your
-general approach
--   Could edit to only reflect predicting outcomes of games
--   State initial hypotheses
--   Could edit to only reflect predicting outcomes of games
 
 ### Project Background:
 
@@ -71,21 +61,6 @@ numerous models, and finally compared these models against each other on
 various methods.
 
 ## Overview of Data:
-
--   How involved was the cleaning process?
-    -   Could expand more on this, but have a good start.
--   What were your key variables?
-    -   If this is asking for stuff from results, then we would still be
-        wanting to include this
-    -   If this is about our initial hypothesis, then this is complete
--   Any interesting insights from EDA?
-    -   add some pca and UMAP with tidymodels...
--   If you used feature engineering how and was it successful?
-
--   Where did the dataset come from?
-    -   Complete
--   Super quick overview of the data
-    -   Complete
 
 ### Data Preparation and Cleaning
 
@@ -135,20 +110,22 @@ locations, and merging data frames.
     -   <https://github.com/lbenz730/ncaahoopR>
     -   <https://github.com/lbenz730/ncaahoopR_data>
 -   NCAA Men's Basketball Data: - Records from 2000, including game
-attendance, team records per season, week-by-week Associated Press
-Poll Records - These records are mostly in .pdf format
+    attendance, team records per season, week-by-week Associated Press
+    Poll Records - These records are mostly in .pdf format
 -   <https://www.ncaa.org/sports/2013/11/27/ncaa-men-s-basketball-records-books.aspx>
-  -   The Kaggle datasets include: - Basic information: Team ID's and
+-   The Kaggle datasets include: - Basic information: Team ID's and
     Names; Tournament seeds since 1984; final scores of all regular
     season, tournament games; etc. - Team Box Scores: game-by-game stats
     at a team level (free throws, rebounds, turnovers, etc.) -
     Geography: the city locations of all games since 2009 - Public
     Rankings: Weekly team rankings from multiple metrics - Supplemental
     Information: Coaches, conference affiliations, bracket structure,
-    etc.
-    -   <https://www.kaggle.com/competitions/mens-march-mania-2022/data>
+    etc. -
+    <https://www.kaggle.com/competitions/mens-march-mania-2022/data>
 
-    -   <https://www.kaggle.com/datasets/andrewsundberg/college-basketball-dataset>
+```         
+-   <https://www.kaggle.com/datasets/andrewsundberg/college-basketball-dataset>
+```
 
 ```{r SampleData, echo=FALSE, warning=FALSE, message=FALSE}
 if(!require(kableExtra)) install.packages('kableExtra')
@@ -178,21 +155,21 @@ duke_sample %>%
         games? Do we want to focus solely on how a single team performs
         or do we want to compare how the team performs vs how the
         opponent performs? These are the kinds of questions that we've
-asked ourselves to determine how the data will be formatted for
-analysis.
+        asked ourselves to determine how the data will be formatted for
+        analysis.
 -   For an in-depth look at how we combined our code and sources, please
-refer to our Team 15 github.
+    refer to our Team 15 github.
 
 **Data Exploration:**
-  
-  We created a correlation matrix of our factors. Due to how we calculated
+
+We created a correlation matrix of our factors. Due to how we calculated
 some of our features, many of the relationships were not surprising such
 as the highly correlated rating factors. However, things like points
 scored over the last 5 games didn't correlate with total turnovers in
 the last 5 games as strongly as expected. Meaning that points off
 turnovers isn't as large of a factor to points scored as anticipated.
 
-```{r CorrelationEDA}
+```{r CorrelationEDA, echo=FALSE, warning=FALSE, message=FALSE}
 train_tbl %>%
   ungroup() %>%
   select(contains("season"), -contains("FTM"), -contains("FGA"), -contains("FGM"), -contains("FTA"), -contains("team"),-contains("_opp"), -contains("fouls")) %>%
@@ -206,7 +183,7 @@ factors to determine how well we hit normality assumptions and for
 scaling purposes in later analyses. Due to the large size of the data,
 our predictors were approximately normal.
 
-```{r DensityEDA}
+```{r DensityEDA, echo=FALSE, warning=FALSE, message=FALSE}
 train_tbl %>%
   ungroup() %>%
   select(contains("season"), -contains("FTM"), -contains("FGA"), -contains("FGM"), -contains("FTA"), -contains("team"),-contains("_opp")) %>%
@@ -218,72 +195,76 @@ train_tbl %>%
   ggthemes::theme_fivethirtyeight() 
 ```
 
-![Data Exploration - Density Plot of Win Probability
-  Predictors](../Progress%20Report/images/Data%20Exploration%20-%20Density%20Plot%20of%20Win%20Probability%20Predictors.png)
-
-
-We also processed our data so that predictors with distributions closely centered around zero were omitted from the data. This included things like flagrant fouls. Initially, we explored modeling with this data, however, some of the mentioned features were selected as significant and would therefore contribute to our model's lack of performance. This brought our features down from 286 to 237 features remaining.
-
+We also processed our data so that predictors with distributions closely
+centered around zero were omitted from the data. This included things
+like flagrant fouls. Initially, we explored modeling with this data,
+however, some of the mentioned features were selected as significant and
+would therefore contribute to our model's lack of performance. This
+brought our features down from 286 to 237 features remaining.
 
 ## Feature Engineering
 
-We created predictors for team offensive and defensive efficiency. The efficiency predictors provide useful measures of a team's overall performance by considering both offensive and defensive statistics while not skewing the offensive and defensive metrics based on a team's pace of play. Offensive efficiency is calculated using offensive points per 100 possessions. Defensive efficiency is calculated using defensive points allowed per 100 possessions. Possession data wasn't inherently available in our datasets. We engineered possessions using the following formula.  The 0.44 factor was suggested by kenpom.
+We created predictors for team offensive and defensive efficiency. The
+efficiency predictors provide useful measures of a team's overall
+performance by considering both offensive and defensive statistics while
+not skewing the offensive and defensive metrics based on a team's pace
+of play. Offensive efficiency is calculated using offensive points per
+100 possessions. Defensive efficiency is calculated using defensive
+points allowed per 100 possessions. Possession data wasn't inherently
+available in our datasets. We engineered possessions using the following
+formula.  The 0.44 factor was suggested by kenpom.
 
+To provide a more up-to-date representation of team performance we
+created a rolling 5 game average for each game statistical variable such
+as points per game, rebounds per game, offensive/defensive efficiency,
+etc.) for a team over their last five games. By doing so, we aimed to
+reduce noise in the data compared to a season average,  identify trends
+when a team is performing well, and quickly react to changes such as
+player injuries or other changes to a team's roster.
 
+In addition to using rolling 5 game averages, we also utilized season
+average predictors to gain a broader understanding of team performance.
+To create these predictors, we calculated the average of various team
+game statistical variables for a team over the entire season.  For each
+of these, we summed the total number of points (or rebounds, assists,
+etc.) accumulated and dividing it by the number of games played. We
+hypothesized season average predictors to be useful in providing a more
+holistic view of a team's performance.
 
-To provide a more up-to-date representation of team performance we created a rolling 5 game average for each game statistical variable such as points per game, rebounds per game, offensive/defensive efficiency, etc.) for a team over their last five games. By doing so, we aimed to reduce noise in the data compared to a season average,  identify trends when a team is performing well, and quickly react to changes such as player injuries or other changes to a team's roster.
+By using both rolling 5 game averages and season average predictors, we
+aimed to gain a more comprehensive understanding of team performance.
 
- 
+\< Add something about distances\>
 
-In addition to using rolling 5 game averages, we also utilized season average predictors to gain a broader understanding of team performance. To create these predictors, we calculated the average of various team game statistical variables for a team over the entire season.  For each of these, we summed the total number of points (or rebounds, assists, etc.) accumulated and dividing it by the number of games played. We hypothesized season average predictors to be useful in providing a more wholistic view of a team's performance.
-
-
-
-By using both rolling 5 game averages and season average predictors, we aimed to gain a more comprehensive understanding of team performance.
-
-
-< Add something about distances> 
-  
-  
-  
-  
-  ## Explain the resulting dataset!!!!
-  - Overall number of datapoints = (27310 training + 18208 test and validation = 45518)
-- 247 features
-- Most features were game statistics (rebounds, field goals attempted, etc.)
-
+\## Explain the resulting dataset!!!! - Overall number of datapoints =
+(27310 training + 18208 test and validation = 45518) - 247 features -
+Most features were game statistics (rebounds, field goals attempted,
+etc.)
 
 ## Overview of Modeling
 
-Now that we have explored our data, we are ready to begin modeling it.
-As stated previously, our goal is to model the outcome, of any
-particular NCAA basketball game. Our response variable is whether or not
-the home team wins or loses the game. We will explore common techniques
+As stated previously, the goal was to model the outcome, of any
+particular NCAA basketball game. Our response variable was whether or
+not the home team wins or loses the game. We explored common techniques
 used to predict win probabilities such as logistic regression, probit
-regression and decision tree classification. In order to do this, we've
-broken our modeling out into multiple parts:
+regression and decision tree classification. In order to do this, we
+split our modeling out into multiple parts:
 
-Main narrative: follow the logit season model.
 1.  Splitting the data
+
 2.  Baseline models
+
 3.  Feature selection
+
 4.  "Simple" models with feature selection
+
 5.  "Enhanced" models with feature selection
+
 6.  All model comparison
-[2 large table to reference]
 
--   ~~What type of models did you use and how do they compare?~~
--   ~~\<Could add more here to give an overview... check to see if
-    redundant with above introduction sections\>~~
--   ~~Multiple parts~~
-    -   ~~Splitting data~~
-    -   ~~Non-LASSO models ("Baseline models")~~
-        -   ~~Train season tbl -\> All 94 features~~
-    -   ~~LASSO~~
-    -   ~~Creating LASSO "simple" models~~
-    -   ~~Using LASSO selected features + normalization + PCA (\>80%
-        explained variance) to create new models ("enhanced models")~~
-
+For each of these sections we chose to focus on a single mode, the
+season average logistic regression model. We will examine all models in
+the All model comparison section.
 
 #### Splitting Data
 
@@ -296,7 +277,7 @@ an evaluation of our final model. Below is a summary of each dataset
 with the number of observations, total wins and winning percentage to
 understand the distribution of wins across each.
 
-```{r}
+```{r split_data, echo=FALSE, warning=FALSE, message=FALSE}
 bind_rows(
   train_tbl %>% select(home_winner_response) %>% mutate(type = "Train")
   , validation_tbl %>% select(home_winner_response) %>% mutate(type = "Validation")
@@ -315,7 +296,8 @@ throw off our modeling. However, we do see that we have a clear bias
 towards wins as essentially each dataset has a 63% `Winning Percentage`.
 This may lead us to over-predict wins across all types.
 
-- Data was also segmented by the type of averaging (mentioned above). Either rolling or season...
+-   Data was also segmented by the type of averaging (mentioned above).
+    Either rolling or season...
 
 ### Baseline Modeling
 
@@ -331,7 +313,7 @@ Let's first examine the ESPN baseline. ESPN predicts outcomes before and
 during most sporting events. Below is the contingency table and
 associated metrics:
 
-```{r}
+```{r espn_baseline, echo=FALSE, warning=FALSE, message=FALSE}
 espn_prob_tmp <- test_tbl %>% 
   select(home_espn_probability, home_winner_response) %>%
   mutate(home_espn_probability = round(home_espn_probability/100)
@@ -349,129 +331,155 @@ Based on these results, the ESPN baseline accuracy is roughly 72%.
 
 To establish a performance baseline for our own win probability
 predictive models, we created a simple logistic regression model using
-all parameters in our dataset for both rolling averages and season averages. In all likelihood, we anticipate a decent
-model albeit very overfit. Below are the results for the season averaged dataset, and the results for the rolling averages dataset were comparable:
+all parameters in our dataset for both rolling averages and season
+averages. We anticipated a decent model albeit very overfit. Below were
+the results for the season averaged logit model. The results for the
+rolling averages dataset were comparable and will be examined further in
+our paper:
 
-```{r}
+```{r team15_baseline, echo=FALSE, warning=FALSE, message=FALSE}
 model_tbl %>% filter(Simplicity == "baseline", Metric == "season", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
 ```
-```{r}
-model_tbl %>% filter(Simplicity == "baseline", Metric == "rolling", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
+
+Based on the results, our baseline accuracy built upon season averages
+is roughly 70%. Overall, this is a decent model but is likely to be
+overfit and unstable long-term.
+
+<this moved to the massive comparison portion> This shows that the
+rolling averages perform roughly as well as the season averages. We
+continued creating parallel models to further explore the effect of
+rolling averages vs season averages.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# data.frame(summary(baseline_season_logit_model)$coef[summary(baseline_season_logit_model)$coef[,4]<=.05, 4])
+# data.frame(summary(baseline_rolling_logit_model)$coef[summary(baseline_rolling_logit_model)$coef[,4]<=.05, 4])
 ```
-- explain diff between our baseline and ESPN
 
-Based on the results, our baseline accuracy built upon season averages is roughly 70%. Overall,
-this is a decent model but is likely to be overfit and unstable
-long-term. The same can be said about the baseline accuracy built upon rolling averages.
-
-<this moved to the massive comparison portion>
-This shows that the rolling averages perform roughly as well as the season averages. We continued creating parallel models to further explore the effect of rolling averages vs season averages.
-
-```{r}
-data.frame(summary(baseline_season_logit_model)$coef[summary(baseline_season_logit_model)$coef[,4]<=.05, 4])
-data.frame(summary(baseline_rolling_logit_model)$coef[summary(baseline_rolling_logit_model)$coef[,4]<=.05, 4])
-```
-<code change, need to update!>
-From the summary of the baseline models, about 40 features (of the original 78) were statistically significant. Of note, the
-coefficient of the factor of home_distance / away_distance from our
-logit model initially confirmed the common assumption that there is a
-home field advantage. These results may change as we continue to develop
-our models.
+\<code change, need to update!\> From the summary of the baseline
+models, about 40 features (of the original 78) were statistically
+significant. Of note, the coefficient of the factor of home_distance /
+away_distance from our logit model initially confirmed the common
+assumption that there is a home field advantage. These results may
+change as we continue to develop our models.
 
 #### Feature Selection Exploration
 
-In order to explore feature selection, we looked at stepwise regression using the `MASS` package as well as LASSO regression using `glmnet`.  For stepwise, we tested bidirectional elimination.   For both feature selection techniques, AIC was used as the model improvement criterion.  Both, stepwise and LASSO, produced similar results.  Ultimately, LASSO regression was selected due to overall performance due to how quickly it returned results versus stepwise regression. Running stepwise regression using large number of predictors was not as efficient as LASSO regression due to how stepwise regression interactively adds and removes predictors based on metrics until a subset of predictors is found. LASSO regression provided us with a subset of predictors without sacrificing performance training our models.
+In order to explore feature selection, we looked at stepwise regression
+using the `MASS` package as well as LASSO regression using `glmnet`. For
+stepwise, we tested bidirectional elimination. For both feature
+selection techniques, AIC was used as the model improvement criterion.
+Both, stepwise and LASSO, produced similar results. Ultimately, LASSO
+regression was selected due to overall performance due to how quickly it
+returned results versus stepwise regression. Running stepwise regression
+using large number of predictors was not as efficient as LASSO
+regression due to how stepwise regression interactively adds and removes
+predictors based on metrics until a subset of predictors is found. LASSO
+regression provided us with a subset of predictors without sacrificing
+performance training our models.
 
-The training set was used to fit our lasso model which was created to select our optimal set of predictors. Using the `cv.glmnet` function, we performed 10-fold cross-validation on our lasso model.
+The training set was used to fit our lasso model which was created to
+select our optimal set of predictors. Using the `cv.glmnet` function, we
+performed 10-fold cross-validation on our lasso model.
 
-To find the best lambda value for LASSO, we used cv.glmnet(family = "binomial", alpha = 1, nfolds = 10). We then used the coefficients using the lambda value that was one standard error away from that minimized the cross-validation error to select our significant predictors from an original list of 78 potential predictors.
+To find the best lambda value for LASSO, we used
+`cv.glmnet(family = "binomial", alpha = 1, nfolds = 10)`. We then used
+the coefficients using the lambda value that was one standard error away
+from that minimized the cross-validation error to select our significant
+predictors from an original list of 78 potential predictors.
 
-Altering the coefficient cutoff changed the selected predictors. We changed the cutoffs multiple times until we found a good balance between number of predictors remaining and logistic regression model performance. Ultimately, we decided to limit our predictors to ones with coefficient not equal to zero.
+Altering the coefficient cutoff changed the selected predictors. We
+changed the cutoffs multiple times until we found a good balance between
+number of predictors remaining and logistic regression model
+performance. Ultimately, we decided to limit our predictors to ones with
+coefficient not equal to zero.
 
-The results of our LASSO exploration upon the season averaged data led to 30 features being selected (compared to 37 in the baseline). The results of our LASSO exploration upon the rolling averaged data led to 44 features being selected (compared to 40 in the baseline). All of the features selected in the season averaged LASSO were included in the rolling averaged LASSO. Both included predictors such as: offensive ratings, blocks, field goals attempted, assists, turnovers, and steals. Of note is ratings and distance traveled are still chosen as significant predictors for both LASSO feature selections.
+The results of our LASSO exploration upon the season averaged data led
+to 30 features being selected (compared to 37 in the baseline). The
+results of our LASSO exploration upon the rolling averaged data led to
+44 features being selected (compared to 40 in the baseline). All of the
+features selected in the season averaged LASSO were included in the
+rolling averaged LASSO. Both included predictors such as: offensive
+ratings, blocks, field goals attempted, assists, turnovers, and steals.
+Of note is ratings and distance traveled are still chosen as significant
+predictors for both LASSO feature selections.
 
+#### Simple Models
 
-```{r}
-data.frame(season_selected_predictors)
-```
-
-```{r}
-data.frame(rolling_selected_predictors)
-```
-
-```{r}
-rolling_selected_predictors[!(rolling_selected_predictors %in% season_selected_predictors)]
-```
-
-
-## Simple Models
-
-After predictors were selected with LASSO regression, we trained a logistic, probabilistic and gradient boosted decision tree models upon both the rolling averaged and season averaged datasets. These so-called "simple models" were trained with the features selected by LASSO regression and no other processing of the data.
+After predictors were selected with LASSO regression, we trained a
+logistic, probabilistic and gradient boosted decision tree models upon
+both the rolling averaged and season averaged datasets. These so-called
+"simple models" were trained with the features selected by LASSO
+regression and no other processing of the data.
 
 -   Logit results
 
-
-```{r}
+```{r simple_models, echo=FALSE, warning=FALSE, message=FALSE}
 model_tbl %>% filter(Simplicity == "simple", Metric == "season", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
 ```
 
-Relative to the baseline logit model, the simple logit model had very similar metrics. This was nice to see considering that the simple logit model was trained on less than half of the features as the baseline model. Therefore, increasing the generality of the model without significantly sacrificing performance.
+Relative to the baseline logit model, the simple logit model had very
+similar metrics. This was nice to see considering that the simple logit
+model was trained on less than half of the features as the baseline
+model. Therefore, increasing the generality of the model without
+significantly sacrificing performance.
 
+#### Enhanced Models
 
+For our next set of models, our goals were to further protect against
+overfitting and increasing generalization of our models by normalizing
+the training data fed into the models. Data is also mapped to principal
+components, which were automatically picked by the `tidymodels` package
+to include at least 80% of the explained variance. We are also using
+glmnet versions of the logit, meaning that the lambda is chosen
+automatically to be the most optimal one. It still uses 10-fold cross
+validation through `rsample::vfold_cv()`. The metric set that it is
+optimizing on is ROC and AUC.
 
-## Enhanced Models
-
-For our next set of models, our goals were to further protect against overfitting and increasing generalization of our models by normalizing the training data fed into the models. Data is also mapped to principal components, which were automatically picked by the `tidymodels` package to include at least 80% of the explained variance. We are also using glmnet versions of the logit, meaning that the lambda is chosen automatically to be the most optimal one. It still uses 10-fold cross validation through `rsample::vfold_cv()`. The metric set that it is optimizing on is ROC and AUC.
-
-
-```{r}
-model_tbl %>% filter(Simplicity == "baseline", Metric == "season", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
-
-model_tbl %>% filter(Simplicity == "simple", Metric == "season", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
-
+```{r enhanced_models, echo=FALSE, warning=FALSE, message=FALSE}
 
 model_tbl %>% filter(Simplicity == "enhanced", Metric == "season", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
 
 ```
 
-The enhanced model made very small improvements to our accuracy, specificity and precision (while minorly sacrificing sensitivity, recall, F1 and Kappa) upon the validation dataset. This shows that the enhanced processing was able to maintain the same levels of performances as the baseline and simple logit models while retaining just over 80% of the explained variance in the data.
-
+The enhanced model made very small improvements to our accuracy,
+specificity and precision (while minorly sacrificing sensitivity,
+recall, F1 and Kappa) upon the validation dataset. This shows that the
+enhanced processing was able to maintain the same levels of performances
+as the baseline and simple logit models while retaining just over 80% of
+the explained variance in the data.
 
 #### Explain that we did more modeling besides Logit.
 
-
 ## Large Comparison Table
-
-
 
 #### Rolling vs Season
 
-
 #### Logit vs Probit
 
-<move to massive comparison section>
--   Probit results
-```{r}
-model_tbl %>% filter(Simplicity == "simple", Metric == "season", `Model Type` == "probit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
-model_tbl %>% filter(Simplicity == "simple", Metric == "rolling", `Model Type` == "probit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
+<move to massive comparison section> - Probit results
+
+```{r comparison, echo=FALSE, warning=FALSE, message=FALSE}
+
 ```
-From the results, you can see that the simple probit model performed extremely closely with the simple logit model. This is not an unexpected result as the two models are sometimes used interchangeably.
+
+From the results, you can see that the simple probit model performed
+extremely closely with the simple logit model. This is not an unexpected
+result as the two models are sometimes used interchangeably.
 
 #### Decision Trees
-- Particularly need to mention hyperparameter optimization
 
+-   Particularly need to mention hyperparameter optimization
 
 #### Decision Trees vs Logit and Probit
 
-
 #### Ensemble
-
 
 #### Ensemble vs ESPN
 
-
 #### Overall Results
+
 -   How did the models perform generally speaking?
+
 -   Are they useful and in what ways?
 
     -   We might have to revisit the sections to include this! [Goes
@@ -481,138 +489,72 @@ From the results, you can see that the simple probit model performed extremely c
 -   Detailed discussion and evaluation of results.
 
 -   Most likely will be found in the conclusions section
+
 -   Also included with the model results.
 
 -   Overall conclusion and key takeaways from your project as a closing
-message.
+    message.
 
 -   needed in the conclusion
 
 -   If you encounter any unexpected problems, challenges, or interesting
-findings please mention these.
+    findings please mention these.
 
 -   "Standard Dataset" How it was built...
--   During our Enhanced modeling, for some reason, many of the models trained on the rolling averages data would only predict a certain class (such as predicting all wins, no loses, or vice versa). We believe this was because the rolling averages features selected from LASSO were sparse and not well correlated with game outcomes. For instance, some of the predictors selected were "flagrant fouls," of which there were mostly zeros in the data.
+
+-   During our Enhanced modeling, for some reason, many of the models
+    trained on the rolling averages data would only predict a certain
+    class (such as predicting all wins, no loses, or vice versa). We
+    believe this was because the rolling averages features selected from
+    LASSO were sparse and not well correlated with game outcomes. For
+    instance, some of the predictors selected were "flagrant fouls," of
+    which there were mostly zeros in the data.
+
 -   How it performed (overfit)
+
 -   Why we dropped it.
 
 -   Is there any unfinished business or areas which if given more time
-or resources you would deem promising or interesting to further
-pursue?
-  
-  -   Attendance predictions!
-  -   Time between games
+    or resources you would deem promising or interesting to further
+    pursue?
+
+-   Attendance predictions!
+
+-   Time between games
+
 -   Direction of Travel
+
 -   Geographical Bias of Ratings
+
 -   Individual Player Stats (star player effect)
+
 -   Injuries Data
--   Continue analysis with stepwise feature selection instead of
-LASSO, see if results differ.
+
+-   Continue analysis with stepwise feature selection instead of LASSO,
+    see if results differ.
 
 ### Works Cited
 
 -   [1] Bubel, Jennifer. "How Much Money Do Universities Get for Going
     to the NCAA March Madness Tournament?" *Diario AS*, 28 Feb. 2023,
-<https://en.as.com/ncaa/how-much-money-do-universities-get-for-going-to-the-ncaa-march-madness-tournament-n/.>
-  
-  -   [2] Parker, Tim. "How Much Does the NCAA Make off March Madness?"
-Edited by Jefreda R Brown, *Investopedia*, Investopedia, 9 Mar.
-2023,
-<https://www.investopedia.com/articles/investing/031516/how-much-does-ncaa-make-march-madness.asp#:~:text=In%202022%2C%2045%20million%20Americans,see%20the%20heftiest%20cash%2Dout.>
+    <https://en.as.com/ncaa/how-much-money-do-universities-get-for-going-to-the-ncaa-march-madness-tournament-n/.>
+
+-   [2] Parker, Tim. "How Much Does the NCAA Make off March Madness?"
+    Edited by Jefreda R Brown, *Investopedia*, Investopedia, 9 Mar.
+    2023,
+    <https://www.investopedia.com/articles/investing/031516/how-much-does-ncaa-make-march-madness.asp#:~:text=In%202022%2C%2045%20million%20Americans,see%20the%20heftiest%20cash%2Dout.>
 
 -   [3] Pomeroy, Ken. "The Possession", *Kenpom*, 19 Mar. 2004,
-[https://kenpom.com/blog/the-possession/#:\\\~:text=The%20most%20common%20formula%20for,and%20FTA%20%3D%20free%20throw%20attempts](https://kenpom.com/blog/the-possession/#:~:text=The%20most%20common%20formula%20for,and%20FTA%20%3D%20free%20throw%20attempts){.uri}
-   
-   -   [4] Korpar, Lora. "March Madness Betting Expected to Exceed \$3
+    [https://kenpom.com/blog/the-possession/#:\\\~:text=The%20most%20common%20formula%20for,and%20FTA%20%3D%20free%20throw%20attempts](https://kenpom.com/blog/the-possession/#:~:text=The%20most%20common%20formula%20for,and%20FTA%20%3D%20free%20throw%20attempts){.uri}
+
+-   [4] Korpar, Lora. "March Madness Betting Expected to Exceed \$3
     Billion, Set All-Time High", *Newsweek*, 14 Mar. 2022,
- <https://www.newsweek.com/march-madness-betting-expected-exceed-3-billion-set-all-time-high-1687917>
-   
-   -   [5] Coleman, Madeline. "March Madness: How a fan used a machine to
+    <https://www.newsweek.com/march-madness-betting-expected-exceed-3-billion-set-all-time-high-1687917>
+
+-   [5] Coleman, Madeline. "March Madness: How a fan used a machine to
     nail his bracket", *Sports Illustrated*, 31 Mar. 2021,
- <https://www.si.com/college/2021/03/31/march-madness-fan-trained-machine-predict-bracket-will-geoghegan>
-   
-   -   [6] Consoli, John. "Advertisers Go Mad For March Madness", *TV News
- Check,* 16 Mar 2022,
- <https://tvnewscheck.com/business/article/advertisers-go-mad-for-march-madness/>
-   
-   ## Project Final Report, Data, & Code
-   
-   #### What is it?
-   
-   It will be a detailed description of what you did, what results you
- obtained, clear interpretations of the results and what you have learned
- and/or can conclude from your work.
- 
- All deliverables and work created throughout your project including
- code, notebooks, reports, etc.
- 
- Imagine this deliverable as the official and final project in its
- entirety. This would be what you deliver to your client/manager on the
- completion of a project.
- 
- #### What to Include & What is Required?
- 
- "Academic-like" paper with dense text inline figures, no direct code
- within the paper. Code files related to the project are included in the
- repository files but are self-contained. Detailed instructions are
- provided accordingly. Any relevant code files Key visualizations or
- other supplementary files
- 
- Readme/Documentation for code
- 
- ## Overall Considerations:
- 
- -   Include a couple of key visualizations inline and be sure to include
- captions, labels, legends, and most importantly context where
- needed!
-   
-   -   Planned
- 
- -   Possibly mention problems with the data with "\_" at the end.
- 
- -   Possibly mention runtime problems for `MASS` stepwise
- 
- 
- -   Detailed discussion of methodology.
- 
- -   Possibly add coding description for data cleaning
- -   In earlier HEAD of Progress Report
- -   Should have methodology of modeling
- 
- -   Describe in depth the novelties of your approach and your
- discoveries/insights/experiments.
- 
- -   Better callouts could be added for feature engineering
- -   Roll5, distance
- 
- ## Code Files
- 
- -   Code used to generate the project and accompanying figures.
- -   Include a Readme with installation and running instructions as well
- as an overview of your directory structure and any other important
- elements.
- -   Requirements.txt/.yml file if you are using libraries outside of
- those used in the course.
- -   Any extra documentation/explanation for a user/TA to run the code to
- see the results or ideally a notebook that shows all the results in
- a logical sequence
- 
- ## Data
- 
- -   See the "Submitting Data" section for details on how to submit your
- dataset
- 
- ## Submission
- 
- -   Group Primary Contact will submit your Project Final Report, Data,
- Slides, & Code on behalf of the group via the corresponding
- assignment on Canvas/Edx. The easiest way to do this is to download
- your entire GitHub repository and upload that resulting zip file as
- your submission. This cloned repository should contain all the
- necessary deliverables mentioned above.
- 
- ## Grading
- 
- -   TA feedback/grades on Project Final Report, Data, Slides, & Code
- will be available prior to the conclusion of the course.
- 
+    <https://www.si.com/college/2021/03/31/march-madness-fan-trained-machine-predict-bracket-will-geoghegan>
+
+-   [6] Consoli, John. "Advertisers Go Mad For March Madness", *TV News
+    Check,* 16 Mar 2022,
+    <https://tvnewscheck.com/business/article/advertisers-go-mad-for-march-madness/>
