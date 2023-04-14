@@ -3,6 +3,9 @@ if (!require('tidyverse')) install.packages('tidyverse')
 if (!require('tidymodels')) install.packages('tidymodels')
 if (!require('glmnet')) install.packages('glmnet')
 if (!require('vip')) install.packages('vip')
+if (!require('caret')) install.packages('caret')
+if (!require('here')) install.packages('here')
+if (!require('xgboost')) install.packages('xgboost')
 
 # Step 1: Split Data into Train, Test and Validation ----
 ## Read in Data ----

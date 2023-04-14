@@ -452,6 +452,9 @@ our models.
             perforance.
 
 -   [show vip of logit model] [Jeffrey]
+```{r}
+vip(baseline_rolling_logit_model)
+```
 
     \<probably omit this paragraph, but mention\>
 
