@@ -207,7 +207,7 @@ locations, and merging data frames.
 
     -   <https://www.kaggle.com/datasets/andrewsundberg/college-basketball-dataset>
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r SampleData, echo=FALSE, warning=FALSE, message=FALSE}
 if(!require(kableExtra)) install.packages('kableExtra')
 if(!require(devtools)) install.packages('devtools')
 if(!require(ncaahoopR)) devtools::install_github('lbenz730/ncaahoopR')
@@ -249,13 +249,31 @@ scored over the last 5 games didn't correlate with total turnovers in
 the last 5 games as strongly as expected. Meaning that points off
 turnovers isn't as large of a factor to points scored as anticipated.
 
-![Data Exploration - Correlation Plot of Win Probability
-Predictors](../Progress%20Report/images/Data%20Exploration%20-%20Correlation%20Plot%20of%20Win%20Probability%20Predictors-01.png)
+```{r CorrelationEDA}
+train_tbl %>%
+  ungroup() %>%
+  select(contains("season"), -contains("FTM"), -contains("FGA"), -contains("FGM"), -contains("FTA"), -contains("team"),-contains("_opp"), -contains("fouls")) %>%
+  # pivot_longer(everything()) %>%
+  cor() %>%
+  ggcorrplot::ggcorrplot(type = "lower", lab = FALSE)
+```
 
 In addition to our correlations, we examined the distributions of
 factors to determine how well we hit normality assumptions and for
 scaling purposes in later analyses. Due to the large size of the data,
 our predictors were approximately normal.
+
+```{r DensityEDA}
+train_tbl %>%
+  ungroup() %>%
+  select(contains("season"), -contains("FTM"), -contains("FGA"), -contains("FGM"), -contains("FTA"), -contains("team"),-contains("_opp")) %>%
+  pivot_longer(everything()) %>%
+  ggplot(aes(x = value)) +
+  geom_density() +
+  facet_wrap(.~name, scales = 'free') +
+  labs(title = "Density Plot of Win Probability Predictors") +
+  ggthemes::theme_fivethirtyeight() 
+```
 
 ![Data Exploration - Density Plot of Win Probability
 Predictors](../Progress%20Report/images/Data%20Exploration%20-%20Density%20Plot%20of%20Win%20Probability%20Predictors.png)
@@ -452,11 +470,14 @@ our models.
             perforance.
 
 -   [show vip of logit model] [Jeffrey]
+
 ```{r}
 vip(baseline_rolling_logit_model)
 ```
 
-    \<probably omit this paragraph, but mention\>
+```         
+\<probably omit this paragraph, but mention\>
+```
 
 -   In order to explore feature selection, we used stepwise regression
     through the `MASS` package. The steps were bidirectional elimination
