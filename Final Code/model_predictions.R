@@ -19,7 +19,8 @@ model_data_tbl <- model_data_tbl %>%
          , awayTeam_id = factor(awayTeam_id)
   )  %>%
   select(
-    contains("home_")
+    game_id
+    , contains("home_")
     , contains("away_")
     , awayTeam_id
     , homeTeam_id
