@@ -477,10 +477,17 @@ Decision trees represent our exploration into using a different type of model (s
 
 
 #### Ensemble
-
-#### Ensemble vs ESPN
+The ensemble model was our way of aggregating all of the predictive models into one.
+- It combined the <...> models by <...>
+- Ensemble vs ESPN: Compared to the ESPN prediction accuracy, the ensemble model performed <similarly> given the <season averaged training data>.
 
 #### Overall Results
+- In general, our modeling efforts were able to come close to ESPN's historical predictions.
+- Given ESPN's market strategy of being the number one source in sports experiences and knowledge, we'd say that our modeling efforts proved to be just as accurate.
+- <fact check> Relative to each other, the models performed very similarly.
+  - <fact check> This seems to be the case due to the largest predictors were very prevalent in the models very early on.
+- <fact check> the features we added (rating and distance) provided significant information into the predictions of all the models we created.
+
 
 -   How did the models perform generally speaking?
 
