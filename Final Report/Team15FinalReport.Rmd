@@ -17,7 +17,10 @@ knitr::opts_knit$set(root.dir = here::here())
 ```
 
 ```{r source_files, echo=FALSE, warning=FALSE, message=FALSE}
-
+if(!require(kableExtra)) install.packages('kableExtra')
+if(!require(devtools)) install.packages('devtools')
+if(!require(ncaahoopR)) devtools::install_github('lbenz730/ncaahoopR')
+if(!require(tidyverse)) install.packages('tidyverse')
 source("Final Code/model_predictions.R")
 source("Final Code/draw_confusion_matrix.R")
 ```
@@ -128,10 +131,7 @@ For an in-depth look at how we combined our code and sources, please refer to ou
 
 
 ```{r SampleData, echo=FALSE, warning=FALSE, message=FALSE}
-if(!require(kableExtra)) install.packages('kableExtra')
-if(!require(devtools)) install.packages('devtools')
-if(!require(ncaahoopR)) devtools::install_github('lbenz730/ncaahoopR')
-if(!require(tidyverse)) install.packages('tidyverse')
+
 sample_data <- ncaahoopR::get_boxscore(401168364)
 
 duke_sample <- sample_data$Duke %>%
@@ -178,8 +178,8 @@ train_tbl %>%
   ggthemes::theme_fivethirtyeight() 
 ```
 
-
 Initially, we explored modeling with features centered close to zero. However, in some of the modeling attempts, these features would be selected and negatively impact the model's performance. For instance, models trained with features with centers close to zero would sometimes predict only one class of outcome, such as all wins or all losses. To improve performance, we removed such features, resulting in a reduction from 286 to 237 remaining features.
+
 
 ## Feature Engineering
 
@@ -215,6 +215,7 @@ aimed to gain a more comprehensive understanding of team performance.
 
 <needs fact check!!!>
 The last feature we created was distance traveled to the game site. If the team was playing a home game, their distance traveled would be zero. To create this feature, we collected data on game site longitude and latitude. The distance calculated was the straight-line <(ellipsoid)> distance through the <`geosphere()`> function.
+
 
 After our data collection, cleaning and feature engineering, we had a dataset with 45,518 data points; each representing a single game. Each data point contained 237 features which contained game statistics (rebounds, field goal attempts, etc.) and our engineered features.
 
@@ -425,57 +426,135 @@ as the baseline and simple logit models while retaining just over 80% of
 the explained variance in the data.
 
 #### Explain that we did more modeling besides Logit.
-The baseline, simple and enhanced modeling procedures were how we progressed a single type of model into its more generalized form. These three procedures were also deployed upon other model types and datasets. For instance, we: explored logit modeling using the rolling average dataset (as opposed to the season average dataset), trained probit models on both season average and rolling average datasets. We also created gradient boosted decision tree models. Finally, we created an ensemble model from all our models. The results are in the following table.
+
+The baseline, simple and enhanced modeling procedures were how we
+progressed a single type of model into its more generalized form. These
+three procedures were also deployed upon other model types and datasets.
+For instance, we: explored logit modeling using the rolling average
+dataset (as opposed to the season average dataset), trained probit
+models on both season average and rolling average datasets. We also
+created extreme gradient boosted decision tree models. Finally, we
+created an ensemble model from all our models. The results are in the
+following table.
 
 ## Large Comparison Table
 
+```{r comparison_table, echo=FALSE, warning=FALSE, message=FALSE}
+model_tbl_final %>% filter(type %in% "validation") %>% select(-pred,-response,-confusion_matrix_) %>%
+  unite("Model",c("Simplicity","Metric","Model Type"), sep = " ") %>% rename(Validation = type, Specificity = specificity_, Sensitivity = sensitivity_, Accuracy = accuracy_) %>% arrange(desc(Accuracy))%>% mutate(across(where(is.numeric), ~ scales::percent(.,accuracy = 0.01))) %>% mutate(Model = case_when(
+    str_detect(Model,"espn") ~ "ESPN Pre-Game"
+    , str_detect(Model,"combination") ~ "Ensemble Model"
+    , TRUE ~ Model
+  )) %>%
+  ungroup() %>%
+  select(-Validation) %>%
+  kable() %>%
+  kable_styling("striped")
+```
+
 #### Rolling vs Season
-Throughout the analysis, we separated the rolling average data from the season average data. Given metrics in the above table, we saw that there were only minor differences between the performances of the same type of model on the different training datasets.
-- The rolling average trained models performed just a little worse, however, this shows that in order to make a decently comparable prediction, you don't need to keep an average of the statistics over the full season; instead, you can rely on the data from the previous five games.
-- This would be useful for...
-  - helping somene jump into the middle of a season...
+
+Throughout the analysis, we separated the rolling average data from the
+season average data. Given metrics in the above table, we saw that there
+were only minor differences between the performances of the same type of
+model on the different training datasets. - The rolling average trained
+models performed just a little worse, however, this shows that in order
+to make a decently comparable prediction, you don't need to keep an
+average of the statistics over the full season; instead, you can rely on
+the data from the previous five games. - This would be useful for... -
+helping somene jump into the middle of a season...
 
 #### Logit vs Probit
-We were also curious if there were any discrepancies between the logit and probit models.
-From the results, you can see that the simple probit model performed
-extremely closely with the simple logit model. This is not an unexpected
-result as the two models can be used interchangeably.
-- the most they deviated was when they were trained on the <...> data and created as the "<...>." (simple, enhanced)
-  - Maybe will have to delete the previous statement because they were not notably different.
+
+We were also curious if there were any discrepancies between the logit
+and probit models. From the results, you can see that the simple probit
+model performed extremely closely with the simple logit model. This is
+not an unexpected result as the two models can be used
+interchangeably. - the most they deviated was when they were trained on
+the \<...\> data and created as the "\<...\>." (simple, enhanced) -
+Maybe will have to delete the previous statement because they were not
+notably different.
 
 #### Decision Trees
-Decision trees represent our exploration into using a different type of model (since logit and probit are extremely similar). Our boosted tree models were created using the `parsnip::boost_tree()` function. The hyperparameters that needed tuning were: depth of each tree, minimum number of observations in each terminal node, the required reduction in loss for a split to occur, the proportion of the training set to use for each tree, the number of variables to consider for each split, and the learning rate. To find the optimal hyperparameters, a latin hypercube grid search was used; number of trees was held constant at 100.
+
+Decision trees represent our exploration into using a different type of
+model (since logit and probit are extremely similar). Our boosted tree
+models were created using the `parsnip::boost_tree()` function. The
+hyperparameters that needed tuning were: depth of each tree, minimum
+number of observations in each terminal node, the required reduction in
+loss for a split to occur, the proportion of the training set to use for
+each tree, the number of variables to consider for each split, and the
+learning rate. To find the optimal hyperparameters, a latin hypercube
+grid search was used; number of trees was held constant at 100.
 
 #### Decision Trees vs Logit and Probit
-- Given the complexity of tuning the trees, our tree models were considered "enhanced" models. Therefore, there were no baseline or simple versions of these. 
-- <Fact Check this> Just like the logit and probit models, the performances of the tree models did not different significantly when trained on either the season average data or the rolling average data.
-- <Fact Check this> The decision tree gave very similar results to the logit and probit models when trained in the same way.
 
+-   Given the complexity of tuning the trees, our tree models were
+    considered "enhanced" models. Therefore, there were no baseline or
+    simple versions of these.
+-   <Fact Check this> Just like the logit and probit models, the
+    performances of the tree models did not different significantly when
+    trained on either the season average data or the rolling average
+    data.
+-   <Fact Check this> The decision tree gave very similar results to the
+    logit and probit models when trained in the same way.
 
 #### Ensemble
-The ensemble model was our way of aggregating all of the predictive models into one.
-- It combined the <...> models by <...>
-- Ensemble vs ESPN: Compared to the ESPN prediction accuracy, the ensemble model performed <similarly> given the <season averaged training data>.
 
+The ensemble model was our way of aggregating all of the predictive
+models into one. - It combined the \<...\> models by \<...\> - Ensemble
+vs ESPN: Compared to the ESPN prediction accuracy, the ensemble model
+performed <similarly> given the <season averaged training data>.
 
 #### Modeling Challenges
-During our Enhanced modeling exploratin, many of the models trained on the rolling averages data would only predict a certain class (such as predicting all wins, no loses, or vice versa). We believed this was because the rolling averages features selected from LASSO were sparse and not well correlated with game outcomes. For instance, some of the predictors selected were "flagrant fouls," of which there were mostly zeros in the data.
-    
+
+During our Enhanced modeling exploratin, many of the models trained on
+the rolling averages data would only predict a certain class (such as
+predicting all wins, no loses, or vice versa). We believed this was
+because the rolling averages features selected from LASSO were sparse
+and not well correlated with game outcomes. For instance, some of the
+predictors selected were "flagrant fouls," of which there were mostly
+zeros in the data.
+
 #### Overall Results
-- <fact check> Relative to each other, the models performed very similarly.
-  - <fact check> This seems to be the case due to the largest predictors were very prevalent in the models very early on.
-- <fact check> the features we added (rating and distance) provided significant information into the predictions of all the models we created.
-- In general, our modeling efforts were able to come close to ESPN's historical predictions
-  - and could be used as an alternative to ESPN's predictions.
-- Given ESPN's market strategy of being the number one source in sports experiences and knowledge, we'd say that our modeling efforts proved to be just as accurate.
+
+-   <fact check> Relative to each other, the models performed very
+    similarly.
+    -   <fact check> This seems to be the case due to the largest
+        predictors were very prevalent in the models very early on.
+-   <fact check> the features we added (rating and distance) provided
+    significant information into the predictions of all the models we
+    created.
+-   In general, our modeling efforts were able to come close to ESPN's
+    historical predictions
+    -   and could be used as an alternative to ESPN's predictions.
+-   Given ESPN's market strategy of being the number one source in
+    sports experiences and knowledge, we'd say that our modeling efforts
+    proved to be just as accurate.
 
 #### Where to explore next:
-- This model might serve as a good basis for future exploration. There were many features that we were interested in incorporating, such as: time between games, individual player statistics and injuries data. Although distance traveled had a significant effect, we also hypothesized that we would be able to see an effect due to direction traveled (i.e. if a player traveled to another time zone and lost an hour of sleep).
-- We were also interested in fleshing out the results due to different feature selection methods. We explored bidirectional stepwise feature selection however opted to use the global optimization method of LASSO instead.
-- Through the progress report, we were planning on having a parallel study on predicting game attendance. However, upon generating the content for game outcomes, we realized that it would not be feasible to well-represent both analyses within this group project. We were interested in perhaps using projected attendance to build some sort of advertising CPM projections into March Madness.
+
+-   This model might serve as a good basis for future exploration. There
+    were many features that we were interested in incorporating, such
+    as: time between games, individual player statistics and injuries
+    data. Although distance traveled had a significant effect, we also
+    hypothesized that we would be able to see an effect due to direction
+    traveled (i.e. if a player traveled to another time zone and lost an
+    hour of sleep).
+
+-   We were also interested in fleshing out the results due to different
+    feature selection methods. We explored bidirectional stepwise
+    feature selection however opted to use the global optimization
+    method of LASSO instead.
+
+-   Through the progress report, we were planning on having a parallel
+    study on predicting game attendance. However, upon generating the
+    content for game outcomes, we realized that it would not be feasible
+    to well-represent both analyses within this group project. We were
+    interested in perhaps using projected attendance to build some sort
+    of advertising CPM projections into March Madness.
 
 -   Geographical Bias of Ratings
-
 
 ### Works Cited
 
