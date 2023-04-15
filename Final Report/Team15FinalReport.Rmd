@@ -454,18 +454,18 @@ The baseline, simple and enhanced modeling procedures were how we progressed a s
 ## Large Comparison Table
 
 #### Rolling vs Season
+Throughout the analysis, we separated the rolling average data from the season average data. Given metrics in the above table, we saw that there were only minor differences between the performances of the same type of model on the different training datasets.
+- The rolling average trained models performed just a little worse, however, this shows that in order to make a decently comparable prediction, you don't need to keep an average of the statistics over the full season; instead, you can rely on the data from the previous five games.
+- This would be useful for...
+  - helping somene jump into the middle of a season...
 
 #### Logit vs Probit
-
-<move to massive comparison section> - Probit results
-
-```{r comparison, echo=FALSE, warning=FALSE, message=FALSE}
-
-```
-
+We were also curious if there were any discrepancies between the logit and probit models.
 From the results, you can see that the simple probit model performed
 extremely closely with the simple logit model. This is not an unexpected
 result as the two models are sometimes used interchangeably.
+- the most they deviated was when they were trained on the ... data and created as the "...." (simple, enhanced)
+  - Maybe will have to delete the previous statement because they were not notably different.
 
 #### Decision Trees
 
