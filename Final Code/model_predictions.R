@@ -127,8 +127,14 @@ model_tbl <- lapply(ls(), create_tibble) %>%
     , pred_validation = ifelse(stringr::str_detect(name,"enhanced"), list(predict(model, validation_tbl, type = 'prob') %>% pull(2) %>% round() ), list(predict(model, validation_tbl, type = 'response') %>% as.vector() %>% round() ))
     , response_test = list(test_tbl %>% pull(home_winner_response) %>% as.numeric() %>% -1)
     , response_validation = list(validation_tbl %>% pull(home_winner_response) %>% as.numeric() %>% -1)
-    , test_confusion_matrix = list(caret::confusionMatrix(reference = response_test %>% factor(), data=pred_test %>% factor()))
-    , validation_confusion_matrix = list(caret::confusionMatrix(reference = response_validation %>% factor(), data=pred_validation %>% factor()))
+    , test_confusion_matrix = list(caret::confusionMatrix(reference = response_test %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                                          , data=pred_test %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                                          )
+                                   )
+    , validation_confusion_matrix = list(caret::confusionMatrix(reference = response_validation %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                                                , data=pred_validation %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                                                )
+                                         )
   )  %>%
   ungroup() %>%
   select(-model)  %>%
@@ -202,12 +208,16 @@ model_tbl_final <- model_tbl %>%
   pivot_wider(names_from = pred
               , values_from = value) %>% 
   rowwise() %>%
-  mutate(confusion_matrix_ = list(caret::confusionMatrix(reference = response %>% unlist() %>% factor()
-                                                   , data=pred %>% unlist()%>% factor() ) )
-         , specificity_ = caret::specificity(reference = response %>% unlist() %>% factor()
-                                             , data=pred %>% unlist()%>% factor())
-         , sensitivity_ = caret::sensitivity(reference = response %>% unlist() %>% factor()
-                                             , data=pred %>% unlist()%>% factor())
+  mutate(confusion_matrix_ = list(caret::confusionMatrix(reference = response %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                                   , data=pred %>% unlist()%>% factor() 
+                                                   ) 
+                                  )
+         , specificity_ = caret::specificity(reference = response %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                             , data=pred %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                             )
+         , sensitivity_ = caret::sensitivity(reference = response %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                             , data=pred %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                             )
          , accuracy_ = confusion_matrix_$overall[[1]] %>% round(3) %>% .[1]
          ) %>%
   select(-Temp,-name)
@@ -240,8 +250,14 @@ model_ensemble_tbl <- lapply(ls(), create_tibble) %>%
             , pred_validation = list(reduce(pred_validation, element_wise_add)) %>% lapply(function(x) round(x/10))
             , response_test = list(reduce(response_test, element_wise_add)) %>% lapply(function(x) round(x/10))
             , response_validation = list(reduce(response_validation, element_wise_add)) %>% lapply(function(x) round(x/10))) %>%
-  mutate(test_confusion_matrix = list(caret::confusionMatrix(reference = response_test  %>% unlist() %>% factor(), data=pred_test  %>% unlist() %>% factor()))
-         , validation_confusion_matrix = list(caret::confusionMatrix(reference = response_validation  %>% unlist() %>% factor(), data=pred_validation  %>% unlist() %>% factor())))
+  mutate(test_confusion_matrix = list(caret::confusionMatrix(reference = response_test  %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.))), data=pred_test  %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                                             )
+                                      )
+         , validation_confusion_matrix = list(caret::confusionMatrix(reference = response_validation  %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                                                     , data=pred_validation  %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                                                     )
+                                              )
+         )
 
 model_ensemble_tbl <- model_ensemble_tbl %>%
   select(-test_confusion_matrix, -validation_confusion_matrix) %>%
@@ -253,12 +269,16 @@ model_ensemble_tbl <- model_ensemble_tbl %>%
          , `Model Type` = "combination"
          ) %>%
   rowwise() %>%
-  mutate(confusion_matrix_ = list(caret::confusionMatrix(reference = response %>% unlist() %>% factor()
-                                                         , data=pred %>% unlist()%>% factor() ) )
-         , specificity_ = caret::specificity(reference = response %>% unlist() %>% factor()
-                                             , data=pred %>% unlist()%>% factor())
-         , sensitivity_ = caret::sensitivity(reference = response %>% unlist() %>% factor()
-                                             , data=pred %>% unlist()%>% factor())
+  mutate(confusion_matrix_ = list(caret::confusionMatrix(reference = response %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                                         , data=pred %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                                         ) 
+                                  )
+         , specificity_ = caret::specificity(reference = response %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                             , data=pred %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.))) 
+                                             )
+         , sensitivity_ = caret::sensitivity(reference = response %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                             , data=pred %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.))) 
+         )
          , accuracy_ = confusion_matrix_$overall[[1]] %>% round(3) %>% .[1]
   )
 
@@ -286,12 +306,16 @@ model_tbl_final <- bind_rows(model_ensemble_tbl
                    , `Model Type` = "espn"
           )%>%
             rowwise() %>%
-            mutate(confusion_matrix_ = list(caret::confusionMatrix(reference = response %>% unlist() %>% factor()
-                                                                   , data=pred %>% unlist()%>% factor() ) )
-                   , specificity_ = caret::specificity(reference = response %>% unlist() %>% factor()
-                                                       , data=pred %>% unlist()%>% factor())
-                   , sensitivity_ = caret::sensitivity(reference = response %>% unlist() %>% factor()
-                                                       , data=pred %>% unlist()%>% factor())
+            mutate(confusion_matrix_ = list(caret::confusionMatrix(reference = response %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                                                   , data=pred %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.))) 
+                                                                   ) 
+                                            )
+                   , specificity_ = caret::specificity(reference = response %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                                       , data=pred %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.))) 
+                                                       )
+                   , sensitivity_ = caret::sensitivity(reference = response %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                                       , data=pred %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                                       )
                    , accuracy_ = confusion_matrix_$overall[[1]] %>% round(3) %>% .[1]
             )
           ) 
