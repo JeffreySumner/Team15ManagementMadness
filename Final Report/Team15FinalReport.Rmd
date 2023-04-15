@@ -359,7 +359,7 @@ To find the best lambda value for LASSO, we used
 `cv.glmnet(family = "binomial", alpha = 1, nfolds = 10)`. We then used
 the coefficients using the lambda value that was one standard error away
 from that minimized the cross-validation error to select our significant
-predictors from an original list of 78 potential predictors.
+predictors from an original list of \~78 potential predictors.
 
 Altering the coefficient cutoff changed the selected predictors. We
 changed the cutoffs multiple times until we found a good balance between
