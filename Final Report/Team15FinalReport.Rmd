@@ -64,10 +64,7 @@ various methods.
 
 ### Data Preparation and Cleaning
 
-The project involved gathering data on game outcomes, betting odds,
-attendance, and AP poll rankings for college basketball games between
-2012 and 2022. The data was collected using a combination of web
-scraping and querying APIs.
+The project involved gathering data on game outcomes, betting odds, and AP poll rankings for college basketball games between 2012 and 2022. The data was collected using a combination of web scraping and querying APIs.
 
 The data collection process began with using datasets from the
 `ncaahoopR` library, which included box score, play-by-play, rosters,
@@ -84,15 +81,21 @@ function that collected data from sports-reference.com using the `rvest`
 package. The data was then processed using the `tidyverse` package and
 `lapply()` function to combine scraped data frames into a single table.
 
-For attendance data, we used the `game_id` identifier to query the ESPN
-API and retrieve data on attendance. We also attempted to use the
-`hoopR` package, which had data in its repository files, but ultimately
-used the ESPN API.
-
 Finally, we processed and merged all of the collected data into one data
 frame using the `data_cleanup.R` script. The script included processing
 steps such as filtering and renaming variables, geocoding college
 locations, and merging data frames.
+
+Not all of the data collection went smoothly. There were times when ESPN and other sources throttled or even blocked  us from pulling data. This was an unforeseen issue that ultimately required our team
+to take a step back and rethink our approach. We found a publicly
+available ESPN API that allowed us to pull the necessary data in a more efficient manner than web scraping.
+
+Once we had our data, we had to determine the right ways to clean our data given our project needs and objectives. We explored many questions, including: Do we want to use statistics based on the last 5 or 10
+games? Do we want to focus solely on how a single team performs
+or do we want to compare how the team performs vs how the
+opponent performs?
+
+For an in-depth look at how we combined our code and sources, please refer to our Team 15 github.
 
 #### Data Source Overview:
 
@@ -120,12 +123,9 @@ locations, and merging data frames.
     Geography: the city locations of all games since 2009 - Public
     Rankings: Weekly team rankings from multiple metrics - Supplemental
     Information: Coaches, conference affiliations, bracket structure,
-    etc. -
-    <https://www.kaggle.com/competitions/mens-march-mania-2022/data>
+    etc. - <https://www.kaggle.com/competitions/mens-march-mania-2022/data>
+    - <https://www.kaggle.com/datasets/andrewsundberg/college-basketball-dataset>
 
-```         
--   <https://www.kaggle.com/datasets/andrewsundberg/college-basketball-dataset>
-```
 
 ```{r SampleData, echo=FALSE, warning=FALSE, message=FALSE}
 if(!require(kableExtra)) install.packages('kableExtra')
@@ -143,24 +143,7 @@ duke_sample %>%
   kable_styling("striped")
 ```
 
--   Because we were scraping data from ESPN and other sources, there
-    were times when we were throttled and even blocked from pulling
-    data. This was an unforeseen issue that ultimately required our team
-    to take a step back and rethink our approach. We found a publicly
-    available ESPN API that allowed us to pull the necessary data in a
-    more efficient manner than web scraping.
-    -   There are many different ways for us to clean our data and one
-        of the biggest challenges is determining what is right for our
-        project. Do we want to use stats based on the last 5 games, 10
-        games? Do we want to focus solely on how a single team performs
-        or do we want to compare how the team performs vs how the
-        opponent performs? These are the kinds of questions that we've
-        asked ourselves to determine how the data will be formatted for
-        analysis.
--   For an in-depth look at how we combined our code and sources, please
-    refer to our Team 15 github.
-
-**Data Exploration:**
+#### Data Exploration:
 
 We created a correlation matrix of our factors. Due to how we calculated
 some of our features, many of the relationships were not surprising such
@@ -178,10 +161,10 @@ train_tbl %>%
   ggcorrplot::ggcorrplot(type = "lower", lab = FALSE)
 ```
 
-In addition to our correlations, we examined the distributions of
-factors to determine how well we hit normality assumptions and for
-scaling purposes in later analyses. Due to the large size of the data,
-our predictors were approximately normal.
+In addition to correlations, we examined the distributions of
+factors to ensure that they met normality assumptions and could be effectively scaled later analyses. 
+Fortunately, many of our predictors were approximately normal. However there were some predictors that had centers very close to zero and therefore had non-normal distributions. This included game statistics
+like flagrant and technical fouls.
 
 ```{r DensityEDA, echo=FALSE, warning=FALSE, message=FALSE}
 train_tbl %>%
@@ -195,11 +178,8 @@ train_tbl %>%
   ggthemes::theme_fivethirtyeight() 
 ```
 
-We also processed our data so that predictors with distributions closely
-centered around zero were omitted from the data. This included things
-like flagrant fouls. Initially, we explored modeling with this data,
-however, some of the mentioned features were selected as significant and
-would therefore contribute to our model's lack of performance. For instance, models trained with features with centers close to zero would sometimes predict only one class of outcome (all wins or all loses). Removing these types of features brought our features down from 286 to 237 features remaining.
+
+Initially, we explored modeling with features centered close to zero. However, in some of the modeling attempts, these features would be selected and negatively impact the model's performance. For instance, models trained with features with centers close to zero would sometimes predict only one class of outcome, such as all wins or all losses. To improve performance, we removed such features, resulting in a reduction from 286 to 237 remaining features.
 
 ## Feature Engineering
 
@@ -211,20 +191,20 @@ of play. Offensive efficiency is calculated using offensive points per
 100 possessions. Defensive efficiency is calculated using defensive
 points allowed per 100 possessions. Possession data wasn't inherently
 available in our datasets. We engineered possessions using the following
-formula.  The 0.44 factor was suggested by kenpom.
+formula. The 0.44 factor was suggested by kenpom.
 
 To provide a more up-to-date representation of team performance we
 created a rolling 5 game average for each game statistical variable such
 as points per game, rebounds per game, offensive/defensive efficiency,
 etc.) for a team over their last five games. By doing so, we aimed to
-reduce noise in the data compared to a season average,  identify trends
+reduce noise in the data compared to a season average, identify trends
 when a team is performing well, and quickly react to changes such as
 player injuries or other changes to a team's roster.
 
 In addition to using rolling 5 game averages, we also utilized season
 average predictors to gain a broader understanding of team performance.
 To create these predictors, we calculated the average of various team
-game statistical variables for a team over the entire season.  For each
+game statistical variables for a team over the entire season. For each
 of these, we summed the total number of points (or rebounds, assists,
 etc.) accumulated and dividing it by the number of games played. We
 hypothesized season average predictors to be useful in providing a more
@@ -233,12 +213,11 @@ holistic view of a team's performance.
 By using both rolling 5 game averages and season average predictors, we
 aimed to gain a more comprehensive understanding of team performance.
 
+<needs fact check!!!>
 The last feature we created was distance traveled to the game site. If the team was playing a home game, their distance traveled would be zero. To create this feature, we collected data on game site longitude and latitude. The distance calculated was the straight-line <(ellipsoid)> distance through the <`geosphere()`> function.
 
-\## Explain the resulting dataset!!!! - Overall number of datapoints =
-(27310 training + 18208 test and validation = 45518) - 247 features -
-Most features were game statistics (rebounds, field goals attempted,
-etc.)
+After our data collection, cleaning and feature engineering, we had a dataset with 45,518 data points; each representing a single game. Each data point contained 237 features which contained game statistics (rebounds, field goal attempts, etc.) and our engineered features.
+
 
 ## Overview of Modeling
 
