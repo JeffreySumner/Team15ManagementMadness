@@ -457,12 +457,12 @@ model_tbl_final %>% filter(type %in% "validation") %>% select(-pred,-response,-c
 Throughout the analysis, we separated the rolling average data from the
 season average data. Given metrics in the above table, we saw that there
 were only minor differences between the performances of the same type of
-model on the different training datasets. - The rolling average trained
-models performed just a little worse, however, this shows that in order
+model on the different training datasets. 
+- The rolling average trained
+models performed worse in terms of accuracy and sensitivity and performed slightly better in specificity. This gives some evidence that in order
 to make a decently comparable prediction, you don't need to keep an
 average of the statistics over the full season; instead, you can rely on
-the data from the previous five games. - This would be useful for... -
-helping somene jump into the middle of a season...
+the data from the previous five games. 
 
 #### Logit vs Probit
 
