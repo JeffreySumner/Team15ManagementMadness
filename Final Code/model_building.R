@@ -197,7 +197,7 @@ train_standard_lasso_tbl <- train_standard_tbl %>%
   )
 
 ## Fit Models ----
-### 1. Simple Logit ----
+### 1a. Baseline Logit ----
 #### Season Model ----
 baseline_season_logit_model <- glm(
   formula = home_winner_response ~ ., 
@@ -220,7 +220,7 @@ baseline_standard_logit_model <- glm(
 )
 readr::write_rds(baseline_standard_logit_model, "Data/models/baseline_standard_logit_model.rds")
 
-### 1. Simple Logit ----
+### 1b. Simple Logit ----
 #### Season Model ----
 simple_season_logit_model <- glm(
   formula = home_winner_response ~ ., 

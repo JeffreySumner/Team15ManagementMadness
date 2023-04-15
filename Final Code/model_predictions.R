@@ -219,6 +219,9 @@ model_tbl_final <- model_tbl %>%
                                              , data=pred %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
                                              )
          , accuracy_ = confusion_matrix_$overall[[1]] %>% round(3) %>% .[1]
+         , precision = caret::precision(reference = response %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                        , data=pred %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.))) 
+         )
          ) %>%
   select(-Temp,-name)
   
@@ -280,6 +283,9 @@ model_ensemble_tbl <- model_ensemble_tbl %>%
                                              , data=pred %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.))) 
          )
          , accuracy_ = confusion_matrix_$overall[[1]] %>% round(3) %>% .[1]
+         , precision = caret::precision(reference = response %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                             , data=pred %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.))) 
+         )
   )
 
 espn_prob_tmp1 <- test_tbl %>% 
@@ -317,5 +323,8 @@ model_tbl_final <- bind_rows(model_ensemble_tbl
                                                        , data=pred %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
                                                        )
                    , accuracy_ = confusion_matrix_$overall[[1]] %>% round(3) %>% .[1]
+                   , precision = caret::precision(reference = response %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                                  , data=pred %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.))) 
+                   )
             )
           ) 
