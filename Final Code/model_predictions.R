@@ -262,6 +262,64 @@ model_ensemble_tbl <- lapply(ls(), create_tibble) %>%
                                               )
          )
 
+model_ensemble_tbl_season <- lapply(ls(), create_tibble) %>% 
+  bind_rows() %>% 
+  rowwise() %>% 
+  mutate(model = list(get(name))) %>%
+  filter(stringr::str_detect(name,"_model")) %>%
+  mutate(
+    pred_test = ifelse(stringr::str_detect(name,"enhanced"), list(predict(model, test_tbl, type = 'prob') %>% pull(2)), list(predict(model, test_tbl, type = 'response') %>% as.vector() ))
+    , pred_validation = ifelse(stringr::str_detect(name,"enhanced"), list(predict(model, validation_tbl, type = 'prob') %>% pull(2) ), list(predict(model, validation_tbl, type = 'response') %>% as.vector() ))
+    , response_test = list(test_tbl %>% pull(home_winner_response) %>% as.numeric() %>% -1)
+    , response_validation = list(validation_tbl %>% pull(home_winner_response) %>% as.numeric() %>% -1)
+  ) %>%
+  select(-model)  %>%
+  separate(name, into = c("Simplicity","Metric","Model Type","Temp"), remove = FALSE) %>%
+  filter(Metric %in% "season") %>%
+  filter(!Metric %in% "standard") %>%
+  ungroup() %>%
+  summarize(pred_test = list(reduce(pred_test, element_wise_add)) %>% lapply(function(x) round(x/5))
+            , pred_validation = list(reduce(pred_validation, element_wise_add)) %>% lapply(function(x) round(x/5))
+            , response_test = list(reduce(response_test, element_wise_add)) %>% lapply(function(x) round(x/5))
+            , response_validation = list(reduce(response_validation, element_wise_add)) %>% lapply(function(x) round(x/5))) %>%
+  mutate(test_confusion_matrix = list(caret::confusionMatrix(reference = response_test  %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.))), data=pred_test  %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+  )
+  )
+  , validation_confusion_matrix = list(caret::confusionMatrix(reference = response_validation  %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                                              , data=pred_validation  %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+  )
+  )
+  )
+
+model_ensemble_tbl_rolling <- lapply(ls(), create_tibble) %>% 
+  bind_rows() %>% 
+  rowwise() %>% 
+  mutate(model = list(get(name))) %>%
+  filter(stringr::str_detect(name,"_model")) %>%
+  mutate(
+    pred_test = ifelse(stringr::str_detect(name,"enhanced"), list(predict(model, test_tbl, type = 'prob') %>% pull(2)), list(predict(model, test_tbl, type = 'response') %>% as.vector() ))
+    , pred_validation = ifelse(stringr::str_detect(name,"enhanced"), list(predict(model, validation_tbl, type = 'prob') %>% pull(2) ), list(predict(model, validation_tbl, type = 'response') %>% as.vector() ))
+    , response_test = list(test_tbl %>% pull(home_winner_response) %>% as.numeric() %>% -1)
+    , response_validation = list(validation_tbl %>% pull(home_winner_response) %>% as.numeric() %>% -1)
+  ) %>%
+  select(-model)  %>%
+  separate(name, into = c("Simplicity","Metric","Model Type","Temp"), remove = FALSE) %>%
+  filter(Metric %in% "rolling") %>%
+  filter(!Metric %in% "standard") %>%
+  ungroup() %>%
+  summarize(pred_test = list(reduce(pred_test, element_wise_add)) %>% lapply(function(x) round(x/5))
+            , pred_validation = list(reduce(pred_validation, element_wise_add)) %>% lapply(function(x) round(x/5))
+            , response_test = list(reduce(response_test, element_wise_add)) %>% lapply(function(x) round(x/5))
+            , response_validation = list(reduce(response_validation, element_wise_add)) %>% lapply(function(x) round(x/5))) %>%
+  mutate(test_confusion_matrix = list(caret::confusionMatrix(reference = response_test  %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.))), data=pred_test  %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+  )
+  )
+  , validation_confusion_matrix = list(caret::confusionMatrix(reference = response_validation  %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                                              , data=pred_validation  %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+  )
+  )
+  )
+
 model_ensemble_tbl <- model_ensemble_tbl %>%
   select(-test_confusion_matrix, -validation_confusion_matrix) %>%
   pivot_longer(everything()) %>%
@@ -287,7 +345,56 @@ model_ensemble_tbl <- model_ensemble_tbl %>%
                                              , data=pred %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.))) 
          )
   )
-
+model_ensemble_tbl_season <- model_ensemble_tbl_season %>%
+  select(-test_confusion_matrix, -validation_confusion_matrix) %>%
+  pivot_longer(everything()) %>%
+  separate(name, into=c("temp","type")) %>%
+  pivot_wider(names_from = temp, values_from = value) %>%
+  mutate(Simplicity = "combination"
+         , Metric = "season"
+         , `Model Type` = "combination"
+  ) %>%
+  rowwise() %>%
+  mutate(confusion_matrix_ = list(caret::confusionMatrix(reference = response %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                                         , data=pred %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+  ) 
+  )
+  , specificity_ = caret::specificity(reference = response %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                      , data=pred %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.))) 
+  )
+  , sensitivity_ = caret::sensitivity(reference = response %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                      , data=pred %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.))) 
+  )
+  , accuracy_ = confusion_matrix_$overall[[1]] %>% round(3) %>% .[1]
+  , precision = caret::precision(reference = response %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                 , data=pred %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.))) 
+  )
+  )
+model_ensemble_tbl_rolling <- model_ensemble_tbl_rolling %>%
+  select(-test_confusion_matrix, -validation_confusion_matrix) %>%
+  pivot_longer(everything()) %>%
+  separate(name, into=c("temp","type")) %>%
+  pivot_wider(names_from = temp, values_from = value) %>%
+  mutate(Simplicity = "combination"
+         , Metric = "rolling"
+         , `Model Type` = "combination"
+  ) %>%
+  rowwise() %>%
+  mutate(confusion_matrix_ = list(caret::confusionMatrix(reference = response %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                                         , data=pred %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+  ) 
+  )
+  , specificity_ = caret::specificity(reference = response %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                      , data=pred %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.))) 
+  )
+  , sensitivity_ = caret::sensitivity(reference = response %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                      , data=pred %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.))) 
+  )
+  , accuracy_ = confusion_matrix_$overall[[1]] %>% round(3) %>% .[1]
+  , precision = caret::precision(reference = response %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.)))
+                                 , data=pred %>% unlist() %>% as_factor() %>% factor(levels = rev(levels(.))) 
+  )
+  )
 espn_prob_tmp1 <- test_tbl %>% 
   select(home_espn_probability, home_winner_response) %>%
   mutate(home_espn_probability = round(home_espn_probability/100)
@@ -301,7 +408,10 @@ espn_prob_tmp2 <- validation_tbl %>%
 
 
 model_tbl_final <- bind_rows(model_ensemble_tbl
+                             
           , model_tbl_final
+          , model_ensemble_tbl_rolling
+          ,model_ensemble_tbl_season
           , tibble(type = c("test","validation")
                    , pred = c(list(espn_prob_tmp1$home_espn_probability),list(espn_prob_tmp2$home_espn_probability)
                    )

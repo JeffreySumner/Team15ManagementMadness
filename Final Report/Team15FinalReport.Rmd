@@ -462,10 +462,12 @@ minimizing multicollinearity via principal component analysis.
 
 ```{r comparison_table, echo=FALSE, warning=FALSE, message=FALSE}
 model_tbl_final %>% filter(type %in% "test") %>% select(-pred,-response,-confusion_matrix_) %>%
-  unite("Model",c("Simplicity","Metric","Model Type"), sep = " ") %>% rename(Test = type, Specificity = specificity_, Sensitivity = sensitivity_, Accuracy = accuracy_, Precision = precision) %>% arrange(desc(Accuracy))%>% mutate(across(where(is.numeric), ~ scales::percent(.,accuracy = 0.01))) %>% mutate(Model = case_when(
+  unite("Model",c("Simplicity","Metric","Model Type"), sep = " ") %>% rename(Test = type, Specificity = specificity_, Sensitivity = sensitivity_, Accuracy = accuracy_, Precision = precision) %>% arrange(desc(Precision))%>% mutate(across(where(is.numeric), ~ scales::percent(.,accuracy = 0.01))) %>% mutate(Model = case_when(
     str_detect(Model,"espn") ~ "ESPN Pre-Game"
-    , str_detect(Model,"combination") ~ "Ensemble Model"
-    , TRUE ~ Model
+    , str_detect(Model,"combination") & str_detect(Model,"season") ~ "Ensemble Model - Season"
+    , str_detect(Model,"combination") & str_detect(Model,"rolling") ~ "Ensemble Model - Rolling"
+    , str_detect(Model,"combination") ~ "Ensemble Model - All"
+    , TRUE ~ str_to_title(Model)
   )) %>%
   ungroup() %>%
   select(-Test) %>%
