@@ -222,7 +222,7 @@ of play. Offensive efficiency is calculated using offensive points per
 100 possessions. Defensive efficiency is calculated using defensive
 points allowed per 100 possessions. Possession data wasn't inherently
 available in our datasets. We engineered possessions using the following
-formula: $$(FGA - OR) + TO + (Y * FTA)$$,where FGA = field goal attempts, OR = offensive rebounds, TO = turnovers, FTA = free throw attempts and Y = 0.44 factor was suggested by kenpom.
+formula: $$(FGA - OR) + TO + (Y * FTA)$$ where FGA = field goal attempts, OR = offensive rebounds, TO = turnovers, FTA = free throw attempts and Y = 0.44 factor was suggested by kenpom [3].
 
 To provide a more up-to-date representation of team performance we
 created a rolling 5 game average for each game statistical variable such
