@@ -199,8 +199,7 @@ We also processed our data so that predictors with distributions closely
 centered around zero were omitted from the data. This included things
 like flagrant fouls. Initially, we explored modeling with this data,
 however, some of the mentioned features were selected as significant and
-would therefore contribute to our model's lack of performance. This
-brought our features down from 286 to 237 features remaining.
+would therefore contribute to our model's lack of performance. For instance, models trained with features with centers close to zero would sometimes predict only one class of outcome (all wins or all loses). Removing these types of features brought our features down from 286 to 237 features remaining.
 
 ## Feature Engineering
 
@@ -234,7 +233,7 @@ holistic view of a team's performance.
 By using both rolling 5 game averages and season average predictors, we
 aimed to gain a more comprehensive understanding of team performance.
 
-\< Add something about distances\>
+The last feature we created was distance traveled to the game site. If the team was playing a home game, their distance traveled would be zero. To create this feature, we collected data on game site longitude and latitude. The distance calculated was the straight-line <(ellipsoid)> distance through the <`geosphere()`> function.
 
 \## Explain the resulting dataset!!!! - Overall number of datapoints =
 (27310 training + 18208 test and validation = 45518) - 247 features -
@@ -411,8 +410,6 @@ both the rolling averaged and season averaged datasets. These so-called
 "simple models" were trained with the features selected by LASSO
 regression and no other processing of the data.
 
--   Logit results
-
 ```{r simple_models, echo=FALSE, warning=FALSE, message=FALSE}
 model_tbl %>% filter(Simplicity == "simple", Metric == "season", `Model Type` == "logit") %>% pull(test_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
 ```
@@ -481,68 +478,25 @@ The ensemble model was our way of aggregating all of the predictive models into 
 - It combined the <...> models by <...>
 - Ensemble vs ESPN: Compared to the ESPN prediction accuracy, the ensemble model performed <similarly> given the <season averaged training data>.
 
+
+#### Modeling Challenges
+During our Enhanced modeling exploratin, many of the models trained on the rolling averages data would only predict a certain class (such as predicting all wins, no loses, or vice versa). We believed this was because the rolling averages features selected from LASSO were sparse and not well correlated with game outcomes. For instance, some of the predictors selected were "flagrant fouls," of which there were mostly zeros in the data.
+    
 #### Overall Results
-- In general, our modeling efforts were able to come close to ESPN's historical predictions.
-- Given ESPN's market strategy of being the number one source in sports experiences and knowledge, we'd say that our modeling efforts proved to be just as accurate.
 - <fact check> Relative to each other, the models performed very similarly.
   - <fact check> This seems to be the case due to the largest predictors were very prevalent in the models very early on.
 - <fact check> the features we added (rating and distance) provided significant information into the predictions of all the models we created.
+- In general, our modeling efforts were able to come close to ESPN's historical predictions
+  - and could be used as an alternative to ESPN's predictions.
+- Given ESPN's market strategy of being the number one source in sports experiences and knowledge, we'd say that our modeling efforts proved to be just as accurate.
 
-
--   How did the models perform generally speaking?
-
--   Are they useful and in what ways?
-
-    -   We might have to revisit the sections to include this! [Goes
-        into a conclusion section]
-        -   our model(s) could be combined with ESPN's predictions...
-
--   Detailed discussion and evaluation of results.
-
--   Most likely will be found in the conclusions section
-
--   Also included with the model results.
-
--   Overall conclusion and key takeaways from your project as a closing
-    message.
-
--   needed in the conclusion
-
--   If you encounter any unexpected problems, challenges, or interesting
-    findings please mention these.
-
--   "Standard Dataset" How it was built...
-
--   During our Enhanced modeling, for some reason, many of the models
-    trained on the rolling averages data would only predict a certain
-    class (such as predicting all wins, no loses, or vice versa). We
-    believe this was because the rolling averages features selected from
-    LASSO were sparse and not well correlated with game outcomes. For
-    instance, some of the predictors selected were "flagrant fouls," of
-    which there were mostly zeros in the data.
-
--   How it performed (overfit)
-
--   Why we dropped it.
-
--   Is there any unfinished business or areas which if given more time
-    or resources you would deem promising or interesting to further
-    pursue?
-
--   Attendance predictions!
-
--   Time between games
-
--   Direction of Travel
+#### Where to explore next:
+- This model might serve as a good basis for future exploration. There were many features that we were interested in incorporating, such as: time between games, individual player statistics and injuries data. Although distance traveled had a significant effect, we also hypothesized that we would be able to see an effect due to direction traveled (i.e. if a player traveled to another time zone and lost an hour of sleep).
+- We were also interested in fleshing out the results due to different feature selection methods. We explored bidirectional stepwise feature selection however opted to use the global optimization method of LASSO instead.
+- Through the progress report, we were planning on having a parallel study on predicting game attendance. However, upon generating the content for game outcomes, we realized that it would not be feasible to well-represent both analyses within this group project. We were interested in perhaps using projected attendance to build some sort of advertising CPM projections into March Madness.
 
 -   Geographical Bias of Ratings
 
--   Individual Player Stats (star player effect)
-
--   Injuries Data
-
--   Continue analysis with stepwise feature selection instead of LASSO,
-    see if results differ.
 
 ### Works Cited
 
