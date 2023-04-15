@@ -319,17 +319,13 @@ Based on the results, our baseline accuracy built upon season averages
 is roughly 70%. Overall, this is a decent model but is likely to be
 overfit and unstable long-term.
 
-<this moved to the massive comparison portion> This shows that the
-rolling averages perform roughly as well as the season averages. We
-continued creating parallel models to further explore the effect of
-rolling averages vs season averages.
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 # data.frame(summary(baseline_season_logit_model)$coef[summary(baseline_season_logit_model)$coef[,4]<=.05, 4])
 # data.frame(summary(baseline_rolling_logit_model)$coef[summary(baseline_rolling_logit_model)$coef[,4]<=.05, 4])
 ```
 
-\<code change, need to update!\> From the summary of the baseline
+From the summary of the baseline
 models, about 40 features (of the original 78) were statistically
 significant. Of note, the coefficient of the factor of home_distance /
 away_distance from our logit model initially confirmed the common
