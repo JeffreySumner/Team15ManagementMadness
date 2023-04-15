@@ -449,6 +449,7 @@ as the baseline and simple logit models while retaining just over 80% of
 the explained variance in the data.
 
 #### Explain that we did more modeling besides Logit.
+The baseline, simple and enhanced modeling procedures were how we progressed a single type of model into its more generalized form. These three procedures were also deployed upon other model types and datasets. For instance, we: explored logit modeling using the rolling average dataset (as opposed to the season average dataset), trained probit models on both season average and rolling average datasets. We also created gradient boosted decision tree models. Finally, we created an ensemble model from all our models. The results are in the following table.
 
 ## Large Comparison Table
 
