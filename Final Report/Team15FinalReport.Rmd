@@ -531,10 +531,13 @@ were an improvement over the tree model.
 
 ### Ensemble
 
-The ensemble model was our way of aggregating all of the predictive
-models into one. - It combined the \<...\> models by \<...\> - Ensemble
-vs ESPN: Compared to the ESPN prediction accuracy, the ensemble model
-performed <similarly> given the <season averaged training data>.
+An ensemble model is the average of multiple models with the goal to
+combine the predictive power of each into a single model. We created
+three total ensemble models for season average, rolling 5 game average
+and one for everything. Our accuracy and precision did not change
+significantly but we believe this model was an improvement and provided
+more stable out-of-sample predictions than each individual model by
+themselves.
 
 ### Modeling Challenges
 
