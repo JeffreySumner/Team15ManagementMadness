@@ -474,6 +474,7 @@ interchangeably.
 
 #### Decision Trees
 
+<might have to change to 1000 trees of other grid search stuff.>
 Decision trees represent our exploration into using a different type of
 model (since logit and probit are extremely similar). Our boosted tree
 models were created using the `parsnip::boost_tree()` function. The
@@ -489,12 +490,12 @@ grid search was used; number of trees was held constant at 100.
 -   Given the complexity of tuning the trees, our tree models were
     considered "enhanced" models. Therefore, there were no baseline or
     simple versions of these.
--   <Fact Check this> Just like the logit and probit models, the
+-   <Fact Check this> Overall, the
     performances of the tree models did not different significantly when
     trained on either the season average data or the rolling average
-    data.
+    data. The largest difference being in sensitivity of the models while varying the type of averaging of the data.
 -   <Fact Check this> The decision tree gave very similar results to the
-    logit and probit models when trained in the same way.
+    logit and probit models when trained in the same way; specificities were in the mid 80 percents while accuracy hovered somewhere around 70 percent.
 
 #### Ensemble
 
