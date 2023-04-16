@@ -707,11 +707,11 @@ models.</p>
 </div>
 <div id="feature-selection-exploration" class="section level3 unnumbered">
 <h3>Feature Selection Exploration</h3>
-<p>In order to explore feature selection, we looked at stepwise regression
-using the <code>MASS</code> package as well as LASSO regression using <code>glmnet</code>. For
-stepwise, we tested bidirectional elimination. For both feature
-selection techniques, AIC was used as the model improvement criterion.
-Both, stepwise and LASSO, produced similar results. Ultimately, LASSO
+<p>To explore feature selection, we looked at stepwise regression using the
+<code>MASS</code> package as well as LASSO regression using <code>glmnet</code>. For stepwise,
+we tested bidirectional elimination. For both feature selection
+techniques, AIC was used as the model improvement criterion. Both,
+stepwise and LASSO, produced similar results. Ultimately, LASSO
 regression was selected due to overall performance due to how quickly it
 returned results versus stepwise regression. Running stepwise regression
 using large number of predictors was not as efficient as LASSO
@@ -729,18 +729,18 @@ from that minimized the cross-validation error to select our significant
 predictors from an original list of ~78 potential predictors.</p>
 <p>Altering the coefficient cutoff changed the selected predictors. We
 changed the cutoffs multiple times until we found a good balance between
-number of predictors remaining and logistic regression model
+the number of predictors remaining and logistic regression model
 performance. Ultimately, we decided to limit our predictors to ones with
 coefficient not equal to zero.</p>
 <p>The results of our LASSO exploration upon the season averaged data led
 to 30 features being selected (compared to 37 in the baseline). The
 results of our LASSO exploration upon the rolling 5 game average data
 led to 44 features being selected (compared to 40 in the baseline). All
-of the features selected in the season averaged LASSO were included in
-the rolling 5 game average LASSO. Both included predictors such as:
+the features selected in the season averaged LASSO were included in the
+rolling 5 game average LASSO. Both included predictors such as:
 offensive ratings, blocks, field goals attempted, assists, turnovers,
-and steals. Of note is ratings and distance traveled are still chosen as
-significant predictors for both LASSO feature selections.</p>
+and steals. Of note was ratings and distance traveled were still chosen
+as significant predictors for both LASSO feature selections.</p>
 </div>
 <div id="simple-models" class="section level3 unnumbered">
 <h3>Simple Models</h3>
@@ -765,8 +765,8 @@ significantly sacrificing performance.</p>
 <p>For the enhanced set of models, our goal was to further protect against
 overfitting and increase the generalization of our models. The training
 data was normalized and mapped to principal components via
-<code>tidymodels::step_pca()</code>, which were automatically picked by to include
-at least 80% of the explained variance. We used <code>glmnet</code> versions of the
+<code>tidymodels::step_pca()</code>, which were automatically picked to include at
+least 80% of the explained variance. We used <code>glmnet</code> versions of the
 logit, meaning that the lambda was chosen automatically to be the most
 optimal one. It used 10-fold cross validation through
 <code>rsample::vfold_cv()</code> and optimized on ROC and AUC.</p>
@@ -776,7 +776,7 @@ optimal one. It used 10-fold cross validation through
 Figure 6: Enhanced Season Average Logit Model Confusion Matrix
 </p>
 </div>
-<p>The enhanced model resulted in a very small decrease to our accuracy to
+<p>The enhanced model resulted in a very small decrease in our accuracy to
 specificity and an increase to sensitivity upon the validation dataset.
 This showed that the enhanced processing was able to maintain the same
 levels of performance as the baseline and simple logit models while
@@ -910,7 +910,7 @@ positives and in return would stop bettors from betting on losing games.</p>
 <h3>Rolling 5 game average vs Season average</h3>
 <p>Based on our results, each model trained on season average data
 outperformed the models trained on the rolling 5 game average data in
-terms of specificity, accuracy and precision. The higher precision from
+terms of specificity, accuracy and precision. The higher precision of
 our season average models made them better suited for betting purposes
 as it limited our false positives.</p>
 </div>
@@ -931,12 +931,12 @@ participating in</del>.</p>
 <p>Decision trees represented our exploration into using a different type
 of model (since logit and probit are extremely similar). Our boosted
 tree models were created using the <code>parsnip::boost_tree()</code> function. The
-hyperparameters that needed tuning were: depth of each tree, minimum
+hyperparameters that needed tuning were depth of each tree, minimum
 number of observations in each terminal node, the required reduction in
 loss for a split to occur, the proportion of the training set to use for
 each tree, the number of variables to consider for each split, and the
 learning rate. To find the optimal hyperparameters, a latin hypercube
-grid search was used and the number of trees was held constant at 100.</p>
+grid search was used, and the number of trees was held constant at 100.</p>
 <div id="decision-trees-vs-logit-and-probit" class="section level4 unnumbered">
 <h4>Decision Trees vs Logit and Probit</h4>
 <p>Our decision tree models did not have a baseline so we compared them to
@@ -944,7 +944,7 @@ logit and probit. Overall, the performances of the tree models did not
 differ significantly when trained on either the season average data or
 the rolling 5 game average data. The largest difference being in
 specificity of the models while varying the type of averaging of the
-data. The tree based model was the lowest ranked model between both the
+data. The tree-based model was the lowest ranked model between both the
 rolling 5 game average and season average models. In terms of betting,
 the logit and probit models were more reliable as the precision metrics
 were an improvement over the tree model.</p>
@@ -979,11 +979,11 @@ to their compute cost.</p>
 <h2>Overall Results</h2>
 <p>In general, our modeling efforts were able to come close to ESPN’s
 historical predictions and could be used as an alternative to ESPN’s
-predictions in order to inform bettors. Given ESPN’s market strategy of
-being the number one source in sports experiences and knowledge, we’d
-say that our modeling efforts proved to be comperable. One advantage our
-models had over the ESPN model is that we knew exactly what created the
-prediction as opposed to ESPN’s being more of a proprietary black box.</p>
+predictions to inform bettors. Given ESPN’s market strategy of being the
+number one source in sports experiences and knowledge, we’d say that our
+modeling efforts proved to be comparable. One advantage our models had
+over the ESPN model is that we knew exactly what created the prediction
+as opposed to ESPN’s being more of a proprietary black box.</p>
 <p>While accuracy and precision were similar between our season average and
 rolling 5 game average models, we considered the season models to be
 better suited for betting given their increased precision and higher
@@ -993,11 +993,11 @@ specificity.</p>
 <h2>Where to explore next</h2>
 <p>Betting is all about risk-tolerance. Our models predicted probabilities
 of a win and each win was determined from a threshold of 0.5. If we
-wanted to be more risky bettors we would decrease the threshold from 0.5
-in order to predict more winning games to bet on. If we felt that the
-least risky route was best, we would increase our threshold from 0.5 in
-order to have a higher confidence in our win predictions.</p>
-<p>Our feature selection was done using LASSO regression but we briefly
+wanted to be riskier bettors we would decrease the threshold from 0.5 in
+order to predict more winning games to bet on. If we felt that the least
+risky route was best, we would increase our threshold from 0.5 to have
+higher confidence in our win predictions.</p>
+<p>Our feature selection was done using LASSO regression, but we briefly
 explored stepwise feature selection. Additional attempts could use the
 stepwise approach to minimize AIC and to find a different set of
 predictors for our models.</p>
@@ -1005,7 +1005,7 @@ predictors for our models.</p>
 as time between games, individual player statistics and injuries data.
 Although distance traveled had a significant effect, we also
 hypothesized that we would be able to see an effect due to direction
-traveled (i.e. if a player traveled to another time zone and lost an
+traveled (i.e., if a player traveled to another time zone and lost an
 hour of sleep).</p>
 <p>We planned to perform a parallel study on predicting game attendance in
 addition to win probabilities. However, upon generating the content for
@@ -1037,9 +1037,6 @@ Billion, Set All-Time High”, <em>Newsweek</em>, 14 Mar. 2022,
 <li><p>[5] Coleman, Madeline. “March Madness: How a fan used a machine to
 nail his bracket”, <em>Sports Illustrated</em>, 31 Mar. 2021,
 <a href="https://www.si.com/college/2021/03/31/march-madness-fan-trained-machine-predict-bracket-will-geoghegan" class="uri">https://www.si.com/college/2021/03/31/march-madness-fan-trained-machine-predict-bracket-will-geoghegan</a></p></li>
-<li><p>[6] Consoli, John. “Advertisers Go Mad For March Madness”, <em>TV News
-Check,</em> 16 Mar 2022,
-<a href="https://tvnewscheck.com/business/article/advertisers-go-mad-for-march-madness/" class="uri">https://tvnewscheck.com/business/article/advertisers-go-mad-for-march-madness/</a></p></li>
 </ul>
 </div>
 </div>

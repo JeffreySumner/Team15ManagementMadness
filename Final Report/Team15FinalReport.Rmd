@@ -623,7 +623,3 @@ Men's Basketball game.
 -   [5] Coleman, Madeline. "March Madness: How a fan used a machine to
     nail his bracket", *Sports Illustrated*, 31 Mar. 2021,
     <https://www.si.com/college/2021/03/31/march-madness-fan-trained-machine-predict-bracket-will-geoghegan>
-
--   [6] Consoli, John. "Advertisers Go Mad For March Madness", *TV News
-    Check,* 16 Mar 2022,
-    <https://tvnewscheck.com/business/article/advertisers-go-mad-for-march-madness/>
