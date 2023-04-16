@@ -130,17 +130,6 @@ refer to our Team 15 github.
         season, week-by-week Associated Press Poll Records
     -   These records are mostly in .pdf format
     -   <https://www.ncaa.org/sports/2013/11/27/ncaa-men-s-basketball-records-books.aspx>
--   The Kaggle datasets include:
-    -   Basic information: Team ID's and Names; Tournament seeds since
-        1984; final scores of all regular season, tournament games; etc.
-    -   Team Box Scores: game-by-game stats at a team level (free
-        throws, rebounds, turnovers, etc.)
-    -   Geography: the city locations of all games since 2009
-    -   Public Rankings: Weekly team rankings from multiple metrics
-    -   Supplemental Information: Coaches, conference affiliations,
-        bracket structure, etc.
-    -   <https://www.kaggle.com/competitions/mens-march-mania-2022/data>
-    -   <https://www.kaggle.com/datasets/andrewsundberg/college-basketball-dataset>
 
 ```{r SampleData, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Duke Game Sample"}
 
@@ -150,7 +139,7 @@ duke_sample <- sample_data$Duke %>%
   select(-player,-home,-opponent,-team,-starter)
 
 duke_sample %>%
-  head(3) %>%
+  head(2) %>%
   kable(caption = "Duke Game Sample", format = 'pandoc') %>%
   kable_styling("striped")
 
@@ -169,6 +158,7 @@ team's average points per game was less correlated with the away team's
 average points per game.
 
 ```{r CorrelationEDA, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Correlation Exploration"}
+
 train_tbl %>%
   ungroup() %>%
   select(contains("season"), -contains("FTM"), -contains("FGA"), -contains("FGM"), -contains("FTA"), -contains("team"),-contains("_opp"), -contains("fouls"), -contains("turnovers"),-contains("blocks"), -contains("_poss_")) %>%
@@ -187,7 +177,9 @@ approximately normal. However there were some predictors that had
 centers very close to zero and therefore had non-normal distributions.
 This included game statistics like flagrant and technical fouls.
 
-```{r DensityEDA, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Density Plot Exploration"}
+```{r DensityEDA, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Density Plot Exploration",fig.width=10}
+
+
 train_tbl %>%
   ungroup() %>%
   select(contains("season"), -contains("FTM"), -contains("FGA"), -contains("FGM"), -contains("FTA"), -contains("team"),-contains("_opp"), -contains("fouls"), -contains("turnovers"),-contains("blocks"), -contains("_poss_")) %>%
@@ -195,7 +187,7 @@ train_tbl %>%
   mutate(name = str_replace(name,"_season_avg","")) %>%
   ggplot(aes(x = value)) +
   geom_density() +
-  facet_wrap(.~name, scales = 'free') +
+  facet_wrap(.~name, scales = 'free',ncol = 5) +
   labs(title = "Density Plot of Win Probability Season Average Features") +
   # ggthemes::theme_fivethirtyeight() + 
   theme(axis.text.x = element_text(size = 8)
@@ -222,7 +214,9 @@ of play. Offensive efficiency is calculated using offensive points per
 100 possessions. Defensive efficiency is calculated using defensive
 points allowed per 100 possessions. Possession data wasn't inherently
 available in our datasets. We engineered possessions using the following
-formula: $$(FGA - OR) + TO + (Y * FTA)$$ where FGA = field goal attempts, OR = offensive rebounds, TO = turnovers, FTA = free throw attempts and Y = 0.44 factor was suggested by kenpom [3].
+formula:$(FGA - OR) + TO + (Y * FTA)$ where FGA = field goal attempts,
+OR = offensive rebounds, TO = turnovers, FTA = free throw attempts and Y
+= 0.44 factor was suggested by kenpom [3].
 
 To provide a more up-to-date representation of team performance we
 created a rolling 5 game average for each game statistical variable such
