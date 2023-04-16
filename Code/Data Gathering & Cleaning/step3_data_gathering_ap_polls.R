@@ -18,4 +18,4 @@ get_ap_polls <- function(year){
 
 ap_poll_2012_2022_tbl <- lapply(2012:2022, get_ap_polls) %>% bind_rows()
 
-readr::write_csv(ap_poll_2012_2022_tbl,"Data/ap_poll_2012_2022_raw_tbl.csv")
+readr::write_csv(ap_poll_2012_2022_tbl,"Data/raw/ap_poll_2012_2022_raw_tbl.csv")

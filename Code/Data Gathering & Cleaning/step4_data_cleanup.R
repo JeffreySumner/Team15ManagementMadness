@@ -234,21 +234,21 @@ ap_poll_clean_tbl <- ap_poll_2012_2022_raw_tbl %>%
 readr::write_csv(ap_poll_clean_tbl, "Data/clean/ap_poll_clean_tbl.csv")
 
 # Clean Colleges and Universities ----
+library(ggmap) # requires google API key setup/configuration before use
+locations <- mbb_attendance_2012_2022_tbl %>%
+  select(fullName, city, state) %>%
+  distinct() %>%
+  filter(!is.na(fullName))
 
-# locations <- mbb_attendance_2012_2022_tbl %>%
-#   select(fullName, city, state) %>%
-#   distinct() %>%
-#   filter(!is.na(fullName)) 
+geocoded_data <- locations %>%
+  # top_n(5) %>%
+  mutate(
+    location = glue::glue("{fullName}, {city}, {state}")
+    , geocode_data = geocode(location = location, output = "more")
+  ) %>%
+  unnest_wider(geocode_data)
 
-# geocoded_data <- locations %>%
-#   # top_n(5) %>%
-#   mutate(
-#     location = glue::glue("{fullName}, {city}, {state}")
-#     , geocode_data = geocode(location = location, output = "more")
-#   ) %>%
-#   unnest_wider(geocode_data) 
-
-# readr::write_csv(geocoded_data, "Data/geocoded_locations_tbl.csv")
+readr::write_csv(geocoded_data, "Data/geocoded_locations_tbl.csv")
 geocoded_tbl <- readr::read_csv("Data/raw/geocoded_locations_tbl.csv")
 
 # Clean Game Dates ----
@@ -401,13 +401,13 @@ readr::write_csv(away_team_stats_tbl,"Data/clean/away_team_stats_tbl.csv")
 contingency_tbl <- team_stats_complete_tbl %>%
   filter(game_number>5) %>%
   ungroup() %>%
-  mutate(winner = ifelse(points - points_opp > 0, TRUE, FALSE)) %>% 
+  mutate(winner = ifelse(points - points_opp > 0, TRUE, FALSE)) %>%
   select(game_id,team_id, points, points_opp, winner, home_away) %>%
   left_join(attendance_clean, by = "game_id") %>%
   mutate(win_prob = ifelse(home_away == "home",home_projection,away_projection)
          , espn_pred_winner = ifelse(win_prob > 50, TRUE, FALSE)
   ) %>%
-  select(game_id, winner, espn_pred_winner) 
+  select(game_id, winner, espn_pred_winner)
 
 table(contingency_tbl$winner, contingency_tbl$espn_pred_winner)
 
@@ -420,9 +420,9 @@ contingency_condensed_tbl <- contingency_tbl %>%
            , winner == FALSE & espn_pred_winner == TRUE ~ "ESPN Predicted Win and is Loss"
            , winner == TRUE & espn_pred_winner == TRUE ~ "ESPN Predicted Win and is Win"
          )
-         
-  ) %>% 
-  group_by(flag2) %>% 
+
+  ) %>%
+  group_by(flag2) %>%
   summarize(counts = n())
 
 espn_precision <- contingency_condensed_tbl %>% filter(flag2 %in% "ESPN Predicted Win and is Win") %>% pull(counts)/
@@ -458,8 +458,8 @@ team_stats_complete_tbl %>%
   ggplot(aes(x = value)) +
   geom_density() +
   facet_wrap(.~name, scales = 'free') +
-  labs(title = "Density Plot of Win Probability Predictors") +  
-  ggthemes::theme_fivethirtyeight() 
+  labs(title = "Density Plot of Win Probability Predictors") +
+  ggthemes::theme_fivethirtyeight()
 ggsave(filename = "Visualizations/Data Exploration - Density Plot of Win Probability Predictors.png", width = 10, height = 5, units = "in",bg = 'white')
 
 # Model attempt ----
@@ -467,17 +467,17 @@ ggsave(filename = "Visualizations/Data Exploration - Density Plot of Win Probabi
 model_tbl <- team_stats_complete_tbl %>%
   ungroup() %>%
   filter(game_id %in% (contingency_tbl %>%
-                         filter(!is.na(espn_pred_winner)) %>% 
+                         filter(!is.na(espn_pred_winner)) %>%
                          pull(game_id))
   ) %>%
   mutate(
     winner = ifelse(points - points_opp > 0, 1, 0)
   ) %>%
   select(winner,home_away, contains("roll5"), -contains("FTM"), -contains("FGA"), -contains("FGM"), -contains("FTA"), -contains("team")) %>%
-  filter(!is.na(turnovers_roll5)) 
+  filter(!is.na(turnovers_roll5))
 
-logit_model <- glm(winner ~ ., family = binomial(link = "logit"), data = model_tbl) 
-probit_model <- glm(winner ~ ., family = binomial(link = "probit"), data = model_tbl) 
+logit_model <- glm(winner ~ ., family = binomial(link = "logit"), data = model_tbl)
+probit_model <- glm(winner ~ ., family = binomial(link = "probit"), data = model_tbl)
 
 predict(logit_model,model_tbl, type = "response") %>% as.vector()
 

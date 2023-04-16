@@ -75,4 +75,4 @@ tictoc::tic()
 mbb_attendance_2012_2022_tbl <- parLapply(cl, game_ids_vec, get_attendance_espn_api) %>% bind_rows()
 tictoc::toc()
 
-data.table::fwrite(mbb_attendance_2012_2022_tbl,"Data/mbb_attendance_2012_2022_tbl.csv",append = TRUE)
+data.table::fwrite(mbb_attendance_2012_2022_tbl,"Data/raw/mbb_attendance_2012_2022_tbl.csv",append = TRUE)
