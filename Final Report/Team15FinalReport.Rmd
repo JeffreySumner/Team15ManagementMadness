@@ -21,8 +21,8 @@ if(!require(kableExtra)) install.packages('kableExtra')
 if(!require(devtools)) install.packages('devtools')
 if(!require(ncaahoopR)) devtools::install_github('lbenz730/ncaahoopR')
 if(!require(tidyverse)) install.packages('tidyverse')
-source("Final Code/model_predictions.R")
-source("Final Code/draw_confusion_matrix.R")
+source("Final Code/2. Model & Visualization/2. model_predictions.R")
+source("Final Code/2. Model & Visualization/draw_confusion_matrix.R")
 ```
 
 # MGT Madness - Team 15 Final Report {#mgt-madness-team-15-final-report .unnumbered}
