@@ -2,11 +2,7 @@
 editor_options:
   markdown:
     wrap: 72
-output:
-  html_document:
-    df_print: paged
-    fig_caption: yes
-  pdf_document: default
+output: bookdown::html_document2
 geometry: margin=.5in
 fontsize: 11pt
 always_allow_html: yes
@@ -29,14 +25,14 @@ source("Final Code/model_predictions.R")
 source("Final Code/draw_confusion_matrix.R")
 ```
 
-# MGT Madness - Team 15 Progress Report
+# MGT Madness - Team 15 Final Report {-#mgt-madness-team-15-final-report}
 
 Group Members: Michael Munson, Matthew Rosenthal, Matthew Royalty,
 Jeffrey Sumner
 
-## Overview of Project
+## Overview of Project{-#overview-of-project}
 
-### Project Background
+### Project Background {-#project-background}
 
 Every March, millions of Americans come together to watch the NCAA
 Basketball Championships, AKA "March Madness". The college tournament
@@ -67,9 +63,9 @@ processed the data, selected influential features, trained and validated
 numerous models, and finally compared these models against each other on
 various methods.
 
-## Overview of Data
+## Overview of Data {-#overview-of-data}
 
-### Data Preparation and Cleaning
+### Data Preparation and Cleaning {-#data-prepartion-and-cleaning}
 
 The project involved gathering data on game outcomes, betting odds, and
 AP poll rankings for college basketball games between 2012 and 2022. The
@@ -112,7 +108,7 @@ to compare how the team performs vs how the opponent performs?
 For an in-depth look at how we combined our code and sources, please
 refer to our Team 15 github.
 
-### Data Source Overview
+### Data Source Overview {-#data-source-overview}
 
 -   ESPN API has a wealth of information ranging from team information
     (location, logo, colors, jerseys, etc.) to box-score and game-time
@@ -133,7 +129,7 @@ refer to our Team 15 github.
     -   These records are mostly in .pdf format
     -   <https://www.ncaa.org/sports/2013/11/27/ncaa-men-s-basketball-records-books.aspx>
 
-```{r SampleData, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="\\label{fig:figs}Duke Game Sample"}
+```{r SampleData, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Duke Game Sample"}
 
 sample_data <- ncaahoopR::get_boxscore(401168364)
 
@@ -147,7 +143,7 @@ duke_sample %>%
 
 ```
 
-### Data Exploration
+### Data Exploration {-#data-exploration}
 
 We generated a correlation matrix of our factors and observed several
 expected relationships. For example, there was a high correlation
@@ -159,7 +155,7 @@ of the home team and those of the away team. For instance, the home
 team's average points per game was less correlated with the away team's
 average points per game.
 
-```{r CorrelationEDA, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="\\label{fig:figs}Correlation Exploration", fig.height=4, fig.width=10}
+```{r CorrelationEDA, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Correlation Exploration", fig.height=4, fig.width=10}
 
 train_tbl %>%
   ungroup() %>%
@@ -211,7 +207,7 @@ predict only one class of outcome, such as all wins or all losses. To
 improve performance, we removed such features, resulting in a reduction
 from 286 to 237 remaining features.
 
-## Feature Engineering
+## Feature Engineering {-#feature-engineering}
 
 We created predictors for team offensive and defensive efficiency. The
 efficiency predictors provide useful measures of a team's overall
@@ -259,7 +255,7 @@ dataset with 45,518 data points; each representing a single game. Each
 data point contained 237 features which contained game statistics
 (rebounds, field goal attempts, etc.) and our engineered features.
 
-## Overview of Modeling
+## Overview of Modeling {-#overview-of-modeling}
 
 As stated previously, the goal was to model the outcome, of any
 particular NCAA basketball game. Our response variable was whether or
@@ -290,7 +286,7 @@ datasets. We also created extreme gradient boosted decision tree models.
 Finally, we created an ensemble model from all our models. The overall
 results of each modeling procedure are in Table 3.
 
-### Splitting Data
+### Splitting Data {-#splitting-data}
 
 To ensure the validity of our models and to help avoid the risk of
 overfitting, we randomly split our data into train, test, and validation
@@ -301,7 +297,7 @@ an evaluation of our final model. Below is a summary of each dataset
 with the number of observations, total wins and winning percentage to
 understand the distribution of wins across each.
 
-```{r split_data, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Train, test and validation bias comparison"}
+```{r splitData, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Train, Test and Validation Bias Comparison"}
 bind_rows(
   train_tbl %>% select(home_winner_response) %>% mutate(type = "Train")
   , validation_tbl %>% select(home_winner_response) %>% mutate(type = "Validation")
@@ -322,7 +318,7 @@ throw off our modeling. However, we do see that we have a clear bias
 towards wins as essentially each dataset has a 63% `Winning Percentage`.
 This may lead us to over-predict wins across all types.
 
-### Baseline Modeling
+### Baseline Modeling {-#baseline-modeling}
 
 With our data split into train, test and validation, we predicted
 outcomes using all features. This exercise is meant to give us something
@@ -330,13 +326,13 @@ to compare to and hopefully beat as we attempt to improve out models.
 For the purposes of this paper, we will focus on the comparing the test
 unless specified otherwise.
 
-#### ESPN Baseline
+#### ESPN Baseline {-#espn-baseline}
 
 Let's first examine the ESPN baseline. ESPN predicts outcomes before and
 during most sporting events. Below is the contingency table and
 associated metrics:
 
-```{r espn_baseline, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="ESPN Baseline Comparison"}
+```{r espnBaseline, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="ESPN Baseline Comparison"}
 espn_prob_tmp <- validation_tbl %>% 
   select(home_espn_probability, home_winner_response) %>%
   mutate(home_espn_probability = round(home_espn_probability/100)
@@ -350,7 +346,7 @@ caret::confusionMatrix(reference = espn_prob_tmp$home_winner_response  %>% as_fa
 
 Based on these results, the ESPN baseline accuracy is 72.8%.
 
-#### Team 15 Baseline
+#### Team 15 Baseline {-#team-15-baseline}
 
 To establish a performance baseline for our own win probability
 predictive models, we created a simple logistic regression model using
@@ -360,7 +356,7 @@ Below were the results for the season averaged logit model. The results
 for the rolling 5 game averages dataset were comparable and will be
 examined further in our paper:
 
-```{r team15_baseline, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Baseline Season Average Logit Model Confusion Matrix"}
+```{r team15Baseline, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Baseline Season Average Logit Model Confusion Matrix"}
 model_tbl %>% filter(Simplicity == "baseline", Metric == "season", `Model Type` == "logit") %>% pull(validation_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
 ```
 
@@ -380,7 +376,7 @@ initially confirmed the common assumption that there is a home field
 advantage. These results may change as we continue to develop our
 models.
 
-### Feature Selection Exploration
+### Feature Selection Exploration {-#feature-selection-exploration}
 
 In order to explore feature selection, we looked at stepwise regression
 using the `MASS` package as well as LASSO regression using `glmnet`. For
@@ -421,14 +417,14 @@ offensive ratings, blocks, field goals attempted, assists, turnovers,
 and steals. Of note is ratings and distance traveled are still chosen as
 significant predictors for both LASSO feature selections.
 
-### Simple Models
+### Simple Models {-#simple-models}
 
 After predictors were selected with LASSO regression, we trained a
 logistic model upon both the rolling 5 game average and season average
 datasets. These so-called "simple models" were trained with the features
 selected by LASSO regression and no other processing of the data.
 
-```{r simple_models, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Simple Season Average Logit Model Confusion Matrix"}
+```{r simpleModels, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Simple Season Average Logit Model Confusion Matrix"}
 model_tbl %>% filter(Simplicity == "simple", Metric == "season", `Model Type` == "logit") %>% pull(validation_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
 ```
 
@@ -438,7 +434,7 @@ model was trained on less than half of the features as the baseline
 model. Therefore, increasing the generality of the model without
 significantly sacrificing performance.
 
-### Enhanced Models
+### Enhanced Models {-#enhanced-models}
 
 For the enhanced set of models, our goal was to further protect against
 overfitting and increase the generalization of our models. The training
@@ -449,7 +445,7 @@ logit, meaning that the lambda was chosen automatically to be the most
 optimal one. It used 10-fold cross validation through
 `rsample::vfold_cv()` and optimized on ROC and AUC.
 
-```{r enhanced_models, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Enhanced Season Average Logit Model Confusion Matrix"}
+```{r enhancedModels, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Enhanced Season Average Logit Model Confusion Matrix"}
 
 model_tbl %>% filter(Simplicity == "enhanced", Metric == "season", `Model Type` == "logit") %>% pull(validation_confusion_matrix) %>% .[[1]] %>% draw_confusion_matrix()
 
@@ -461,9 +457,9 @@ This showed that the enhanced processing was able to maintain the same
 levels of performance as the baseline and simple logit models while
 minimizing multicollinearity via principal component analysis.
 
-## Model Comparison Matrix
+## Model Comparison Matrix {-#model-comparison-matrix}
 
-```{r comparison_table, echo=FALSE, warning=FALSE, message=FALSE}
+```{r comparisonTable, echo=FALSE, warning=FALSE, message=FALSE}
 model_tbl_final %>% filter(type %in% "test") %>% select(-pred,-response,-confusion_matrix_) %>%
   unite("Model",c("Simplicity","Metric","Model Type"), sep = " ") %>% rename(Test = type, Specificity = specificity_, Sensitivity = sensitivity_, Accuracy = accuracy_, Precision = precision) %>% arrange(desc(Precision))%>% mutate(across(where(is.numeric), ~ scales::percent(.,accuracy = 0.01))) %>% mutate(Model = case_when(
     str_detect(Model,"espn") ~ "ESPN Pre-Game"
@@ -488,7 +484,7 @@ good job maximizing precision and accuracy compared to each of our
 models. The maximized precision leads them to predict less false
 positives and in return would stop bettors from betting on losing games.
 
-### Rolling 5 game average vs Season average
+### Rolling 5 game average vs Season average {-#rolling-5-game-average-vs-season-average}
 
 Based on our results, each model trained on season average data
 outperformed the models trained on the rolling 5 game average data in
@@ -496,7 +492,7 @@ terms of specificity, accuracy and precision. The higher precision from
 our season average models made them better suited for betting purposes
 as it limited our false positives.
 
-### Logit vs Probit
+### Logit vs Probit {-#logit-vs-probit}
 
 We were also curious if there were any discrepancies between the logit
 and probit models. From the results, you can see that the simple probit
@@ -508,7 +504,7 @@ precision relative to probit. The overall difference is negligible in
 low-stakes betting~~, which is something a broke grad student would be
 participating in~~.
 
-### Decision Trees
+### Decision Trees {-#decision-trees}
 
 Decision trees represented our exploration into using a different type
 of model (since logit and probit are extremely similar). Our boosted
@@ -520,7 +516,7 @@ each tree, the number of variables to consider for each split, and the
 learning rate. To find the optimal hyperparameters, a latin hypercube
 grid search was used and the number of trees was held constant at 100.
 
-#### Decision Trees vs Logit and Probit
+#### Decision Trees vs Logit and Probit {-#decision-trees-vs-logit-and-probit}
 
 Our decision tree models did not have a baseline so we compared them to
 logit and probit. Overall, the performances of the tree models did not
@@ -532,7 +528,7 @@ rolling 5 game average and season average models. In terms of betting,
 the logit and probit models were more reliable as the precision metrics
 were an improvement over the tree model.
 
-### Ensemble
+### Ensemble {-#ensemble}
 
 An ensemble model is the average of multiple models with the goal to
 combine the predictive power of each into a single model. We created
@@ -542,7 +538,7 @@ significantly but we believe this model was an improvement and provided
 more stable out-of-sample predictions than each individual model by
 themselves.
 
-### Modeling Challenges
+### Modeling Challenges {-#modeling-challenges}
 
 During our enhanced modeling exploration, many of the models trained on
 the rolling 5 game averages data would only predict a certain class
@@ -557,7 +553,7 @@ for models like lasso and boosted decision trees. In a real-world
 setting we would weigh the benefit of using models like those compared
 to their compute cost.
 
-## Overall Results
+## Overall Results {-#overall-results}
 
 In general, our modeling efforts were able to come close to ESPN's
 historical predictions and could be used as an alternative to ESPN's
@@ -572,7 +568,7 @@ rolling 5 game average models, we considered the season models to be
 better suited for betting given their increased precision and higher
 specificity.
 
-## Where to explore next
+## Where to explore next {-#where-to-explore-next}
 
 Betting is all about risk-tolerance. Our models predicted probabilities
 of a win and each win was determined from a threshold of 0.5. If we
@@ -606,7 +602,7 @@ work in practice. In addition to betting, these models could be used to
 build a March Madness bracket since they are generalized to fit any NCAA
 Men's Basketball game.
 
-## Works Cited
+## Works Cited {-#works-cited}
 
 -   [1] Bubel, Jennifer. "How Much Money Do Universities Get for Going
     to the NCAA March Madness Tournament?" *Diario AS*, 28 Feb. 2023,
