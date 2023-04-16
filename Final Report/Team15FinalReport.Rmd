@@ -34,9 +34,9 @@ source("Final Code/draw_confusion_matrix.R")
 Group Members: Michael Munson, Matthew Rosenthal, Matthew Royalty,
 Jeffrey Sumner
 
-## Overview of Project:
+## Overview of Project
 
-### Project Background:
+### Project Background
 
 Every March, millions of Americans come together to watch the NCAA
 Basketball Championships, AKA "March Madness". The college tournament
@@ -67,7 +67,7 @@ processed the data, selected influential features, trained and validated
 numerous models, and finally compared these models against each other on
 various methods.
 
-## Overview of Data:
+## Overview of Data
 
 ### Data Preparation and Cleaning
 
@@ -112,7 +112,7 @@ to compare how the team performs vs how the opponent performs?
 For an in-depth look at how we combined our code and sources, please
 refer to our Team 15 github.
 
-### Data Source Overview:
+### Data Source Overview
 
 -   ESPN API has a wealth of information ranging from team information
     (location, logo, colors, jerseys, etc.) to box-score and game-time
@@ -123,8 +123,8 @@ refer to our Team 15 github.
     play-by-play and team information. The box scores and play-by-play
     data will be instrumental for our project. This will be one of the
     main sources for key statistics such as points scored, rebounds,
-    steals, win probabilities, etc. In Table 1 is an example of one of the
-    box scores
+    steals, win probabilities, etc. In Table 1 is an example of one of
+    the box scores
     -   <https://github.com/lbenz730/ncaahoopR>
     -   <https://github.com/lbenz730/ncaahoopR_data>
 -   NCAA Men's Basketball Data:
@@ -147,7 +147,7 @@ duke_sample %>%
 
 ```
 
-### Data Exploration:
+### Data Exploration
 
 We generated a correlation matrix of our factors and observed several
 expected relationships. For example, there was a high correlation
@@ -572,7 +572,7 @@ rolling 5 game average models, we considered the season models to be
 better suited for betting given their increased precision and higher
 specificity.
 
-## Where to explore next:
+## Where to explore next
 
 Betting is all about risk-tolerance. Our models predicted probabilities
 of a win and each win was determined from a threshold of 0.5. If we
