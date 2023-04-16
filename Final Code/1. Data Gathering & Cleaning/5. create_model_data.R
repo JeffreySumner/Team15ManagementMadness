@@ -57,7 +57,7 @@ model_data_tbl <- game_information_tbl %>%
 # this file is too large for github
 # make sure to get the zip file and unzip then place it in data/clean
 
-# readr::write_csv(model_data_tbl, "Data/clean/model_data_tbl.csv")
+readr::write_csv(model_data_tbl, "Data/clean/model_data_tbl.csv")
 model_data_tbl <- readr::read_csv("Data/clean/model_data_tbl.csv")
 # Split Model Data ----
 

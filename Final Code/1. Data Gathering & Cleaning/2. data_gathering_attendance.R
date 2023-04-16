@@ -21,7 +21,7 @@ clusterEvalQ(
   }
 )
 
-mbb_box_score_2012_2022_tbl <- read_csv("Data/mbb_box_score_2012_2022_tbl.csv")
+mbb_box_score_2012_2022_tbl <- read_csv("Data/raw/mbb_box_score_2012_2022_tbl.csv")
 
 game_ids_vec <- mbb_box_score_2012_2022_tbl %>%
   pull(game_id) %>%
