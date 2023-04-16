@@ -1,0 +1,38 @@
+---
+title: "Team 15 MGT Madness"
+output: github_document
+---
+
+The goal of MGT Madness was to create a machine learning model that reliably predicted the outcome of both March Madness and regular season college basketball games at a level equal or better to ESPN's industry-standard prediction models.
+
+## Github File Structure
+
+```{r setup, echo=FALSE,message=FALSE,warning=FALSE}
+library(tidyverse)
+library(data.tree)
+```
+
+```{r, echo = FALSE,message=FALSE,warning=FALSE}
+paths = unique(c(list.dirs(path = "Data",full.names = T),list.files(path = "Data",full.names = T,recursive = TRUE)))
+paths = paths[!grepl("deprecated|old",unique(c(list.dirs(path = "Data",full.names = T),list.files(path = "Data",full.names = T,recursive = TRUE))))]
+library(data.tree)
+library(plyr)
+
+x <- lapply(strsplit(paths, "/"), function(z) as.data.frame(t(z)))
+x <- rbind.fill(x)
+x$pathString <- apply(x, 1, function(x) paste(trimws(na.omit(x)), collapse="/"))
+(mytree <- data.tree::as.Node(x))
+
+```
+
+```{r, echo = FALSE}
+paths = unique(c(list.dirs(path = "Final Code",full.names = T),list.files(path = "Final Code",full.names = T,recursive = TRUE)))
+library(data.tree)
+library(plyr)
+
+x <- lapply(strsplit(paths, "/"), function(z) as.data.frame(t(z)))
+x <- rbind.fill(x)
+x$pathString <- apply(x, 1, function(x) paste(trimws(na.omit(x)), collapse="/"))
+(mytree <- data.tree::as.Node(x))
+
+```
