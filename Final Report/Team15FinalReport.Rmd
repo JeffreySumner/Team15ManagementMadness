@@ -157,15 +157,19 @@ of the home team and those of the away team. For instance, the home
 team's average points per game was less correlated with the away team's
 average points per game.
 
-```{r CorrelationEDA, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Correlation Exploration"}
+```{r CorrelationEDA, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Correlation Exploration", fig.height=4, fig.width=10}
 
 train_tbl %>%
   ungroup() %>%
-  select(contains("season"), -contains("FTM"), -contains("FGA"), -contains("FGM"), -contains("FTA"), -contains("team"),-contains("_opp"), -contains("fouls"), -contains("turnovers"),-contains("blocks"), -contains("_poss_")) %>%
+  select(game_id ,contains("season"), -contains("FTM"), -contains("FGA"), -contains("FGM"), -contains("FTA"), -contains("team"),-contains("_opp"), -contains("fouls"), -contains("turnovers"),-contains("blocks"), -contains("_poss_"))%>%
+  pivot_longer(c(-game_id)) %>%
+  mutate(name = str_replace(name,"_season_avg","") %>% str_replace_all("_"," ") %>% str_to_title) %>%
+  pivot_wider(names_from = name, values_from = value) %>%
+  select(-game_id) %>%
   # pivot_longer(everything()) %>%
   cor() %>%
-  ggcorrplot::ggcorrplot(type = "lower", lab = FALSE) + 
-  theme(axis.text.x = element_text(size = 8, angle = 35)
+  ggcorrplot::ggcorrplot(type = "upper", lab = FALSE) + 
+  theme(axis.text.x = element_text(size = 8, angle = 25)
         , axis.text.y = element_text(size = 8)
         )
 ```
@@ -184,15 +188,16 @@ train_tbl %>%
   ungroup() %>%
   select(contains("season"), -contains("FTM"), -contains("FGA"), -contains("FGM"), -contains("FTA"), -contains("team"),-contains("_opp"), -contains("fouls"), -contains("turnovers"),-contains("blocks"), -contains("_poss_")) %>%
   pivot_longer(everything()) %>%
-  mutate(name = str_replace(name,"_season_avg","")) %>%
+  mutate(name = str_replace(name,"_season_avg","") %>% str_replace_all("_"," ") %>% str_to_title) %>%
   ggplot(aes(x = value)) +
   geom_density() +
-  facet_wrap(.~name, scales = 'free',ncol = 5) +
+  facet_wrap(.~name, scales = 'free',nrow = 3) +
   labs(title = "Density Plot of Win Probability Season Average Features") +
   # ggthemes::theme_fivethirtyeight() + 
   theme(axis.text.x = element_text(size = 8)
         , axis.text.y = element_text(size = 8)
         , strip.text = element_text(size = 8)
+        , axis.title = element_blank()
         )
 ```
 

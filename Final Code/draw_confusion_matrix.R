@@ -5,18 +5,19 @@ draw_confusion_matrix <- function(cm) {
   plot(c(100, 345), c(300, 450), type = "n", xlab="", ylab="", xaxt='n', yaxt='n')
   title('CONFUSION MATRIX', cex.main=2)
   
+  # Matrix
   # create the matrix 
   rect(150, 430, 240, 370, col='#3F97D0')
-  text(195, 435, 'Loss', cex=1.2)
+  text(195, 435, 'Win', cex=1.2)
   rect(250, 430, 340, 370, col='#F7AD50')
-  text(295, 435, 'Win', cex=1.2)
+  text(295, 435, 'Loss', cex=1.2)
   text(125, 370, 'Predicted', cex=1.3, srt=90, font=2)
   text(245, 450, 'Actual', cex=1.3, font=2)
   rect(150, 305, 240, 365, col='#F7AD50')
   rect(250, 305, 340, 365, col='#3F97D0')
-  text(140, 400, 'Loss', cex=1.2, srt=90)
-  text(140, 335, 'Win', cex=1.2, srt=90)
-  
+  text(140, 400, 'Win', cex=1.2, srt=90)
+  text(140, 335, 'Loss', cex=1.2, srt=90)
+  # Matrix
   # add in the cm results 
   res <- as.numeric(cm$table)
   text(195, 400, res[1], cex=1.6, font=2, col='white')
@@ -24,6 +25,8 @@ draw_confusion_matrix <- function(cm) {
   text(295, 400, res[3], cex=1.6, font=2, col='white')
   text(295, 335, res[4], cex=1.6, font=2, col='white')
   
+  
+  # Metrics
   # add in the specifics 
   plot(c(100, 0), c(100, 0), type = "n", xlab="", ylab="", main = "DETAILS", xaxt='n', yaxt='n')
   text(10, 85, names(cm$byClass[1]), cex=1.2, font=2)
