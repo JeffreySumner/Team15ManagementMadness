@@ -471,7 +471,7 @@ model_tbl_final %>% filter(type %in% "test") %>% select(-pred,-response,-confusi
   )) %>%
   ungroup() %>%
   select(-Test) %>%
-  kable(caption = "All Model Comparison matrix - Test Data", format = 'pandoc') %>%
+  kable(caption = "All Model Comparison Matrix - Test Data", format = 'pandoc') %>%
   kable_styling("striped")
 ```
 
