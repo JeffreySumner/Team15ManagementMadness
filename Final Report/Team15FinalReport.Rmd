@@ -3,8 +3,10 @@ editor_options:
   markdown:
     wrap: 72
 output:
+  pdf_document: default
   html_document:
     df_print: paged
+    fig_caption: yes
 geometry: margin=.5in
 fontsize: 11pt
 always_allow_html: yes
@@ -16,7 +18,7 @@ knitr::opts_knit$set(root.dir = here::here())
 
 ```
 
-```{r source_files, echo=FALSE, warning=FALSE, message=FALSE}
+```{r source_files, message=FALSE, warning=FALSE, include=FALSE}
 
 if(!require(bookdown)) install.packages('bookdown')
 if(!require(kableExtra)) install.packages('kableExtra')
@@ -121,7 +123,7 @@ refer to our Team 15 github.
     play-by-play and team information. The box scores and play-by-play
     data will be instrumental for our project. This will be one of the
     main sources for key statistics such as points scored, rebounds,
-    steals, win probabilities, etc. Below is an example of one of the
+    steals, win probabilities, etc. In Table 1 is an example of one of the
     box scores
     -   <https://github.com/lbenz730/ncaahoopR>
     -   <https://github.com/lbenz730/ncaahoopR_data>
@@ -131,7 +133,7 @@ refer to our Team 15 github.
     -   These records are mostly in .pdf format
     -   <https://www.ncaa.org/sports/2013/11/27/ncaa-men-s-basketball-records-books.aspx>
 
-```{r SampleData, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Duke Game Sample"}
+```{r SampleData, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="\\label{fig:figs}Duke Game Sample"}
 
 sample_data <- ncaahoopR::get_boxscore(401168364)
 
@@ -157,7 +159,7 @@ of the home team and those of the away team. For instance, the home
 team's average points per game was less correlated with the away team's
 average points per game.
 
-```{r CorrelationEDA, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Correlation Exploration", fig.height=4, fig.width=10}
+```{r CorrelationEDA, echo=FALSE, warning=FALSE, message=FALSE, fig.cap="\\label{fig:figs}Correlation Exploration", fig.height=4, fig.width=10}
 
 train_tbl %>%
   ungroup() %>%
@@ -286,7 +288,7 @@ average dataset (as opposed to the season average dataset), trained
 probit models on both season average and rolling 5 game average
 datasets. We also created extreme gradient boosted decision tree models.
 Finally, we created an ensemble model from all our models. The overall
-results of each modeling procedure are in `FIGURE NUMBER GOES HERE`
+results of each modeling procedure are in Table 3.
 
 ### Splitting Data
 
