@@ -3,10 +3,10 @@ editor_options:
   markdown:
     wrap: 72
 output:
-  pdf_document: default
   html_document:
     df_print: paged
     fig_caption: yes
+  pdf_document: default
 geometry: margin=.5in
 fontsize: 11pt
 always_allow_html: yes
