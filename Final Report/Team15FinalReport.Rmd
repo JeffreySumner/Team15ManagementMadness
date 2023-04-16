@@ -169,7 +169,8 @@ train_tbl %>%
   ggcorrplot::ggcorrplot(type = "upper", lab = FALSE) + 
   theme(axis.text.x = element_text(size = 8, angle = 25)
         , axis.text.y = element_text(size = 8)
-        )
+        ) +
+  scale_fill_gradient2(low = "#003057",high = "#B3A369",mid = "#ffffff")
 ```
 
 In addition to correlations, we examined the distributions of factors to
