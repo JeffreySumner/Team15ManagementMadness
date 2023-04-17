@@ -63,6 +63,7 @@ if (!require('hoopR')) devtools::install_github('sportsdataverse/hoopR')
 if (!require('glue')) install.packages('glue')
 if (!require('httr')) install.packages('httr')
 if (!require('rvest')) install.packages('rvest')
+if (!require('here')) install.packages('here')
 ```
 
 ### Men's Basketball Boxscore
@@ -155,4 +156,30 @@ mbb_attendance_2012_2022_tbl <- lapply(game_ids_vec, get_attendance_espn_api) %>
 tictoc::toc()
 
 mbb_attendance_2012_2022_tbl
+```
+
+## Model & Visualization
+
+This directory contains 3 scripts in total:
+
+1.  model_building.R
+2.  model_predictions.R
+3.  draw_confusion_matrix.R
+
+Model building should be run first in order to create the models, assuming you've already create/pulled all relevant data sources. Model predictions will access our stored models and create the relevant R objects for the RMarkdown file. The confusion matrix script is meant to be a helper script that adds a bit of flare to our contingency tables.
+
+### Model Building
+
+We will not cover the models in detail but the general concept here is to read in the data created in the previous steps then perform various modeling techniques ranging from LASSO regression, Logistic Regression, Probit Regression and Decision Trees. Please see the tidymodels documentation to find out more about our approach and see examples. You can find this documentation at <https://www.tidymodels.org/>
+
+### Model Predictions
+
+Again, we will not cover the model information in detail as the code is quite long. Once again the concept is similar to Model Building. If you have the models created or pulled from the repository, this script can be ran and our contingency tables created for evaluation.
+
+## Wrap up
+
+Below is the session information that was used to create this report. The packages and their versions are listed. R 4.2.3 is required.
+
+```{r}
+sessionInfo()
 ```

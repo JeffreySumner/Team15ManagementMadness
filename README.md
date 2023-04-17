@@ -87,6 +87,7 @@ if (!require('hoopR')) devtools::install_github('sportsdataverse/hoopR')
 if (!require('glue')) install.packages('glue')
 if (!require('httr')) install.packages('httr')
 if (!require('rvest')) install.packages('rvest')
+if (!require('here')) install.packages('here')
 ```
 
 ### Men’s Basketball Boxscore
@@ -222,7 +223,7 @@ mbb_attendance_2012_2022_tbl <- lapply(game_ids_vec, get_attendance_espn_api) %>
 tictoc::toc()
 ```
 
-    ## 1.77 sec elapsed
+    ## 1.95 sec elapsed
 
 ``` r
 mbb_attendance_2012_2022_tbl
@@ -241,3 +242,97 @@ mbb_attendance_2012_2022_tbl
     ## #   type <dbl>, neutral_site <lgl>, and abbreviated variable names ¹​capacity,
     ## #   ²​attendance, ³​homeTeam_id, ⁴​homeTeam_gameProjection,
     ## #   ⁵​homeTeam_teamChanceLoss, ⁶​homeTeam_teamChanceTie, ⁷​awayTeam_id
+
+## Model & Visualization
+
+This directory contains 3 scripts in total:
+
+1.  model_building.R
+2.  model_predictions.R
+3.  draw_confusion_matrix.R
+
+Model building should be run first in order to create the models,
+assuming you’ve already create/pulled all relevant data sources. Model
+predictions will access our stored models and create the relevant R
+objects for the RMarkdown file. The confusion matrix script is meant to
+be a helper script that adds a bit of flare to our contingency tables.
+
+### Model Building
+
+We will not cover the models in detail but the general concept here is
+to read in the data created in the previous steps then perform various
+modeling techniques ranging from LASSO regression, Logistic Regression,
+Probit Regression and Decision Trees. Please see the tidymodels
+documentation to find out more about our approach and see examples. You
+can find this documentation at <https://www.tidymodels.org/>
+
+### Model Predictions
+
+Again, we will not cover the model information in detail as the code is
+quite long. Once again the concept is similar to Model Building. If you
+have the models created or pulled from the repository, this script can
+be ran and our contingency tables created for evaluation.
+
+## Wrap up
+
+Below is the session information that was used to create this report.
+The packages and their versions are listed. R 4.2.3 is required.
+
+``` r
+sessionInfo()
+```
+
+    ## R version 4.2.3 (2023-03-15 ucrt)
+    ## Platform: x86_64-w64-mingw32/x64 (64-bit)
+    ## Running under: Windows 10 x64 (build 22621)
+    ## 
+    ## Matrix products: default
+    ## 
+    ## locale:
+    ## [1] LC_COLLATE=English_United States.utf8 
+    ## [2] LC_CTYPE=English_United States.utf8   
+    ## [3] LC_MONETARY=English_United States.utf8
+    ## [4] LC_NUMERIC=C                          
+    ## [5] LC_TIME=English_United States.utf8    
+    ## 
+    ## attached base packages:
+    ## [1] stats     graphics  grDevices utils     datasets  methods   base     
+    ## 
+    ## other attached packages:
+    ##  [1] here_1.0.1       rvest_1.0.3      httr_1.4.5       glue_1.6.2      
+    ##  [5] tictoc_1.1       hoopR_1.9.1.9000 devtools_2.4.5   usethis_2.1.6   
+    ##  [9] plyr_1.8.7       data.tree_1.0.0  forcats_0.5.2    stringr_1.5.0   
+    ## [13] dplyr_1.0.10     purrr_1.0.1      readr_2.1.2      tidyr_1.3.0     
+    ## [17] tibble_3.1.8     ggplot2_3.3.6    tidyverse_1.3.2 
+    ## 
+    ## loaded via a namespace (and not attached):
+    ##  [1] fs_1.5.2            lubridate_1.9.0     rprojroot_2.0.3    
+    ##  [4] tools_4.2.3         profvis_0.3.7       backports_1.4.1    
+    ##  [7] utf8_1.2.2          R6_2.5.1            DBI_1.1.3          
+    ## [10] colorspace_2.0-3    urlchecker_1.0.1    withr_2.5.0        
+    ## [13] tidyselect_1.2.0    prettyunits_1.1.1   processx_3.7.0     
+    ## [16] curl_4.3.2          compiler_4.2.3      progressr_0.13.0   
+    ## [19] cli_3.4.0           xml2_1.3.3          scales_1.2.1       
+    ## [22] callr_3.7.2         digest_0.6.29       rmarkdown_2.16     
+    ## [25] pkgconfig_2.0.3     htmltools_0.5.3     parallelly_1.34.0  
+    ## [28] sessioninfo_1.2.2   dbplyr_2.2.1        fastmap_1.1.0      
+    ## [31] htmlwidgets_1.5.4   rlang_1.0.6         readxl_1.4.1       
+    ## [34] rstudioapi_0.14     shiny_1.7.2         generics_0.1.3     
+    ## [37] jsonlite_1.8.0      googlesheets4_1.0.1 magrittr_2.0.3     
+    ## [40] Rcpp_1.0.9          munsell_0.5.0       fansi_1.0.3        
+    ## [43] lifecycle_1.0.3     furrr_0.3.1         stringi_1.7.8      
+    ## [46] yaml_2.3.5          snakecase_0.11.0    pkgbuild_1.3.1     
+    ## [49] grid_4.2.3          parallel_4.2.3      listenv_0.9.0      
+    ## [52] promises_1.2.0.1    crayon_1.5.2        miniUI_0.1.1.1     
+    ## [55] haven_2.5.1         hms_1.1.2           knitr_1.40         
+    ## [58] ps_1.7.1            pillar_1.8.1        codetools_0.2-19   
+    ## [61] pkgload_1.3.0       reprex_2.0.2        evaluate_0.16      
+    ## [64] data.table_1.14.2   RcppParallel_5.1.5  remotes_2.4.2      
+    ## [67] modelr_0.1.9        selectr_0.4-2       vctrs_0.5.2        
+    ## [70] tzdb_0.3.0          httpuv_1.6.6        cellranger_1.1.0   
+    ## [73] gtable_0.3.1        future_1.32.0       assertthat_0.2.1   
+    ## [76] cachem_1.0.6        xfun_0.33           janitor_2.2.0      
+    ## [79] mime_0.12           xtable_1.8-4        broom_1.0.1        
+    ## [82] later_1.3.0         googledrive_2.0.0   gargle_1.2.1       
+    ## [85] memoise_2.0.1       globals_0.16.2      timechange_0.1.1   
+    ## [88] ellipsis_0.3.2
