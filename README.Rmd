@@ -12,6 +12,8 @@ library(tidyverse)
 library(data.tree)
 ```
 
+If you plan to use this repository ensure that you have the following folders stored in the same directory as your .Rproj file. These directories are required to ensure each script runs. Make sure to include each of the .csv and/or .rds data files.
+
 ```{r, echo = FALSE,message=FALSE,warning=FALSE}
 paths = unique(c(list.dirs(path = "Data",full.names = T),list.files(path = "Data",full.names = T,recursive = TRUE)))
 paths = paths[!grepl("deprecated|old",unique(c(list.dirs(path = "Data",full.names = T),list.files(path = "Data",full.names = T,recursive = TRUE))))]
@@ -35,4 +37,56 @@ x <- rbind.fill(x)
 x$pathString <- apply(x, 1, function(x) paste(trimws(na.omit(x)), collapse="/"))
 (mytree <- data.tree::as.Node(x))
 
+```
+
+## Data Gathering & Cleaning
+
+Within this directory there are 5 R scripts that were finalized to gather and clean each of our data sources. These scripts utilize numerous data sources such as:
+
+1.  ESPN web API
+2.   `hoopR::load_mbb_team_box()` function
+3.  <https://www.sports-reference.com/> AP poll data
+4.  Google Maps API to geocode arena information
+
+Below are a few examples of our data gathering and cleaning process.
+
+### Men's Basketball Boxscore
+
+This code will use the hoopR package and tidyverse to quickly collect the 2022 box score data for all teams.
+
+```{r, warning=FALSE, message=FALSE}
+if (!require('hoopR')) install.packages('hoopR')
+if (!require('tidyverse')) install.packages('tidyverse')
+mbb_box_score_2012_2022_tbl <- hoopR::load_mbb_team_box(seasons = 2022)
+
+mbb_box_score_2012_2022_tbl %>% head()
+```
+
+### AP Poll Data
+
+This function was built to scrape the AP poll data from sports-reference. Both the rvest and tidyverse suite of packages were used. Additional data cleaning was performed in our `data_cleanup.R` script.
+
+```{r, message=FALSE,warning=FALSE}
+if (!require('rvest')) install.packages('rvest')
+if (!require('tidyverse')) install.packages('tidyverse')
+if (!require('glue')) install.packages('glue')
+
+get_ap_polls <- function(year){
+
+  url <- glue::glue("https://www.sports-reference.com/cbb/seasons/men/{year}-polls.html#ap-polls")
+  
+  webpage <- read_html(url)
+  
+  data <- html_table(html_nodes(webpage,"table")[1])[[1]]
+  names(data) <- c("school","conference",1:ncol(data))
+  data <- data %>%
+    mutate(year = year)
+  
+  return(data)
+  
+}
+
+ap_poll_2012_2022_tbl <- lapply(2012:2022, get_ap_polls) %>% bind_rows()
+
+ap_poll_2012_2022_tbl
 ```

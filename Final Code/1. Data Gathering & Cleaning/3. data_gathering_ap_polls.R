@@ -1,6 +1,6 @@
 if (!require('rvest')) install.packages('rvest')
 if (!require('tidyverse')) install.packages('tidyverse')
-
+if (!require('glue')) install.packages('glue')
 get_ap_polls <- function(year){
   print(year)
   url <- glue::glue("https://www.sports-reference.com/cbb/seasons/men/{year}-polls.html#ap-polls")
