@@ -1,7 +1,7 @@
 if (!require('devtools')) install.packages('devtools')
 if (!require('ncaahoopR')) devtools::install_github('lbenz730/ncaahoopR')
 if (!require('tidyverse')) install.packages('tidyverse')
-
+if (!require('glue')) install.packages('glue')
 # Read data ----
 mbb_box_score_2012_2022_tbl <- read_csv("Data/raw/mbb_box_score_2012_2022_tbl.csv")
 mbb_attendance_2012_2022_tbl <- read_csv("Data/raw/mbb_attendance_2012_2022_tbl.csv")

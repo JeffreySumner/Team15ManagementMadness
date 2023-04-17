@@ -50,13 +50,26 @@ Within this directory there are 5 R scripts that were finalized to gather and cl
 
 Below are a few examples of our data gathering and cleaning process.
 
+### Loading Packages
+
+Most scripts will have packages listed at the top and should install or load depending on your situation. If has to be installed, you will need to run the line once more when the install completes in order to load the package.
+
+```{r, warning=FALSE, message=FALSE,eval=TRUE}
+if (!require('devtools')) install.packages('devtools')
+if (!require('tidyverse')) install.packages('tidyverse')
+if (!require('hoopR')) install.packages('hoopR')
+if (!require('tictoc')) install.packages('tictoc')
+if (!require('hoopR')) devtools::install_github('sportsdataverse/hoopR')
+if (!require('glue')) install.packages('glue')
+if (!require('httr')) install.packages('httr')
+if (!require('rvest')) install.packages('rvest')
+```
+
 ### Men's Basketball Boxscore
 
 This code will use the hoopR package and tidyverse to quickly collect the 2022 box score data for all teams.
 
 ```{r, warning=FALSE, message=FALSE}
-if (!require('hoopR')) install.packages('hoopR')
-if (!require('tidyverse')) install.packages('tidyverse')
 mbb_box_score_2012_2022_tbl <- hoopR::load_mbb_team_box(seasons = 2022)
 
 mbb_box_score_2012_2022_tbl %>% head()
@@ -67,10 +80,6 @@ mbb_box_score_2012_2022_tbl %>% head()
 This function was built to scrape the AP poll data from sports-reference. Both the rvest and tidyverse suite of packages were used. Additional data cleaning was performed in our `data_cleanup.R` script.
 
 ```{r, message=FALSE,warning=FALSE}
-if (!require('rvest')) install.packages('rvest')
-if (!require('tidyverse')) install.packages('tidyverse')
-if (!require('glue')) install.packages('glue')
-
 get_ap_polls <- function(year){
 
   url <- glue::glue("https://www.sports-reference.com/cbb/seasons/men/{year}-polls.html#ap-polls")
@@ -89,4 +98,61 @@ get_ap_polls <- function(year){
 ap_poll_2012_2022_tbl <- lapply(2012:2022, get_ap_polls) %>% bind_rows()
 
 ap_poll_2012_2022_tbl
+```
+
+### ESPN Attendance Data
+
+This data requires access to the ESPN API. This access is free but will be throttled depending on use. If the script returns no data or missing data then a VPN may be required to bypass the ESPN restrictions. This function can be modified to include box score data similar to the `hoopR::load_mbb_team_box()` function. Using the hoopR function saved us time for this project but pulling directly from the API had many uses as the data is much more likely to be completely filled in.
+
+```{r}
+
+# Select First 5 Game IDs from our tibble
+game_ids_vec <- mbb_box_score_2012_2022_tbl %>%
+  pull(game_id) %>%
+  unique() %>%
+  .[1:5]
+
+# Initialize ESPN Attendance function
+get_attendance_espn_api <- function(game_id){
+
+  tryCatch({url = glue::glue("https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/summary?event={game_id}")
+    
+    txt = httr::GET(url) %>% httr::content(as = "text")
+    
+    game_info <- jsonlite::fromJSON(txt)
+    temp <- game_info %>% 
+      enframe() %>% 
+      pivot_wider() %>% 
+      select(gameInfo, predictor, odds) %>%  
+      unnest_wider(gameInfo) %>% 
+      unnest_wider(venue) %>% 
+      unnest_wider(predictor) %>%
+      unnest_wider(homeTeam,names_sep = "_") %>% 
+      unnest_wider(awayTeam,names_sep = "_") %>% 
+      unnest_wider(address) %>% 
+      unnest_wider(odds) %>%
+      select(-officials, -images, -grass, -id, -header) %>%
+      mutate(game_id = game_id, type = 1)
+    
+    temp2 <- game_info %>% 
+      enframe() %>% 
+      pivot_wider() %>% 
+      select(header) %>%
+      unnest_wider(header)
+    
+    temp$neutral_site <- temp2$competitions$neutralSite
+    
+    return(temp)
+  }, error = function(e) {
+    message(paste("Error getting data for date", game_id))
+    temp <- data.frame(game_id = game_id, type = 0)
+    return(temp)
+  })
+}
+
+tictoc::tic()
+mbb_attendance_2012_2022_tbl <- lapply(game_ids_vec, get_attendance_espn_api) %>% bind_rows()
+tictoc::toc()
+
+mbb_attendance_2012_2022_tbl
 ```
