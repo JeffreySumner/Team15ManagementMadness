@@ -2,6 +2,7 @@ if (!require('tidyverse')) install.packages('tidyverse')
 if (!require('tidymodels')) install.packages('tidymodels')
 if (!require('glue')) install.packages('glue')
 if (!require('forcats')) install.packages('forcats')
+if (!require('DataExplorer')) install.packages('DataExplorer')
 
 ap_poll_tbl <- readr::read_csv("Data/clean/ap_poll_clean_tbl.csv")
 away_team_stats_tbl <- readr::read_csv("Data/clean/away_team_stats_tbl.csv")
@@ -77,5 +78,11 @@ validation_tbl <- testing(validation_split)
 rm(initial_split_data, validation_split, test_temp_tbl)
 gc()
 
-
+DataExplorer::create_report(
+  model_data_tbl
+  , output_file = "model_data_tbl_eda"
+  , output_dir = "Other Resources/"
+  , y = "home_winner_response"
+  , report_title = "EDA Report - MBB Home Winner"
+)
 
