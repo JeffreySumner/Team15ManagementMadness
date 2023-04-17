@@ -52,18 +52,35 @@ Below are a few examples of our data gathering and cleaning process.
 
 ### Loading Packages
 
-Most scripts will have packages listed at the top and should install or load depending on your situation. If has to be installed, you will need to run the line once more when the install completes in order to load the package.
+Most scripts will have packages listed at the top and should install or load depending on your situation. If has to be installed, you will need to run the line once more when the install completes in order to load the package. Refer to the `0. Package Check.R` if there are any concerns.
 
 ```{r, warning=FALSE, message=FALSE,eval=TRUE}
 if (!require('devtools')) install.packages('devtools')
 if (!require('tidyverse')) install.packages('tidyverse')
-if (!require('hoopR')) install.packages('hoopR')
+if (!require('tidymodels')) install.packages('tidymodels')
 if (!require('tictoc')) install.packages('tictoc')
 if (!require('hoopR')) devtools::install_github('sportsdataverse/hoopR')
 if (!require('glue')) install.packages('glue')
 if (!require('httr')) install.packages('httr')
 if (!require('rvest')) install.packages('rvest')
 if (!require('here')) install.packages('here')
+if (!require('ggmap')) install.packages('ggmap')
+if (!require('glmnet')) install.packages('glmnet')
+if (!require('vip')) install.packages('vip')
+if (!require('caret')) install.packages('caret')
+if (!require('xgboost')) install.packages('xgboost')
+if (!require('ggcorrplot')) install.packages('ggcorrplot')
+if (!require('zoo')) install.packages('zoo')
+if (!require('lubridate')) install.packages('lubridate')
+if (!require('geosphere')) install.packages('geosphere')
+if (!require('ggthemes')) install.packages('ggthemes')
+if (!require('forcats')) install.packages('forcats')
+if(!require('bookdown')) install.packages('bookdown')
+if(!require('kableExtra')) install.packages('kableExtra')
+if(!require('doParallel')) install.packages('doParallel')
+if(!require('scales')) install.packages('scales')
+if(!require('stringr')) install.packages('stringr')
+require(parallel)
 ```
 
 ### Men's Basketball Boxscore
@@ -181,5 +198,6 @@ Again, we will not cover the model information in detail as the code is quite lo
 Below is the session information that was used to create this report. The packages and their versions are listed. R 4.2.3 is required.
 
 ```{r}
+
 sessionInfo()
 ```

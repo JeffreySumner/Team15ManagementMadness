@@ -39,24 +39,27 @@ include each of the .csv and/or .rds data files.
     ## 23  ¦   ¦--simple_season_probit_model.rds   
     ## 24  ¦   ¦--simple_standard_logit_model.rds  
     ## 25  ¦   °--simple_standard_probit_model.rds 
-    ## 26  °--raw                                  
-    ## 27      ¦--ap_poll_2012_2022_raw_tbl.csv    
-    ## 28      ¦--geocoded_locations_tbl.csv       
-    ## 29      ¦--mbb_attendance_2012_2022_tbl.csv 
-    ## 30      °--mbb_box_score_2012_2022_tbl.csv
+    ## 26  ¦--raw                                  
+    ## 27  ¦   ¦--ap_poll_2012_2022_raw_tbl.csv    
+    ## 28  ¦   ¦--geocoded_locations_tbl.csv       
+    ## 29  ¦   ¦--mbb_attendance_2012_2022_tbl.csv 
+    ## 30  ¦   °--mbb_box_score_2012_2022_tbl.csv  
+    ## 31  °--sessionInfo.txt
 
     ##                                 levelName
     ## 1  Final Code                            
     ## 2   ¦--1. Data Gathering & Cleaning      
-    ## 3   ¦   ¦--1. data_gathering_mbb_box.R   
-    ## 4   ¦   ¦--2. data_gathering_attendance.R
-    ## 5   ¦   ¦--3. data_gathering_ap_polls.R  
-    ## 6   ¦   ¦--4. data_cleanup.R             
-    ## 7   ¦   °--5. create_model_data.R        
-    ## 8   °--2. Model & Visualization          
-    ## 9       ¦--1. model_building.R           
-    ## 10      ¦--2. model_predictions.R        
-    ## 11      °--draw_confusion_matrix.R
+    ## 3   ¦   ¦--0. Package Check.R            
+    ## 4   ¦   ¦--1. data_gathering_mbb_box.R   
+    ## 5   ¦   ¦--2. data_gathering_attendance.R
+    ## 6   ¦   ¦--3. data_gathering_ap_polls.R  
+    ## 7   ¦   ¦--4. data_cleanup.R             
+    ## 8   ¦   °--5. create_model_data.R        
+    ## 9   ¦--2. Model & Visualization          
+    ## 10  ¦   ¦--1. model_building.R           
+    ## 11  ¦   ¦--2. model_predictions.R        
+    ## 12  ¦   °--draw_confusion_matrix.R       
+    ## 13  °--Team15FinalReport.Rmd
 
 ## Data Gathering & Cleaning
 
@@ -76,18 +79,36 @@ Below are a few examples of our data gathering and cleaning process.
 Most scripts will have packages listed at the top and should install or
 load depending on your situation. If has to be installed, you will need
 to run the line once more when the install completes in order to load
-the package.
+the package. Refer to the `0. Package Check.R` if there are any
+concerns.
 
 ``` r
 if (!require('devtools')) install.packages('devtools')
 if (!require('tidyverse')) install.packages('tidyverse')
-if (!require('hoopR')) install.packages('hoopR')
+if (!require('tidymodels')) install.packages('tidymodels')
 if (!require('tictoc')) install.packages('tictoc')
 if (!require('hoopR')) devtools::install_github('sportsdataverse/hoopR')
 if (!require('glue')) install.packages('glue')
 if (!require('httr')) install.packages('httr')
 if (!require('rvest')) install.packages('rvest')
 if (!require('here')) install.packages('here')
+if (!require('ggmap')) install.packages('ggmap')
+if (!require('glmnet')) install.packages('glmnet')
+if (!require('vip')) install.packages('vip')
+if (!require('caret')) install.packages('caret')
+if (!require('xgboost')) install.packages('xgboost')
+if (!require('ggcorrplot')) install.packages('ggcorrplot')
+if (!require('zoo')) install.packages('zoo')
+if (!require('lubridate')) install.packages('lubridate')
+if (!require('geosphere')) install.packages('geosphere')
+if (!require('ggthemes')) install.packages('ggthemes')
+if (!require('forcats')) install.packages('forcats')
+if(!require('bookdown')) install.packages('bookdown')
+if(!require('kableExtra')) install.packages('kableExtra')
+if(!require('doParallel')) install.packages('doParallel')
+if(!require('scales')) install.packages('scales')
+if(!require('stringr')) install.packages('stringr')
+require(parallel)
 ```
 
 ### Men’s Basketball Boxscore
@@ -223,7 +244,7 @@ mbb_attendance_2012_2022_tbl <- lapply(game_ids_vec, get_attendance_espn_api) %>
 tictoc::toc()
 ```
 
-    ## 1.95 sec elapsed
+    ## 2.05 sec elapsed
 
 ``` r
 mbb_attendance_2012_2022_tbl
@@ -296,43 +317,61 @@ sessionInfo()
     ## [5] LC_TIME=English_United States.utf8    
     ## 
     ## attached base packages:
-    ## [1] stats     graphics  grDevices utils     datasets  methods   base     
+    ## [1] parallel  stats     graphics  grDevices utils     datasets  methods  
+    ## [8] base     
     ## 
     ## other attached packages:
-    ##  [1] here_1.0.1       rvest_1.0.3      httr_1.4.5       glue_1.6.2      
-    ##  [5] tictoc_1.1       hoopR_1.9.1.9000 devtools_2.4.5   usethis_2.1.6   
-    ##  [9] plyr_1.8.7       data.tree_1.0.0  forcats_0.5.2    stringr_1.5.0   
-    ## [13] dplyr_1.0.10     purrr_1.0.1      readr_2.1.2      tidyr_1.3.0     
-    ## [17] tibble_3.1.8     ggplot2_3.3.6    tidyverse_1.3.2 
+    ##  [1] doParallel_1.0.17  iterators_1.0.14   foreach_1.5.2      kableExtra_1.3.4  
+    ##  [5] bookdown_0.29      ggthemes_4.2.4     geosphere_1.5-18   lubridate_1.9.0   
+    ##  [9] timechange_0.1.1   zoo_1.8-10         ggcorrplot_0.1.4   xgboost_1.7.3.1   
+    ## [13] caret_6.0-93       lattice_0.20-45    vip_0.3.2          glmnet_4.1-4      
+    ## [17] Matrix_1.5-1       ggmap_3.0.1        here_1.0.1         rvest_1.0.3       
+    ## [21] httr_1.4.5         glue_1.6.2         hoopR_1.9.1.9000   tictoc_1.1        
+    ## [25] yardstick_1.1.0    workflowsets_1.0.0 workflows_1.1.0    tune_1.0.0        
+    ## [29] rsample_1.1.0      recipes_1.0.1      parsnip_1.0.1      modeldata_1.0.1   
+    ## [33] infer_1.0.3        dials_1.0.0        scales_1.2.1       broom_1.0.1       
+    ## [37] tidymodels_1.0.0   devtools_2.4.5     usethis_2.1.6      plyr_1.8.7        
+    ## [41] data.tree_1.0.0    forcats_0.5.2      stringr_1.5.0      dplyr_1.0.10      
+    ## [45] purrr_1.0.1        readr_2.1.2        tidyr_1.3.0        tibble_3.1.8      
+    ## [49] ggplot2_3.3.6      tidyverse_1.3.2   
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] fs_1.5.2            lubridate_1.9.0     rprojroot_2.0.3    
-    ##  [4] tools_4.2.3         profvis_0.3.7       backports_1.4.1    
-    ##  [7] utf8_1.2.2          R6_2.5.1            DBI_1.1.3          
-    ## [10] colorspace_2.0-3    urlchecker_1.0.1    withr_2.5.0        
-    ## [13] tidyselect_1.2.0    prettyunits_1.1.1   processx_3.7.0     
-    ## [16] curl_4.3.2          compiler_4.2.3      progressr_0.13.0   
-    ## [19] cli_3.4.0           xml2_1.3.3          scales_1.2.1       
-    ## [22] callr_3.7.2         digest_0.6.29       rmarkdown_2.16     
-    ## [25] pkgconfig_2.0.3     htmltools_0.5.3     parallelly_1.34.0  
-    ## [28] sessioninfo_1.2.2   dbplyr_2.2.1        fastmap_1.1.0      
-    ## [31] htmlwidgets_1.5.4   rlang_1.0.6         readxl_1.4.1       
-    ## [34] rstudioapi_0.14     shiny_1.7.2         generics_0.1.3     
-    ## [37] jsonlite_1.8.0      googlesheets4_1.0.1 magrittr_2.0.3     
-    ## [40] Rcpp_1.0.9          munsell_0.5.0       fansi_1.0.3        
-    ## [43] lifecycle_1.0.3     furrr_0.3.1         stringi_1.7.8      
-    ## [46] yaml_2.3.5          snakecase_0.11.0    pkgbuild_1.3.1     
-    ## [49] grid_4.2.3          parallel_4.2.3      listenv_0.9.0      
-    ## [52] promises_1.2.0.1    crayon_1.5.2        miniUI_0.1.1.1     
-    ## [55] haven_2.5.1         hms_1.1.2           knitr_1.40         
-    ## [58] ps_1.7.1            pillar_1.8.1        codetools_0.2-19   
-    ## [61] pkgload_1.3.0       reprex_2.0.2        evaluate_0.16      
-    ## [64] data.table_1.14.2   RcppParallel_5.1.5  remotes_2.4.2      
-    ## [67] modelr_0.1.9        selectr_0.4-2       vctrs_0.5.2        
-    ## [70] tzdb_0.3.0          httpuv_1.6.6        cellranger_1.1.0   
-    ## [73] gtable_0.3.1        future_1.32.0       assertthat_0.2.1   
-    ## [76] cachem_1.0.6        xfun_0.33           janitor_2.2.0      
-    ## [79] mime_0.12           xtable_1.8-4        broom_1.0.1        
-    ## [82] later_1.3.0         googledrive_2.0.0   gargle_1.2.1       
-    ## [85] memoise_2.0.1       globals_0.16.2      timechange_0.1.1   
-    ## [88] ellipsis_0.3.2
+    ##   [1] readxl_1.4.1         backports_1.4.1      systemfonts_1.0.4   
+    ##   [4] selectr_0.4-2        sp_1.6-0             splines_4.2.3       
+    ##   [7] listenv_0.9.0        digest_0.6.29        htmltools_0.5.3     
+    ##  [10] fansi_1.0.3          magrittr_2.0.3       memoise_2.0.1       
+    ##  [13] googlesheets4_1.0.1  tzdb_0.3.0           remotes_2.4.2       
+    ##  [16] globals_0.16.2       modelr_0.1.9         gower_1.0.0         
+    ##  [19] RcppParallel_5.1.5   svglite_2.1.1        hardhat_1.2.0       
+    ##  [22] prettyunits_1.1.1    jpeg_0.1-10          colorspace_2.0-3    
+    ##  [25] haven_2.5.1          xfun_0.33            callr_3.7.2         
+    ##  [28] crayon_1.5.2         jsonlite_1.8.0       progressr_0.13.0    
+    ##  [31] survival_3.5-3       gtable_0.3.1         gargle_1.2.1        
+    ##  [34] ipred_0.9-13         webshot_0.5.4        pkgbuild_1.3.1      
+    ##  [37] shape_1.4.6          future.apply_1.9.1   DBI_1.1.3           
+    ##  [40] miniUI_0.1.1.1       Rcpp_1.0.9           viridisLite_0.4.1   
+    ##  [43] xtable_1.8-4         GPfit_1.0-8          stats4_4.2.3        
+    ##  [46] lava_1.6.10          prodlim_2019.11.13   profvis_0.3.7       
+    ##  [49] htmlwidgets_1.5.4    ellipsis_0.3.2       urlchecker_1.0.1    
+    ##  [52] pkgconfig_2.0.3      nnet_7.3-18          dbplyr_2.2.1        
+    ##  [55] utf8_1.2.2           janitor_2.2.0        reshape2_1.4.4      
+    ##  [58] tidyselect_1.2.0     rlang_1.0.6          DiceDesign_1.9      
+    ##  [61] later_1.3.0          munsell_0.5.0        cellranger_1.1.0    
+    ##  [64] tools_4.2.3          cachem_1.0.6         cli_3.4.0           
+    ##  [67] generics_0.1.3       evaluate_0.16        fastmap_1.1.0       
+    ##  [70] yaml_2.3.5           ModelMetrics_1.2.2.2 processx_3.7.0      
+    ##  [73] knitr_1.40           fs_1.5.2             RgoogleMaps_1.4.5.3 
+    ##  [76] nlme_3.1-162         future_1.32.0        mime_0.12           
+    ##  [79] xml2_1.3.3           compiler_4.2.3       rstudioapi_0.14     
+    ##  [82] curl_4.3.2           png_0.1-7            reprex_2.0.2        
+    ##  [85] lhs_1.1.5            stringi_1.7.8        ps_1.7.1            
+    ##  [88] vctrs_0.5.2          pillar_1.8.1         lifecycle_1.0.3     
+    ##  [91] furrr_0.3.1          bitops_1.0-7         data.table_1.14.2   
+    ##  [94] httpuv_1.6.6         R6_2.5.1             promises_1.2.0.1    
+    ##  [97] gridExtra_2.3        parallelly_1.34.0    sessioninfo_1.2.2   
+    ## [100] codetools_0.2-19     MASS_7.3-58.2        assertthat_0.2.1    
+    ## [103] pkgload_1.3.0        rprojroot_2.0.3      withr_2.5.0         
+    ## [106] hms_1.1.2            grid_4.2.3           rpart_4.1.19        
+    ## [109] timeDate_4021.104    class_7.3-21         rmarkdown_2.16      
+    ## [112] snakecase_0.11.0     googledrive_2.0.0    pROC_1.18.0         
+    ## [115] shiny_1.7.2

@@ -1,4 +1,4 @@
-if (!require('hoopR')) install.packages('hoopR')
+if (!require('hoopR')) devtools::install_github('sportsdataverse/hoopR')
 
 mbb_box_score_2012_2022_tbl <- hoopR::load_mbb_team_box(seasons = 2012:2022)
 

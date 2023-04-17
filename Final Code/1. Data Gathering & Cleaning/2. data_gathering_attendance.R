@@ -5,7 +5,6 @@ if (!require('hoopR')) install.packages('hoopR')
 if (!require('tictoc')) install.packages('tictoc')
 if (!require('hoopR')) devtools::install_github('sportsdataverse/hoopR')
 if (!require('glue')) install.packages('glue')
-if (!require('parallel')) install.packages('parallel')
 if (!require('httr')) install.packages('httr')
 if (!require('rvest')) install.packages('rvest')
 # makeCluster initializes n # of cores
