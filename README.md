@@ -1,4 +1,4 @@
-Team 15 MGT Madness
+Team 15 MGT Madness (Gold Card Winner: Placed Top 7 of 90 Projects)
 ================
 
 The goal of MGT Madness was to create a machine learning model that
